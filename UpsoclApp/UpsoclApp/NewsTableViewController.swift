@@ -37,8 +37,6 @@ class NewsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         //self.revealViewController().rearViewRevealWidth = 62
-        let newIndexPath = NSIndexPath(forRow: newsList.count, inSection: 0)
-        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -85,7 +83,7 @@ class NewsTableViewController: UITableViewController {
         cell.categoryLabel.text = "Categoria: " + news.categoryNews
         loadImage( news.imageURLNews, viewImagen: cell.postImageView)
         
-        if indexPath.row == self.newsList.count - 2{
+        if indexPath.row == self.newsList.count - 4 {
             page += 1
             callWebServices(String (page))
         }
@@ -156,20 +154,21 @@ class NewsTableViewController: UITableViewController {
             
         if segue.identifier == "ShowDetail" {
             
-            let detailViewController = segue.destinationViewController as! DetailViewController
+            let detailViewController = segue.destinationViewController as! PageViewController
             
             // Get the cell that generated this segue.
             if let selectedMealCell = sender as? NewsTableViewCell {
                 let indexPath = tableView.indexPathForCell(selectedMealCell)!
-                let selectedMeal = newsList[indexPath.row]
+
                 var list =  [News]()
+                let listCount = newsList.count
                 
-                for (var i = indexPath.row ; i < indexPath.row + 5 ; i += 1 ){
-                    list.append(newsList[i])
+                for  i in indexPath.row  ..< indexPath.row + 5   {
+                    if listCount >= i {
+                        list.append(newsList[i])
+                    }
                 }
-                
                 detailViewController.newsList = list
-                detailViewController.newsFirst = selectedMeal
             }
         }
     }

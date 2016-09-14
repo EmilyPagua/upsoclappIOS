@@ -144,48 +144,27 @@ class ForYouTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        
         if segue.identifier == "ShowDetail" {
             
-            let detailViewController = segue.destinationViewController as! DetailViewController
+            let detailViewController = segue.destinationViewController as! PageViewController
             
             // Get the cell that generated this segue.
             if let selectedMealCell = sender as? ForYouTableViewCell {
                 let indexPath = tableView.indexPathForCell(selectedMealCell)!
-                let selectedMeal = newsList[indexPath.row]
-                detailViewController.news = selectedMeal
+                
+                var list =  [News]()
+                let listCount = newsList.count
+                
+                for i in indexPath.row  ..< indexPath.row + 4  {
+                    if listCount >= i {
+                        list.append(newsList[i])
+                    }
+                }
+                detailViewController.newsList = list
             }
         }
-    }
-    
-    func loadNewsList() -> Void {
-        
-        let title = "WatchKit Introduction: Building a Simple Guess Game"
-        let id  = 12
-        let content  = "2"
-        let imageURL  = "watchkit-intro"
-        let date  = "2"
-        let link  = "2"
-        let category  = "2"
-        let authorLastName  = "2"
-        let authorFirstName = "2"
-        
-        let meal = News(id: id,
-                        title: title,
-                        content: content,
-                        imageURL: imageURL,
-                        date: date,
-                        link: link,
-                        category: category ,
-                        author: authorLastName+" "+authorFirstName)!
-        
-        // Add a new meal.
-        let newIndexPath = NSIndexPath(forRow: newsList.count, inSection: 0)
-        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-        newsList.append(meal)
-        newsList.append(meal)
-        newsList.append(meal)
-        
+        else{
+        print ("Es otro boton")}
     }
 
     func callWebServices(paged: String ){
@@ -198,7 +177,6 @@ class ForYouTableViewController: UITableViewController {
             self.newsList = moreWrapper!
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
-                self.indicator.stopAnimating()
                 return
             })
         })
@@ -209,8 +187,8 @@ class ForYouTableViewController: UITableViewController {
         servicesConnection.loadImage(urlImage, completionHandler: { (moreWrapper, error) in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 viewImagen.image = moreWrapper
+                self.indicator.stopAnimating()
             })
         })
     }
-    
 }

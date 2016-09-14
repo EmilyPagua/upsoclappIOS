@@ -26,7 +26,6 @@ class ServicesConnection {
         
         self.newsList = wrapper!
         
-        //let urlPathWordpress = urlPath + filterPaged + paged
         print (urlPath)
         guard let url = NSURL(string: urlPath) else{
             print("hay un error")
@@ -67,7 +66,7 @@ class ServicesConnection {
         
         if let list =  json as? NSArray{
 
-            for (var i = 0; i < list.count ; i += 1 ){
+            for i in 0 ..< list.count  {
                 if let data_block = list[i] as? NSDictionary
                 {
                     let title = (data_block["title"]?.valueForKey("rendered") as? String)!
@@ -93,7 +92,6 @@ class ServicesConnection {
                 }
             }
         }
-        print("End ConvertJson-------" + String(newsList.count))
     }
 
     func loadImage(urlImage: String?, completionHandler: (UIImage, NSError?) -> Void ){
@@ -119,45 +117,4 @@ class ServicesConnection {
             }
         }
     }
-    
-    /*********
- let json : AnyObject!
- do {
- json = try NSJSONSerialization.JSONObjectWithData(nsdata, options: [])
- }catch{
- json=nil
- return
- }
- 
- if let list =  json as? NSArray{
- 
- for (var i = 0; i < list.count ; i++ ){
- if let data_block = list[i] as? NSDictionary
- {
- let title = (data_block["title"]?.valueForKey("rendered") as? String)!
- let id  = data_block["id"] as! Int
- let content  = (data_block["content"]?.valueForKey("rendered") as? String)!
- let imageURL  = data_block["featured_media"] as? String!
- let date  = data_block["date"] as? String!
- let link  = data_block["link"] as? String!
- let category  = data_block["categories_name"] as? String!
- let authorLastName  = data_block["author_last_name"] as? String!
- let authorFirstName = data_block["author_first_name"] as? String!
- 
- let meal = News(id: id,
- title: title,
- content: content,
- imageURL: imageURL,
- date: date,
- link: link,
- category: category ,
- author: authorLastName!+" "+authorFirstName!)!
- // Add a new meal.
- newsList.append(meal)
- }
- }
- }
- print("End ConvertJson-------" + String(newsList.count))
- 
-*/
 }

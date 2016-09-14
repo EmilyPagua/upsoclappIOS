@@ -162,16 +162,22 @@ class CreativityTableViewController: UITableViewController {
         
         if segue.identifier == "ShowDetail" {
             
-            let detailViewController = segue.destinationViewController as! DetailViewController
+            let detailViewController = segue.destinationViewController as! PageViewController
             
             // Get the cell that generated this segue.
             if let selectedMealCell = sender as? CreativityTableViewCell {
                 let indexPath = tableView.indexPathForCell(selectedMealCell)!
-                let selectedMeal = newsList[indexPath.row]
-                detailViewController.newsFirst = selectedMeal
+                
+                var list =  [News]()
+                let listCount = newsList.count
+                
+                for i in indexPath.row  ..< indexPath.row + 4  {
+                    if listCount >= i {
+                        list.append(newsList[i])
+                    }
+                }
+                detailViewController.newsList = list
             }
         }
     }
-
-
 }

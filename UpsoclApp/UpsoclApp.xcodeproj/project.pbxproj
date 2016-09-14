@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C31A70F1D8732100091A36A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A70E1D8732100091A36A /* PageViewController.swift */; };
 		8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */; };
 		8C5B06461D8057A800E2BB52 /* ServicesConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */; };
 		8C5B06481D8061CD00E2BB52 /* ForYouTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06471D8061CD00E2BB52 /* ForYouTableViewCell.swift */; };
@@ -26,7 +27,6 @@
 		8C5B066A1D81B9A600E2BB52 /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06691D81B9A600E2BB52 /* QuizTableViewController.swift */; };
 		8C5B066C1D81DC1900E2BB52 /* ProgressBarLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */; };
 		8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06731D8331DA00E2BB52 /* PageItemController.swift */; };
-		8C5B06761D8334E500E2BB52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06751D8334E500E2BB52 /* ViewController.swift */; };
 		8C5B06781D83400B00E2BB52 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B06771D83400B00E2BB52 /* Base.lproj */; };
 		8C5B067B1D83405E00E2BB52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B06791D83405E00E2BB52 /* Main.storyboard */; };
 		8C5BACBF1D7DF5990021DFBE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */; };
@@ -55,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C31A70E1D8732100091A36A /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForYouTableViewController.swift; path = ../ForYouTableViewController.swift; sourceTree = "<group>"; };
 		8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesConnection.swift; sourceTree = "<group>"; };
 		8C5B06471D8061CD00E2BB52 /* ForYouTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		8C5B06691D81B9A600E2BB52 /* QuizTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizTableViewController.swift; sourceTree = "<group>"; };
 		8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarLoad.swift; sourceTree = "<group>"; };
 		8C5B06731D8331DA00E2BB52 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
-		8C5B06751D8334E500E2BB52 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C5B06771D83400B00E2BB52 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		8C5B067A1D83405E00E2BB52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */,
 				8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */,
 				8C5B06731D8331DA00E2BB52 /* PageItemController.swift */,
-				8C5B06751D8334E500E2BB52 /* ViewController.swift */,
+				8C31A70E1D8732100091A36A /* PageViewController.swift */,
 			);
 			path = UpsoclApp;
 			sourceTree = "<group>";
@@ -343,7 +343,6 @@
 				8C5B06501D8189AA00E2BB52 /* GreenTableViewCell.swift in Sources */,
 				F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */,
 				8C5BACBF1D7DF5990021DFBE /* DetailViewController.swift in Sources */,
-				8C5B06761D8334E500E2BB52 /* ViewController.swift in Sources */,
 				8C77823F1D7A12ED001A0596 /* News.swift in Sources */,
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
 				8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */,
@@ -358,6 +357,7 @@
 				8C5B066A1D81B9A600E2BB52 /* QuizTableViewController.swift in Sources */,
 				8C5B06581D8193DE00E2BB52 /* CreativityTableViewCell.swift in Sources */,
 				8C5B06641D81B97400E2BB52 /* PopularyTableViewController.swift in Sources */,
+				8C31A70F1D8732100091A36A /* PageViewController.swift in Sources */,
 				F491E74A1A7F4B300026528E /* NewsTableViewController.swift in Sources */,
 				8C5B06601D81B6A400E2BB52 /* FoodTableViewCell.swift in Sources */,
 				F491E7551A7F7E010026528E /* PhotoViewController.swift in Sources */,
