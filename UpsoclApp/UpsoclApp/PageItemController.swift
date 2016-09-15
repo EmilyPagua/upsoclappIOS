@@ -10,25 +10,60 @@ import UIKit
 
 class PageItemController: UIViewController {
     
-    //@IBOutlet weak var contentImageView: UIImageView!
     @IBOutlet weak var webViewContent: UIWebView!
-    @IBOutlet weak var isBookmark: UIButton!
+        
+    @IBAction func comeBack(sender: UIBarButtonItem) {
+        self.tabBarController?.tabBar.hidden =  false
+        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.navigationBarHidden = false
+    }
     
     let fonts = "<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>"
     let meta = "<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>"
     let style = "<link rel='stylesheet' type='text/css' media='all' href='http://www.upsocl.com/wp-content/themes/upso3/style.css'>"
     
     let baseURL = NSURL(string: "http://api.instagram.com/oembed")
-    
     var itemIndex: Int = 0
-
     var news =  News?()
     
     @IBOutlet weak var contentWebView: UIWebView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadContent()
+    }
+    
+    @IBOutlet weak var bookmark: UIBarButtonItem!
+    @IBAction func bookmarkButton(sender: UIBarButtonItem) {
+
+        let preferences = NSUserDefaults.standardUserDefaults()
+        let currentLevelKey = String(news!.idNews)
+        let currentLevel = preferences.objectForKey(currentLevelKey)
+        
+        if currentLevel == nil {
+            
+            let objectJson: NSMutableDictionary =  NSMutableDictionary()
+            objectJson.setValue(news!.idNews, forKey: News.PropertyKey.idKey)
+            objectJson.setValue(news!.titleNews, forKey: News.PropertyKey.titleKey)
+            objectJson.setValue(news!.imageURLNews, forKey: News.PropertyKey.imageURLKey)
+            objectJson.setValue(news!.authorNews, forKey: News.PropertyKey.authorKey)
+            objectJson.setValue(news!.categoryNews, forKey: News.PropertyKey.categoryKey)
+            objectJson.setValue(news!.linkNews, forKey: News.PropertyKey.linkKey)
+            objectJson.setValue(news!.contentNews, forKey: News.PropertyKey.contentKey)
+            
+            let jsonData = try! NSJSONSerialization.dataWithJSONObject(objectJson, options: NSJSONWritingOptions())
+            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding) as! String
+            
+            preferences.setValue(jsonString, forKey: currentLevelKey )
+            preferences.synchronize()
+            
+            bookmark.image = UIImage(named: "bookmarkActive")
+        } else {
+            preferences.removeObjectForKey(currentLevelKey)
+            bookmark.image = UIImage(named: "bookmarkInactive")
+        }
     }
     
     func loadContent() {
@@ -36,6 +71,8 @@ class PageItemController: UIViewController {
         var contentDetail = meta + style + fonts 
         
         if news != nil {
+            
+            loadIsBookmark()
             
             if news!.imageURLNews != nil{
                 let imagen  = "<img src="+news!.imageURLNews!+" alt=\"Photo of Ton Sai Bay on Koh Phi-Phi Island in Thailand\">"
@@ -53,6 +90,18 @@ class PageItemController: UIViewController {
                 let baseURL = NSURL(string: "http://api.instagram.com/oembed")
                 webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
             }
+        }
+    }
+    
+    func loadIsBookmark() {
+        
+        let preferences = NSUserDefaults.standardUserDefaults()
+        let currentLevel = preferences.objectForKey(String(news!.idNews))
+        
+        if currentLevel != nil{
+            bookmark.image = UIImage(named: "bookmarkActive")
+        }else{
+            bookmark.image = UIImage(named: "bookmarkInactive")
         }
     }
 }

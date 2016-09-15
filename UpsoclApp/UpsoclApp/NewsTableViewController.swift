@@ -83,7 +83,7 @@ class NewsTableViewController: UITableViewController {
         cell.categoryLabel.text = "Categoria: " + news.categoryNews
         loadImage( news.imageURLNews, viewImagen: cell.postImageView)
         
-        if indexPath.row == self.newsList.count - 4 {
+        if indexPath.row == self.newsList.count - 3 {
             page += 1
             callWebServices(String (page))
         }
@@ -163,12 +163,12 @@ class NewsTableViewController: UITableViewController {
                 var list =  [News]()
                 let listCount = newsList.count
                 
-                for  i in indexPath.row  ..< indexPath.row + 5   {
-                    if listCount >= i {
-                        list.append(newsList[i])
+                if indexPath.row + 5 <= listCount {
+                    for  i in indexPath.row  ..< indexPath.row + 5   {
+                            list.append(newsList[i])
                     }
+                    detailViewController.newsList = list
                 }
-                detailViewController.newsList = list
             }
         }
     }
@@ -178,7 +178,7 @@ class NewsTableViewController: UITableViewController {
         self.indicator.startAnimating()
         
         let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + paged
-        servicesConnection.loadNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
+        servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
             
             self.newsList = moreWrapper!
             dispatch_async(dispatch_get_main_queue(), {

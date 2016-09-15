@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8C31A70F1D8732100091A36A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A70E1D8732100091A36A /* PageViewController.swift */; };
+		8C31A7131D8B05190091A36A /* BookmarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */; };
+		8C31A7151D8B40CB0091A36A /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A7141D8B40CB0091A36A /* BookmarkTableViewCell.swift */; };
 		8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */; };
 		8C5B06461D8057A800E2BB52 /* ServicesConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */; };
 		8C5B06481D8061CD00E2BB52 /* ForYouTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06471D8061CD00E2BB52 /* ForYouTableViewCell.swift */; };
@@ -40,7 +42,6 @@
 		F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4702A171A7F351C00E30A3C /* MenuController.swift */; };
 		F491E74A1A7F4B300026528E /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E7491A7F4B300026528E /* NewsTableViewController.swift */; };
 		F491E74C1A7F4C630026528E /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E74B1A7F4C630026528E /* NewsTableViewCell.swift */; };
-		F491E7531A7F7DF20026528E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E7521A7F7DF20026528E /* MapViewController.swift */; };
 		F491E7551A7F7E010026528E /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E7541A7F7E010026528E /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		8C31A70E1D8732100091A36A /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewController.swift; sourceTree = "<group>"; };
+		8C31A7141D8B40CB0091A36A /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForYouTableViewController.swift; path = ../ForYouTableViewController.swift; sourceTree = "<group>"; };
 		8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesConnection.swift; sourceTree = "<group>"; };
 		8C5B06471D8061CD00E2BB52 /* ForYouTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,7 +97,6 @@
 		F4702A171A7F351C00E30A3C /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		F491E7491A7F4B300026528E /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		F491E74B1A7F4C630026528E /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
-		F491E7521A7F7DF20026528E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F491E7541A7F7E010026528E /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,9 +185,9 @@
 				8C5B06611D81B6BF00E2BB52 /* FoodTableViewController.swift */,
 				8C5B06631D81B97400E2BB52 /* PopularyTableViewController.swift */,
 				8C5B06691D81B9A600E2BB52 /* QuizTableViewController.swift */,
-				8C5B06771D83400B00E2BB52 /* Base.lproj */,
-				F491E7521A7F7DF20026528E /* MapViewController.swift */,
+				8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */,
 				F491E7541A7F7E010026528E /* PhotoViewController.swift */,
+				8C5B06771D83400B00E2BB52 /* Base.lproj */,
 				F491E74B1A7F4C630026528E /* NewsTableViewCell.swift */,
 				8C5B06471D8061CD00E2BB52 /* ForYouTableViewCell.swift */,
 				8C5B064F1D8189AA00E2BB52 /* GreenTableViewCell.swift */,
@@ -199,6 +201,7 @@
 				8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */,
 				8C5B06731D8331DA00E2BB52 /* PageItemController.swift */,
 				8C31A70E1D8732100091A36A /* PageViewController.swift */,
+				8C31A7141D8B40CB0091A36A /* BookmarkTableViewCell.swift */,
 			);
 			path = UpsoclApp;
 			sourceTree = "<group>";
@@ -352,18 +355,19 @@
 				8C5B06681D81B99200E2BB52 /* QuizTableViewCell.swift in Sources */,
 				8C5B06661D81B98300E2BB52 /* PopularyTableViewCell.swift in Sources */,
 				8C5B065E1D81B00800E2BB52 /* WomenTableViewCell.swift in Sources */,
-				F491E7531A7F7DF20026528E /* MapViewController.swift in Sources */,
 				8C5B065A1D81AA3700E2BB52 /* WomenTableViewController.swift in Sources */,
 				8C5B066A1D81B9A600E2BB52 /* QuizTableViewController.swift in Sources */,
 				8C5B06581D8193DE00E2BB52 /* CreativityTableViewCell.swift in Sources */,
 				8C5B06641D81B97400E2BB52 /* PopularyTableViewController.swift in Sources */,
 				8C31A70F1D8732100091A36A /* PageViewController.swift in Sources */,
 				F491E74A1A7F4B300026528E /* NewsTableViewController.swift in Sources */,
+				8C31A7131D8B05190091A36A /* BookmarkTableViewController.swift in Sources */,
 				8C5B06601D81B6A400E2BB52 /* FoodTableViewCell.swift in Sources */,
 				F491E7551A7F7E010026528E /* PhotoViewController.swift in Sources */,
 				8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */,
 				8C5B06481D8061CD00E2BB52 /* ForYouTableViewCell.swift in Sources */,
 				8C5B064E1D80B19A00E2BB52 /* Category.swift in Sources */,
+				8C31A7151D8B40CB0091A36A /* BookmarkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
