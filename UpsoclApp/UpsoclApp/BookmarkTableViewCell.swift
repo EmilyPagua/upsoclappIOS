@@ -13,6 +13,6 @@ class BookmarkTableViewCell: UITableViewCell {
     @IBOutlet weak var postImagenView: UIImageView!
 
     @IBOutlet weak var postTitleLabel: UILabel!
-    @IBOutlet weak var postAuthoLabel: UILabel!
     @IBOutlet weak var postCategoryLabel: UILabel!
+    @IBOutlet weak var postAuthorLabel: UILabel!
 }

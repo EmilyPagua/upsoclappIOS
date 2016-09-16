@@ -33,7 +33,7 @@ class BookmarkTableViewController: UITableViewController {
         }
         loadList()
     }
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
         return 1
@@ -45,21 +45,85 @@ class BookmarkTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! BookmarkTableViewCell
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellBookmark", forIndexPath: indexPath) as! BookmarkTableViewCell
+         
         // Configure the cell...
         let news = newsList[indexPath.row]
         cell.postTitleLabel.text = news.titleNews
-        cell.postAuthoLabel.text = "Autor: " + news.authorNews!
-        cell.postCategoryLabel.text = "Categoria: " + news.categoryNews
+        //cell.postAuthorLabel.text = "Autor: " + news.authorNews!
+        //cell.postCategoryLabel.text = "Categoria: " + news.categoryNews
         loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
         
         return cell
     }
     
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return NO if you do not want the specified item to be editable.
+        // print (tableView.setContentOffset(CGPointMake(0, tableView.rowHeight - tableView.frame.size.height), animated: true))
+        return true
+    }
+    
+    //Opciones laterales de boookmark
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let more = UITableViewRowAction(style: .Normal, title: "Remover") { action, index in
+            print("Remover")
+            
+            let preferences = NSUserDefaults.standardUserDefaults()
+            let newsPost  = self.newsList[indexPath.row]
+            preferences.removeObjectForKey(String(newsPost.idNews))
+            preferences.synchronize()
+            
+            self.newsList.removeAtIndex(indexPath.row)
+            self.saveNews()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+        more.backgroundColor = UIColor.lightGrayColor()
+        
+        let favorite = UITableViewRowAction(style: .Normal, title: "Compartir") { action, index in
+            print("compartir")
+        }
+        favorite.backgroundColor = UIColor.orangeColor()
+        return [favorite, more]
+    }
+
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowDetail" {
+            
+            let detailViewController = segue.destinationViewController as! PageViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedMealCell = sender as? BookmarkTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedMealCell)!
+                
+                var list =  [News]()
+                let listCount = newsList.count
+                
+                if indexPath.row + 2 <= listCount {
+                    for  i in indexPath.row  ..< indexPath.row + 2   {
+                        list.append(newsList[i])
+                    }
+                    detailViewController.newsList = list
+                }
+                else {
+                    list.append(newsList[indexPath.row])
+                    detailViewController.newsList = list
+                }
+            }
+        }
+    }
+    
+    
     func loadList() {
         
         for elem in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
+            
             let key = elem.0
             let numberCharacters = NSCharacterSet.decimalDigitCharacterSet().invertedSet
             
@@ -87,5 +151,24 @@ class BookmarkTableViewController: UITableViewController {
             })
         })
     }
+    
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+        } else if editingStyle == .None {
+            print ("none")
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    func saveNews() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(newsList, toFile: News.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save news...")
+        }
+    }
+    
+    
 }
  

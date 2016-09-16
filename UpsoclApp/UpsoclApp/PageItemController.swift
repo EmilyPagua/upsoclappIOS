@@ -62,6 +62,7 @@ class PageItemController: UIViewController {
             bookmark.image = UIImage(named: "bookmarkActive")
         } else {
             preferences.removeObjectForKey(currentLevelKey)
+            preferences.synchronize()
             bookmark.image = UIImage(named: "bookmarkInactive")
         }
     }

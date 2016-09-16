@@ -25,12 +25,8 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         // let currentLevel = preferences.objectForKey(String(bookmark.idNews))
         
         for  i in 0  ..< newsList.count    {
-            
             let bookmark = newsList[i]
-            let currentLevel = preferences.objectForKey(String(bookmark.idNews))
-            if currentLevel != nil {
-                print (String (i) + "  " + String(bookmark.idNews))
-            }
+            _ = preferences.objectForKey(String(bookmark.idNews))
         }
         
         createPageViewController()
