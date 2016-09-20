@@ -56,15 +56,13 @@ class PageItemController: UIViewController {
             let jsonData = try! NSJSONSerialization.dataWithJSONObject(objectJson, options: NSJSONWritingOptions())
             let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding) as! String
             
-            preferences.setValue(jsonString, forKey: currentLevelKey )
-            preferences.synchronize()
-            
+            preferences.setValue(jsonString, forKey: currentLevelKey )            
             bookmark.image = UIImage(named: "bookmarkActive")
         } else {
             preferences.removeObjectForKey(currentLevelKey)
-            preferences.synchronize()
             bookmark.image = UIImage(named: "bookmarkInactive")
         }
+        preferences.synchronize()
     }
     
     func loadContent() {

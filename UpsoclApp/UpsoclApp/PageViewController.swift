@@ -28,7 +28,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             let bookmark = newsList[i]
             _ = preferences.objectForKey(String(bookmark.idNews))
         }
-        
         createPageViewController()
         setupPagecontrol()
     }
