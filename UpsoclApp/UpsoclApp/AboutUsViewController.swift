@@ -24,7 +24,6 @@ class AboutUsViewController: UIViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
         webContent.loadHTMLString(content, baseURL: nil)
     }
 }

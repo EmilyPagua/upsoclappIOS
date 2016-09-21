@@ -118,7 +118,7 @@ class ServicesConnection {
         
         if let data_block = object as? [String: AnyObject]
         {
-            let title = (data_block["title"]?.valueForKey("rendered") as? String)!
+            var title = (data_block["title"]?.valueForKey("rendered") as? String)!
             let id  = data_block["id"] as! Int
             let content  = (data_block["content"]?.valueForKey("rendered") as? String)!
             let imageURL  = data_block["featured_media"] as? String!
@@ -127,6 +127,13 @@ class ServicesConnection {
             let category  = data_block["categories_name"] as? String!
             let authorLastName  = data_block["author_last_name"] as? String!
             let authorFirstName = data_block["author_first_name"] as? String!
+            
+            title = title.stringByReplacingOccurrencesOfString("&#8220;", withString: "'")
+                        .stringByReplacingOccurrencesOfString("&#8221;", withString: "'")
+                        .stringByReplacingOccurrencesOfString("&#8221;", withString: "'")
+                        .stringByReplacingOccurrencesOfString("&#8216;", withString: "'")
+                        .stringByReplacingOccurrencesOfString("&#8217;", withString: "'")
+                        .stringByReplacingOccurrencesOfString("&#8230;", withString: "'")
             
             let meal = News(id: id,
                             title: title,
