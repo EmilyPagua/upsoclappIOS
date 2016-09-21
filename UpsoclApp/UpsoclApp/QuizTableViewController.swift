@@ -72,20 +72,16 @@ class QuizTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellQuiz", forIndexPath: indexPath) as! QuizTableViewCell
 
         // Configure the cell...
-        let news = newsList[indexPath.row]
-        cell.titlePost.text = news.titleNews
+        if (newsList.count != 0 ){
+            let news = newsList[indexPath.row]
+            cell.titlePost.text = news.titleNews
+            loadImage( news.imageURLNews, viewImagen: cell.imagePost)
         
-        cell.authorPost.text = "Autor: " + news.authorNews!
-        cell.categoryPost.text = "Categoria: " + news.categoryNews
-        
-        loadImage( news.imageURLNews, viewImagen: cell.imagePost)
-        
-        if indexPath.row == self.newsList.count - 2{
-            page += 1
-            callWebServices(String (page))
+            if indexPath.row == self.newsList.count - 2{
+                page += 1
+                callWebServices(String (page))
+            }
         }
-
-
         return cell
     }
     

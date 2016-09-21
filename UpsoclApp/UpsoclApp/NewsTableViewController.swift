@@ -76,17 +76,16 @@ class NewsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsTableViewCell
         
         // Configure the cell...
-        let news = newsList[indexPath.row]
-        cell.postTitleLabel.text = news.titleNews
-        cell.authorLabel.text = "Autor: " + news.authorNews!
-        cell.categoryLabel.text = "Categoria: " + news.categoryNews
-        loadImage( news.imageURLNews, viewImagen: cell.postImageView)
-        
-        if indexPath.row == self.newsList.count - 3 {
-            page += 1
-            callWebServices(String (page))
+        if (newsList.count != 0 ){
+            let news = newsList[indexPath.row]
+            cell.postTitleLabel.text = news.titleNews
+            loadImage( news.imageURLNews, viewImagen: cell.postImageView)
+            
+            if indexPath.row == self.newsList.count - 3 {
+                page += 1
+                callWebServices(String (page))
+            }
         }
-        
         return cell
     }
 

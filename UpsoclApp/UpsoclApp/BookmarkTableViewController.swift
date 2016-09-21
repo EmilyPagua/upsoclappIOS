@@ -50,8 +50,7 @@ class BookmarkTableViewController: UITableViewController {
         // Configure the cell...
         let news = newsList[indexPath.row]
         cell.postTitleLabel.text = news.titleNews
-        //cell.postAuthorLabel.text = "Autor: " + news.authorNews!
-        //cell.postCategoryLabel.text = "Categoria: " + news.categoryNews
+        
         loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
         
         return cell

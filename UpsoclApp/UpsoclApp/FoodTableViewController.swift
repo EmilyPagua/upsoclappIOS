@@ -75,19 +75,16 @@ class FoodTableViewController: UITableViewController {
         
 
         // Configure the cell...
-        let news = newsList[indexPath.row]
-        cell.titlePost.text = news.titleNews
-        
-        cell.authorPost.text = "Autor: " + news.authorNews!
-        cell.categoryPost.text = "Categoria: " + news.categoryNews
-        
-        loadImage( news.imageURLNews, viewImagen: cell.imagePost)
-        
-        if indexPath.row == self.newsList.count - 2{
-            page += 1
-            callWebServices(String (page))
+        if (newsList.count != 0 ){
+            let news = newsList[indexPath.row]
+            cell.titlePost.text = news.titleNews
+            
+            loadImage( news.imageURLNews, viewImagen: cell.imagePost)
+            if indexPath.row == self.newsList.count - 2{
+                page += 1
+                callWebServices(String (page))
+            }
         }
-        
         return cell
     }
     

@@ -74,21 +74,16 @@ class WomenTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("CellWomen", forIndexPath: indexPath) as! WomenTableViewCell
         // Configure the cell...
+        if (newsList.count != 0 ){
+            let news = newsList[indexPath.row]
+            cell.titlePost.text = news.titleNews
+            loadImage( news.imageURLNews, viewImagen: cell.imagenPost)
         
-        let news = newsList[indexPath.row]
-        cell.titlePost.text = news.titleNews
-        
-        cell.authorPost.text = "Autor: " + news.authorNews!
-        cell.categoryPost.text = "Categoria: " + news.categoryNews
-        
-        loadImage( news.imageURLNews, viewImagen: cell.imagenPost)
-        
-        if indexPath.row == self.newsList.count - 2{
-            page += 1
-            callWebServices(String (page))
+            if indexPath.row == self.newsList.count - 2{
+                page += 1
+                callWebServices(String (page))
+            }
         }
-
-
         return cell
     }
 

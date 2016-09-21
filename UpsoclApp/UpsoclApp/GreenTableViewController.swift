@@ -73,22 +73,17 @@ class GreenTableViewController: UITableViewController {
         //let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
         let cell = tableView.dequeueReusableCellWithIdentifier("CellGreen", forIndexPath: indexPath) as! GreenTableViewCell
+        
         // Configure the cell...
-
-        let news = newsList[indexPath.row]
-        cell.titlePost.text = news.titleNews
+        if (newsList.count != 0 ){
+            let news = newsList[indexPath.row]
+            cell.titlePost.text = news.titleNews
+            loadImage( news.imageURLNews, viewImagen: cell.imagenPost)
         
-        //let photo1 = UIImage(named: news.imageURLNews!)!
-        //cell.imagenForyou.image = photo1
-        
-        cell.authorPost.text = "Autor: " + news.authorNews!
-        cell.categoryPost.text = "Categoria: " + news.categoryNews
-        
-        loadImage( news.imageURLNews, viewImagen: cell.imagenPost)
-        
-        if indexPath.row == self.newsList.count - 2{
-            page += 1
-            callWebServices(String (page))
+            if indexPath.row == self.newsList.count - 2{
+                page += 1
+                callWebServices(String (page))
+            }
         }
         return cell
     }

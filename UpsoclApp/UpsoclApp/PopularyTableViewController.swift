@@ -72,19 +72,17 @@ class PopularyTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellPopulary", forIndexPath: indexPath) as! PopularyTableViewCell
 
         // Configure the cell...
-        let news = newsList[indexPath.row]
-        cell.titlePost.text = news.titleNews
+        if (newsList.count != 0 ){
+            let news = newsList[indexPath.row]
+            cell.titlePost.text = news.titleNews
         
-        cell.authorPost.text = "Autor: " + news.authorNews!
-        cell.categoryPost.text = "Categoria: " + news.categoryNews
+            loadImage( news.imageURLNews, viewImagen: cell.imagePost)
         
-        loadImage( news.imageURLNews, viewImagen: cell.imagePost)
-        
-        if indexPath.row == self.newsList.count - 2{
-            page += 1
-            callWebServices(String (page))
+            if indexPath.row == self.newsList.count - 2{
+                page += 1
+                callWebServices(String (page))
+            }
         }
-
         return cell
     }
     

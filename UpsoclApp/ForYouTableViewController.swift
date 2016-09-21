@@ -18,6 +18,7 @@ class ForYouTableViewController: UITableViewController {
     var progressBar = ProgressBarLoad()
     var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     
+    var keyCategory = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,59 @@ class ForYouTableViewController: UITableViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
+        createURL ()
         callWebServices(String(page))
+    }
+    
+    func createURL(){
+        
+        for elem in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
+            
+            let key = elem.0
+            
+            switch key {
+            case "culture":
+                keyCategory = keyCategory + Category.PropertyKey.cultura + ","
+            case "beauty":
+                keyCategory = keyCategory + Category.PropertyKey.beauty + ","
+            case "colaboration":
+                keyCategory = keyCategory + Category.PropertyKey.colaboration + ","
+            case "community":
+                keyCategory = keyCategory + Category.PropertyKey.community + ","
+            case "creativity":
+                keyCategory = keyCategory + Category.PropertyKey.creativity + ","
+            case "diversity":
+                keyCategory = keyCategory + Category.PropertyKey.diversity + ","
+            case "family":
+                keyCategory = keyCategory + Category.PropertyKey.family + ","
+            case "food":
+                keyCategory = keyCategory + Category.PropertyKey.food + ","
+            case "green":
+                keyCategory = keyCategory + Category.PropertyKey.green + ","
+            case "health":
+                keyCategory = keyCategory + Category.PropertyKey.health + ","
+            case "inspiration":
+                keyCategory = keyCategory + Category.PropertyKey.inspiration + ","
+            case "movies":
+                keyCategory = keyCategory + Category.PropertyKey.movies + ","
+            case "populary":
+                keyCategory = keyCategory + Category.PropertyKey.populary + ","
+            case "quiz":
+                keyCategory = keyCategory + Category.PropertyKey.quiz + ","
+            case "relations":
+                keyCategory = keyCategory + Category.PropertyKey.relations + ","
+            case "stileLive":
+                keyCategory = keyCategory + Category.PropertyKey.styleLive + ","
+            case "women":
+                keyCategory = keyCategory + Category.PropertyKey.women + ","
+            case "world":
+                keyCategory = keyCategory + Category.PropertyKey.world + ","
+            default:
+                0
+            }
+        }
+        
+        keyCategory = keyCategory.substringToIndex(keyCategory.endIndex.predecessor())
     }
     
     func handleRefresh(resfresControl: UIRefreshControl){
@@ -75,22 +128,16 @@ class ForYouTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellForYou", forIndexPath: indexPath) as! ForYouTableViewCell
 
         // Configure the cell...
-        let news = newsList[indexPath.row]
-        cell.titleForyou.text = news.titleNews
-        
-        //let photo1 = UIImage(named: news.imageURLNews!)!
-        //cell.imagenForyou.image = photo1
-        
-        cell.authorForyou.text = "Autor: " + news.authorNews!
-        cell.categoryForyou.text = "Categoria: " + news.categoryNews
-        
-        loadImage( news.imageURLNews, viewImagen: cell.imagenForyou)
-        
-        if indexPath.row == self.newsList.count - 2{
-            page += 1
-            callWebServices(String (page))
+        if (newsList.count != 0 ){
+            let news = newsList[indexPath.row]
+            cell.titleForyou.text = news.titleNews
+            loadImage( news.imageURLNews, viewImagen: cell.imagenForyou)
+            
+            if indexPath.row == self.newsList.count - 2{
+                page += 1
+                callWebServices(String (page))
+            }
         }
-        
         return cell
     }
     
@@ -170,8 +217,9 @@ class ForYouTableViewController: UITableViewController {
     func callWebServices(paged: String ){
         
         self.indicator.startAnimating()
-        let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.filterCategoryName + Category.PropertyKey.green
-        
+       
+        let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.filterCategoryName + keyCategory + ApiConstants.PropertyKey.filterPageForYou + paged
+       
         servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
             
             self.newsList = moreWrapper!
