@@ -87,6 +87,8 @@ class PageItemController: UIViewController {
             if news != nil {
                 let contentDetail = contentDetail + title + detailAuthor + category + line + publicity + news!.contentNews!
                 let baseURL = NSURL(string: "http://api.instagram.com/oembed")
+                
+                //print(contentDetail)
                 webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
             }
         }
