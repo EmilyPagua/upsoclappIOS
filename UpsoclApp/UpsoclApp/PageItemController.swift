@@ -8,10 +8,20 @@
 
 import UIKit
 
-class PageItemController: UIViewController {
+class PageItemController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webViewContent: UIWebView!
+    @IBOutlet weak var imagenDetail: UIImageView!
+    @IBOutlet weak var titleDetail: UILabel!
+    @IBOutlet weak var authorDetail: UILabel!
+    @IBOutlet weak var bookmark: UIBarButtonItem!
+
+    @IBOutlet weak var scrollDetail: UIScrollView!
         
+    
+    @IBOutlet weak var categoryDetail: UILabel!
+    var servicesConnection = ServicesConnection()
+    
     @IBAction func comeBack(sender: UIBarButtonItem) {
         self.tabBarController?.tabBar.hidden =  false
         self.navigationController?.popViewControllerAnimated(true)
@@ -25,6 +35,7 @@ class PageItemController: UIViewController {
     let baseURL = NSURL(string: "http://api.instagram.com/oembed")
     var itemIndex: Int = 0
     var news =  News?()
+    var contentDetail = ""
     
     @IBOutlet weak var contentWebView: UIWebView!
     
@@ -32,10 +43,12 @@ class PageItemController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadContent()
+        contentDetail = meta + style + fonts
+        //loadContent()
+        loadContentWithHTML()
     }
     
-    @IBOutlet weak var bookmark: UIBarButtonItem!
+    
     @IBAction func bookmarkButton(sender: UIBarButtonItem) {
 
         let preferences = NSUserDefaults.standardUserDefaults()
@@ -65,16 +78,17 @@ class PageItemController: UIViewController {
         preferences.synchronize()
     }
     
-    func loadContent() {
-        
-        var contentDetail = meta + style + fonts 
+    func loadContentWithHTML(){
         
         if news != nil {
+            
+            self.webViewContent.scrollView.scrollEnabled = true
+            webViewContent.delegate = self
             
             loadIsBookmark()
             
             if news!.imageURLNews != nil{
-                let imagen  = "<img src="+news!.imageURLNews!+" alt=\"Photo of Ton Sai Bay on Koh Phi-Phi Island in Thailand\">"
+                let imagen  = "<center><p><img img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news!.imageURLNews!+" width=\"728\" > </p></center>"
                 contentDetail = contentDetail + imagen
             }
             
@@ -84,14 +98,52 @@ class PageItemController: UIViewController {
             let line = "<hr  color=\"#009688\" />"
             let publicity = ""
             
+            contentDetail = contentDetail + title + detailAuthor + category + line + publicity + news!.contentNews!
+            let baseURL = NSURL(string: "http://api.instagram.com/oembed")
+            webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
+        }
+    }
+    
+    
+    func loadContent() {
+        
+        if news != nil {
+            
+            self.webViewContent.scrollView.scrollEnabled = false
+            
+            loadIsBookmark()
+            
+            if news!.imageURLNews != nil{
+                loadImage(news!.imageURLNews!, viewImagen: imagenDetail)
+            }
+            
+            titleDetail.text = news!.titleNews
+            categoryDetail.text = "Autor: " + news!.authorNews! + ". Categoría: " + news!.dateNews!
+            authorDetail.text = "Categoría: " + news!.categoryNews
+    
+            let line = "<hr  color=\"#009688\" />"
+            let publicity = ""
+            
             if news != nil {
-                let contentDetail = contentDetail + title + detailAuthor + category + line + publicity + news!.contentNews!
+                
+                contentDetail = contentDetail + line + publicity + news!.contentNews!
                 let baseURL = NSURL(string: "http://api.instagram.com/oembed")
                 
-                //print(contentDetail)
-                webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
+                self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
+                webViewContent.delegate = self
+                
             }
         }
+    }
+    
+    func webViewDidStartLoad(webView: UIWebView){
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        
+        /*webViewContent.frame =  CGRectMake(10, authorDetail.frame.maxY, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height + 600)
+        self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY, 0);
+        */
     }
     
     func loadIsBookmark() {
@@ -104,5 +156,14 @@ class PageItemController: UIViewController {
         }else{
             bookmark.image = UIImage(named: "bookmarkInactive")
         }
+    }
+    
+    func loadImage(urlImage: String?, viewImagen: UIImageView){
+        
+        servicesConnection.loadImage(urlImage, completionHandler: { (moreWrapper, error) in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                viewImagen.image = moreWrapper
+            })
+        })
     }
 }

@@ -160,8 +160,10 @@ class ServicesConnection {
             if (imgURL != nil){
                 let task = NSURLSession.sharedSession().dataTaskWithURL(imgURL!) { (responseData, responseUrl, error) -> Void in
                     // if responseData is not null...
+                    
                     if let data = responseData{
                         completionHandler(UIImage(data: data)!, nil)
+                    
                     }
                 }
                 // Run task
