@@ -45,7 +45,7 @@ class BookmarkTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellBookmark", forIndexPath: indexPath) as! BookmarkTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellBookmark", forIndexPath: indexPath) as! NewsViewCell
          
         // Configure the cell...
         let news = newsList[indexPath.row]
@@ -98,7 +98,7 @@ class BookmarkTableViewController: UITableViewController {
             let detailViewController = segue.destinationViewController as! PageViewController
             
             // Get the cell that generated this segue.
-            if let selectedMealCell = sender as? BookmarkTableViewCell {
+            if let selectedMealCell = sender as? NewsViewCell {
                 let indexPath = tableView.indexPathForCell(selectedMealCell)!
                 
                 var list =  [News]()

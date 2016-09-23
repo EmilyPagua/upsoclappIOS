@@ -27,23 +27,13 @@ class NewsTableViewController: UITableViewController {
         view.addSubview(indicator)
         indicator.bringSubviewToFront(view)
         
-        
         self.refreshControl?.addTarget(self, action: #selector(NewsTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        //self.revealViewController().rearViewRevealWidth = 62
-        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-       
         callWebServices(String(page))
     }
     
@@ -73,13 +63,13 @@ class NewsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsViewCell
         
         // Configure the cell...
         if (newsList.count != 0 ){
             let news = newsList[indexPath.row]
             cell.postTitleLabel.text = news.titleNews
-            loadImage( news.imageURLNews, viewImagen: cell.postImageView)
+            loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
             
             if indexPath.row == self.newsList.count - 3 {
                 page += 1
@@ -152,7 +142,7 @@ class NewsTableViewController: UITableViewController {
             let detailViewController = segue.destinationViewController as! PageViewController
             
             // Get the cell that generated this segue.
-            if let selectedMealCell = sender as? NewsTableViewCell {
+            if let selectedMealCell = sender as? NewsViewCell {
                 let indexPath = tableView.indexPathForCell(selectedMealCell)!
 
                 var list =  [News]()
@@ -192,5 +182,8 @@ class NewsTableViewController: UITableViewController {
             })
         })
     }
-
+    
+    
+    @IBAction func unwindToNewsList(sender: UIStoryboardSegue) {
+        }
 }

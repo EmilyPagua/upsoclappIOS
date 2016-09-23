@@ -8,11 +8,9 @@
 
 import UIKit
 
-class BookmarkTableViewCell: UITableViewCell {
+class NewsViewCell: UITableViewCell {
     
     @IBOutlet weak var postImagenView: UIImageView!
 
     @IBOutlet weak var postTitleLabel: UILabel!
-    @IBOutlet weak var postCategoryLabel: UILabel!
-    @IBOutlet weak var postAuthorLabel: UILabel!
 }

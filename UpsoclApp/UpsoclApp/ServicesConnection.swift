@@ -24,9 +24,17 @@ class ServicesConnection {
             return
         }
         
+        let urlPath = urlPath.stringByReplacingOccurrencesOfString("ñ", withString: "n")
+            .stringByReplacingOccurrencesOfString("í", withString: "i")
+            .stringByReplacingOccurrencesOfString("ó", withString: "o")
+            .stringByReplacingOccurrencesOfString("á", withString: "a")
+            .stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        
+        print (urlPath)
+        
         self.newsList = wrapper!
         guard let url = NSURL(string: urlPath) else{
-            print("hay un error")
+            print("hay un error url")
             return
         }
         let session = NSURLSession.sharedSession()
@@ -159,11 +167,10 @@ class ServicesConnection {
             
             if (imgURL != nil){
                 let task = NSURLSession.sharedSession().dataTaskWithURL(imgURL!) { (responseData, responseUrl, error) -> Void in
-                    // if responseData is not null...
                     
+                    // if responseData is not null...
                     if let data = responseData{
                         completionHandler(UIImage(data: data)!, nil)
-                    
                     }
                 }
                 // Run task
@@ -173,6 +180,4 @@ class ServicesConnection {
             }
         }
     }
-    
-   
 }

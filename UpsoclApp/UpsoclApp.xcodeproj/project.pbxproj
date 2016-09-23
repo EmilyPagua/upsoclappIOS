@@ -11,26 +11,20 @@
 		8C12D6AC1D92BD0F00A3FC6D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6AA1D91D11D00A3FC6D /* PreferencesViewController.swift */; };
 		8C12D6B01D92CD5F00A3FC6D /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6AF1D92CD5F00A3FC6D /* AboutUsViewController.swift */; };
 		8C12D6B21D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6B11D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift */; };
+		8C12D6B41D95628700A3FC6D /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */; };
 		8C31A70F1D8732100091A36A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A70E1D8732100091A36A /* PageViewController.swift */; };
 		8C31A7131D8B05190091A36A /* BookmarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */; };
-		8C31A7151D8B40CB0091A36A /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A7141D8B40CB0091A36A /* BookmarkTableViewCell.swift */; };
+		8C31A7151D8B40CB0091A36A /* NewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A7141D8B40CB0091A36A /* NewsViewCell.swift */; };
 		8C31A7171D8C4FAB0091A36A /* CheckBoxInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A7161D8C4FAB0091A36A /* CheckBoxInterest.swift */; };
 		8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */; };
 		8C5B06461D8057A800E2BB52 /* ServicesConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */; };
-		8C5B06481D8061CD00E2BB52 /* ForYouTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06471D8061CD00E2BB52 /* ForYouTableViewCell.swift */; };
 		8C5B064B1D80A34E00E2BB52 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B064A1D80A34E00E2BB52 /* ApiConstants.swift */; };
 		8C5B064E1D80B19A00E2BB52 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B064D1D80B19A00E2BB52 /* Category.swift */; };
-		8C5B06501D8189AA00E2BB52 /* GreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B064F1D8189AA00E2BB52 /* GreenTableViewCell.swift */; };
 		8C5B06541D818A3000E2BB52 /* GreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06531D818A3000E2BB52 /* GreenTableViewController.swift */; };
 		8C5B06561D8192D500E2BB52 /* CreativityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06551D8192D500E2BB52 /* CreativityTableViewController.swift */; };
-		8C5B06581D8193DE00E2BB52 /* CreativityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06571D8193DE00E2BB52 /* CreativityTableViewCell.swift */; };
 		8C5B065A1D81AA3700E2BB52 /* WomenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06591D81AA3700E2BB52 /* WomenTableViewController.swift */; };
-		8C5B065E1D81B00800E2BB52 /* WomenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B065D1D81B00800E2BB52 /* WomenTableViewCell.swift */; };
-		8C5B06601D81B6A400E2BB52 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B065F1D81B6A400E2BB52 /* FoodTableViewCell.swift */; };
 		8C5B06621D81B6BF00E2BB52 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06611D81B6BF00E2BB52 /* FoodTableViewController.swift */; };
 		8C5B06641D81B97400E2BB52 /* PopularyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06631D81B97400E2BB52 /* PopularyTableViewController.swift */; };
-		8C5B06661D81B98300E2BB52 /* PopularyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06651D81B98300E2BB52 /* PopularyTableViewCell.swift */; };
-		8C5B06681D81B99200E2BB52 /* QuizTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06671D81B99200E2BB52 /* QuizTableViewCell.swift */; };
 		8C5B066A1D81B9A600E2BB52 /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06691D81B9A600E2BB52 /* QuizTableViewController.swift */; };
 		8C5B066C1D81DC1900E2BB52 /* ProgressBarLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */; };
 		8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06731D8331DA00E2BB52 /* PageItemController.swift */; };
@@ -46,7 +40,6 @@
 		F4702A161A7F342F00E30A3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4702A151A7F342F00E30A3C /* MapKit.framework */; };
 		F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4702A171A7F351C00E30A3C /* MenuController.swift */; };
 		F491E74A1A7F4B300026528E /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E7491A7F4B300026528E /* NewsTableViewController.swift */; };
-		F491E74C1A7F4C630026528E /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E74B1A7F4C630026528E /* NewsTableViewCell.swift */; };
 		F491E7551A7F7E010026528E /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E7541A7F7E010026528E /* InterestViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,26 +57,20 @@
 		8C12D6AA1D91D11D00A3FC6D /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		8C12D6AF1D92CD5F00A3FC6D /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8C12D6B11D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliticasPrivacityViewController.swift; sourceTree = "<group>"; };
+		8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		8C31A70E1D8732100091A36A /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewController.swift; sourceTree = "<group>"; };
-		8C31A7141D8B40CB0091A36A /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
+		8C31A7141D8B40CB0091A36A /* NewsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewCell.swift; sourceTree = "<group>"; };
 		8C31A7161D8C4FAB0091A36A /* CheckBoxInterest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxInterest.swift; sourceTree = "<group>"; };
 		8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForYouTableViewController.swift; path = ../ForYouTableViewController.swift; sourceTree = "<group>"; };
 		8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesConnection.swift; sourceTree = "<group>"; };
-		8C5B06471D8061CD00E2BB52 /* ForYouTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouTableViewCell.swift; sourceTree = "<group>"; };
 		8C5B064A1D80A34E00E2BB52 /* ApiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		8C5B064D1D80B19A00E2BB52 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		8C5B064F1D8189AA00E2BB52 /* GreenTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenTableViewCell.swift; sourceTree = "<group>"; };
 		8C5B06531D818A3000E2BB52 /* GreenTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenTableViewController.swift; sourceTree = "<group>"; };
 		8C5B06551D8192D500E2BB52 /* CreativityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreativityTableViewController.swift; sourceTree = "<group>"; };
-		8C5B06571D8193DE00E2BB52 /* CreativityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreativityTableViewCell.swift; sourceTree = "<group>"; };
 		8C5B06591D81AA3700E2BB52 /* WomenTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WomenTableViewController.swift; sourceTree = "<group>"; };
-		8C5B065D1D81B00800E2BB52 /* WomenTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WomenTableViewCell.swift; sourceTree = "<group>"; };
-		8C5B065F1D81B6A400E2BB52 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		8C5B06611D81B6BF00E2BB52 /* FoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
 		8C5B06631D81B97400E2BB52 /* PopularyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularyTableViewController.swift; sourceTree = "<group>"; };
-		8C5B06651D81B98300E2BB52 /* PopularyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularyTableViewCell.swift; sourceTree = "<group>"; };
-		8C5B06671D81B99200E2BB52 /* QuizTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizTableViewCell.swift; sourceTree = "<group>"; };
 		8C5B06691D81B9A600E2BB52 /* QuizTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizTableViewController.swift; sourceTree = "<group>"; };
 		8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarLoad.swift; sourceTree = "<group>"; };
 		8C5B06731D8331DA00E2BB52 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
@@ -105,7 +92,6 @@
 		F4702A151A7F342F00E30A3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F4702A171A7F351C00E30A3C /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		F491E7491A7F4B300026528E /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
-		F491E74B1A7F4C630026528E /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		F491E7541A7F7E010026528E /* InterestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,19 +183,12 @@
 				8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */,
 				F491E7541A7F7E010026528E /* InterestViewController.swift */,
 				8C12D6AA1D91D11D00A3FC6D /* PreferencesViewController.swift */,
+				8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */,
 				8C5B06771D83400B00E2BB52 /* Base.lproj */,
-				F491E74B1A7F4C630026528E /* NewsTableViewCell.swift */,
-				8C5B06471D8061CD00E2BB52 /* ForYouTableViewCell.swift */,
-				8C5B064F1D8189AA00E2BB52 /* GreenTableViewCell.swift */,
-				8C5B06571D8193DE00E2BB52 /* CreativityTableViewCell.swift */,
-				8C5B065D1D81B00800E2BB52 /* WomenTableViewCell.swift */,
-				8C5B065F1D81B6A400E2BB52 /* FoodTableViewCell.swift */,
+				8C31A7141D8B40CB0091A36A /* NewsViewCell.swift */,
 				8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */,
-				8C5B06651D81B98300E2BB52 /* PopularyTableViewCell.swift */,
-				8C5B06671D81B99200E2BB52 /* QuizTableViewCell.swift */,
 				8C31A7161D8C4FAB0091A36A /* CheckBoxInterest.swift */,
 				8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */,
-				8C31A7141D8B40CB0091A36A /* BookmarkTableViewCell.swift */,
 				8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */,
 				8C5B06731D8331DA00E2BB52 /* PageItemController.swift */,
 				8C31A70E1D8732100091A36A /* PageViewController.swift */,
@@ -356,7 +335,6 @@
 				8C5B064B1D80A34E00E2BB52 /* ApiConstants.swift in Sources */,
 				8CE0972D1D79DEF500ABD404 /* SWRevealViewController.m in Sources */,
 				8C5B066C1D81DC1900E2BB52 /* ProgressBarLoad.swift in Sources */,
-				8C5B06501D8189AA00E2BB52 /* GreenTableViewCell.swift in Sources */,
 				F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */,
 				8C5BACBF1D7DF5990021DFBE /* DetailViewController.swift in Sources */,
 				8C77823F1D7A12ED001A0596 /* News.swift in Sources */,
@@ -365,26 +343,20 @@
 				8C12D6AB1D91D11E00A3FC6D /* PreferencesViewController.swift in Sources */,
 				8C5B06561D8192D500E2BB52 /* CreativityTableViewController.swift in Sources */,
 				8C5B06621D81B6BF00E2BB52 /* FoodTableViewController.swift in Sources */,
-				F491E74C1A7F4C630026528E /* NewsTableViewCell.swift in Sources */,
-				8C5B06681D81B99200E2BB52 /* QuizTableViewCell.swift in Sources */,
-				8C5B06661D81B98300E2BB52 /* PopularyTableViewCell.swift in Sources */,
-				8C5B065E1D81B00800E2BB52 /* WomenTableViewCell.swift in Sources */,
+				8C12D6B41D95628700A3FC6D /* SearchTableViewController.swift in Sources */,
 				8C5B065A1D81AA3700E2BB52 /* WomenTableViewController.swift in Sources */,
 				8C5B066A1D81B9A600E2BB52 /* QuizTableViewController.swift in Sources */,
-				8C5B06581D8193DE00E2BB52 /* CreativityTableViewCell.swift in Sources */,
 				8C5B06641D81B97400E2BB52 /* PopularyTableViewController.swift in Sources */,
 				8C31A70F1D8732100091A36A /* PageViewController.swift in Sources */,
 				8C12D6B21D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift in Sources */,
 				F491E74A1A7F4B300026528E /* NewsTableViewController.swift in Sources */,
 				8C31A7131D8B05190091A36A /* BookmarkTableViewController.swift in Sources */,
 				8C31A7171D8C4FAB0091A36A /* CheckBoxInterest.swift in Sources */,
-				8C5B06601D81B6A400E2BB52 /* FoodTableViewCell.swift in Sources */,
 				F491E7551A7F7E010026528E /* InterestViewController.swift in Sources */,
 				8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */,
-				8C5B06481D8061CD00E2BB52 /* ForYouTableViewCell.swift in Sources */,
 				8C5B064E1D80B19A00E2BB52 /* Category.swift in Sources */,
 				8C12D6B01D92CD5F00A3FC6D /* AboutUsViewController.swift in Sources */,
-				8C31A7151D8B40CB0091A36A /* BookmarkTableViewCell.swift in Sources */,
+				8C31A7151D8B40CB0091A36A /* NewsViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

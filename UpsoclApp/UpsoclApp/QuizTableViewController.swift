@@ -69,13 +69,13 @@ class QuizTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellQuiz", forIndexPath: indexPath) as! QuizTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellQuiz", forIndexPath: indexPath) as! NewsViewCell
 
         // Configure the cell...
         if (newsList.count != 0 ){
             let news = newsList[indexPath.row]
-            cell.titlePost.text = news.titleNews
-            loadImage( news.imageURLNews, viewImagen: cell.imagePost)
+            cell.postTitleLabel.text = news.titleNews
+            loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
         
             if indexPath.row == self.newsList.count - 2{
                 page += 1
@@ -132,7 +132,7 @@ class QuizTableViewController: UITableViewController {
             let detailViewController = segue.destinationViewController as! PageViewController
             
             // Get the cell that generated this segue.
-            if let selectedMealCell = sender as? QuizTableViewCell {
+            if let selectedMealCell = sender as? NewsViewCell {
                 let indexPath = tableView.indexPathForCell(selectedMealCell)!
                 
                 var list =  [News]()

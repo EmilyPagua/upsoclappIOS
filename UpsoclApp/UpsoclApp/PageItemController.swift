@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class PageItemController: UIViewController, UIWebViewDelegate {
     
@@ -15,34 +16,66 @@ class PageItemController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var titleDetail: UILabel!
     @IBOutlet weak var authorDetail: UILabel!
     @IBOutlet weak var bookmark: UIBarButtonItem!
+    
 
     @IBOutlet weak var scrollDetail: UIScrollView!
         
     
     @IBOutlet weak var categoryDetail: UILabel!
     var servicesConnection = ServicesConnection()
+    let fonts = "<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>"
+    let meta = "<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>"
+    let style = "<link rel='stylesheet' type='text/css' media='all' href='http://www.upsocl.com/wp-content/themes/upso3/style.css'>"
+    let baseURL = NSURL(string: "http://api.instagram.com/oembed")
+    var itemIndex: Int = 0
+    var news =  News?()
+    var contentDetail = ""
     
+    //ComeBack
     @IBAction func comeBack(sender: UIBarButtonItem) {
         self.tabBarController?.tabBar.hidden =  false
         self.navigationController?.popViewControllerAnimated(true)
         self.navigationController?.navigationBarHidden = false
     }
     
-    let fonts = "<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>"
-    let meta = "<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>"
-    let style = "<link rel='stylesheet' type='text/css' media='all' href='http://www.upsocl.com/wp-content/themes/upso3/style.css'>"
+    //Share
+    @IBAction func shareButton(sender: UIBarButtonItem) {
+        if news == nil{
+            // Hide the keyboard
+            displayAlert("Error", message: "Error en el post, vuelva a seleccionarlo")
+        } else {
+            // We have contents so display the share sheet
+            displayShareSheet()
+        }
+    }
+    //shareFacebook
+    @IBAction func shareFacebook(sender: UIBarButtonItem) {
+        if let sf = SLComposeViewController(forServiceType: SLServiceTypeFacebook){
+            sf.setInitialText(news?.titleNews)
+            sf.addURL( NSURL(string: (news?.linkNews)!))
+            //present(sf, animated: true)
+        }
+    }
     
-    let baseURL = NSURL(string: "http://api.instagram.com/oembed")
-    var itemIndex: Int = 0
-    var news =  News?()
-    var contentDetail = ""
+    //Share
+    func displayShareSheet() {
+        
+        let objectShare: [String] = [(news?.titleNews)!, (news?.linkNews)!]
+        let activityViewController = UIActivityViewController(activityItems: objectShare, applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: {})
+    }
+    
+    func displayAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(alertController, animated: true, completion: nil)
+        return
+    }
     
     @IBOutlet weak var contentWebView: UIWebView!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         contentDetail = meta + style + fonts
         //loadContent()
         loadContentWithHTML()
@@ -71,9 +104,11 @@ class PageItemController: UIViewController, UIWebViewDelegate {
             
             preferences.setValue(jsonString, forKey: currentLevelKey )            
             bookmark.image = UIImage(named: "bookmarkActive")
+            print ("bookmarkActive")
         } else {
             preferences.removeObjectForKey(currentLevelKey)
             bookmark.image = UIImage(named: "bookmarkInactive")
+            print ("bookmarkInactive")
         }
         preferences.synchronize()
     }

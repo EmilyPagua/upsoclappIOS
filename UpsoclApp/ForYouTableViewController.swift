@@ -94,6 +94,11 @@ class ForYouTableViewController: UITableViewController {
             }
         }
         
+        if (keyCategory.isEmpty){
+            keyCategory = keyCategory + Category.PropertyKey.populary + ","
+        }
+        
+        print (keyCategory)
         keyCategory = keyCategory.substringToIndex(keyCategory.endIndex.predecessor())
     }
     
@@ -125,13 +130,13 @@ class ForYouTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCellWithIdentifier("CellForYou", forIndexPath: indexPath)
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellForYou", forIndexPath: indexPath) as! ForYouTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellForYou", forIndexPath: indexPath) as! NewsViewCell
 
         // Configure the cell...
         if (newsList.count != 0 ){
             let news = newsList[indexPath.row]
-            cell.titleForyou.text = news.titleNews
-            loadImage( news.imageURLNews, viewImagen: cell.imagenForyou)
+            cell.postTitleLabel.text = news.titleNews
+            loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
             
             if indexPath.row == self.newsList.count - 2{
                 page += 1
@@ -196,7 +201,7 @@ class ForYouTableViewController: UITableViewController {
             let detailViewController = segue.destinationViewController as! PageViewController
             
             // Get the cell that generated this segue.
-            if let selectedMealCell = sender as? ForYouTableViewCell {
+            if let selectedMealCell = sender as? NewsViewCell {
                 let indexPath = tableView.indexPathForCell(selectedMealCell)!
                 
                 var list =  [News]()
