@@ -19,7 +19,6 @@ class BookmarkTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //loadProgressBar
         indicator = progressBar.loadBar()
         //indicator.center = view.center
@@ -52,7 +51,6 @@ class BookmarkTableViewController: UITableViewController {
         cell.postTitleLabel.text = news.titleNews
         
         loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
-        
         return cell
     }
     
@@ -114,6 +112,7 @@ class BookmarkTableViewController: UITableViewController {
                     list.append(newsList[indexPath.row])
                     detailViewController.newsList = list
                 }
+                
             }
         }
     }
@@ -167,7 +166,5 @@ class BookmarkTableViewController: UITableViewController {
             print("Failed to save news...")
         }
     }
-    
-    
 }
  

@@ -12,6 +12,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
 
     var newsList = [News]()
     var pageViewController: UIPageViewController?
+    var isSearchResult: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +99,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemController
             pageItemController.itemIndex =  itemIndex
             pageItemController.news = newsList[itemIndex]
+            pageItemController.isSearchResult = isSearchResult
             
             return pageItemController
         }else { print ("itemIndex > newsList.count")}

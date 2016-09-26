@@ -11,13 +11,14 @@ import UIKit
 class InterestViewController: UIViewController, UIAlertViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    var category =  Category()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        let categoryCount = countCategory()
+        let categoryCount = category.countCategory()
         if categoryCount < 3 {
             menuButton.enabled =  false
         }else{
@@ -39,7 +40,7 @@ class InterestViewController: UIViewController, UIAlertViewDelegate {
     }
     @IBAction func aceptarButton(sender: UIButton) {
 
-        let categoryCount = countCategory()
+        let categoryCount = category.countCategory()
         if categoryCount < 3 {
             menuButton.enabled =  false
             
@@ -59,7 +60,8 @@ class InterestViewController: UIViewController, UIAlertViewDelegate {
         alertView.tag = 1
         alertView.show()
     }
-    func countCategory() -> Int {
+    
+    /*func countCategory() -> Int {
         
         var categoryCount = 0
         for elem in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
@@ -108,5 +110,5 @@ class InterestViewController: UIViewController, UIAlertViewDelegate {
             }
         }
         return categoryCount
-    }
+    }*/
 }

@@ -185,5 +185,8 @@ class NewsTableViewController: UITableViewController {
     
     
     @IBAction func unwindToNewsList(sender: UIStoryboardSegue) {
+        self.tabBarController?.tabBar.hidden =  false
+        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.navigationBarHidden = false
         }
 }

@@ -35,4 +35,58 @@ class Category  {
         static let populary = "mas-populares"
         static let colaboration = "colaboracion"
     }
+    
+    
+    func countCategory() -> Int {
+        
+        var categoryCount = 0
+        for elem in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
+            
+            let key = elem.0
+            
+            switch key {
+            case "culture":
+                categoryCount += 1
+            case "beauty":
+                categoryCount += 1
+            case "colaboration":
+                categoryCount += 1
+            case "community":
+                categoryCount += 1
+            case "creativity":
+                categoryCount += 1
+            case "diversity":
+                categoryCount += 1
+            case "family":
+                categoryCount += 1
+            case "food":
+                categoryCount += 1
+            case "green":
+                categoryCount += 1
+            case "health":
+                categoryCount += 1
+            case "inspiration":
+                categoryCount += 1
+            case "movies":
+                categoryCount += 1
+            case "populary":
+                categoryCount += 1
+            case "quiz":
+                categoryCount += 1
+            case "relations":
+                categoryCount += 1
+            case "stileLive":
+                categoryCount += 1
+            case "women":
+                categoryCount += 1
+            case "world":
+                categoryCount += 1
+            default:
+                0
+            }
+        }
+        return categoryCount
+    }
+
+    
 }

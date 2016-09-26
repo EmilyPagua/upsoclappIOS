@@ -30,8 +30,6 @@ class ServicesConnection {
             .stringByReplacingOccurrencesOfString("á", withString: "a")
             .stringByReplacingOccurrencesOfString(" ", withString: "%20")
         
-        print (urlPath)
-        
         self.newsList = wrapper!
         guard let url = NSURL(string: urlPath) else{
             print("hay un error url")

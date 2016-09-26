@@ -27,7 +27,9 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         searchBar.delegate = self
+        searchBar.hidden =  false
         
         //loadProgressBar
         indicator = progressBar.loadBar()
@@ -35,8 +37,6 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         view.addSubview(indicator)
         indicator.bringSubviewToFront(view)
     }
-    
-    
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         searchActive = true
@@ -67,7 +67,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
             searchActive =  true
             
         case 1:
-            print ("Es uno")
+            print ("No pertenece")
         default:
             paged = 1
             callWebServices(String(self.paged),searchText: filter)
@@ -111,6 +111,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
                 paged += 1
                 callWebServices( String (paged), searchText: filter)
             }
+            
         }
         return cell
     }
@@ -124,7 +125,13 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + page + ApiConstants.PropertyKey.filterWord +  searchText
         
         servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
+            
             self.newsList = moreWrapper!
+            
+            if self.newsList.count == 0 {
+                self.displayAlert("Error", message: "No se encotraron post relacionados a: " + searchText )
+            }
+            
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
                 self.indicator.stopAnimating()
@@ -163,7 +170,17 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
                     }
                     detailViewController.newsList = list
                 }
+                detailViewController.isSearchResult = true
             }
         }
     }
+    
+    func displayAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(alertController, animated: true, completion: nil)
+        return
+    }
+    
+
 }

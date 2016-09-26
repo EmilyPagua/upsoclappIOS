@@ -16,12 +16,10 @@ class PageItemController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var titleDetail: UILabel!
     @IBOutlet weak var authorDetail: UILabel!
     @IBOutlet weak var bookmark: UIBarButtonItem!
-    
 
     @IBOutlet weak var scrollDetail: UIScrollView!
-        
-    
     @IBOutlet weak var categoryDetail: UILabel!
+    
     var servicesConnection = ServicesConnection()
     let fonts = "<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>"
     let meta = "<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>"
@@ -30,9 +28,11 @@ class PageItemController: UIViewController, UIWebViewDelegate {
     var itemIndex: Int = 0
     var news =  News?()
     var contentDetail = ""
+    var isSearchResult = false
     
     //ComeBack
     @IBAction func comeBack(sender: UIBarButtonItem) {
+        
         self.tabBarController?.tabBar.hidden =  false
         self.navigationController?.popViewControllerAnimated(true)
         self.navigationController?.navigationBarHidden = false
