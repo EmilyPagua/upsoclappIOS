@@ -8,15 +8,22 @@
 
 import UIKit
 
-
-class PreferencesViewController: UIViewController {
+class PreferencesViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    //Var user
+    @IBOutlet weak var nameUserLabel: UILabel!
+    @IBOutlet weak var emailUserLabel: UILabel!
+    @IBOutlet weak var locationUSerLabel: UILabel!
+    
     
     //button of preferences notification
     @IBOutlet weak var daySelected: UIButton!
     @IBOutlet weak var weekSelected: UIButton!
     @IBOutlet weak var monthSelected: UIButton!
+    
+    @IBOutlet weak var cerrarSession: UIButton!
     
     //Imagen of button
     let checkImage = UIImage(named: "radioButtonActive")! as UIImage
@@ -25,6 +32,34 @@ class PreferencesViewController: UIViewController {
     //Get preferences or notifications
     let preferences = NSUserDefaults.standardUserDefaults()
     let namePreferences = "peferencsNotification"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        var prefe = preferences.objectForKey(namePreferences)
+        if prefe == nil{
+            prefe = "day"
+        }
+        savePreferences(prefe as! String)
+        
+        let fistName  = preferences.objectForKey(Customer.PropertyKey.firstName) as! String
+        let lastName  = preferences.objectForKey(Customer.PropertyKey.lastName) as! String
+        let email  = preferences.objectForKey(Customer.PropertyKey.email) as! String
+        let location  = preferences.objectForKey(Customer.PropertyKey.location) as! String
+        
+        nameUserLabel.text = "Usuario: " + fistName + " " + String(lastName)
+        emailUserLabel.text = "Email: " + email
+        locationUSerLabel.text = "Ubicación: " + location
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        //controller buttonMenu
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
     
     @IBAction func dayButton(sender: UIButton) {
         savePreferences("day")
@@ -38,22 +73,6 @@ class PreferencesViewController: UIViewController {
         savePreferences("month")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //controller buttonMenu
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        
-        var prefe = preferences.objectForKey(namePreferences)
-        if prefe == nil{
-            prefe = "day"
-        }
-        savePreferences(prefe as! String)
-    }
     
     func savePreferences(frecuency: String){
         
@@ -77,4 +96,22 @@ class PreferencesViewController: UIViewController {
         preferences.setValue(frecuency, forKey: namePreferences )
         preferences.synchronize()
     }
+    
+    
+    @IBAction func signOutButton(sender: AnyObject) {
+        
+        GIDSignIn.sharedInstance().signOut()
+        
+        let signInPage = self.storyboard?.instantiateViewControllerWithIdentifier("LoginUserController") as! LoginUserController
+        
+        let signInPageNav =  UINavigationController(rootViewController: signInPage)
+        
+        let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        appDelegate.window?.rootViewController =  signInPageNav
+        
+        print ("signOutButton")
+    }
+
+    
 }

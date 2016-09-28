@@ -54,7 +54,6 @@ class InterestViewController: UIViewController, UIAlertViewDelegate {
         }
     }
     
-    
     func createViewMessage(message: String){
         let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
         alertView.tag = 1

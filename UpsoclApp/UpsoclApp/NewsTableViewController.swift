@@ -18,6 +18,7 @@ class NewsTableViewController: UITableViewController {
     var progressBar = ProgressBarLoad()
     var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,6 +101,12 @@ class NewsTableViewController: UITableViewController {
         return true
     }
     
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBarHidden = false
+    }
     // Override to support editing the table view.
    /* override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {

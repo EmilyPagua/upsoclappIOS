@@ -3,3 +3,6 @@
 //
 #import "SWRevealViewController.h"
 
+// [START bridging_header]
+#import <Google/SignIn.h>
+// [END bridging_header]
