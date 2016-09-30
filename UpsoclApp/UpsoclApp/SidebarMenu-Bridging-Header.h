@@ -6,3 +6,8 @@
 // [START bridging_header]
 #import <Google/SignIn.h>
 // [END bridging_header]
+
+// [START bridging_header facebook]
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+// [END bridging_header facebook]

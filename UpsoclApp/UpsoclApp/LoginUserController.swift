@@ -7,45 +7,120 @@
 //
 
 import UIKit
+import TwitterKit
 
-class LoginUserController: UIViewController, GIDSignInUIDelegate{
-    // [START viewcontroller_vars]
-    @IBOutlet weak var signInButton: GIDSignInButton!
-    @IBOutlet weak var signOutButton: UIButton!
-    @IBOutlet weak var disconnectButton: UIButton!
-    @IBOutlet weak var statusText: UILabel!
-    // [END viewcontroller_vars]
+class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
     
-    //@IBOutlet weak var relationsButton: CheckBoxInterest!
-    //@IBOutlet weak var popularyButton: CheckBoxInterest!
+    // [START viewcontroller Google]
+    @IBOutlet weak var signInButtonGoogle: GIDSignInButton!
+    // [END viewcontroller Google]
     
     var category = Category()
+    var beforeCategory = 0
+    let servicesConnection  = ServicesConnection()
+    
+    // [START viewcontroller Facebook]
+    let loginButtonFacebook: FBSDKLoginButton = {
+        let button = FBSDKLoginButton()
+        button.readPermissions = ["email"]
+        return button
+    }()
+    // [END viewcontroller Facebook]
+    
+    let loginButtonTwitter = TWTRLogInButton { (session, error) in
+        
+        let servicesConnection  = ServicesConnection()
+        
+        if let unwrappedSession = session {
+            let twitter = "twitter"
+            
+            let twitterClient = TWTRAPIClient(userID: unwrappedSession.userID)
+            twitterClient.loadUserWithID(unwrappedSession.userID) {
+                (user:TWTRUser?, error:NSError?) in
+            }
+            
+            let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let signOutPage = myStroryBoard.instantiateViewControllerWithIdentifier("SWRevealViewController") as! SWRevealViewController
+            let signOutPageNav = UINavigationController(rootViewController: signOutPage)
+            signOutPageNav.setNavigationBarHidden(signOutPageNav.navigationBarHidden == false, animated: true)
+            let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.window?.rootViewController =  signOutPageNav
+            
+            let user = Customer(firstName: unwrappedSession.userName,
+                lastName: "--",
+                email:  "--",
+                location: "--",
+                birthday: "00-00-0000",
+                imagenURL:  "--",
+                token: "qwedsazxc2",
+                userId: "0",
+                socialNetwork: "facebook",
+                socialNetworkTokenId: "tokentFacebook",
+                registrationId: "tokentWordpress")
+            
+            servicesConnection.saveCustomer(user!)
+        
+        } else {
+            NSLog("Login error: %@", error!.localizedDescription);
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Start GoogleLogin
         GIDSignIn.sharedInstance().uiDelegate = self
+        
         //End GoogleLogin
         
-        /*//Start GoogleLogin
-        var configureError: NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
+        //Start FacebookLogin
+        view.addSubview(loginButtonFacebook)
+        loginButtonFacebook.frame =  CGRectMake(20, signInButtonGoogle.frame.maxY + 20, UIScreen.mainScreen().bounds.width - 40, 40)
+        loginButtonFacebook.delegate = self
         
-        if configureError != nil {
-            print(configureError)
+        if let tokenFacebook = FBSDKAccessToken.currentAccessToken(){
+            print (tokenFacebook)
+            fetchProfile()
         }
+        //End FacebookLogin
         
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().delegate = self
+        // [START viewcontroller Twitter]
+        // If using the log in methods on the Twitter instance
+        loginButtonTwitter.frame =  CGRectMake(20, loginButtonFacebook.frame.maxY + 20, UIScreen.mainScreen().bounds.width - 40, 40)
         
-        let button = GIDSignInButton(frame: CGRectMake(150, relationsButton.frame.maxY + 20, 100, 100))
-        view.addSubview(button)
-        //FINISH GoogleLogin*/
+        self.view.addSubview(loginButtonTwitter)
+        // [END viewcontroller Twitter]
+        
+        
+        signInButtonGoogle.hidden = true
+        loginButtonFacebook.hidden =  true
+        loginButtonTwitter.hidden = true
     }
     
+    @IBAction func validCountCategory(sender: UIButton) {
+        countCategory ()
+    }
+    
+    func countCategory (){
+        let categoryCount = category.countCategory()
+        
+        if categoryCount <= 1 || beforeCategory <= 1  {
+            loginButtonFacebook.hidden =  true
+            loginButtonTwitter.hidden = true
+            signInButtonGoogle.hidden = true
+
+        } else {
+            loginButtonFacebook.hidden = false
+            loginButtonTwitter.hidden = false
+            signInButtonGoogle.hidden = false
+        }
+        
+        beforeCategory = categoryCount
+    }
+    
+    
     // [------------------------START GOOGLE LOGIN-------------------]
-    @IBAction func loginButton(sender: UIButton) {
+    @IBAction func loginButtonGoogle(sender: UIButton) {
         let categoryCount = category.countCategory()
         if categoryCount < 3 {
             createViewMessage("Debe seleccionar al menos 3 categorias")
@@ -54,37 +129,13 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate{
         }
     }
     
-    // [START signout_tapped]
-    @IBAction func didTapSignOut(sender: AnyObject) {
-        GIDSignIn.sharedInstance().signOut()
-        // [START_EXCLUDE silent]
-        statusText.text = "Signed out."
-        toggleAuthUI()
-        // [END_EXCLUDE]
-    }
-    // [END signout_tapped]
-    
-    // [START disconnect_tapped]
-    @IBAction func didTapDisconnect(sender: AnyObject) {
-        GIDSignIn.sharedInstance().disconnect()
-        // [START_EXCLUDE silent]
-        statusText.text = "Disconnecting."
-        // [END_EXCLUDE]
-    }
-    // [END disconnect_tapped]
-    
     // [START toggle_auth]
     func toggleAuthUI() {
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()){
             // Signed in
-            signInButton.hidden = true
-            signOutButton.hidden = false
-            disconnectButton.hidden = false
+            signInButtonGoogle.hidden = true
         } else {
-            signInButton.hidden = false
-            signOutButton.hidden = true
-            disconnectButton.hidden = true
-            statusText.text = "Google Sign in\niOS Demo"
+            signInButtonGoogle.hidden = false
         }
     }
     // [END toggle_auth]
@@ -105,7 +156,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate{
             if notification.userInfo != nil {
                 let userInfo:Dictionary<String,String!> =
                     notification.userInfo as! Dictionary<String,String!>
-                self.statusText.text = userInfo["statusText"]
+                print ("Google status: " + String(userInfo["statusText"]))
             }
         }
     }
@@ -121,7 +172,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate{
         
         self.presentViewController(viewController, animated: true, completion: nil)
         
-        print ("Login presented")
+        print ("Google Login presented")
             
     }
     
@@ -130,7 +181,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate{
                 dismissViewController viewController: UIViewController!) {
         self.dismissViewControllerAnimated(true, completion: nil)
         
-        print ("Login dismissed")
+        print ("Google Login dismissed")
     }
     
     func createViewMessage(message: String){
@@ -138,36 +189,73 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate{
         alertView.tag = 1
         alertView.show()
     }
-    
     // [------------------------FINISH GOOGLE LOGIN-------------------]
 
-    /* [------------------------START GOOGLE LOGIN-------------------]
-     
-     // [START signin_handler]
-     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-     if (error == nil) {
-     // Perform any operations on signed in user here.
-     let userId = user.userID                  // For client-side use only!
-     let idToken = user.authentication.idToken // Safe to send to the server
-     let fullName = user.profile.name
-     let givenName = user.profile.givenName
-     let familyName = user.profile.familyName
-     let email = user.profile.email
-     
-     print ("Data user: " + userId + " " + idToken + " " + fullName + " " + givenName + " " + familyName + " " + email)
-     
-     GIDSignIn.sharedInstance().signOut()
-     
-     
-     } else {
-     print("Error")
-     print("\(error.localizedDescription)")
-     }
-     }
-     // [END signin_handler]
-     
-     
-     
-     // [------------------------FINISH GOOGLE LOGIN-------------------]*/
+    // [------------------------START FACEBOOK LOGIN-------------------]
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        print ("FBSDKLoginButton Completado Login")
+        fetchProfile()
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        print ("lFBSDKLoginButton - LoginButtonDidLogOut")
+
+    }
+    
+    func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
+        return true
+    }
+    
+    func fetchProfile() {
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).startWithCompletionHandler({ (connection, user, requestError) -> Void in
+            
+            if requestError != nil {
+                print(requestError)
+                return
+            }
+            
+            let email = user["email"] as? String
+            let firstName = user["first_name"] as? String
+            let lastName = user["last_name"] as? String
+            
+            var pictureUrl = "firstName:  " + String(firstName)
+            if let picture = user["picture"] as? NSDictionary, data = picture["data"] as? NSDictionary, url = data["url"] as? String {
+                pictureUrl = url
+            }
+            
+            let url = NSURL(string: pictureUrl)
+            NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
+                if error != nil {
+                    print(error)
+                    return
+                }
+
+                
+            }).resume()
+            
+            let user = Customer(firstName: firstName!,
+                                lastName: lastName!,
+                                email: email!,
+                                location: "--",
+                                birthday: "00-00-0000",
+                                imagenURL: pictureUrl,
+                                token: "qwedsazxc2",
+                                userId: "0",
+                                socialNetwork: "facebook",
+                                socialNetworkTokenId: "tokentFacebook",
+                                registrationId: "tokentWordpress")
+            
+            self.servicesConnection.saveCustomer(user!)
+           
+            let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let signOutPage = myStroryBoard.instantiateViewControllerWithIdentifier("SWRevealViewController") as! SWRevealViewController
+            let signOutPageNav = UINavigationController(rootViewController: signOutPage)
+            signOutPageNav.setNavigationBarHidden(signOutPageNav.navigationBarHidden == false, animated: true)
+            let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.window?.rootViewController =  signOutPageNav
+        })
+    }
+     // [------------------------FINISH FACEBOOK LOGIN-------------------]
     
 }

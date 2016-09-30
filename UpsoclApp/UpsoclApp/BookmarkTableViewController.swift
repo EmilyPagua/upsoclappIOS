@@ -128,8 +128,10 @@ class BookmarkTableViewController: UITableViewController {
             if !key.isEmpty && key.rangeOfCharacterFromSet(numberCharacters) == nil{
                 
                 let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + "/" + key
+                
+                print (urlPath)
+                
                 servicesConnection.loadNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
-                    
                     self.newsList = moreWrapper!
                     dispatch_async(dispatch_get_main_queue(), {
                         self.tableView.reloadData()

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		74E94830DE9C29C65460F81D /* Pods_UpsoclAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533046CB4F5C896602FBC22 /* Pods_UpsoclAppTests.framework */; };
-		8C12D6AB1D91D11E00A3FC6D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6AA1D91D11D00A3FC6D /* PreferencesViewController.swift */; };
-		8C12D6AC1D92BD0F00A3FC6D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6AA1D91D11D00A3FC6D /* PreferencesViewController.swift */; };
 		8C12D6B01D92CD5F00A3FC6D /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6AF1D92CD5F00A3FC6D /* AboutUsViewController.swift */; };
 		8C12D6B21D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6B11D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift */; };
 		8C12D6B41D95628700A3FC6D /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */; };
@@ -37,11 +35,12 @@
 		8C5D23281D9AC39100E1CC14 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */; };
 		8C5D232A1D9AF93A00E1CC14 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D23291D9AF93A00E1CC14 /* Customer.swift */; };
 		8C5D232C1D9B0BAE00E1CC14 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5D232B1D9B0BAE00E1CC14 /* CoreLocation.framework */; };
-		8C5D23301D9BF84D00E1CC14 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5D232D1D9BF84D00E1CC14 /* FBSDKCoreKit.framework */; };
-		8C5D23311D9BF84D00E1CC14 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5D232E1D9BF84D00E1CC14 /* FBSDKLoginKit.framework */; };
-		8C5D23321D9BF84D00E1CC14 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5D232F1D9BF84D00E1CC14 /* FBSDKMessengerShareKit.framework */; };
 		8C77823F1D7A12ED001A0596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77823E1D7A12ED001A0596 /* News.swift */; };
 		8CE0972D1D79DEF500ABD404 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */; };
+		8CE94EA21D9C34FF0018CFFB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE94E9F1D9C34FF0018CFFB /* FBSDKCoreKit.framework */; };
+		8CE94EA31D9C34FF0018CFFB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE94EA01D9C34FF0018CFFB /* FBSDKLoginKit.framework */; };
+		8CE94EA41D9C34FF0018CFFB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE94EA11D9C34FF0018CFFB /* FBSDKShareKit.framework */; };
+		8CE94EA61D9C4F1B0018CFFB /* PreferencsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE94EA51D9C4F1B0018CFFB /* PreferencsViewController.swift */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
 		F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47029FC1A7F27DB00E30A3C /* Images.xcassets */; };
 		F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47029FE1A7F27DB00E30A3C /* LaunchScreen.xib */; };
@@ -67,7 +66,6 @@
 		241162DDFA6D420B4E49CB64 /* Pods-UpsoclAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpsoclAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpsoclAppTests/Pods-UpsoclAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		44A5C5987D45317FCE0218D6 /* Pods-UpsoclAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpsoclAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UpsoclAppTests/Pods-UpsoclAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5984D65CED9C27D129DB3767 /* Pods_UpsoclApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpsoclApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C12D6AA1D91D11D00A3FC6D /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		8C12D6AF1D92CD5F00A3FC6D /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8C12D6B11D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliticasPrivacityViewController.swift; sourceTree = "<group>"; };
 		8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -95,13 +93,14 @@
 		8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		8C5D23291D9AF93A00E1CC14 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		8C5D232B1D9B0BAE00E1CC14 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		8C5D232D1D9BF84D00E1CC14 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-4.16.0 (1)/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
-		8C5D232E1D9BF84D00E1CC14 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-4.16.0 (1)/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		8C5D232F1D9BF84D00E1CC14 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-4.16.0 (1)/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
 		8C77823E1D7A12ED001A0596 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		8CE0972A1D79DEF500ABD404 /* SidebarMenu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SidebarMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CE0972B1D79DEF500ABD404 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		8CE94E9F1D9C34FF0018CFFB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		8CE94EA01D9C34FF0018CFFB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		8CE94EA11D9C34FF0018CFFB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		8CE94EA51D9C4F1B0018CFFB /* PreferencsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencsViewController.swift; sourceTree = "<group>"; };
 		CBFD51C25E9EEA3DB418A43A /* Pods-UpsoclApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpsoclApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UpsoclApp/Pods-UpsoclApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DEE5C6A17599BC13298B7371 /* Pods-UpsoclApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpsoclApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpsoclApp/Pods-UpsoclApp.release.xcconfig"; sourceTree = "<group>"; };
 		F47029F01A7F27DB00E30A3C /* UpsoclApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpsoclApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,10 +124,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C5D232C1D9B0BAE00E1CC14 /* CoreLocation.framework in Frameworks */,
-				8C5D23301D9BF84D00E1CC14 /* FBSDKCoreKit.framework in Frameworks */,
-				8C5D23311D9BF84D00E1CC14 /* FBSDKLoginKit.framework in Frameworks */,
+				8CE94EA21D9C34FF0018CFFB /* FBSDKCoreKit.framework in Frameworks */,
+				8CE94EA41D9C34FF0018CFFB /* FBSDKShareKit.framework in Frameworks */,
+				8CE94EA31D9C34FF0018CFFB /* FBSDKLoginKit.framework in Frameworks */,
 				F4702A161A7F342F00E30A3C /* MapKit.framework in Frameworks */,
-				8C5D23321D9BF84D00E1CC14 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				FCC35D7F31BF7700CDE247DB /* Pods_UpsoclApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,7 +167,6 @@
 			children = (
 				8C5B064A1D80A34E00E2BB52 /* ApiConstants.swift */,
 				8C5B064D1D80B19A00E2BB52 /* Category.swift */,
-				8C5D23291D9AF93A00E1CC14 /* Customer.swift */,
 			);
 			name = key;
 			sourceTree = "<group>";
@@ -190,8 +188,8 @@
 				8C5B06691D81B9A600E2BB52 /* QuizTableViewController.swift */,
 				8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */,
 				F491E7541A7F7E010026528E /* InterestViewController.swift */,
-				8C12D6AA1D91D11D00A3FC6D /* PreferencesViewController.swift */,
 				8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */,
+				8CE94EA51D9C4F1B0018CFFB /* PreferencsViewController.swift */,
 			);
 			name = viewController;
 			sourceTree = "<group>";
@@ -200,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				8C77823E1D7A12ED001A0596 /* News.swift */,
+				8C5D23291D9AF93A00E1CC14 /* Customer.swift */,
 			);
 			name = domain;
 			sourceTree = "<group>";
@@ -238,9 +237,9 @@
 		F47029F21A7F27DB00E30A3C /* UpsoclApp */ = {
 			isa = PBXGroup;
 			children = (
-				8C5D232D1D9BF84D00E1CC14 /* FBSDKCoreKit.framework */,
-				8C5D232E1D9BF84D00E1CC14 /* FBSDKLoginKit.framework */,
-				8C5D232F1D9BF84D00E1CC14 /* FBSDKMessengerShareKit.framework */,
+				8CE94E9F1D9C34FF0018CFFB /* FBSDKCoreKit.framework */,
+				8CE94EA01D9C34FF0018CFFB /* FBSDKLoginKit.framework */,
+				8CE94EA11D9C34FF0018CFFB /* FBSDKShareKit.framework */,
 				8C5D23231D9AAA6E00E1CC14 /* GoogleService-Info.plist */,
 				8C77823D1D7A12D4001A0596 /* domain */,
 				8C12D6B51D95C99800A3FC6D /* connectionServices */,
@@ -452,7 +451,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "${PODS_ROOT}/Fabric/run dc15702c4f4e7da7bd7a7e9a197a75b3b8b196a0 5e5535d59140c0181bf616d5a93688b9e9c3656ed596592fa92d9860e476fcf7";
 		};
 		AD53DEE5DCB9FAE3A5BE0980 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -533,8 +532,8 @@
 				8C77823F1D7A12ED001A0596 /* News.swift in Sources */,
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
 				8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */,
-				8C12D6AB1D91D11E00A3FC6D /* PreferencesViewController.swift in Sources */,
 				8C5B06561D8192D500E2BB52 /* CreativityTableViewController.swift in Sources */,
+				8CE94EA61D9C4F1B0018CFFB /* PreferencsViewController.swift in Sources */,
 				8C5B06621D81B6BF00E2BB52 /* FoodTableViewController.swift in Sources */,
 				8C12D6B41D95628700A3FC6D /* SearchTableViewController.swift in Sources */,
 				8C5B065A1D81AA3700E2BB52 /* WomenTableViewController.swift in Sources */,
@@ -559,7 +558,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4702A0C1A7F27DC00E30A3C /* UpsoclAppTests.swift in Sources */,
-				8C12D6AC1D92BD0F00A3FC6D /* PreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,11 +673,47 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CBFD51C25E9EEA3DB418A43A /* Pods-UpsoclApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"~/Documents/FacebookSDK\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/Google/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAppUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAuthUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/TwitterCore/iOS\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAppUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAuthUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSignIn\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/TwitterCore\"",
+					"\"${PODS_ROOT}/Headers/Public/TwitterKit\"",
+				);
 				INFOPLIST_FILE = UpsoclApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.upsocl.UpsoclApp;
 				PRODUCT_NAME = UpsoclApp;
 				SWIFT_OBJC_BRIDGING_HEADER = "UpsoclApp/SidebarMenu-Bridging-Header.h";
@@ -691,11 +725,47 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DEE5C6A17599BC13298B7371 /* Pods-UpsoclApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"~/Documents/FacebookSDK\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/Google/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAppUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAuthUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/TwitterCore/iOS\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAppUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAuthUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSignIn\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/TwitterCore\"",
+					"\"${PODS_ROOT}/Headers/Public/TwitterKit\"",
+				);
 				INFOPLIST_FILE = UpsoclApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.upsocl.UpsoclApp;
 				PRODUCT_NAME = UpsoclApp;
 				SWIFT_OBJC_BRIDGING_HEADER = "UpsoclApp/SidebarMenu-Bridging-Header.h";

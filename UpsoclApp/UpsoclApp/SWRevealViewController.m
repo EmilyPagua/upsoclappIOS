@@ -24,14 +24,21 @@
  
 */
 
-// [START bridging_header]
+// [START bridging_header google]
 #import <Google/SignIn.h>
-// [END bridging_header]
+// [END bridging_header google]
+
+
+// [START bridging_header facebook]
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+// [END bridging_header facebook]
+
+
 
 #import <QuartzCore/QuartzCore.h>
 
 #import "SWRevealViewController.h"
-
 
 #pragma mark - StatusBar Helper Function
 

@@ -8,14 +8,70 @@
 
 import Foundation
 
-class ServicesConnection {
+class ServicesConnection  {
     
     var newsList = [News]()
     
     let urlPath = "http://upsocl.com/wp-json/wp/v2/posts"
     let filterPaged =  "?filter[paged]="
-    //http://upsocl.com/wp-json/wp/v2/posts/442250
 
+    //save Customer
+    func saveCustomer(customer: Customer){
+        customer.location = getLocationPhone()
+        
+        print (customer.firstName)
+        print (customer.lastName)
+        print (customer.email)
+        print (customer.birthday)
+        print (customer.location)
+        print (customer.socialNetwork)
+        print (customer.socialNetworkTokenId)
+        print (customer.registrationId)
+        print (customer.imagenURL)
+        
+        //let urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name="+customer.firstName+"&last_name="+customer.lastName+"&email="+customer.email+"&birthday="+customer.birthday+"&location="+customer.location+"&social_network_login="+customer.socialNetwork+"&registration_id="+customer.registrationId
+        
+        let urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name=pruebaIOS2&last_name=pruebaIOS2&email=pruebaIOS2@gmail.com&birthday=00-00-0000&location=Chile&social_network_login=facebook&registration_id=qwedsazxc2"
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: urlPath)!)
+        let session = NSURLSession.sharedSession()
+        
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            guard error == nil else {
+                print("error calling POST custumer : " + urlPath)
+                print (error?.localizedDescription)
+                return
+            }
+            
+            guard data != nil else {
+                print("Error: did not receive data POST Customer")
+                return
+            }
+            
+            let nsdata = NSData(data: data!)
+            let json : AnyObject!
+            do {
+                json = try NSJSONSerialization.JSONObjectWithData(nsdata, options: []) as? [String:AnyObject]
+                let id = json["success"] as! Int
+                if id == 0 {
+                    customer.userId = "0"}
+                else{
+                    customer.userId = String(json["id"]) }
+                
+            }catch let error as NSError{
+                print (error.localizedDescription)
+                json=nil
+                return
+            }
+            self.saveUser(customer)
+        })
+        task.resume()
+    }
+    
     //Load 10 News
     func loadAllNews(wrapper: [News]?,  urlPath: String,  completionHandler: ([News]?, NSError?) -> Void) {
 
@@ -35,6 +91,7 @@ class ServicesConnection {
             print("hay un error url")
             return
         }
+        
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
             
@@ -94,9 +151,9 @@ class ServicesConnection {
                 json=nil
                 return
             }
-            
             self.encodeNews(json)
             dispatch_async(dispatch_get_main_queue(), {
+                
                 completionHandler(self.newsList, nil)
             })
         })
@@ -162,8 +219,7 @@ class ServicesConnection {
         }else{
             
             let imgURL = NSURL(string: urlImage!)
-            
-            if (imgURL != nil){
+            if imgURL != nil {
                 let task = NSURLSession.sharedSession().dataTaskWithURL(imgURL!) { (responseData, responseUrl, error) -> Void in
                     
                     // if responseData is not null...
@@ -178,4 +234,46 @@ class ServicesConnection {
             }
         }
     }
+    
+    
+    func saveUser(customer: Customer){
+        
+        print ("Customer ID " + customer.userId)
+        let preferences = NSUserDefaults.standardUserDefaults()
+        preferences.setValue(customer.email , forKey: Customer.PropertyKey.email)
+        preferences.setValue(customer.firstName, forKey: Customer.PropertyKey.firstName )
+        preferences.setValue(customer.lastName, forKey: Customer.PropertyKey.lastName)
+        preferences.setValue(customer.imagenURL, forKey: Customer.PropertyKey.imagenURL)
+        preferences.setValue(customer.userId, forKey: Customer.PropertyKey.userId)
+        preferences.setValue(customer.socialNetwork, forKey: Customer.PropertyKey.socialNetwork)
+        preferences.setValue(customer.socialNetworkTokenId, forKey: Customer.PropertyKey.socialNetworkTokenId)
+        preferences.setValue(customer.birthday, forKey: Customer.PropertyKey.birthday )
+        preferences.setValue(customer.token, forKey: Customer.PropertyKey.token)
+        preferences.setValue(customer.location, forKey: Customer.PropertyKey.location)
+        
+        preferences.synchronize()
+    }
+    
+    func getLocationPhone() -> String {
+        
+        var location =  ""
+        let allLocaleIdentifiers : Array<String> = NSLocale.availableLocaleIdentifiers() as Array<String>
+        let currentLocale = NSLocale.currentLocale()
+        let countryCode = currentLocale.objectForKey(NSLocaleCountryCode) as? String
+        let englishLocale : NSLocale = NSLocale.init(localeIdentifier : countryCode! )
+        
+        for anyLocaleID in allLocaleIdentifiers {
+            
+            let theEnglishName : String? = englishLocale.displayNameForKey(NSLocaleIdentifier, value: anyLocaleID)
+            if anyLocaleID.rangeOfString(countryCode!) != nil {
+                location = theEnglishName!
+            }
+        }
+        if location.isEmpty{
+            return "No identificado"
+        }else{
+            return location
+        }
+    }
+
 }

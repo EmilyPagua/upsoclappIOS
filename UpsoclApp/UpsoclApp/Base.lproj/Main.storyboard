@@ -19,14 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Seleccione al menos 3 categorías" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQ9-du-Ugz">
-                                <rect key="frame" x="20" y="55" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione al menos 3 categorías" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQ9-du-Ugz">
+                                <rect key="frame" x="20" y="77" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="food" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Dt-3d-133" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="105" width="88" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Dt-3d-133" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="145" width="88" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Comida">
@@ -37,9 +37,12 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="IqH-b9-a9l"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="stileLive" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-eP-ejl" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="165" width="132" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-eP-ejl" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="205" width="132" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Estilo de vida">
@@ -50,9 +53,12 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="8sA-wo-jSX"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="diversity" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRx-QK-hSO" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="135" width="110" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRx-QK-hSO" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="175" width="110" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Diversidad">
@@ -63,9 +69,12 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="IXt-qZ-bVo"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="beauty" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIa-vA-IaT" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="195" width="82" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIa-vA-IaT" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="235" width="82" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Belleza">
@@ -76,9 +85,12 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="dH3-vm-3S0"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="756" misplaced="YES" restorationIdentifier="creativity" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-vK-JKE" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="434" y="255" width="116" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-vK-JKE" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="434" y="295" width="116" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Creatividad">
@@ -90,8 +102,8 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" misplaced="YES" restorationIdentifier="movies" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEr-TS-JQN" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="434" y="315" width="87" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEr-TS-JQN" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="434" y="355" width="87" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Pelicula">
@@ -103,8 +115,8 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" restorationIdentifier="populary" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-8O-4Ae" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="434" y="345" width="144" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-8O-4Ae" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="434" y="385" width="144" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Más populares">
@@ -116,8 +128,8 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" restorationIdentifier="colaboration" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-EX-LSU" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="225" width="132" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-EX-LSU" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="265" width="132" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Colaboración">
@@ -128,9 +140,12 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="EH1-bY-hHB"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" restorationIdentifier="women" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-Ai-hKi" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="255" width="70" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-Ai-hKi" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="295" width="70" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Mujer">
@@ -141,9 +156,12 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="i13-R8-WOC"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" misplaced="YES" restorationIdentifier="culture" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-QP-jex" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="434" y="105" width="83" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-QP-jex" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="434" y="145" width="83" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Cultura">
@@ -155,8 +173,8 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" misplaced="YES" restorationIdentifier="family" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-fw-tcb" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="434" y="164" width="82" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-fw-tcb" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="434" y="204" width="82" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Familia">
@@ -168,8 +186,8 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="world" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BF5-nK-i3k" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="285" width="81" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BF5-nK-i3k" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="325" width="81" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Mundo">
@@ -180,9 +198,12 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="TQy-SA-odS"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="green" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgO-Gj-TRM" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="434" y="194" width="70" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgO-Gj-TRM" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="434" y="234" width="70" height="25"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Verde">
@@ -194,8 +215,8 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" misplaced="YES" restorationIdentifier="quiz" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8I-xj-fTZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="434" y="225" width="61" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8I-xj-fTZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="434" y="265" width="61" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Quiz">
@@ -206,8 +227,8 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" misplaced="YES" restorationIdentifier="community" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izv-ZR-vJm" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="434" y="285" width="118" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izv-ZR-vJm" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="434" y="325" width="118" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Comunidad">
@@ -219,21 +240,8 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="inspiration" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="val-ew-1pW" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="315" width="113" height="24"/>
-                                <state key="normal" image="checkOutLine">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Inspiración">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="relations" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQR-WU-kUt" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="345" width="113" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQR-WU-kUt" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="385" width="113" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Relaciones">
@@ -244,9 +252,12 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="EUW-yT-d7F"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" misplaced="YES" restorationIdentifier="health" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHo-ul-Flj" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="434" y="134" width="71" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHo-ul-Flj" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="434" y="174" width="71" height="24"/>
                                 <state key="normal" image="checkOutLine">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Salud">
@@ -258,97 +269,90 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbi-C4-KhF">
-                                <rect key="frame" x="273" y="470" width="54" height="30"/>
-                                <state key="normal" title="Aceptar"/>
-                                <connections>
-                                    <action selector="loginButton:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="EeX-US-LcK"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IF-Nn-UqN">
-                                <rect key="frame" x="178" y="571" width="245" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Heh-2I-Mp8" customClass="GIDSignInButton">
-                                <rect key="frame" x="20" y="502" width="560" height="29"/>
+                                <rect key="frame" x="20" y="446" width="560" height="29"/>
                                 <color key="backgroundColor" red="0.3253022183" green="0.58589672339999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="WM1-Gw-17S"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="val-ew-1pW" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="355" width="113" height="24"/>
+                                <state key="normal" image="checkOutLine">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Inspiración">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="rfS-zL-T9T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GyO-8O-4Ae" firstAttribute="top" secondItem="sEr-TS-JQN" secondAttribute="bottom" constant="6" id="03b-k0-B68"/>
-                            <constraint firstItem="Heh-2I-Mp8" firstAttribute="leading" secondItem="eso-sa-aij" secondAttribute="leadingMargin" id="0Xa-d3-fTZ"/>
-                            <constraint firstItem="oQ9-du-Ugz" firstAttribute="centerX" secondItem="eso-sa-aij" secondAttribute="centerX" id="0jc-pl-Q0t"/>
-                            <constraint firstItem="oQ9-du-Ugz" firstAttribute="leading" secondItem="eso-sa-aij" secondAttribute="leadingMargin" id="115-Xf-03V"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="leading" secondItem="YlC-fw-tcb" secondAttribute="leading" id="79k-2L-gkx"/>
-                            <constraint firstItem="xgO-Gj-TRM" firstAttribute="top" secondItem="YlC-fw-tcb" secondAttribute="bottom" constant="6" id="8cf-iB-Wev"/>
-                            <constraint firstItem="val-ew-1pW" firstAttribute="top" secondItem="BF5-nK-i3k" secondAttribute="bottom" constant="6" id="9Ki-xe-oUX"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="leading" secondItem="izv-ZR-vJm" secondAttribute="leading" id="A5h-3K-e4q"/>
-                            <constraint firstItem="BF5-nK-i3k" firstAttribute="top" secondItem="J7X-Ai-hKi" secondAttribute="bottom" constant="6" id="Av1-hr-9IP"/>
-                            <constraint firstItem="oQ9-du-Ugz" firstAttribute="trailing" secondItem="eso-sa-aij" secondAttribute="trailingMargin" id="Bmo-wS-nW4"/>
-                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="LIa-vA-IaT" secondAttribute="leading" id="ChK-yx-59Z"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="leading" secondItem="0b7-vK-JKE" secondAttribute="leading" id="Dbd-6o-EN0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2IF-Nn-UqN" secondAttribute="trailing" constant="157" id="Dgr-t4-htI"/>
-                            <constraint firstItem="sEr-TS-JQN" firstAttribute="baseline" secondItem="val-ew-1pW" secondAttribute="baseline" id="Eo6-y4-7rq"/>
-                            <constraint firstItem="2VS-EX-LSU" firstAttribute="baseline" secondItem="I8I-xj-fTZ" secondAttribute="baseline" id="F3W-LC-Y9o"/>
-                            <constraint firstItem="rHo-ul-Flj" firstAttribute="top" secondItem="ghY-QP-jex" secondAttribute="bottom" constant="5" id="FQd-BS-tNd"/>
-                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="2VS-EX-LSU" secondAttribute="leading" id="GdP-QZ-213"/>
-                            <constraint firstItem="pQR-WU-kUt" firstAttribute="baseline" secondItem="GyO-8O-4Ae" secondAttribute="baseline" id="HNe-kR-AZx"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="baseline" secondItem="3Dt-3d-133" secondAttribute="baseline" id="Hx6-5H-xPH"/>
-                            <constraint firstItem="2IF-Nn-UqN" firstAttribute="leading" secondItem="eso-sa-aij" secondAttribute="leadingMargin" constant="158" id="L3Q-Jj-nbp"/>
-                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="pQR-WU-kUt" secondAttribute="leading" id="Lei-5h-694"/>
-                            <constraint firstItem="Heh-2I-Mp8" firstAttribute="centerX" secondItem="eso-sa-aij" secondAttribute="centerX" id="NtT-ra-qkH"/>
-                            <constraint firstItem="YlC-fw-tcb" firstAttribute="top" secondItem="rHo-ul-Flj" secondAttribute="bottom" constant="6" id="R6e-8E-NFw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Heh-2I-Mp8" secondAttribute="trailing" constant="160" id="RHW-e2-Jnv"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="leading" secondItem="xgO-Gj-TRM" secondAttribute="leading" id="Rio-iX-LDB"/>
-                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="qKC-eP-ejl" secondAttribute="leading" id="RxW-um-emU"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="leading" secondItem="sEr-TS-JQN" secondAttribute="leading" id="VIv-Nc-jtD"/>
-                            <constraint firstItem="Fbi-C4-KhF" firstAttribute="top" secondItem="oQ9-du-Ugz" secondAttribute="bottom" constant="394" id="WYg-Xr-HW2"/>
-                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="val-ew-1pW" secondAttribute="leading" id="Xeh-pf-535"/>
-                            <constraint firstItem="Heh-2I-Mp8" firstAttribute="leading" secondItem="eso-sa-aij" secondAttribute="leadingMargin" constant="160" id="Zj3-aF-3c8"/>
-                            <constraint firstItem="LIa-vA-IaT" firstAttribute="top" secondItem="qKC-eP-ejl" secondAttribute="bottom" constant="6" id="d38-SG-XCF"/>
-                            <constraint firstItem="2IF-Nn-UqN" firstAttribute="top" secondItem="Heh-2I-Mp8" secondAttribute="bottom" constant="40" id="dX7-rz-eoM"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="leading" secondItem="I8I-xj-fTZ" secondAttribute="leading" id="egM-BJ-NF7"/>
-                            <constraint firstItem="J7X-Ai-hKi" firstAttribute="top" secondItem="2VS-EX-LSU" secondAttribute="bottom" constant="6" id="eyC-7J-XDB"/>
-                            <constraint firstItem="Heh-2I-Mp8" firstAttribute="trailing" secondItem="eso-sa-aij" secondAttribute="trailingMargin" id="fLa-z9-gQX"/>
-                            <constraint firstItem="BF5-nK-i3k" firstAttribute="baseline" secondItem="izv-ZR-vJm" secondAttribute="baseline" id="gJI-vt-rL7"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="leading" secondItem="GyO-8O-4Ae" secondAttribute="leading" id="h32-5T-08Q"/>
-                            <constraint firstItem="2IF-Nn-UqN" firstAttribute="top" secondItem="Heh-2I-Mp8" secondAttribute="bottom" constant="24" id="iOU-Kd-h4S"/>
-                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="J7X-Ai-hKi" secondAttribute="leading" id="j3I-kq-mLU"/>
-                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="oQ9-du-Ugz" secondAttribute="leading" id="ji7-t2-rus"/>
-                            <constraint firstItem="Fbi-C4-KhF" firstAttribute="centerX" secondItem="2IF-Nn-UqN" secondAttribute="centerX" id="k3a-Sb-0b3"/>
-                            <constraint firstItem="gRx-QK-hSO" firstAttribute="top" secondItem="3Dt-3d-133" secondAttribute="bottom" constant="6" id="kol-FJ-jm0"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="top" secondItem="oQ9-du-Ugz" secondAttribute="bottom" constant="29" id="ku9-yQ-5TJ"/>
-                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="gRx-QK-hSO" secondAttribute="leading" id="lf4-5I-MSN"/>
-                            <constraint firstItem="Heh-2I-Mp8" firstAttribute="top" secondItem="Fbi-C4-KhF" secondAttribute="bottom" constant="2" id="nJp-O7-nEa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ghY-QP-jex" secondAttribute="trailing" constant="63" id="oPl-dx-uHI"/>
-                            <constraint firstItem="ghY-QP-jex" firstAttribute="leading" secondItem="rHo-ul-Flj" secondAttribute="leading" id="ooa-e2-RLo"/>
-                            <constraint firstItem="oQ9-du-Ugz" firstAttribute="top" secondItem="3jy-DC-axX" secondAttribute="bottom" constant="35" id="osV-nM-USH"/>
-                            <constraint firstItem="2VS-EX-LSU" firstAttribute="top" secondItem="LIa-vA-IaT" secondAttribute="bottom" constant="6" id="p47-zV-sts"/>
-                            <constraint firstItem="0b7-vK-JKE" firstAttribute="baseline" secondItem="J7X-Ai-hKi" secondAttribute="baseline" id="r1g-IO-BYL"/>
-                            <constraint firstItem="DDw-YP-3ER" firstAttribute="top" secondItem="2IF-Nn-UqN" secondAttribute="bottom" constant="8" id="sOw-ES-0zH"/>
-                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="BF5-nK-i3k" secondAttribute="leading" id="wH4-nG-ejZ"/>
-                            <constraint firstItem="qKC-eP-ejl" firstAttribute="top" secondItem="gRx-QK-hSO" secondAttribute="bottom" constant="6" id="zT9-HT-i96"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="leading" secondItem="3Dt-3d-133" secondAttribute="leading" id="0D3-Yq-tRb"/>
+                            <constraint firstItem="rHo-ul-Flj" firstAttribute="leading" secondItem="YlC-fw-tcb" secondAttribute="leading" id="1ba-ku-dcA"/>
+                            <constraint firstItem="J7X-Ai-hKi" firstAttribute="baseline" secondItem="0b7-vK-JKE" secondAttribute="baseline" id="4AJ-SQ-gwb"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="top" secondItem="3Dt-3d-133" secondAttribute="bottom" constant="6" id="8h1-MG-jYi"/>
+                            <constraint firstItem="YlC-fw-tcb" firstAttribute="top" secondItem="rHo-ul-Flj" secondAttribute="bottom" constant="6" id="9Me-ZD-cGq"/>
+                            <constraint firstItem="rHo-ul-Flj" firstAttribute="leading" secondItem="sEr-TS-JQN" secondAttribute="leading" id="B7V-jL-1tk"/>
+                            <constraint firstItem="qKC-eP-ejl" firstAttribute="top" secondItem="gRx-QK-hSO" secondAttribute="bottom" constant="6" id="Cux-ED-AYX"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="leading" secondItem="J7X-Ai-hKi" secondAttribute="leading" id="Dio-5E-iLv"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="leading" secondItem="2VS-EX-LSU" secondAttribute="leading" id="E9S-UN-c8r"/>
+                            <constraint firstItem="BF5-nK-i3k" firstAttribute="top" secondItem="J7X-Ai-hKi" secondAttribute="bottom" constant="6" id="FoJ-aP-W5Q"/>
+                            <constraint firstItem="oQ9-du-Ugz" firstAttribute="trailing" secondItem="eso-sa-aij" secondAttribute="trailingMargin" id="GEf-dG-3O1"/>
+                            <constraint firstItem="LIa-vA-IaT" firstAttribute="bottom" secondItem="xgO-Gj-TRM" secondAttribute="bottom" id="JN3-Hj-JIW"/>
+                            <constraint firstItem="2VS-EX-LSU" firstAttribute="top" secondItem="LIa-vA-IaT" secondAttribute="bottom" constant="6" id="JXt-Ac-eeZ"/>
+                            <constraint firstItem="sEr-TS-JQN" firstAttribute="top" secondItem="izv-ZR-vJm" secondAttribute="bottom" constant="6" id="LEx-An-8B7"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="leading" secondItem="LIa-vA-IaT" secondAttribute="leading" id="Llq-aX-xho"/>
+                            <constraint firstItem="pQR-WU-kUt" firstAttribute="top" secondItem="val-ew-1pW" secondAttribute="bottom" constant="6" id="LsS-Yy-LXL"/>
+                            <constraint firstItem="oQ9-du-Ugz" firstAttribute="centerX" secondItem="eso-sa-aij" secondAttribute="centerX" id="Q62-pT-yeh"/>
+                            <constraint firstItem="izv-ZR-vJm" firstAttribute="baseline" secondItem="BF5-nK-i3k" secondAttribute="baseline" id="QzS-LY-1ER"/>
+                            <constraint firstItem="rHo-ul-Flj" firstAttribute="leading" secondItem="ghY-QP-jex" secondAttribute="leading" id="S1m-ys-ROB"/>
+                            <constraint firstItem="LIa-vA-IaT" firstAttribute="top" secondItem="qKC-eP-ejl" secondAttribute="bottom" constant="6" id="SGj-Li-oAd"/>
+                            <constraint firstItem="3Dt-3d-133" firstAttribute="top" secondItem="oQ9-du-Ugz" secondAttribute="bottom" constant="47" id="Sr5-8n-XwL"/>
+                            <constraint firstItem="rHo-ul-Flj" firstAttribute="leading" secondItem="0b7-vK-JKE" secondAttribute="leading" id="VZt-48-MGl"/>
+                            <constraint firstItem="GyO-8O-4Ae" firstAttribute="baseline" secondItem="pQR-WU-kUt" secondAttribute="baseline" id="XGO-HC-t2T"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ghY-QP-jex" secondAttribute="trailing" constant="63" id="aZ7-yn-CME"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="leading" secondItem="val-ew-1pW" secondAttribute="leading" id="aZU-4Q-TWF"/>
+                            <constraint firstItem="I8I-xj-fTZ" firstAttribute="baseline" secondItem="2VS-EX-LSU" secondAttribute="baseline" id="cMS-Bs-UT0"/>
+                            <constraint firstItem="val-ew-1pW" firstAttribute="baseline" secondItem="sEr-TS-JQN" secondAttribute="baseline" id="dXE-r3-dsw"/>
+                            <constraint firstItem="rHo-ul-Flj" firstAttribute="leading" secondItem="xgO-Gj-TRM" secondAttribute="leading" id="dht-GA-89i"/>
+                            <constraint firstItem="Heh-2I-Mp8" firstAttribute="trailing" secondItem="oQ9-du-Ugz" secondAttribute="trailing" id="gbu-9U-z8f"/>
+                            <constraint firstItem="oQ9-du-Ugz" firstAttribute="top" secondItem="3jy-DC-axX" secondAttribute="bottom" constant="13" id="loZ-Yq-wQJ"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="leading" secondItem="Heh-2I-Mp8" secondAttribute="leading" id="pE0-Ir-VvD"/>
+                            <constraint firstItem="0b7-vK-JKE" firstAttribute="top" secondItem="I8I-xj-fTZ" secondAttribute="bottom" constant="6" id="qWY-9x-mIl"/>
+                            <constraint firstItem="rHo-ul-Flj" firstAttribute="leading" secondItem="izv-ZR-vJm" secondAttribute="leading" id="sPr-KI-qXh"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="leading" secondItem="BF5-nK-i3k" secondAttribute="leading" id="t90-sG-Ta1"/>
+                            <constraint firstItem="rHo-ul-Flj" firstAttribute="leading" secondItem="GyO-8O-4Ae" secondAttribute="leading" id="tXK-Yd-Xjg"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="leading" secondItem="pQR-WU-kUt" secondAttribute="leading" id="toe-op-CuI"/>
+                            <constraint firstItem="oQ9-du-Ugz" firstAttribute="leading" secondItem="eso-sa-aij" secondAttribute="leadingMargin" id="uK6-yz-xQo"/>
+                            <constraint firstItem="rHo-ul-Flj" firstAttribute="leading" secondItem="I8I-xj-fTZ" secondAttribute="leading" id="udE-oO-7j7"/>
+                            <constraint firstItem="gRx-QK-hSO" firstAttribute="leading" secondItem="qKC-eP-ejl" secondAttribute="leading" id="vLo-Pa-hOb"/>
+                            <constraint firstItem="oQ9-du-Ugz" firstAttribute="top" secondItem="3jy-DC-axX" secondAttribute="bottom" constant="35" id="vZs-f4-ecG"/>
+                            <constraint firstItem="Heh-2I-Mp8" firstAttribute="top" secondItem="GyO-8O-4Ae" secondAttribute="bottom" constant="37" id="vlh-ZV-C3j"/>
+                            <constraint firstItem="3Dt-3d-133" firstAttribute="leading" secondItem="eso-sa-aij" secondAttribute="leadingMargin" id="vt4-sb-UN3"/>
+                            <constraint firstItem="ghY-QP-jex" firstAttribute="leading" secondItem="3Dt-3d-133" secondAttribute="trailing" constant="326" id="w9G-RF-q11"/>
+                            <constraint firstItem="rHo-ul-Flj" firstAttribute="top" secondItem="ghY-QP-jex" secondAttribute="bottom" constant="5" id="xt3-V3-LsE"/>
+                            <constraint firstItem="LIa-vA-IaT" firstAttribute="centerY" secondItem="xgO-Gj-TRM" secondAttribute="centerY" id="y6W-cs-dcf"/>
+                            <constraint firstItem="ghY-QP-jex" firstAttribute="top" secondItem="oQ9-du-Ugz" secondAttribute="bottom" constant="47" id="yet-e8-04p"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="RHW-e2-Jnv"/>
-                                <exclude reference="Zj3-aF-3c8"/>
-                                <exclude reference="iOU-Kd-h4S"/>
+                                <exclude reference="Q62-pT-yeh"/>
+                                <exclude reference="vZs-f4-ecG"/>
+                                <exclude reference="w9G-RF-q11"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="yjH-OT-uu4"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="signInButton" destination="Heh-2I-Mp8" id="dpv-t2-Tkm"/>
-                        <outlet property="statusText" destination="2IF-Nn-UqN" id="3iX-8z-EJW"/>
+                        <outlet property="signInButtonGoogle" destination="Heh-2I-Mp8" id="nlW-SV-tr0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRl-zQ-jCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2041,19 +2045,6 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="culture" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hm3-BR-lhQ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="464" y="168" width="83" height="24"/>
-                                <state key="normal" image="checkOutLine">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Cultura">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="health" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlI-re-Hz9" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
                                 <rect key="frame" x="464" y="200" width="71" height="24"/>
                                 <state key="normal" image="checkOutLine">
@@ -2151,6 +2142,19 @@
                                     </attributedString>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="culture" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hm3-BR-lhQ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                <rect key="frame" x="464" y="168" width="83" height="24"/>
+                                <state key="normal" image="checkOutLine">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Cultura">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2229,7 +2233,7 @@
         <!--Peferencia-->
         <scene sceneID="k3c-G7-Obd">
             <objects>
-                <viewController id="4LN-xf-pdF" customClass="PreferencesViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4LN-xf-pdF" customClass="PreferencsViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RLc-29-Em3"/>
                         <viewControllerLayoutGuide type="bottom" id="YLw-DM-uZQ"/>
@@ -2263,7 +2267,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0i-uh-8Gh">
-                                <rect key="frame" x="20" y="267" width="560" height="1"/>
+                                <rect key="frame" x="20" y="334" width="560" height="1"/>
                                 <color key="backgroundColor" red="0.3253022183" green="0.58589672339999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2286,19 +2290,19 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Notificaciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3W7-JY-6oc">
-                                <rect key="frame" x="20" y="248" width="560" height="16"/>
+                                <rect key="frame" x="20" y="315" width="560" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Con qué frecuencia desea recibir notificaciones?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIv-IE-esk">
-                                <rect key="frame" x="20" y="276" width="560" height="21"/>
+                                <rect key="frame" x="20" y="343" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="day" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDP-jJ-CLk">
-                                <rect key="frame" x="20" y="308" width="66" height="24"/>
+                                <rect key="frame" x="20" y="375" width="66" height="24"/>
                                 <state key="normal" image="radioButtonInactive">
                                     <attributedString key="attributedTitle">
                                         <fragment content="1 Día">
@@ -2313,7 +2317,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="week" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqI-l8-mMe">
-                                <rect key="frame" x="115" y="308" width="106" height="24"/>
+                                <rect key="frame" x="115" y="375" width="106" height="24"/>
                                 <state key="normal" image="radioButtonInactive">
                                     <attributedString key="attributedTitle">
                                         <fragment content="1 Semana">
@@ -2328,7 +2332,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="month" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-kq-zKa">
-                                <rect key="frame" x="250" y="305" width="76" height="27"/>
+                                <rect key="frame" x="250" y="372" width="76" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="76" id="BdT-lr-WR6"/>
                                     <constraint firstAttribute="width" constant="98" id="J2K-H9-50N"/>
@@ -2354,7 +2358,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78E-sk-3uN">
-                                <rect key="frame" x="233" y="380" width="134" height="30"/>
+                                <rect key="frame" x="233" y="447" width="134" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VCh-Q2-ETD"/>
                                     <constraint firstAttribute="width" constant="134" id="tGz-zy-xfX"/>
@@ -2362,19 +2366,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Cerrar Sesión"/>
                                 <connections>
-                                    <action selector="signOutButton:" destination="4LN-xf-pdF" eventType="touchUpInside" id="Adn-cN-rXu"/>
+                                    <action selector="signOutButton:" destination="4LN-xf-pdF" eventType="touchUpInside" id="Lix-Mb-adE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red social: social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v18-gq-Q3E">
+                                <rect key="frame" x="20" y="216" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3W7-JY-6oc" firstAttribute="top" secondItem="v18-gq-Q3E" secondAttribute="bottom" constant="78" id="1h6-CC-w9y"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="3W7-JY-6oc" secondAttribute="trailing" id="202-yz-uh7"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="HlV-gU-DeA" secondAttribute="trailing" id="2WK-my-LMW"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="uOd-G1-3Oh" secondAttribute="leading" id="3WA-mA-6QN"/>
                             <constraint firstItem="q99-l9-9hT" firstAttribute="leading" secondItem="aYr-os-NGm" secondAttribute="leadingMargin" id="3vg-DE-68T"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="uOd-G1-3Oh" secondAttribute="trailing" id="4Fl-ft-DIz"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="top" secondItem="uOd-G1-3Oh" secondAttribute="bottom" constant="8" symbolic="YES" id="4RZ-W5-cBm"/>
-                            <constraint firstItem="fIv-IE-esk" firstAttribute="top" secondItem="aYr-os-NGm" secondAttribute="top" constant="276" id="4p2-Ld-GW6"/>
+                            <constraint firstItem="fIv-IE-esk" firstAttribute="top" secondItem="aYr-os-NGm" secondAttribute="top" constant="343" id="4p2-Ld-GW6"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="sKy-o4-ylv" secondAttribute="trailing" id="6NU-PP-K7O"/>
                             <constraint firstItem="78E-sk-3uN" firstAttribute="centerX" secondItem="aYr-os-NGm" secondAttribute="centerX" id="84C-26-5Rh"/>
                             <constraint firstItem="sKy-o4-ylv" firstAttribute="top" secondItem="ftP-dQ-nDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="9Fp-f4-NXo"/>
@@ -2389,6 +2400,7 @@
                             <constraint firstItem="sKy-o4-ylv" firstAttribute="leading" secondItem="aYr-os-NGm" secondAttribute="leadingMargin" id="KBF-Bw-EcA"/>
                             <constraint firstItem="q99-l9-9hT" firstAttribute="top" secondItem="RLc-29-Em3" secondAttribute="bottom" constant="31" id="KiR-MH-zVI"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="fIv-IE-esk" secondAttribute="leading" id="KuF-wC-L0C"/>
+                            <constraint firstItem="V0i-uh-8Gh" firstAttribute="centerX" secondItem="aYr-os-NGm" secondAttribute="centerX" id="LFy-V6-OKh"/>
                             <constraint firstItem="E1h-kq-zKa" firstAttribute="leading" secondItem="cqI-l8-mMe" secondAttribute="trailing" constant="29" id="LYq-6Q-ODL"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="q99-l9-9hT" secondAttribute="trailing" id="NgB-CO-Gyh"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="HlV-gU-DeA" secondAttribute="leading" id="PcM-hl-5hW"/>
@@ -2398,32 +2410,37 @@
                             <constraint firstItem="HlV-gU-DeA" firstAttribute="top" secondItem="sKy-o4-ylv" secondAttribute="bottom" constant="8" symbolic="YES" id="TLs-BU-3xn"/>
                             <constraint firstItem="E1h-kq-zKa" firstAttribute="top" secondItem="fIv-IE-esk" secondAttribute="bottom" constant="8" symbolic="YES" id="aID-Og-2W6"/>
                             <constraint firstItem="V0i-uh-8Gh" firstAttribute="top" secondItem="3W7-JY-6oc" secondAttribute="bottom" constant="3" id="ash-3R-sCV"/>
+                            <constraint firstItem="v18-gq-Q3E" firstAttribute="leading" secondItem="aYr-os-NGm" secondAttribute="leadingMargin" id="dn6-hb-dUt"/>
+                            <constraint firstItem="v18-gq-Q3E" firstAttribute="top" secondItem="HlV-gU-DeA" secondAttribute="bottom" constant="8" id="gYA-pc-yrm"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="q99-l9-9hT" secondAttribute="leading" id="gtn-PL-IGK"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="3W7-JY-6oc" secondAttribute="leading" id="jr3-Gz-py9"/>
-                            <constraint firstItem="3W7-JY-6oc" firstAttribute="top" secondItem="HlV-gU-DeA" secondAttribute="bottom" constant="40" id="kyN-1A-vYy"/>
+                            <constraint firstItem="3W7-JY-6oc" firstAttribute="top" secondItem="HlV-gU-DeA" secondAttribute="bottom" constant="100" id="kyN-1A-vYy"/>
                             <constraint firstItem="fIv-IE-esk" firstAttribute="top" secondItem="V0i-uh-8Gh" secondAttribute="bottom" constant="8" symbolic="YES" id="naM-6h-aVc"/>
                             <constraint firstItem="ftP-dQ-nDJ" firstAttribute="top" secondItem="uOd-G1-3Oh" secondAttribute="bottom" constant="8" id="q1D-zf-tyj"/>
                             <constraint firstItem="uOd-G1-3Oh" firstAttribute="trailing" secondItem="aYr-os-NGm" secondAttribute="trailingMargin" id="s7G-d6-qMI"/>
+                            <constraint firstItem="v18-gq-Q3E" firstAttribute="trailing" secondItem="aYr-os-NGm" secondAttribute="trailingMargin" id="xY6-2C-Hiu"/>
                             <constraint firstItem="TDP-jJ-CLk" firstAttribute="top" secondItem="fIv-IE-esk" secondAttribute="bottom" constant="11" id="yFN-F1-4P9"/>
                             <constraint firstItem="TDP-jJ-CLk" firstAttribute="leading" secondItem="fIv-IE-esk" secondAttribute="leading" id="z9O-FB-fFJ"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="centerX" secondItem="aYr-os-NGm" secondAttribute="centerX" id="zny-uX-ZF6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kyN-1A-vYy"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Peferencia" id="gtx-4k-rI6">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="Mh8-zG-gum">
-                            <connections>
-                                <action selector="comeBack:" destination="sE8-Cy-yWP" id="NBm-gq-e8D"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="Mh8-zG-gum"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="cerrarSession" destination="78E-sk-3uN" id="a11-0W-8w6"/>
-                        <outlet property="daySelected" destination="TDP-jJ-CLk" id="1vp-Cx-jrC"/>
-                        <outlet property="emailUserLabel" destination="sKy-o4-ylv" id="0jC-QO-ZLK"/>
-                        <outlet property="locationUSerLabel" destination="HlV-gU-DeA" id="jXn-lO-EcC"/>
-                        <outlet property="menuButton" destination="Mh8-zG-gum" id="RXp-CC-Ae1"/>
-                        <outlet property="monthSelected" destination="E1h-kq-zKa" id="qfX-vA-5Lb"/>
-                        <outlet property="nameUserLabel" destination="ftP-dQ-nDJ" id="KZM-bR-7f7"/>
-                        <outlet property="weekSelected" destination="cqI-l8-mMe" id="7ih-DZ-Y9n"/>
+                        <outlet property="daySelected" destination="TDP-jJ-CLk" id="tFC-Bz-ebm"/>
+                        <outlet property="emailUserLabel" destination="sKy-o4-ylv" id="KjL-l9-axn"/>
+                        <outlet property="locationUSerLabel" destination="HlV-gU-DeA" id="aAd-Fh-dXs"/>
+                        <outlet property="menuButton" destination="Mh8-zG-gum" id="c8x-2U-dDI"/>
+                        <outlet property="monthSelected" destination="E1h-kq-zKa" id="Ifm-TX-2ru"/>
+                        <outlet property="nameUserLabel" destination="ftP-dQ-nDJ" id="sdI-AZ-I8s"/>
+                        <outlet property="socialNetwork" destination="v18-gq-Q3E" id="6hW-sv-h79"/>
+                        <outlet property="weekSelected" destination="cqI-l8-mMe" id="62t-sR-9kv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aA9-KN-TFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2787,10 +2804,8 @@
         <!--Navigation Controller-->
         <scene sceneID="LDm-nL-w7U">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="d2M-hT-Hdj" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2M-hT-Hdj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="caR-ab-x73">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2851,7 +2866,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Icd-mH-gTg"/>
-        <segue reference="p7G-Xk-1x4"/>
-        <segue reference="pT1-aE-j8D"/>
+        <segue reference="dBT-Ou-s0r"/>
+        <segue reference="gv8-eg-joa"/>
     </inferredMetricsTieBreakers>
 </document>
