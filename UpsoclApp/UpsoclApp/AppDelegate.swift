@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
             let familyName = user.profile.familyName
             let email = user.profile.email
             let imagenURL = user.profile.imageURLWithDimension(50)
-            let birthday =  "00-00-0000"            
+            let birthday =  "00-00-0000"
             
             let user = Customer(firstName: fullName,
                                 lastName: familyName,
