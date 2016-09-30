@@ -8,8 +8,11 @@
 
 import UIKit
 import Social
+import FBSDKLoginKit
+import FBSDKShareKit
+import GoogleMobileAds
 
-class PageItemController: UIViewController, UIWebViewDelegate {
+class PageItemController: UIViewController, UIWebViewDelegate  {
     
     @IBOutlet weak var webViewContent: UIWebView!
     @IBOutlet weak var imagenDetail: UIImageView!
@@ -19,6 +22,10 @@ class PageItemController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var scrollDetail: UIScrollView!
     @IBOutlet weak var categoryDetail: UILabel!
+    
+    @IBOutlet weak var buttonShareFacebook: UIBarButtonItem!
+    
+    @IBOutlet weak var bannerView: GADBannerView!
     
     var servicesConnection = ServicesConnection()
     let fonts = "<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>"
@@ -48,16 +55,18 @@ class PageItemController: UIViewController, UIWebViewDelegate {
             displayShareSheet()
         }
     }
-    //shareFacebook
-    @IBAction func shareFacebook(sender: UIBarButtonItem) {
-        if let sf = SLComposeViewController(forServiceType: SLServiceTypeFacebook){
-            sf.setInitialText(news?.titleNews)
-            sf.addURL( NSURL(string: (news?.linkNews)!))
-            //present(sf, animated: true)
-        }
-    }
     
     //Share
+    @IBAction func shareButtonFacebook(sender: UIBarButtonItem) {
+        
+        let content: FBSDKShareLinkContent = FBSDKShareLinkContent()
+        content.contentURL = NSURL(string: (news?.linkNews)!)
+        content.contentTitle = news?.titleNews
+        content.contentDescription = "http://www.upsocl.com/"
+        content.imageURL = NSURL(string: (news?.imageURLNews)!)
+        FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
+        
+    }
     func displayShareSheet() {
         
         let objectShare: [String] = [(news?.titleNews)!, (news?.linkNews)!]
@@ -79,6 +88,10 @@ class PageItemController: UIViewController, UIWebViewDelegate {
         contentDetail = meta + style + fonts
         //loadContent()
         loadContentWithHTML()
+        print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion())
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.loadRequest(GADRequest())
     }
     
     

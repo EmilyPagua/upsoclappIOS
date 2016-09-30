@@ -1,11 +1,19 @@
 PODS:
   - Fabric (1.6.9)
+  - Firebase/AdMob (3.6.0):
+    - Firebase/Analytics
+    - Google-Mobile-Ads-SDK (= 7.11.0)
+  - Firebase/Analytics (3.6.0):
+    - FirebaseAnalytics (= 3.4.2)
+  - Firebase/Core (3.6.0):
+    - Firebase/Analytics
   - FirebaseAnalytics (3.4.2):
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleUtilities (~> 1.2)
   - FirebaseInstanceID (1.0.8)
+  - Google-Mobile-Ads-SDK (7.11.0)
   - Google/Core (3.0.3):
     - FirebaseAnalytics (~> 3.2)
   - Google/SignIn (3.0.3):
@@ -35,14 +43,19 @@ PODS:
 
 DEPENDENCIES:
   - Fabric
+  - Firebase/AdMob
+  - Firebase/Core
+  - Google-Mobile-Ads-SDK
   - Google/SignIn
   - TwitterKit
 
 SPEC CHECKSUMS:
   Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
+  Firebase: 34187200ef4979dbd485c7aa685ef078bf587c86
   FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
+  Google-Mobile-Ads-SDK: 0e864ab93ba1ff8afe92e16de0e4e883f581ed33
   GoogleAppUtilities: f1730f91f67767b453c289577040dd3f425ffdc7
   GoogleAuthUtilities: d7a19615cd7627688afcf181737f1011ee8b5a23
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
@@ -53,6 +66,6 @@ SPEC CHECKSUMS:
   TwitterCore: a139904c80805ad3dde9eef1100704f96f646d1d
   TwitterKit: 1cf9742edf9d182c1518cfdd6aaac0dfe313b38b
 
-PODFILE CHECKSUM: 91102c7ea688405b40cb1f6769beeeaf8ea53c2d
+PODFILE CHECKSUM: 5aa26e14f5a15542a0527362a3fef5e6b0f1b37e
 
 COCOAPODS: 1.0.1
