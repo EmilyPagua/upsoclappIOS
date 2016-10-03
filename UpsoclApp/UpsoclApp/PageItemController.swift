@@ -41,35 +41,42 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     var isSearchResult = false
     
     
+    var progressBar = ProgressBarLoad()
+     var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    
     @IBOutlet weak var contentWebView: UIWebView!
 
     var ads: [String: GADAdSize]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        indicator = progressBar.loadBar()
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.bringSubviewToFront(view)
+        
         contentDetail = meta + style + fonts
         //loadContent()
         loadContentWithHTML()
         
        ads = ["Medium Rectangle": kGADAdSizeMediumRectangle]
         
-        print ("------------" + String(webViewContent.frame.maxY))
-        print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion())
         bannerView.adUnitID = "ca-mb-app-pub-7682123866908966/7102497723"
         bannerView.rootViewController = self
         bannerView.delegate = self
-        bannerView.hidden = false
+        bannerView.hidden = true
         self.bannerView.adSize = kGADAdSizeMediumRectangle
-         bannerView.loadRequest(GADRequest())
+        bannerView.loadRequest(GADRequest())
     }
     
     //BannerViewController
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.currentDevice().orientation.isLandscape.boolValue{
+        /*if UIDevice.currentDevice().orientation.isLandscape.boolValue{
             self.bannerView.adSize = kGADAdSizeSmartBannerLandscape;
         } else {
             self.bannerView.adSize = kGADAdSizeSmartBannerPortrait;
-        }
+        }*/
     }
     
     func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
@@ -160,8 +167,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         
         if news != nil {
             
-            self.webViewContent.scrollView.scrollEnabled = true
-            webViewContent.delegate = self
+            self.webViewContent.scrollView.scrollEnabled = false
             
             loadIsBookmark()
             
@@ -175,10 +181,11 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
             let category = "<h5> Categorias: <font color=\"#009688\">"+news!.categoryNews+"</font> <h5>"
             let line = "<hr  color=\"#009688\" />"
             let publicity = ""
- 
             contentDetail = contentDetail + title + detailAuthor + category + line + publicity + news!.contentNews!
+
             let baseURL = NSURL(string: "http://api.instagram.com/oembed")
-            webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
+            self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
+            webViewContent.delegate = self
         }
     }
     
@@ -209,19 +216,37 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
                 
                 self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
                 webViewContent.delegate = self
-                
             }
         }
     }
     
     func webViewDidStartLoad(webView: UIWebView){
+         self.indicator.startAnimating()
+        webViewContent.frame =  CGRectMake(10, 4, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height )
+        self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - 300, 0);
+        bannerView.frame = CGRectMake(50, webViewContent.frame.maxY - 10, 300, 250)
+        bannerView.hidden = true
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
         
-        /*webViewContent.frame =  CGRectMake(10, authorDetail.frame.maxY, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height + 600)
-        self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY, 0);
-        */
+      /*
+        webViewContent.frame =  CGRectMake(10, authorDetail.frame.maxY, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height + 50)
+        
+        print(webViewContent.frame.maxY)
+        print (bannerView.frame.maxY)
+        bannerView.frame = CGRectMake(40, webViewContent.frame.maxY + 10, 300, 250)
+        self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY + 300, 0);
+*/
+        
+        
+         webViewContent.frame =  CGRectMake(10, 4, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height )
+         //print(String(webViewContent.frame.maxY) + " " + String(bannerView.frame.maxY))
+         self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - 300, 0);
+         bannerView.frame = CGRectMake(50, webViewContent.frame.maxY, 300, 250)
+         bannerView.hidden = false
+        self.indicator.stopAnimating()
+        
     }
     
     func loadIsBookmark() {

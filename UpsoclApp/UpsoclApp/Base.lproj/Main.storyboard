@@ -753,9 +753,17 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jsz-gO-5gE">
-                                                <rect key="frame" x="8" y="283" width="584" height="249"/>
+                                                <rect key="frame" x="8" y="283" width="584" height="40"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                             </webView>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Tn-H4-Z26" customClass="GADBannerView">
+                                                <rect key="frame" x="149" y="331" width="300" height="201"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="201" id="Irv-6K-FoK"/>
+                                                    <constraint firstAttribute="width" constant="300" id="Ri2-7h-MDb"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -777,6 +785,9 @@
                                             <constraint firstAttribute="bottom" secondItem="Jsz-gO-5gE" secondAttribute="bottom" constant="8" id="dbj-dg-LZ8"/>
                                             <constraint firstItem="Jsz-gO-5gE" firstAttribute="top" secondItem="XMI-UT-BJg" secondAttribute="bottom" constant="8" id="e0G-Mz-mdJ"/>
                                             <constraint firstAttribute="trailing" secondItem="Jsz-gO-5gE" secondAttribute="trailing" constant="8" id="fA6-9f-2xt"/>
+                                            <constraint firstItem="5Tn-H4-Z26" firstAttribute="centerX" secondItem="qTg-2P-bhF" secondAttribute="centerX" id="fgO-ZJ-g5m"/>
+                                            <constraint firstItem="5Tn-H4-Z26" firstAttribute="top" secondItem="Jsz-gO-5gE" secondAttribute="bottom" constant="8" id="pXX-S3-VjR"/>
+                                            <constraint firstAttribute="bottom" secondItem="5Tn-H4-Z26" secondAttribute="bottom" constant="8" id="sOd-NP-Skh"/>
                                             <constraint firstAttribute="bottom" secondItem="XMI-UT-BJg" secondAttribute="bottom" constant="265" id="tRz-ix-aXh"/>
                                             <constraint firstItem="F6S-mX-vp6" firstAttribute="top" secondItem="qTg-2P-bhF" secondAttribute="top" id="tTK-XI-4LM"/>
                                             <constraint firstItem="OtS-bv-GCI" firstAttribute="top" secondItem="FGA-KR-gVL" secondAttribute="bottom" constant="8" id="uyo-Sq-6kL"/>
@@ -788,6 +799,7 @@
                                                 <exclude reference="9Tf-IU-yLL"/>
                                                 <exclude reference="Co5-KG-KOd"/>
                                                 <exclude reference="Ubt-6H-iBJ"/>
+                                                <exclude reference="dbj-dg-LZ8"/>
                                                 <exclude reference="fA6-9f-2xt"/>
                                                 <exclude reference="z2J-OV-IkX"/>
                                             </mask>
@@ -820,13 +832,14 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="authorDetail" destination="XMI-UT-BJg" id="1da-2S-Qwf"/>
+                        <outlet property="authorDetail" destination="OtS-bv-GCI" id="hoq-z3-blG"/>
+                        <outlet property="bannerView" destination="5Tn-H4-Z26" id="Sh0-7W-eNI"/>
                         <outlet property="bookmark" destination="TJd-KB-0Vh" id="P1i-n8-hkw"/>
-                        <outlet property="categoryDetail" destination="OtS-bv-GCI" id="fIz-uK-0Vj"/>
-                        <outlet property="imagenDetail" destination="F6S-mX-vp6" id="gFM-wA-3dT"/>
-                        <outlet property="scrollDetail" destination="Tua-rD-2Ws" id="Bgd-G1-SfF"/>
-                        <outlet property="titleDetail" destination="FGA-KR-gVL" id="df7-N9-LDC"/>
-                        <outlet property="webViewContent" destination="Jsz-gO-5gE" id="2P8-K0-chu"/>
+                        <outlet property="categoryDetail" destination="XMI-UT-BJg" id="rT5-rE-Obt"/>
+                        <outlet property="imagenDetail" destination="F6S-mX-vp6" id="3h4-1T-znm"/>
+                        <outlet property="scrollDetail" destination="Tua-rD-2Ws" id="pJS-WT-G6U"/>
+                        <outlet property="titleDetail" destination="FGA-KR-gVL" id="rdO-Jf-WJg"/>
+                        <outlet property="webViewContent" destination="Jsz-gO-5gE" id="sVq-jx-nZb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0i-dp-aad" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -848,6 +861,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odq-qq-lWn">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="KUi-MJ-DnO"/>
                                     <constraint firstAttribute="height" constant="44" id="ZHz-F2-Dau"/>
                                 </constraints>
                                 <items>
@@ -882,39 +896,68 @@
                                     </mask>
                                 </variation>
                             </navigationBar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buf-c5-CC7">
-                                <rect key="frame" x="5" y="44" width="590" height="266"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgo-85-nt9" customClass="GADBannerView">
-                                <rect key="frame" x="140" y="330" width="320" height="250"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n13-mT-DrS">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNn-rb-vz4">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zgo-85-nt9" customClass="GADBannerView">
+                                                <rect key="frame" x="155" y="303" width="300" height="250"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="320" id="8iw-21-pe9"/>
+                                                    <constraint firstAttribute="height" constant="250" id="Td6-0Y-csU"/>
+                                                    <constraint firstAttribute="height" constant="50" id="bRe-bF-dMf"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="fLw-Hz-uiV"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="hBV-b7-YkV"/>
+                                                    <constraint firstAttribute="width" constant="320" id="met-QM-ojb"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="bRe-bF-dMf"/>
+                                                        <exclude reference="met-QM-ojb"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
+                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buf-c5-CC7">
+                                                <rect key="frame" x="8" y="8" width="584" height="290"/>
+                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                            </webView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Zgo-85-nt9" secondAttribute="bottom" constant="3" id="6QU-BW-JvU"/>
+                                            <constraint firstItem="buf-c5-CC7" firstAttribute="top" secondItem="gNn-rb-vz4" secondAttribute="top" constant="8" id="HBw-mL-hvU"/>
+                                            <constraint firstAttribute="trailing" secondItem="buf-c5-CC7" secondAttribute="trailing" constant="8" id="TQJ-gv-Cqa"/>
+                                            <constraint firstItem="buf-c5-CC7" firstAttribute="leading" secondItem="gNn-rb-vz4" secondAttribute="leading" constant="8" id="grr-aS-D9t"/>
+                                            <constraint firstItem="Zgo-85-nt9" firstAttribute="centerX" secondItem="gNn-rb-vz4" secondAttribute="centerX" id="sRQ-kJ-y4S"/>
+                                            <constraint firstItem="Zgo-85-nt9" firstAttribute="top" secondItem="buf-c5-CC7" secondAttribute="bottom" constant="5" id="zMi-Ax-dUV"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="8iw-21-pe9"/>
-                                    <constraint firstAttribute="height" constant="250" id="Td6-0Y-csU"/>
-                                    <constraint firstAttribute="height" constant="50" id="bRe-bF-dMf"/>
-                                    <constraint firstAttribute="width" constant="320" id="met-QM-ojb"/>
+                                    <constraint firstItem="gNn-rb-vz4" firstAttribute="centerY" secondItem="n13-mT-DrS" secondAttribute="centerY" id="HLW-qD-7qY"/>
+                                    <constraint firstItem="gNn-rb-vz4" firstAttribute="leading" secondItem="n13-mT-DrS" secondAttribute="leading" id="SbV-1T-nkB"/>
+                                    <constraint firstAttribute="bottom" secondItem="gNn-rb-vz4" secondAttribute="bottom" id="k2a-3j-duP"/>
+                                    <constraint firstAttribute="trailing" secondItem="gNn-rb-vz4" secondAttribute="trailing" id="pji-3c-wvl"/>
+                                    <constraint firstItem="gNn-rb-vz4" firstAttribute="centerX" secondItem="n13-mT-DrS" secondAttribute="centerX" id="u8n-eI-YT2"/>
+                                    <constraint firstItem="gNn-rb-vz4" firstAttribute="top" secondItem="n13-mT-DrS" secondAttribute="top" id="zHt-0A-toz"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="bRe-bF-dMf"/>
-                                        <exclude reference="met-QM-ojb"/>
-                                    </mask>
-                                </variation>
-                            </view>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="-6" maxX="0.0" maxY="0.0"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Hpm-HZ-fOT" firstAttribute="top" secondItem="Zgo-85-nt9" secondAttribute="bottom" constant="20" id="0BU-kV-aMU"/>
-                            <constraint firstItem="Odq-qq-lWn" firstAttribute="top" secondItem="FtT-wg-eji" secondAttribute="bottom" id="Ghs-d5-Rbr"/>
-                            <constraint firstItem="Zgo-85-nt9" firstAttribute="centerX" secondItem="aps-XD-ADf" secondAttribute="centerX" id="NrM-4C-TEa"/>
-                            <constraint firstItem="buf-c5-CC7" firstAttribute="leading" secondItem="aps-XD-ADf" secondAttribute="leadingMargin" constant="-15" id="X2V-d9-4fZ"/>
-                            <constraint firstItem="buf-c5-CC7" firstAttribute="centerX" secondItem="aps-XD-ADf" secondAttribute="centerX" id="eeA-VY-rgX"/>
-                            <constraint firstItem="Odq-qq-lWn" firstAttribute="leading" secondItem="aps-XD-ADf" secondAttribute="leadingMargin" constant="-20" id="hs4-S1-sWm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Odq-qq-lWn" secondAttribute="trailing" constant="-20" id="kRA-Fd-PsU"/>
-                            <constraint firstItem="Odq-qq-lWn" firstAttribute="bottom" secondItem="buf-c5-CC7" secondAttribute="top" id="oAP-Pf-8UP"/>
-                            <constraint firstItem="Zgo-85-nt9" firstAttribute="top" secondItem="buf-c5-CC7" secondAttribute="bottom" constant="20" id="s6K-ey-37D"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="buf-c5-CC7" secondAttribute="trailing" constant="-15" id="v1X-jW-r2z"/>
+                            <constraint firstItem="n13-mT-DrS" firstAttribute="centerX" secondItem="aps-XD-ADf" secondAttribute="centerX" id="1sU-h9-Otw"/>
+                            <constraint firstItem="Hpm-HZ-fOT" firstAttribute="top" secondItem="n13-mT-DrS" secondAttribute="bottom" id="7Sc-iY-il1"/>
+                            <constraint firstItem="Odq-qq-lWn" firstAttribute="top" secondItem="FtT-wg-eji" secondAttribute="bottom" id="W7q-z6-N9i"/>
+                            <constraint firstItem="n13-mT-DrS" firstAttribute="leading" secondItem="aps-XD-ADf" secondAttribute="leadingMargin" constant="-20" id="WZg-v4-HEB"/>
+                            <constraint firstItem="n13-mT-DrS" firstAttribute="top" secondItem="Odq-qq-lWn" secondAttribute="bottom" id="WrL-n8-BxU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n13-mT-DrS" secondAttribute="trailing" constant="-20" id="c5M-0g-jqi"/>
+                            <constraint firstItem="n13-mT-DrS" firstAttribute="top" secondItem="Odq-qq-lWn" secondAttribute="bottom" id="fvK-OB-ejx"/>
+                            <constraint firstItem="Odq-qq-lWn" firstAttribute="leading" secondItem="aps-XD-ADf" secondAttribute="leadingMargin" constant="-20" id="h58-p0-09t"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Odq-qq-lWn" secondAttribute="trailing" constant="-20" id="zOc-dX-vy3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="fgY-PY-q28">
@@ -938,6 +981,7 @@
                     <connections>
                         <outlet property="bannerView" destination="Zgo-85-nt9" id="BIt-ft-74g"/>
                         <outlet property="bookmark" destination="Umz-8i-fKP" id="Grp-iU-S6u"/>
+                        <outlet property="scrollDetail" destination="n13-mT-DrS" id="KOk-XD-BkJ"/>
                         <outlet property="webViewContent" destination="buf-c5-CC7" id="hAD-f4-7P3"/>
                     </connections>
                 </viewController>
