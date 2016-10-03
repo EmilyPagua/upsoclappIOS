@@ -11,8 +11,10 @@ import Social
 import FBSDKLoginKit
 import FBSDKShareKit
 import GoogleMobileAds
+import iAd
 
-class PageItemController: UIViewController, UIWebViewDelegate  {
+class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDelegate {
+    //Banner
     
     @IBOutlet weak var webViewContent: UIWebView!
     @IBOutlet weak var imagenDetail: UIImageView!
@@ -27,6 +29,7 @@ class PageItemController: UIViewController, UIWebViewDelegate  {
     
     @IBOutlet weak var bannerView: GADBannerView!
     
+    
     var servicesConnection = ServicesConnection()
     let fonts = "<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>"
     let meta = "<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>"
@@ -36,6 +39,45 @@ class PageItemController: UIViewController, UIWebViewDelegate  {
     var news =  News?()
     var contentDetail = ""
     var isSearchResult = false
+    
+    
+    @IBOutlet weak var contentWebView: UIWebView!
+
+    var ads: [String: GADAdSize]!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        contentDetail = meta + style + fonts
+        //loadContent()
+        loadContentWithHTML()
+        
+       ads = ["Medium Rectangle": kGADAdSizeMediumRectangle]
+        
+        print ("------------" + String(webViewContent.frame.maxY))
+        print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion())
+        bannerView.adUnitID = "ca-mb-app-pub-7682123866908966/7102497723"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerView.hidden = false
+        self.bannerView.adSize = kGADAdSizeMediumRectangle
+         bannerView.loadRequest(GADRequest())
+    }
+    
+    //BannerViewController
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.currentDevice().orientation.isLandscape.boolValue{
+            self.bannerView.adSize = kGADAdSizeSmartBannerLandscape;
+        } else {
+            self.bannerView.adSize = kGADAdSizeSmartBannerPortrait;
+        }
+    }
+    
+    func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+
+    }
+    //BannerViewController
+    
     
     //ComeBack
     @IBAction func comeBack(sender: UIBarButtonItem) {
@@ -65,8 +107,9 @@ class PageItemController: UIViewController, UIWebViewDelegate  {
         content.contentDescription = "http://www.upsocl.com/"
         content.imageURL = NSURL(string: (news?.imageURLNews)!)
         FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
-        
     }
+
+    
     func displayShareSheet() {
         
         let objectShare: [String] = [(news?.titleNews)!, (news?.linkNews)!]
@@ -80,20 +123,7 @@ class PageItemController: UIViewController, UIWebViewDelegate  {
         presentViewController(alertController, animated: true, completion: nil)
         return
     }
-    
-    @IBOutlet weak var contentWebView: UIWebView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        contentDetail = meta + style + fonts
-        //loadContent()
-        loadContentWithHTML()
-        print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion())
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.rootViewController = self
-        bannerView.loadRequest(GADRequest())
-    }
-    
     
     @IBAction func bookmarkButton(sender: UIBarButtonItem) {
 
@@ -145,7 +175,7 @@ class PageItemController: UIViewController, UIWebViewDelegate  {
             let category = "<h5> Categorias: <font color=\"#009688\">"+news!.categoryNews+"</font> <h5>"
             let line = "<hr  color=\"#009688\" />"
             let publicity = ""
-            
+ 
             contentDetail = contentDetail + title + detailAuthor + category + line + publicity + news!.contentNews!
             let baseURL = NSURL(string: "http://api.instagram.com/oembed")
             webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)

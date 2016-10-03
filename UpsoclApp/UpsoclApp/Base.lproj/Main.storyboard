@@ -882,12 +882,16 @@
                                     </mask>
                                 </variation>
                             </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buf-c5-CC7">
+                                <rect key="frame" x="5" y="44" width="590" height="266"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgo-85-nt9" customClass="GADBannerView">
-                                <rect key="frame" x="140" y="530" width="320" height="50"/>
+                                <rect key="frame" x="140" y="330" width="320" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="8iw-21-pe9"/>
-                                    <constraint firstAttribute="height" constant="50" id="Td6-0Y-csU"/>
+                                    <constraint firstAttribute="height" constant="250" id="Td6-0Y-csU"/>
                                     <constraint firstAttribute="height" constant="50" id="bRe-bF-dMf"/>
                                     <constraint firstAttribute="width" constant="320" id="met-QM-ojb"/>
                                 </constraints>
@@ -898,10 +902,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buf-c5-CC7">
-                                <rect key="frame" x="5" y="44" width="590" height="466"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
