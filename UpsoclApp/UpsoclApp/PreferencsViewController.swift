@@ -140,6 +140,11 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
         
         if (socialNetworkName == "twitter"){
             print ("Twitter - signOutButton")
+            let store = Twitter.sharedInstance().sessionStore
+            
+            if let userID = store.session()?.userID {
+                store.logOutUserID(userID)
+            }
             Twitter.sharedInstance().sessionStore.logOutUserID(socialNetworkTokenId)
         }
         

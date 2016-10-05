@@ -13,7 +13,7 @@ class ProgressBarLoad {
     var indicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     
     func loadBar() -> UIActivityIndicatorView {
-        indicator.frame = CGRectMake(200.0, 10.0, 40.0, 40.0)
+        indicator.frame = CGRectMake((UIScreen.mainScreen().bounds.width/2) - 20, 10.0, 40.0, 40.0)
         indicator.color = UIColor.blueColor()
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         

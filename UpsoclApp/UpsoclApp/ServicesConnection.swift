@@ -19,7 +19,7 @@ class ServicesConnection  {
     func saveCustomer(customer: Customer){
         customer.location = getLocationPhone()
         
-        print (customer.firstName)
+        /*print (customer.firstName)
         print (customer.lastName)
         print (customer.email)
         print (customer.birthday)
@@ -27,11 +27,13 @@ class ServicesConnection  {
         print (customer.socialNetwork)
         print (customer.socialNetworkTokenId)
         print (customer.registrationId)
-        print (customer.imagenURL)
+        print (customer.imagenURL)*/
         
-        //let urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name="+customer.firstName+"&last_name="+customer.lastName+"&email="+customer.email+"&birthday="+customer.birthday+"&location="+customer.location+"&social_network_login="+customer.socialNetwork+"&registration_id="+customer.registrationId
+        //var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name="+customer.firstName+"&last_name="+customer.lastName+"&email="+customer.email+"&birthday="+customer.birthday+"&location="+customer.location+"&social_network_login="+customer.socialNetwork+"&registration_id="+customer.registrationId
         
-        let urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name=pruebaIOS2&last_name=pruebaIOS2&email=pruebaIOS2@gmail.com&birthday=00-00-0000&location=Chile&social_network_login=facebook&registration_id=qwedsazxc2"
+        var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name=pruebaIOS2&last_name=pruebaIOS2&email=pruebaIOS2@gmail.com&birthday=00-00-0000&location=Chile&social_network_login=facebook&registration_id=qwedsazxc2"
+        
+        urlPath =  urlPath.stringByReplacingOccurrencesOfString(" ", withString: "%20%")
         
         let request = NSMutableURLRequest(URL: NSURL(string: urlPath)!)
         let session = NSURLSession.sharedSession()
@@ -134,11 +136,14 @@ class ServicesConnection  {
             guard error == nil else {
                 print("error calling GET on: " + urlPath)
                 print (error?.localizedDescription)
+                //self.createViewMessage ("Problemas al obtener datos, verifique su conexion a internet..!")
+
                 return
             }
             
             guard data != nil else {
                 print("Error: did not receive data")
+                //self.createViewMessage ("Problemas al obtener datos, verifique su conexion a internet..!")
                 return
             }
             
@@ -158,6 +163,13 @@ class ServicesConnection  {
             })
         })
         task.resume()
+    }
+    
+    
+    func createViewMessage(message: String){
+        let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
+        alertView.tag = 1
+        alertView.show()
     }
     
     func convertJson(nsdata: NSData) -> Void {

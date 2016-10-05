@@ -63,11 +63,14 @@ class BookmarkTableViewController: UITableViewController {
     
     //Opciones laterales de boookmark
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let newsPost  = self.newsList[indexPath.row]
+        
         let more = UITableViewRowAction(style: .Normal, title: "Remover") { action, index in
             print("Remover")
             
             let preferences = NSUserDefaults.standardUserDefaults()
-            let newsPost  = self.newsList[indexPath.row]
+            //let newsPost  = self.newsList[indexPath.row]
             preferences.removeObjectForKey(String(newsPost.idNews))
             preferences.synchronize()
             
@@ -79,6 +82,10 @@ class BookmarkTableViewController: UITableViewController {
         
         let favorite = UITableViewRowAction(style: .Normal, title: "Compartir") { action, index in
             print("compartir")
+            
+            let objectShare: [String] = [(newsPost.titleNews), (newsPost.linkNews)]
+            let activityViewController = UIActivityViewController(activityItems: objectShare, applicationActivities: nil)
+            self.presentViewController(activityViewController, animated: true, completion: {})
         }
         favorite.backgroundColor = UIColor.orangeColor()
         return [favorite, more]

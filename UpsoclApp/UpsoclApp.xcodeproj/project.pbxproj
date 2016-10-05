@@ -257,8 +257,8 @@
 				8C31A7141D8B40CB0091A36A /* NewsViewCell.swift */,
 				8C31A7161D8C4FAB0091A36A /* CheckBoxInterest.swift */,
 				8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */,
-				8C51747B1D99626E00771EF1 /* LoginUserController.swift */,
 				8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */,
+				8C51747B1D99626E00771EF1 /* LoginUserController.swift */,
 			);
 			path = UpsoclApp;
 			sourceTree = "<group>";

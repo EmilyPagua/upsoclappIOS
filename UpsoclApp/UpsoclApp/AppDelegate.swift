@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
     func application(application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        
         // Initialize sign-in Google
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
@@ -39,9 +40,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
         
         category.clearCategoryPreference()
 
+        
+        print ("--------------------------Inicio------------------")
+
+        let preferences = NSUserDefaults.standardUserDefaults()
+        let socialNetworkName  = preferences.objectForKey("socialNetwork")
+        
+        print (socialNetworkName)
+        if socialNetworkName != nil {
+            if  GIDSignIn.sharedInstance().hasAuthInKeychain(){
+                print("user is signed in")
+                mainView()
+                return false
+            }else{
+                print("GIDSignIn user is NOT signed in")
+            }
+    
+            if FBSDKAccessToken.currentAccessToken() != nil {
+                print("tokenFacebook user is signed in")
+                mainView()
+                return false
+            }else{
+                print("tokenFacebook user is NOT signed in")
+            }
+            print("Twitter user is signed in")
+            self.mainView()
+            return false
+        }
+        print ("--------------------------Inicio FIN ------------------")
         return true
     }
     // [END didfinishlaunching Google, Facebook]
+    
+    func mainView(){
+        
+        let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let signOutPage = myStroryBoard.instantiateViewControllerWithIdentifier("SWRevealViewController") as! SWRevealViewController
+        let signOutPageNav = UINavigationController(rootViewController: signOutPage)
+        signOutPageNav.setNavigationBarHidden(signOutPageNav.navigationBarHidden == false, animated: true)
+        
+        let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController =  signOutPageNav
+    
+    
+    }
+    
     
     // [------------------------START GOOGLE LOGIN-------------------]
     // [START openurl]

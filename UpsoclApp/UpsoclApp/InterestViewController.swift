@@ -50,7 +50,7 @@ class InterestViewController: UIViewController, UIAlertViewDelegate {
         }else{
             enableMenu()
             menuButton.enabled =  true
-            createViewMessage("Caterias modificadas con éxito..!")
+            createViewMessage("Categorías modificadas con éxito..!")
         }
     }
     

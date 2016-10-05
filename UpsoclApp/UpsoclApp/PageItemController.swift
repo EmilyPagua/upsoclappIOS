@@ -39,6 +39,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     var news =  News?()
     var contentDetail = ""
     var isSearchResult = false
+    var webViewSize = 0
     
     
     var progressBar = ProgressBarLoad()
@@ -81,7 +82,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
         print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-
     }
     //BannerViewController
     
@@ -176,7 +176,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
                 contentDetail = contentDetail + imagen
             }
             
-            let title = "<h1>"+news!.titleNews+"</h1>"
+            let title = "<h3>"+news!.titleNews+"</h3>"
             let detailAuthor = "<h5> Autor: <font color=\"#009688\">"+news!.authorNews!+" </font> . El: <font color=\"#009688\"> "+news!.dateNews!+" </font> <h5>"
             let category = "<h5> Categorias: <font color=\"#009688\">"+news!.categoryNews+"</font> <h5>"
             let line = "<hr  color=\"#009688\" />"
@@ -186,6 +186,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
             let baseURL = NSURL(string: "http://api.instagram.com/oembed")
             self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
             webViewContent.delegate = self
+            bannerView.hidden = true
         }
     }
     
@@ -220,31 +221,41 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         }
     }
     
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        print("Webview fail with error \(error)");
+    }
+    
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        print ("webView")
+        return true;
+    }
+    
+    
+    
     func webViewDidStartLoad(webView: UIWebView){
          self.indicator.startAnimating()
-        webViewContent.frame =  CGRectMake(10, 4, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height )
-        self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - 300, 0);
-        bannerView.frame = CGRectMake(50, webViewContent.frame.maxY - 10, 300, 250)
+        print ("webViewDidStartLoad")
         bannerView.hidden = true
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        
-      /*
+        print ("webViewDidFinishLoad")
+        /*
         webViewContent.frame =  CGRectMake(10, authorDetail.frame.maxY, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height + 50)
         
         print(webViewContent.frame.maxY)
         print (bannerView.frame.maxY)
         bannerView.frame = CGRectMake(40, webViewContent.frame.maxY + 10, 300, 250)
         self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY + 300, 0);
-*/
+         */
         
-        
-         webViewContent.frame =  CGRectMake(10, 4, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height )
+         webViewContent.frame =  CGRectMake(10, 4, UIScreen.mainScreen().bounds.width - 12 , webViewContent.scrollView.contentSize.height )
          //print(String(webViewContent.frame.maxY) + " " + String(bannerView.frame.maxY))
-         self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - 300, 0);
-         bannerView.frame = CGRectMake(50, webViewContent.frame.maxY, 300, 250)
+         bannerView.frame = CGRectMake(5, webViewContent.frame.maxY + 5, 300, 250)
          bannerView.hidden = false
+        self.scrollDetail.contentInset = UIEdgeInsetsMake(8, 0, webViewContent.scrollView.contentSize.height - 200, 0);
         self.indicator.stopAnimating()
         
     }

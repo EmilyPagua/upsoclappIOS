@@ -20,97 +20,123 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     let servicesConnection  = ServicesConnection()
     
     // [START viewcontroller Facebook]
-    let loginButtonFacebook: FBSDKLoginButton = {
-        let button = FBSDKLoginButton()
-        button.readPermissions = ["email"]
-        return button
+    @IBOutlet weak var loginButtonFacebook: FBSDKLoginButton?  = {
+    let button = FBSDKLoginButton()
+    button.readPermissions = ["email"]
+    return button
     }()
+   
     // [END viewcontroller Facebook]
     
-    let loginButtonTwitter = TWTRLogInButton { (session, error) in
-        
-        let servicesConnection  = ServicesConnection()
-        
-        if let unwrappedSession = session {
-            let twitter = "twitter"
-            
-            let twitterClient = TWTRAPIClient(userID: unwrappedSession.userID)
-            twitterClient.loadUserWithID(unwrappedSession.userID) {
-                (user:TWTRUser?, error:NSError?) in
-            }
-            
-            let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let signOutPage = myStroryBoard.instantiateViewControllerWithIdentifier("SWRevealViewController") as! SWRevealViewController
-            let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-            signOutPageNav.setNavigationBarHidden(signOutPageNav.navigationBarHidden == false, animated: true)
-            let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.window?.rootViewController =  signOutPageNav
-            
-            let user = Customer(firstName: unwrappedSession.userName,
-                lastName: "--",
-                email:  "--",
-                location: "--",
-                birthday: "00-00-0000",
-                imagenURL:  "--",
-                token: "qwedsazxc2",
-                userId: "0",
-                socialNetwork: "facebook",
-                socialNetworkTokenId: "tokentFacebook",
-                registrationId: "tokentWordpress")
-            
-            servicesConnection.saveCustomer(user!)
-        
-        } else {
-            NSLog("Login error: %@", error!.localizedDescription);
-        }
-    }
+    @IBOutlet weak var loginButtonTwitter: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Start GoogleLogin
         GIDSignIn.sharedInstance().uiDelegate = self
-        
         //End GoogleLogin
         
         //Start FacebookLogin
-        view.addSubview(loginButtonFacebook)
-        loginButtonFacebook.frame =  CGRectMake(20, signInButtonGoogle.frame.maxY + 20, UIScreen.mainScreen().bounds.width - 40, 40)
-        loginButtonFacebook.delegate = self
+        loginButtonFacebook!.delegate = self
         
-        if let tokenFacebook = FBSDKAccessToken.currentAccessToken(){
-            print (tokenFacebook)
-            fetchProfile()
+        /*Twitter.sharedInstance().logInWithCompletion { session, error in
+            if (session != nil) {
+                print("1 \(session!.userName)");
+            } else {
+                print("5 error: \(error!.localizedDescription)");
+            }
         }
+        */
         //End FacebookLogin
+        //loginButtonFacebook!.hidden =  true
+        //loginButtonTwitter.hidden = true
+        //signInButtonGoogle.hidden = true
+    }
+    
+    @IBAction func validarLogin(sender: AnyObject) {
         
-        // [START viewcontroller Twitter]
+        Twitter.sharedInstance().logInWithCompletion { session, error in
+            if (session != nil) {
+                print("1 \(session!.userName)");
+                Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
+            } else {
+                print("5 error: \(error!.localizedDescription)");
+            }
+        }
+        
         // If using the log in methods on the Twitter instance
-        loginButtonTwitter.frame =  CGRectMake(20, loginButtonFacebook.frame.maxY + 20, UIScreen.mainScreen().bounds.width - 40, 40)
+        Twitter.sharedInstance().logInWithMethods([.WebBased]) { session, error in
+            if (session != nil) {
+                print("2 \(session!.userName)");
+                Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
+                
+                // Swift
+                let client = TWTRAPIClient.clientWithCurrentUser()
+                let request = client.URLRequestWithMethod("GET",
+                                                          URL: "https://api.twitter.com/1.1/account/verify_credentials.json",
+                                                          parameters: ["include_email": "true", "skip_status": "true"],
+                                                          error: nil)
+                
+                client.sendTwitterRequest(request) { response, data, connectionError in
+                    let nsdata = NSData(data: data!)
+                    let json : AnyObject!
+                    do {
+                        json = try NSJSONSerialization.JSONObjectWithData(nsdata, options: []) as? [String:AnyObject]
+                       // print (json)
+                        let user = Customer(firstName: json["name"] as! String,
+                                            lastName: ".",
+                                            email: "pruebaIOS@gmail.com",
+                                            location: "--",
+                                            birthday: "00-00-0000",
+                                            imagenURL: json["profile_image_url"] as! String,
+                                            token: "qwedsazxc2",
+                                            userId: "0",
+                                            socialNetwork: "twitter",
+                                              socialNetworkTokenId: "tokentFacebook",
+                                            registrationId: "tokentWordpress")
+                        
+                        print (user?.firstName)
+                        self.servicesConnection.saveCustomer(user!)
+                        
+                        let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                        let signOutPage = myStroryBoard.instantiateViewControllerWithIdentifier("SWRevealViewController") as! SWRevealViewController
+                        let signOutPageNav = UINavigationController(rootViewController: signOutPage)
+                        signOutPageNav.setNavigationBarHidden(signOutPageNav.navigationBarHidden == false, animated: true)
+                        let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+                        appDelegate.window?.rootViewController =  signOutPageNav
+                        
+                        
+                    }catch let error as NSError{
+                        print (error.localizedDescription)
+                        json=nil
+                        return
+                    }
+                }
+                
+                
+            } else {
+                print("error: \(error!.localizedDescription)");
+            }
+            
+        }
         
-        self.view.addSubview(loginButtonTwitter)
-        // [END viewcontroller Twitter]
-        
-        
-        signInButtonGoogle.hidden = true
-        loginButtonFacebook.hidden =  true
-        loginButtonTwitter.hidden = true
     }
     
     @IBAction func validCountCategory(sender: UIButton) {
-        countCategory ()
+        //countCategory ()
     }
     
     func countCategory (){
         let categoryCount = category.countCategory()
         
         if categoryCount <= 1 || beforeCategory <= 1  {
-            loginButtonFacebook.hidden =  true
+            loginButtonFacebook!.hidden =  true
             loginButtonTwitter.hidden = true
             signInButtonGoogle.hidden = true
 
         } else {
-            loginButtonFacebook.hidden = false
+            loginButtonFacebook!.hidden = false
             loginButtonTwitter.hidden = false
             signInButtonGoogle.hidden = false
         }
@@ -125,7 +151,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         if categoryCount < 3 {
             createViewMessage("Debe seleccionar al menos 3 categorias")
         }else{                                                                                                                                                                                                         
-            //createViewMessage("Caterias modificadas con éxito..!")
+            //createViewMessage("Categorias modificadas con éxito..!")
         }
     }
     
@@ -173,7 +199,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         self.presentViewController(viewController, animated: true, completion: nil)
         
         print ("Google Login presented")
-            
     }
     
     // Dismiss the "Sign in with Google" view
