@@ -22,6 +22,7 @@ class NewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //loadProgressBar
         indicator = progressBar.loadBar()
         //indicator.center = view.center
@@ -167,17 +168,25 @@ class NewsTableViewController: UITableViewController {
     
     func callWebServices(paged: String ){
         
-        self.indicator.startAnimating()
-        
-        let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + paged
-        servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
             
-            self.newsList = moreWrapper!
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tableView.reloadData()
-                return
+            self.indicator.startAnimating()
+            
+            let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + paged
+            servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
+                
+                self.newsList = moreWrapper!
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                    return
+                })
             })
-        })
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "Error al conexión internet", message: "Esta seguro que tiene conexion a internet?", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
     }
     
     func loadImage(urlImage: String?, viewImagen: UIImageView){

@@ -922,7 +922,7 @@
         <!--Post-->
         <scene sceneID="D69-k9-7id">
             <objects>
-                <viewController storyboardIdentifier="ItemController" id="brC-WD-Mqd" customClass="PageItemController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ItemController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="brC-WD-Mqd" customClass="PageItemController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FtT-wg-eji"/>
                         <viewControllerLayoutGuide type="bottom" id="Hpm-HZ-fOT"/>
@@ -1023,13 +1023,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="n13-mT-DrS" firstAttribute="centerX" secondItem="aps-XD-ADf" secondAttribute="centerX" id="1sU-h9-Otw"/>
-                            <constraint firstItem="Hpm-HZ-fOT" firstAttribute="top" secondItem="n13-mT-DrS" secondAttribute="bottom" id="7Sc-iY-il1"/>
-                            <constraint firstItem="Odq-qq-lWn" firstAttribute="top" secondItem="FtT-wg-eji" secondAttribute="bottom" id="W7q-z6-N9i"/>
+                            <constraint firstItem="Hpm-HZ-fOT" firstAttribute="top" secondItem="n13-mT-DrS" secondAttribute="bottom" id="2nH-v2-wsK"/>
                             <constraint firstItem="n13-mT-DrS" firstAttribute="leading" secondItem="aps-XD-ADf" secondAttribute="leadingMargin" constant="-20" id="WZg-v4-HEB"/>
                             <constraint firstItem="n13-mT-DrS" firstAttribute="top" secondItem="Odq-qq-lWn" secondAttribute="bottom" id="WrL-n8-BxU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="n13-mT-DrS" secondAttribute="trailing" constant="-20" id="c5M-0g-jqi"/>
                             <constraint firstItem="n13-mT-DrS" firstAttribute="top" secondItem="Odq-qq-lWn" secondAttribute="bottom" id="fvK-OB-ejx"/>
                             <constraint firstItem="Odq-qq-lWn" firstAttribute="leading" secondItem="aps-XD-ADf" secondAttribute="leadingMargin" constant="-20" id="h58-p0-09t"/>
+                            <constraint firstItem="Odq-qq-lWn" firstAttribute="top" secondItem="FtT-wg-eji" secondAttribute="bottom" id="ueF-1z-9XK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Odq-qq-lWn" secondAttribute="trailing" constant="-20" id="zOc-dX-vy3"/>
                         </constraints>
                     </view>
@@ -1061,6 +1061,239 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHe-Bi-4c8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6488" y="-1935"/>
+        </scene>
+        <!--Page Item Two View Controller-->
+        <scene sceneID="2u1-AV-GIQ">
+            <objects>
+                <viewController storyboardIdentifier="ItemController2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="saL-1o-pg2" customClass="PageItemTwoViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0oJ-WX-Yqi"/>
+                        <viewControllerLayoutGuide type="bottom" id="DUK-UJ-QJc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cMj-Rn-6e2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBK-QL-qd3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="I0D-Bc-iBv"/>
+                                    <constraint firstAttribute="height" constant="44" id="aEb-Ag-kzY"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Post" id="uBC-yK-36V">
+                                        <barButtonItem key="leftBarButtonItem" image="back" id="Cot-yB-OA5">
+                                            <connections>
+                                                <action selector="comeBack:" destination="brC-WD-Mqd" id="iRP-RR-r1V"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem image="bookmarkInactive" id="wbB-Vf-dyu">
+                                                <connections>
+                                                    <action selector="bookmarkButton:" destination="brC-WD-Mqd" id="03M-s6-RYJ"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="action" id="2uj-JU-quW">
+                                                <connections>
+                                                    <action selector="shareButton:" destination="brC-WD-Mqd" id="PTK-IS-oq9"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="facebook_button" id="hk2-lY-mfL">
+                                                <connections>
+                                                    <action selector="shareButtonFacebook:" destination="brC-WD-Mqd" id="AhT-4B-wJA"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aEb-Ag-kzY"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHL-oA-JWj">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoH-bW-fQ9">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTy-Ic-gAQ" customClass="GADBannerView">
+                                                <rect key="frame" x="140" y="303" width="320" height="250"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="320" id="LyB-Ny-Ie0"/>
+                                                    <constraint firstAttribute="height" constant="250" id="QdO-j8-LBo"/>
+                                                </constraints>
+                                            </view>
+                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdH-UQ-fII">
+                                                <rect key="frame" x="8" y="8" width="584" height="290"/>
+                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                            </webView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="ZdH-UQ-fII" firstAttribute="leading" secondItem="OoH-bW-fQ9" secondAttribute="leading" constant="8" id="3gP-Z0-pb6"/>
+                                            <constraint firstItem="vTy-Ic-gAQ" firstAttribute="top" secondItem="ZdH-UQ-fII" secondAttribute="bottom" constant="5" id="9vt-dC-ixi"/>
+                                            <constraint firstAttribute="bottom" secondItem="vTy-Ic-gAQ" secondAttribute="bottom" constant="3" id="DxQ-a5-DBh"/>
+                                            <constraint firstItem="vTy-Ic-gAQ" firstAttribute="centerX" secondItem="OoH-bW-fQ9" secondAttribute="centerX" id="Vbw-jv-7bf"/>
+                                            <constraint firstItem="ZdH-UQ-fII" firstAttribute="top" secondItem="OoH-bW-fQ9" secondAttribute="top" constant="8" id="eeF-3U-0g1"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZdH-UQ-fII" secondAttribute="trailing" constant="8" id="yqw-qy-XiF"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="OoH-bW-fQ9" secondAttribute="bottom" id="6e5-tm-mg0"/>
+                                    <constraint firstItem="OoH-bW-fQ9" firstAttribute="leading" secondItem="pHL-oA-JWj" secondAttribute="leading" id="9a1-l2-uPz"/>
+                                    <constraint firstItem="OoH-bW-fQ9" firstAttribute="top" secondItem="pHL-oA-JWj" secondAttribute="top" id="Epq-BJ-Gp5"/>
+                                    <constraint firstAttribute="trailing" secondItem="OoH-bW-fQ9" secondAttribute="trailing" id="P28-z9-LMQ"/>
+                                    <constraint firstItem="OoH-bW-fQ9" firstAttribute="centerY" secondItem="pHL-oA-JWj" secondAttribute="centerY" id="QTk-jc-hr1"/>
+                                    <constraint firstItem="OoH-bW-fQ9" firstAttribute="centerX" secondItem="pHL-oA-JWj" secondAttribute="centerX" id="Z7y-Ur-BPQ"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="-6" maxX="0.0" maxY="0.0"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CBK-QL-qd3" firstAttribute="bottom" secondItem="pHL-oA-JWj" secondAttribute="top" id="3li-Al-RLk"/>
+                            <constraint firstItem="CBK-QL-qd3" firstAttribute="top" secondItem="0oJ-WX-Yqi" secondAttribute="bottom" id="WjF-1S-s3y"/>
+                            <constraint firstItem="pHL-oA-JWj" firstAttribute="bottom" secondItem="DUK-UJ-QJc" secondAttribute="top" id="ZIq-oj-rWu"/>
+                            <constraint firstItem="CBK-QL-qd3" firstAttribute="trailing" secondItem="pHL-oA-JWj" secondAttribute="trailing" id="cuw-x9-vVx"/>
+                            <constraint firstItem="CBK-QL-qd3" firstAttribute="leading" secondItem="pHL-oA-JWj" secondAttribute="leading" id="ivn-km-gc1"/>
+                            <constraint firstAttribute="trailing" secondItem="CBK-QL-qd3" secondAttribute="trailing" id="jEe-uu-FAS"/>
+                            <constraint firstItem="CBK-QL-qd3" firstAttribute="leading" secondItem="cMj-Rn-6e2" secondAttribute="leading" id="qao-wy-DsV"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bannerView" destination="vTy-Ic-gAQ" id="UvE-cf-k4u"/>
+                        <outlet property="bookmark" destination="wbB-Vf-dyu" id="Auv-b0-tvL"/>
+                        <outlet property="scrollDetail" destination="pHL-oA-JWj" id="dE4-m4-vCo"/>
+                        <outlet property="webViewContent" destination="ZdH-UQ-fII" id="U09-sV-3EC"/>
+                        <outlet property="webViewController" destination="ZdH-UQ-fII" id="tb4-Xo-OOr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uwB-VH-Qsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7116" y="-1935"/>
+        </scene>
+        <!--Page Item Controller-->
+        <scene sceneID="DJf-IZ-Gnf">
+            <objects>
+                <viewController storyboardIdentifier="ItemController3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ptd-BY-8EJ" customClass="PageItemController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Nn-d1-khw"/>
+                        <viewControllerLayoutGuide type="bottom" id="qd8-qa-MMk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UDx-W0-idw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dM-nH-kOT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dIN-Hh-1d4"/>
+                                    <constraint firstAttribute="height" constant="44" id="xP2-3R-oHI"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Post" id="I0I-TB-xLA">
+                                        <barButtonItem key="leftBarButtonItem" image="back" id="UJg-KM-ZCY">
+                                            <connections>
+                                                <action selector="comeBack:" destination="brC-WD-Mqd" id="Oie-KU-Nwi"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem image="bookmarkInactive" id="OYT-v5-jtY">
+                                                <connections>
+                                                    <action selector="bookmarkButton:" destination="brC-WD-Mqd" id="1WF-F0-bWv"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="action" id="PWw-oM-05Y">
+                                                <connections>
+                                                    <action selector="shareButton:" destination="brC-WD-Mqd" id="s6r-Zd-ohr"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="facebook_button" id="fON-FC-VDr">
+                                                <connections>
+                                                    <action selector="shareButtonFacebook:" destination="brC-WD-Mqd" id="fg6-4t-BEd"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dIN-Hh-1d4"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1H6-s4-Kr4">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRr-hz-JKa">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kiA-9g-fA3" customClass="GADBannerView">
+                                                <rect key="frame" x="140" y="303" width="320" height="250"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="AYU-8L-Awq"/>
+                                                    <constraint firstAttribute="width" constant="320" id="v2d-jS-qtw"/>
+                                                </constraints>
+                                            </view>
+                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svd-TW-FLy">
+                                                <rect key="frame" x="8" y="8" width="584" height="290"/>
+                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                            </webView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="svd-TW-FLy" firstAttribute="top" secondItem="GRr-hz-JKa" secondAttribute="top" constant="8" id="8mk-I8-yem"/>
+                                            <constraint firstAttribute="bottom" secondItem="kiA-9g-fA3" secondAttribute="bottom" constant="3" id="N4b-5F-FSC"/>
+                                            <constraint firstItem="svd-TW-FLy" firstAttribute="leading" secondItem="GRr-hz-JKa" secondAttribute="leading" constant="8" id="PJK-Kq-9iS"/>
+                                            <constraint firstAttribute="trailing" secondItem="svd-TW-FLy" secondAttribute="trailing" constant="8" id="Wcd-K2-8Tn"/>
+                                            <constraint firstItem="kiA-9g-fA3" firstAttribute="top" secondItem="svd-TW-FLy" secondAttribute="bottom" constant="5" id="tzW-eU-3Uz"/>
+                                            <constraint firstItem="kiA-9g-fA3" firstAttribute="centerX" secondItem="GRr-hz-JKa" secondAttribute="centerX" id="uYE-30-6Oq"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GRr-hz-JKa" secondAttribute="trailing" id="3ZG-5m-rQW"/>
+                                    <constraint firstItem="GRr-hz-JKa" firstAttribute="top" secondItem="1H6-s4-Kr4" secondAttribute="top" id="I58-Vm-mDG"/>
+                                    <constraint firstAttribute="bottom" secondItem="GRr-hz-JKa" secondAttribute="bottom" id="TTB-y8-T7m"/>
+                                    <constraint firstItem="GRr-hz-JKa" firstAttribute="centerX" secondItem="1H6-s4-Kr4" secondAttribute="centerX" id="o92-bm-Tri"/>
+                                    <constraint firstItem="GRr-hz-JKa" firstAttribute="leading" secondItem="1H6-s4-Kr4" secondAttribute="leading" id="rNg-zQ-5vd"/>
+                                    <constraint firstItem="GRr-hz-JKa" firstAttribute="centerY" secondItem="1H6-s4-Kr4" secondAttribute="centerY" id="wa4-BW-V5c"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="-6" maxX="0.0" maxY="0.0"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1dM-nH-kOT" secondAttribute="trailing" id="4gw-ah-TVI"/>
+                            <constraint firstItem="1dM-nH-kOT" firstAttribute="bottom" secondItem="1H6-s4-Kr4" secondAttribute="top" id="5bO-uF-kP6"/>
+                            <constraint firstItem="1dM-nH-kOT" firstAttribute="leading" secondItem="UDx-W0-idw" secondAttribute="leading" id="E1J-6Q-N6a"/>
+                            <constraint firstItem="1dM-nH-kOT" firstAttribute="leading" secondItem="1H6-s4-Kr4" secondAttribute="leading" id="cHP-Em-Z8y"/>
+                            <constraint firstItem="1dM-nH-kOT" firstAttribute="top" secondItem="6Nn-d1-khw" secondAttribute="bottom" id="kDi-We-o6N"/>
+                            <constraint firstItem="1H6-s4-Kr4" firstAttribute="bottom" secondItem="qd8-qa-MMk" secondAttribute="top" id="mAM-Ls-NB7"/>
+                            <constraint firstItem="1dM-nH-kOT" firstAttribute="trailing" secondItem="1H6-s4-Kr4" secondAttribute="trailing" id="sg1-VJ-ZUE"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bannerView" destination="kiA-9g-fA3" id="Uvr-s9-CG9"/>
+                        <outlet property="bookmark" destination="OYT-v5-jtY" id="G0G-q5-EVr"/>
+                        <outlet property="scrollDetail" destination="1H6-s4-Kr4" id="gVy-l8-aAR"/>
+                        <outlet property="webViewContent" destination="svd-TW-FLy" id="2nM-OC-PNe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X4r-81-kIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7755" y="-1935"/>
         </scene>
         <!--Menu Controller-->
         <scene sceneID="WvI-gM-KFV">
@@ -2009,8 +2242,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yR-Zw-GuM">
-                                <rect key="frame" x="0.0" y="64" width="600" height="532"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yR-Zw-GuM">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1J-7L-ddg">
                                         <rect key="frame" x="8" y="8" width="584" height="393"/>

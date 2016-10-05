@@ -29,7 +29,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     @IBOutlet weak var bannerView: GADBannerView!
     
-    
     var servicesConnection = ServicesConnection()
     let fonts = "<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>"
     let meta = "<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>"
@@ -41,9 +40,8 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     var isSearchResult = false
     var webViewSize = 0
     
-    
     var progressBar = ProgressBarLoad()
-     var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     
     @IBOutlet weak var contentWebView: UIWebView!
 
@@ -70,21 +68,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         self.bannerView.adSize = kGADAdSizeMediumRectangle
         bannerView.loadRequest(GADRequest())
     }
-    
-    //BannerViewController
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        /*if UIDevice.currentDevice().orientation.isLandscape.boolValue{
-            self.bannerView.adSize = kGADAdSizeSmartBannerLandscape;
-        } else {
-            self.bannerView.adSize = kGADAdSizeSmartBannerPortrait;
-        }*/
-    }
-    
-    func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
-        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    //BannerViewController
-    
     
     //ComeBack
     @IBAction func comeBack(sender: UIBarButtonItem) {
@@ -175,18 +158,18 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
                 let imagen  = "<center><p><img img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news!.imageURLNews!+" width=\"728\" > </p></center>"
                 contentDetail = contentDetail + imagen
             }
-            
-            let title = "<h3>"+news!.titleNews+"</h3>"
+            let line = "<hr  color=\"#009688\" />"
+
+            /*let title = "<h3>"+news!.titleNews+"</h3>"
             let detailAuthor = "<h5> Autor: <font color=\"#009688\">"+news!.authorNews!+" </font> . El: <font color=\"#009688\"> "+news!.dateNews!+" </font> <h5>"
             let category = "<h5> Categorias: <font color=\"#009688\">"+news!.categoryNews+"</font> <h5>"
-            let line = "<hr  color=\"#009688\" />"
             let publicity = ""
-            contentDetail = contentDetail + title + detailAuthor + category + line + publicity + news!.contentNews!
+            *///contentDetail = contentDetail + title + detailAuthor + category + line + publicity + news!.contentNews!
+            contentDetail = contentDetail + line  + news!.contentNews!
 
             let baseURL = NSURL(string: "http://api.instagram.com/oembed")
             self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
             webViewContent.delegate = self
-            bannerView.hidden = true
         }
     }
     
@@ -222,26 +205,24 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        print("Webview fail with error \(error)");
+        print("Error en webView \(error?.localizedDescription)");
     }
     
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        
-        print ("webView")
+        //print ("webView")
         return true;
     }
     
-    
-    
     func webViewDidStartLoad(webView: UIWebView){
-         self.indicator.startAnimating()
-        print ("webViewDidStartLoad")
+        self.indicator.startAnimating()
+        print ("webViewDidStartLoad " )
         bannerView.hidden = true
+        //webViewContent.hidden = true
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        print ("webViewDidFinishLoad")
+        //print ("webViewDidFinishLoad")
         /*
         webViewContent.frame =  CGRectMake(10, authorDetail.frame.maxY, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height + 50)
         
@@ -251,13 +232,16 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY + 300, 0);
          */
         
-         webViewContent.frame =  CGRectMake(10, 4, UIScreen.mainScreen().bounds.width - 12 , webViewContent.scrollView.contentSize.height )
-         //print(String(webViewContent.frame.maxY) + " " + String(bannerView.frame.maxY))
-         bannerView.frame = CGRectMake(5, webViewContent.frame.maxY + 5, 300, 250)
-         bannerView.hidden = false
+        webViewContent.frame =  CGRectMake(10, 4, UIScreen.mainScreen().bounds.width - 12 , webView.scrollView.contentSize.height )
+        //print(String(webViewContent.frame.maxY) + " " + String(bannerView.frame.maxY))
+        
+        let position = ((UIScreen.mainScreen().bounds.width) / 2) - 150
+        print (position)
+        bannerView.frame = CGRectMake(position, webView.frame.maxY + 5, 300, 250)
+        bannerView.hidden = false
+        webViewContent.hidden = false
         self.scrollDetail.contentInset = UIEdgeInsetsMake(8, 0, webViewContent.scrollView.contentSize.height - 200, 0);
         self.indicator.stopAnimating()
-        
     }
     
     func loadIsBookmark() {
@@ -280,4 +264,29 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
             })
         })
     }
+    
+    //BannerViewController
+    func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+        print("adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    func adViewDidReceiveAd(view: GADBannerView!) {
+        print ("adViewDidReceiveAd ")
+        bannerView.hidden =  false
+    }
+    
+    func adViewWillLeaveApplication(bannerView: GADBannerView!) {
+        print ("adViewWillLeaveApplication")
+        bannerView.hidden =  false
+    }
+    func adViewDidDismissScreen(bannerView: GADBannerView!) {
+        print ("adViewDidDismissScreen")
+        bannerView.hidden =  false
+    }
+    
+    func adViewWillPresentScreen(bannerView: GADBannerView!) {
+        print ("adViewDidDismissScreen")
+        bannerView.hidden =  false
+    }
+    //BannerViewController
 }

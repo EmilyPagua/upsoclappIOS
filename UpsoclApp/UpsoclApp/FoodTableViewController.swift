@@ -79,7 +79,7 @@ class FoodTableViewController: UITableViewController {
             cell.postTitleLabel.text = news.titleNews
             
             loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
-            if indexPath.row == self.newsList.count - 2{
+            if indexPath.row == self.newsList.count - 3 {
                 page += 1
                 callWebServices(String (page))
             }
