@@ -35,6 +35,11 @@
 // [END bridging_header facebook]
 
 
+//Google Analytics
+#import <Google/Analytics.h>
+//Google Analytics
+
+
 
 #import <QuartzCore/QuartzCore.h>
 

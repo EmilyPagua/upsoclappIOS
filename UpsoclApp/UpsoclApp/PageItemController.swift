@@ -22,18 +22,21 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     @IBOutlet weak var authorDetail: UILabel!
     @IBOutlet weak var bookmark: UIBarButtonItem!
 
-    @IBOutlet weak var scrollDetail: UIScrollView!
     @IBOutlet weak var categoryDetail: UILabel!
-    
     @IBOutlet weak var buttonShareFacebook: UIBarButtonItem!
     
-    @IBOutlet weak var bannerView: GADBannerView!
     
     var servicesConnection = ServicesConnection()
     let fonts = "<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>"
     let meta = "<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>"
     let style = "<link rel='stylesheet' type='text/css' media='all' href='http://www.upsocl.com/wp-content/themes/upso3/style.css'>"
     let baseURL = NSURL(string: "http://api.instagram.com/oembed")
+    
+    let top = "<html> <header> <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'> <link rel='stylesheet' type='text/css' media='all' href='http://www.upsocl.com/wp-content/themes/upso3/style.css'> <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'> <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'> <script type='text/javascript'>(function() {var useSSL = 'https:' == document.location.protocol;var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';document.write('<scr' + 'ipt src=\"' + src + '\"> </scr' + 'ipt>');})(); </script> <script> var mappingCT = googletag.sizeMapping().addSize([300, 100], [300, 250]). addSize([760, 200], [728, 90]). build(); var mappingCA = googletag.sizeMapping().addSize([300, 100], [300, 250]). addSize([760, 200], [728, 90]). build();  googletag.defineSlot('/100064084/contenidotop', [[300, 250], [728, 90]], 'div-gpt-ad-ct').defineSizeMapping(mappingCT).addService(googletag.pubads());  googletag.defineSlot('/421815048/contenidoabajo', [[300, 250], [728, 90]], 'div-gpt-ad-ca').defineSizeMapping(mappingCA).addService(googletag.pubads());  googletag.pubads().collapseEmptyDivs();  googletag.pubads().enableSyncRendering();googletag.enableServices(); </script> </header> <body>  "
+    
+    let banner_up  = "<div id='div-gpt-ad-ct' align='center' > <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-ct') }); </script> </div>"
+    let banner_bot = "<div id='div-gpt-ad-ca' align='center' > <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-ca') }); </script> </div> </body> </html>"
+    
     var itemIndex: Int = 0
     var news =  News?()
     var contentDetail = ""
@@ -59,14 +62,14 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         //loadContent()
         loadContentWithHTML()
         
-       ads = ["Medium Rectangle": kGADAdSizeMediumRectangle]
+        /*ads = ["Medium Rectangle": kGADAdSizeMediumRectangle]
         
         bannerView.adUnitID = "ca-mb-app-pub-7682123866908966/7102497723"
         bannerView.rootViewController = self
         bannerView.delegate = self
         bannerView.hidden = true
         self.bannerView.adSize = kGADAdSizeMediumRectangle
-        bannerView.loadRequest(GADRequest())
+        bannerView.loadRequest(GADRequest())*/
     }
     
     //ComeBack
@@ -149,24 +152,23 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     func loadContentWithHTML(){
         
         if news != nil {
-            
-            self.webViewContent.scrollView.scrollEnabled = false
-            
+                        
             loadIsBookmark()
+            contentDetail = top
             
             if news!.imageURLNews != nil{
                 let imagen  = "<center><p><img img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news!.imageURLNews!+" width=\"728\" > </p></center>"
                 contentDetail = contentDetail + imagen
             }
             let line = "<hr  color=\"#009688\" />"
-
-            /*let title = "<h3>"+news!.titleNews+"</h3>"
-            let detailAuthor = "<h5> Autor: <font color=\"#009688\">"+news!.authorNews!+" </font> . El: <font color=\"#009688\"> "+news!.dateNews!+" </font> <h5>"
-            let category = "<h5> Categorias: <font color=\"#009688\">"+news!.categoryNews+"</font> <h5>"
-            let publicity = ""
-            *///contentDetail = contentDetail + title + detailAuthor + category + line + publicity + news!.contentNews!
-            contentDetail = contentDetail + line  + news!.contentNews!
-
+            let title = "<div> <h1 class='entry-title' > "+news!.titleNews+"</h1> </div>"
+            let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news!.authorNews!+" </font>.  El: <font color=\"#009688\"> "+news!.dateNews!+" </font> "
+            let category = " <br/> Categorias: <font color=\"#009688\">"+news!.categoryNews+"</font> </div> "
+            let content = news!.contentNews
+            
+            contentDetail = contentDetail  + title + detailAuthor + category + banner_up
+            contentDetail = contentDetail + line + content! + banner_bot
+            
             let baseURL = NSURL(string: "http://api.instagram.com/oembed")
             self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
             webViewContent.delegate = self
@@ -216,31 +218,9 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     func webViewDidStartLoad(webView: UIWebView){
         self.indicator.startAnimating()
-        print ("webViewDidStartLoad " )
-        bannerView.hidden = true
-        //webViewContent.hidden = true
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        //print ("webViewDidFinishLoad")
-        /*
-        webViewContent.frame =  CGRectMake(10, authorDetail.frame.maxY, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height + 50)
-        
-        print(webViewContent.frame.maxY)
-        print (bannerView.frame.maxY)
-        bannerView.frame = CGRectMake(40, webViewContent.frame.maxY + 10, 300, 250)
-        self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY + 300, 0);
-         */
-        
-        webViewContent.frame =  CGRectMake(10, 4, UIScreen.mainScreen().bounds.width - 12 , webView.scrollView.contentSize.height )
-        //print(String(webViewContent.frame.maxY) + " " + String(bannerView.frame.maxY))
-        
-        let position = ((UIScreen.mainScreen().bounds.width) / 2) - 150
-        print (position)
-        bannerView.frame = CGRectMake(position, webView.frame.maxY + 5, 300, 250)
-        bannerView.hidden = false
-        webViewContent.hidden = false
-        self.scrollDetail.contentInset = UIEdgeInsetsMake(8, 0, webViewContent.scrollView.contentSize.height - 200, 0);
         self.indicator.stopAnimating()
     }
     
@@ -272,7 +252,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     func adViewDidReceiveAd(view: GADBannerView!) {
         print ("adViewDidReceiveAd ")
-        bannerView.hidden =  false
     }
     
     func adViewWillLeaveApplication(bannerView: GADBannerView!) {
@@ -289,4 +268,24 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         bannerView.hidden =  false
     }
     //BannerViewController
+    
+    
+    
+    //Google Analytics
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        /*let name = news?.linkNews
+        print ("----------------" + name!)
+
+        // [START screen_view_hit_swift]
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: name)
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])*/
+        // [END screen_view_hit_swift]
+
+    }
+    //End Google Analytics
 }

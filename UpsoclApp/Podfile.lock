@@ -14,11 +14,15 @@ PODS:
     - GoogleUtilities (~> 1.2)
   - FirebaseInstanceID (1.0.8)
   - Google-Mobile-Ads-SDK (7.11.0)
+  - Google/Analytics (3.0.3):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
   - Google/Core (3.0.3):
     - FirebaseAnalytics (~> 3.2)
   - Google/SignIn (3.0.3):
     - Google/Core
     - GoogleSignIn (~> 4.0)
+  - GoogleAnalytics (3.17.0)
   - GoogleAppUtilities (1.1.1):
     - GoogleSymbolUtilities (~> 1.0)
   - GoogleAuthUtilities (2.0.1):
@@ -46,6 +50,7 @@ DEPENDENCIES:
   - Firebase/AdMob
   - Firebase/Core
   - Google-Mobile-Ads-SDK
+  - Google/Analytics
   - Google/SignIn
   - TwitterKit
 
@@ -56,6 +61,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
   Google-Mobile-Ads-SDK: 0e864ab93ba1ff8afe92e16de0e4e883f581ed33
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleAppUtilities: f1730f91f67767b453c289577040dd3f425ffdc7
   GoogleAuthUtilities: d7a19615cd7627688afcf181737f1011ee8b5a23
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
@@ -66,6 +72,6 @@ SPEC CHECKSUMS:
   TwitterCore: a139904c80805ad3dde9eef1100704f96f646d1d
   TwitterKit: 1cf9742edf9d182c1518cfdd6aaac0dfe313b38b
 
-PODFILE CHECKSUM: 5aa26e14f5a15542a0527362a3fef5e6b0f1b37e
+PODFILE CHECKSUM: f85240d08578d4e57031572fb8a10c6a139f9893
 
 COCOAPODS: 1.0.1

@@ -32,10 +32,10 @@
 		8C5B06781D83400B00E2BB52 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B06771D83400B00E2BB52 /* Base.lproj */; };
 		8C5B067B1D83405E00E2BB52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B06791D83405E00E2BB52 /* Main.storyboard */; };
 		8C5BACBF1D7DF5990021DFBE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */; };
-		8C5D23241D9AAA6E00E1CC14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C5D23231D9AAA6E00E1CC14 /* GoogleService-Info.plist */; };
 		8C5D23281D9AC39100E1CC14 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */; };
 		8C5D232A1D9AF93A00E1CC14 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D23291D9AF93A00E1CC14 /* Customer.swift */; };
 		8C5D232C1D9B0BAE00E1CC14 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5D232B1D9B0BAE00E1CC14 /* CoreLocation.framework */; };
+		8C610DB21DA6748C00C1D4BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C610DB11DA6748C00C1D4BE /* GoogleService-Info.plist */; };
 		8C77823F1D7A12ED001A0596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77823E1D7A12ED001A0596 /* News.swift */; };
 		8CE0972D1D79DEF500ABD404 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */; };
 		8CE94EA21D9C34FF0018CFFB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE94E9F1D9C34FF0018CFFB /* FBSDKCoreKit.framework */; };
@@ -91,10 +91,10 @@
 		8C5B06771D83400B00E2BB52 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		8C5B067A1D83405E00E2BB52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
-		8C5D23231D9AAA6E00E1CC14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		8C5D23291D9AF93A00E1CC14 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		8C5D232B1D9B0BAE00E1CC14 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8C610DB11DA6748C00C1D4BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C77823E1D7A12ED001A0596 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		8CE0972A1D79DEF500ABD404 /* SidebarMenu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SidebarMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CE0972B1D79DEF500ABD404 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 				8CE94E9F1D9C34FF0018CFFB /* FBSDKCoreKit.framework */,
 				8CE94EA01D9C34FF0018CFFB /* FBSDKLoginKit.framework */,
 				8CE94EA11D9C34FF0018CFFB /* FBSDKShareKit.framework */,
-				8C5D23231D9AAA6E00E1CC14 /* GoogleService-Info.plist */,
+				8C610DB11DA6748C00C1D4BE /* GoogleService-Info.plist */,
 				8C77823D1D7A12D4001A0596 /* domain */,
 				8C12D6B51D95C99800A3FC6D /* connectionServices */,
 				8C5B064C1D80B17F00E2BB52 /* key */,
@@ -397,9 +397,9 @@
 			files = (
 				F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */,
 				8C5B06781D83400B00E2BB52 /* Base.lproj in Resources */,
-				8C5D23241D9AAA6E00E1CC14 /* GoogleService-Info.plist in Resources */,
 				F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */,
 				8C5B067B1D83405E00E2BB52 /* Main.storyboard in Resources */,
+				8C610DB21DA6748C00C1D4BE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

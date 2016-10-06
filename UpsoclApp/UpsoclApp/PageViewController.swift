@@ -66,7 +66,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         let itemController = viewController as! PageItemController
         let previousIndex = itemController.itemIndex - 1
         
-        print (String(itemController.itemIndex) + "  *  " + String (previousIndex) )
         guard previousIndex >= 0 else{
             return nil
         }
@@ -83,7 +82,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         let nextIndex = itemController.itemIndex + 1
         let orderedVireControllersCount = newsList.count
         
-        print (String(itemController.itemIndex) + "  -  " + String (nextIndex))
         guard orderedVireControllersCount != nextIndex else{
             return nil
         }
@@ -98,18 +96,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
     func getItemController (itemIndex: Int) -> PageItemController? {
         
         if itemIndex < newsList.count{
-            var pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemController
-            print (itemIndex)
-            if itemIndex==0 {
-                print (itemIndex)
-            }
-            
-            if itemIndex == 1 {
-                pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController2") as! PageItemController
-                print (pageItemController)
-            }
-            
-            
+            let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemController
             pageItemController.itemIndex =  itemIndex
             pageItemController.news = newsList[itemIndex]
             pageItemController.isSearchResult = isSearchResult
