@@ -27,9 +27,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     
     var servicesConnection = ServicesConnection()
-    let fonts = "<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>"
-    let meta = "<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>"
-    let style = "<link rel='stylesheet' type='text/css' media='all' href='http://www.upsocl.com/wp-content/themes/upso3/style.css'>"
     let baseURL = NSURL(string: "http://api.instagram.com/oembed")
     
     let top = "<html> <header> <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'> <link rel='stylesheet' type='text/css' media='all' href='http://www.upsocl.com/wp-content/themes/upso3/style.css'> <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'> <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'> <script type='text/javascript'>(function() {var useSSL = 'https:' == document.location.protocol;var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';document.write('<scr' + 'ipt src=\"' + src + '\"> </scr' + 'ipt>');})(); </script> <script> var mappingCT = googletag.sizeMapping().addSize([300, 100], [300, 250]). addSize([760, 200], [728, 90]). build(); var mappingCA = googletag.sizeMapping().addSize([300, 100], [300, 250]). addSize([760, 200], [728, 90]). build();  googletag.defineSlot('/100064084/contenidotop', [[300, 250], [728, 90]], 'div-gpt-ad-ct').defineSizeMapping(mappingCT).addService(googletag.pubads());  googletag.defineSlot('/421815048/contenidoabajo', [[300, 250], [728, 90]], 'div-gpt-ad-ca').defineSizeMapping(mappingCA).addService(googletag.pubads());  googletag.pubads().collapseEmptyDivs();  googletag.pubads().enableSyncRendering();googletag.enableServices(); </script> </header> <body>  "
@@ -58,18 +55,8 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         view.addSubview(indicator)
         indicator.bringSubviewToFront(view)
         
-        contentDetail = meta + style + fonts
         //loadContent()
         loadContentWithHTML()
-        
-        /*ads = ["Medium Rectangle": kGADAdSizeMediumRectangle]
-        
-        bannerView.adUnitID = "ca-mb-app-pub-7682123866908966/7102497723"
-        bannerView.rootViewController = self
-        bannerView.delegate = self
-        bannerView.hidden = true
-        self.bannerView.adSize = kGADAdSizeMediumRectangle
-        bannerView.loadRequest(GADRequest())*/
     }
     
     //ComeBack

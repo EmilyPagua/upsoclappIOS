@@ -134,7 +134,8 @@ class BookmarkTableViewController: UITableViewController {
             
             if !key.isEmpty && key.rangeOfCharacterFromSet(numberCharacters) == nil{
                 
-                let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + "/" + key
+                //let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + "/" + key
+                let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + "/" + "73282"
                 
                 print (urlPath)
                 
