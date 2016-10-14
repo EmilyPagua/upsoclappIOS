@@ -16,7 +16,7 @@ class ForYouTableViewController: UITableViewController {
     var page = 1
     
     var progressBar = ProgressBarLoad()
-    var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+    var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
     var keyCategory = ""
     
@@ -26,9 +26,9 @@ class ForYouTableViewController: UITableViewController {
         //loadProgressBar
         indicator = progressBar.loadBar()
         view.addSubview(indicator)
-        indicator.bringSubviewToFront(view)
+        indicator.bringSubview(toFront: view)
         
-         self.refreshControl?.addTarget(self, action: #selector(NewsTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+         self.refreshControl?.addTarget(self, action: #selector(NewsTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,7 +48,7 @@ class ForYouTableViewController: UITableViewController {
     
     func createURL(){
         
-        for elem in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
+        for elem in UserDefaults.standard.dictionaryRepresentation(){
             
             let key = elem.0
             
@@ -89,8 +89,8 @@ class ForYouTableViewController: UITableViewController {
                 keyCategory = keyCategory + Category.PropertyKey.women + ","
             case "world":
                 keyCategory = keyCategory + Category.PropertyKey.world + ","
-            default:
-                0
+            default: break
+                
             }
         }
         
@@ -99,10 +99,10 @@ class ForYouTableViewController: UITableViewController {
         }
         
         print (keyCategory)
-        keyCategory = keyCategory.substringToIndex(keyCategory.endIndex.predecessor())
+        keyCategory = keyCategory.substring(to: keyCategory.characters.index(before: keyCategory.endIndex))
     }
     
-    func handleRefresh(resfresControl: UIRefreshControl){
+    func handleRefresh(_ resfresControl: UIRefreshControl){
         newsList.removeAll()
         
         page = 1
@@ -117,28 +117,28 @@ class ForYouTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return newsList.count
     }
 
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCellWithIdentifier("CellForYou", forIndexPath: indexPath)
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellForYou", forIndexPath: indexPath) as! NewsViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellForYou", for: indexPath) as! NewsViewCell
 
         // Configure the cell...
         if (newsList.count != 0 ){
-            let news = newsList[indexPath.row]
+            let news = newsList[(indexPath as NSIndexPath).row]
             cell.postTitleLabel.text = news.titleNews
             loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
             
-            if indexPath.row == self.newsList.count - 3 {
+            if (indexPath as NSIndexPath).row == self.newsList.count - 3 {
                 page += 1
                 callWebServices(String (page))
             }
@@ -147,7 +147,7 @@ class ForYouTableViewController: UITableViewController {
     }
     
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
@@ -193,21 +193,21 @@ class ForYouTableViewController: UITableViewController {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         if segue.identifier == "ShowDetail" {
             
-            let detailViewController = segue.destinationViewController as! PageViewController
+            let detailViewController = segue.destination as! PageViewController
             
             // Get the cell that generated this segue.
             if let selectedMealCell = sender as? NewsViewCell {
-                let indexPath = tableView.indexPathForCell(selectedMealCell)!
+                let indexPath = tableView.indexPath(for: selectedMealCell)!
                 
                 var list =  [News]()
                 let listCount = newsList.count
                 
-                for i in indexPath.row  ..< indexPath.row + 4  {
+                for i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 4  {
                     if listCount >= i {
                         list.append(newsList[i])
                     }
@@ -219,7 +219,7 @@ class ForYouTableViewController: UITableViewController {
         print ("Es otro boton")}
     }
 
-    func callWebServices(paged: String ){
+    func callWebServices(_ paged: String ){
         
         self.indicator.startAnimating()
        
@@ -228,17 +228,17 @@ class ForYouTableViewController: UITableViewController {
         servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
             
             self.newsList = moreWrapper!
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.tableView.reloadData()
                 return
             })
         })
     }
     
-    func loadImage(urlImage: String?, viewImagen: UIImageView){
+    func loadImage(_ urlImage: String?, viewImagen: UIImageView){
         
         servicesConnection.loadImage(urlImage, completionHandler: { (moreWrapper, error) in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 viewImagen.image = moreWrapper
                 self.indicator.stopAnimating()
             })

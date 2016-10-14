@@ -29,11 +29,11 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIWebViewDelega
     
     @IBOutlet weak var bookmarkButtonPres: UIBarButtonItem!
     
-    @IBAction func bookmarkButton(sender: AnyObject) {
+    @IBAction func bookmarkButton(_ sender: AnyObject) {
     
-        let preferences = NSUserDefaults.standardUserDefaults()
+        let preferences = UserDefaults.standard
         let currentLevelKey = String(newsFirst!.idNews)
-        let currentLevel = preferences.objectForKey(currentLevelKey)
+        let currentLevel = preferences.object(forKey: currentLevelKey)
         
         if currentLevel == nil {
             
@@ -46,15 +46,15 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIWebViewDelega
             objectJson.setValue(newsFirst?.linkNews, forKey: News.PropertyKey.linkKey)
             objectJson.setValue(newsFirst?.contentNews, forKey: News.PropertyKey.contentKey)
             
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(objectJson, options: NSJSONWritingOptions())
-            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding) as! String
+            let jsonData = try! JSONSerialization.data(withJSONObject: objectJson, options: JSONSerialization.WritingOptions())
+            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) as! String
             
             preferences.setValue(jsonString, forKey: currentLevelKey )
             preferences.synchronize()
             
             bookmarkButtonPres.title = "esBoo"
         } else {
-            preferences.removeObjectForKey(currentLevelKey)
+            preferences.removeObject(forKey: currentLevelKey)
             bookmarkButtonPres.title = "Book"
         }
     }
@@ -67,8 +67,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIWebViewDelega
         
         if newsFirst != nil {
             
-            let preferences = NSUserDefaults.standardUserDefaults()
-            let currentLevel = preferences.objectForKey( String(newsFirst!.idNews))
+            let preferences = UserDefaults.standard
+            let currentLevel = preferences.object( forKey: String(newsFirst!.idNews))
             if currentLevel != nil{
                 bookmarkButtonPres.title = "esBoo"
             }
@@ -86,7 +86,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIWebViewDelega
             
             if let news = newsFirst {
                 let contentDetail = contentDetail + title + detailAuthor + category + line + publicity + news.contentNews!
-                let baseURL = NSURL(string: "http://api.instagram.com/oembed")
+                let baseURL = URL(string: "http://api.instagram.com/oembed")
                 contentWeb.loadHTMLString(contentDetail, baseURL: baseURL)
             }
         }
@@ -97,28 +97,28 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIWebViewDelega
         super.didReceiveMemoryWarning()
     }
 
-    func loadImage (urlImage: String?, view: UIImageView){
+    func loadImage (_ urlImage: String?, view: UIImageView){
         
         if urlImage == nil {
             view.image = UIImage(named: "webkit-featured")
             return
         }
         
-        guard let imgURL = NSURL(string: urlImage!) else{
+        guard let imgURL = URL(string: urlImage!) else{
             view.image = UIImage(named: "webkit-featured")
             return
         }
         
         print (urlImage)
-        let task = NSURLSession.sharedSession().dataTaskWithURL(imgURL) { (responseData, responseUrl, error) -> Void in
+        let task = URLSession.shared.dataTask(with: imgURL, completionHandler: { (responseData, responseUrl, error) -> Void in
             // if responseData is not null...
             if let data = responseData{
                 // execute in UI thread
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                DispatchQueue.main.async(execute: { () -> Void in
                     view.image = UIImage(data: data)
                 })
             }
-        }
+        }) 
         // Run task
         task.resume()
     }

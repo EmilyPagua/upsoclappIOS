@@ -27,21 +27,22 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     
     var servicesConnection = ServicesConnection()
-    let baseURL = NSURL(string: "http://api.instagram.com/oembed")
+    let baseURL = URL(string: "http://api.instagram.com/oembed")
     
     let top = "<html> <header> <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'> <link rel='stylesheet' type='text/css' media='all' href='http://www.upsocl.com/wp-content/themes/upso3/style.css'> <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'> <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'> <script type='text/javascript'>(function() {var useSSL = 'https:' == document.location.protocol;var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';document.write('<scr' + 'ipt src=\"' + src + '\"> </scr' + 'ipt>');})(); </script> <script> var mappingCT = googletag.sizeMapping().addSize([300, 100], [300, 250]). addSize([760, 200], [728, 90]). build(); var mappingCA = googletag.sizeMapping().addSize([300, 100], [300, 250]). addSize([760, 200], [728, 90]). build(); googletag.defineSlot('/100064084/contenidotop', [[300, 250], [728, 90]], 'div-gpt-ad-ct').defineSizeMapping(mappingCT).addService(googletag.pubads());  googletag.defineSlot('/100064084/contenidoabajo', [[300, 250], [728, 90]], 'div-gpt-ad-ca').defineSizeMapping(mappingCA).addService(googletag.pubads());  googletag.pubads().collapseEmptyDivs();  googletag.pubads().enableSyncRendering();googletag.enableServices(); </script> </header> <body>  "
     
     let banner_up  = "<div id='div-gpt-ad-ct' align='center' > <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-ct') }); </script> </div>"
     let banner_bot = "<div id='div-gpt-ad-ca' align='center' > <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-ca') }); </script> </div> </body> </html>"
     
+    ///Users/upsocl/XcodeProjects/upsoclappIOS/UpsoclApp/UpsoclApp/PageItemController.swift:39:9: Stored property 'news' without initial value prevents synthesized initializers
     var itemIndex: Int = 0
-    var news =  News?()
+    var news: News = News(id: 0, title: "", content: "", imageURL: "", date: "", link: "", category: "", author: "")!
     var contentDetail = ""
     var isSearchResult = false
     var webViewSize = 0
     
     var progressBar = ProgressBarLoad()
-    var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     @IBOutlet weak var contentWebView: UIWebView!
 
@@ -53,23 +54,23 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         indicator = progressBar.loadBar()
         indicator.center = view.center
         view.addSubview(indicator)
-        indicator.bringSubviewToFront(view)
+        indicator.bringSubview(toFront: view)
         
         //loadContent()
         loadContentWithHTML()
     }
     
     //ComeBack
-    @IBAction func comeBack(sender: UIBarButtonItem) {
+    @IBAction func comeBack(_ sender: UIBarButtonItem) {
         
-        self.tabBarController?.tabBar.hidden =  false
-        self.navigationController?.popViewControllerAnimated(true)
-        self.navigationController?.navigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden =  false
+        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     //Share
-    @IBAction func shareButton(sender: UIBarButtonItem) {
-        if news == nil{
+    @IBAction func shareButton(_ sender: UIBarButtonItem) {
+        if news.idNews == 0 {
             // Hide the keyboard
             displayAlert("Error", message: "Error en el post, vuelva a seleccionarlo")
         } else {
@@ -79,57 +80,57 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     }
     
     //Share
-    @IBAction func shareButtonFacebook(sender: UIBarButtonItem) {
+    @IBAction func shareButtonFacebook(_ sender: UIBarButtonItem) {
         
         let content: FBSDKShareLinkContent = FBSDKShareLinkContent()
-        content.contentURL = NSURL(string: (news?.linkNews)!)
-        content.contentTitle = news?.titleNews
+        content.contentURL = URL(string: (news.linkNews))
+        content.contentTitle = news.titleNews
         content.contentDescription = "http://www.upsocl.com/"
-        content.imageURL = NSURL(string: (news?.imageURLNews)!)
-        FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
+        content.imageURL = URL(string: (news.imageURLNews)!)
+        FBSDKShareDialog.show(from: self, with: content, delegate: nil)
     }
 
     
     func displayShareSheet() {
         
-        let objectShare: [String] = [(news?.titleNews)!, (news?.linkNews)!]
+        let objectShare: [String] = [(news.titleNews), (news.linkNews)]
         let activityViewController = UIActivityViewController(activityItems: objectShare, applicationActivities: nil)
-        presentViewController(activityViewController, animated: true, completion: {})
+        present(activityViewController, animated: true, completion: {})
     }
     
-    func displayAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(alertController, animated: true, completion: nil)
+    func displayAlert(_ title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
         return
     }
 
     
-    @IBAction func bookmarkButton(sender: UIBarButtonItem) {
+    @IBAction func bookmarkButton(_ sender: UIBarButtonItem) {
 
-        let preferences = NSUserDefaults.standardUserDefaults()
-        let currentLevelKey = String(news!.idNews)
-        let currentLevel = preferences.objectForKey(currentLevelKey)
+        let preferences = UserDefaults.standard
+        let currentLevelKey = String(news.idNews)
+        let currentLevel = preferences.object(forKey: currentLevelKey)
         
         if currentLevel == nil {
             
             let objectJson: NSMutableDictionary =  NSMutableDictionary()
-            objectJson.setValue(news!.idNews, forKey: News.PropertyKey.idKey)
-            objectJson.setValue(news!.titleNews, forKey: News.PropertyKey.titleKey)
-            objectJson.setValue(news!.imageURLNews, forKey: News.PropertyKey.imageURLKey)
-            objectJson.setValue(news!.authorNews, forKey: News.PropertyKey.authorKey)
-            objectJson.setValue(news!.categoryNews, forKey: News.PropertyKey.categoryKey)
-            objectJson.setValue(news!.linkNews, forKey: News.PropertyKey.linkKey)
-            objectJson.setValue(news!.contentNews, forKey: News.PropertyKey.contentKey)
+            objectJson.setValue(news.idNews, forKey: News.PropertyKey.idKey)
+            objectJson.setValue(news.titleNews, forKey: News.PropertyKey.titleKey)
+            objectJson.setValue(news.imageURLNews, forKey: News.PropertyKey.imageURLKey)
+            objectJson.setValue(news.authorNews, forKey: News.PropertyKey.authorKey)
+            objectJson.setValue(news.categoryNews, forKey: News.PropertyKey.categoryKey)
+            objectJson.setValue(news.linkNews, forKey: News.PropertyKey.linkKey)
+            objectJson.setValue(news.contentNews, forKey: News.PropertyKey.contentKey)
             
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(objectJson, options: NSJSONWritingOptions())
-            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding) as! String
+            let jsonData = try! JSONSerialization.data(withJSONObject: objectJson, options: JSONSerialization.WritingOptions())
+            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) as! String
             
             preferences.setValue(jsonString, forKey: currentLevelKey )            
             bookmark.image = UIImage(named: "bookmarkActive")
             print ("bookmarkActive")
         } else {
-            preferences.removeObjectForKey(currentLevelKey)
+            preferences.removeObject(forKey: currentLevelKey)
             bookmark.image = UIImage(named: "bookmarkInactive")
             print ("bookmarkInactive")
         }
@@ -143,20 +144,22 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
             loadIsBookmark()
             contentDetail = top
             
-            if news!.imageURLNews != nil{
-                let imagen  = "<center><p><img img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news!.imageURLNews!+" width=\"728\" > </p></center>"
+            if news.imageURLNews != nil{
+                let imagen  = "<center><p><img img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news.imageURLNews!+" width=\"728\" > </p></center>"
                 contentDetail = contentDetail + imagen
             }
             let line = "<hr  color=\"#009688\" />"
-            let title = "<div> <h1 class='entry-title' > "+news!.titleNews+"</h1> </div>"
-            let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news!.authorNews!+" </font>.  El: <font color=\"#009688\"> "+news!.dateNews!+" </font> "
-            let category = " <br/> Categorias: <font color=\"#009688\">"+news!.categoryNews+"</font> </div> "
-            let content = news!.contentNews
+            let title = "<div> <h1 class='entry-title' > "+news.titleNews+"</h1> </div>"
+            let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news.authorNews!+" </font>.  El: <font color=\"#009688\"> "+news.dateNews!+" </font> "
+            let category = " <br/> Categorias: <font color=\"#009688\">"+news.categoryNews+"</font> </div> "
+            let content = news.contentNews
             
             contentDetail = contentDetail  + title + detailAuthor + category + banner_up
             contentDetail = contentDetail + line + content! + banner_bot
             
-            let baseURL = NSURL(string: "http://api.instagram.com/oembed")
+            print(contentDetail)
+            
+            let baseURL = URL(string: "http://api.instagram.com/oembed")
             self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
             webViewContent.delegate = self
         }
@@ -167,54 +170,59 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         
         if news != nil {
             
-            self.webViewContent.scrollView.scrollEnabled = false
+            self.webViewContent.scrollView.isScrollEnabled = false
             
             loadIsBookmark()
             
-            if news!.imageURLNews != nil{
-                loadImage(news!.imageURLNews!, viewImagen: imagenDetail)
+            if news.imageURLNews != nil{
+                loadImage(news.imageURLNews!, viewImagen: imagenDetail)
             }
             
-            titleDetail.text = news!.titleNews
-            categoryDetail.text = "Autor: " + news!.authorNews! + ". Categoría: " + news!.dateNews!
-            authorDetail.text = "Categoría: " + news!.categoryNews
+            titleDetail.text = news.titleNews
+            categoryDetail.text = "Autor: " + news.authorNews! + ". Categoría: " + news.dateNews!
+            authorDetail.text = "Categoría: " + news.categoryNews
     
             let line = "<hr  color=\"#009688\" />"
             let publicity = ""
             
             if news != nil {
                 
-                contentDetail = contentDetail + line + publicity + news!.contentNews!
-                let baseURL = NSURL(string: "http://api.instagram.com/oembed")
+                contentDetail = contentDetail + line + publicity + news.contentNews!
+                
+                
+                
+                let baseURL = URL(string: "http://api.instagram.com/oembed")
                 
                 self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
                 webViewContent.delegate = self
+                
+                
             }
         }
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        print("Error en webView \(error?.localizedDescription)");
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        print("Error en webView \(error.localizedDescription)");
     }
     
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         //print ("webView")
         return true;
     }
     
-    func webViewDidStartLoad(webView: UIWebView){
+    func webViewDidStartLoad(_ webView: UIWebView){
         self.indicator.startAnimating()
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         self.indicator.stopAnimating()
     }
     
     func loadIsBookmark() {
         
-        let preferences = NSUserDefaults.standardUserDefaults()
-        let currentLevel = preferences.objectForKey(String(news!.idNews))
+        let preferences = UserDefaults.standard
+        let currentLevel = preferences.object(forKey: String(news.idNews))
         
         if currentLevel != nil{
             bookmark.image = UIImage(named: "bookmarkActive")
@@ -223,56 +231,44 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         }
     }
     
-    func loadImage(urlImage: String?, viewImagen: UIImageView){
+    func loadImage(_ urlImage: String?, viewImagen: UIImageView){
         
         servicesConnection.loadImage(urlImage, completionHandler: { (moreWrapper, error) in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 viewImagen.image = moreWrapper
             })
         })
     }
     
     //BannerViewController
-    func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+    func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
         print("adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
     }
     
-    func adViewDidReceiveAd(view: GADBannerView!) {
+    func adViewDidReceiveAd(_ view: GADBannerView!) {
         print ("adViewDidReceiveAd ")
     }
     
-    func adViewWillLeaveApplication(bannerView: GADBannerView!) {
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView!) {
         print ("adViewWillLeaveApplication")
-        bannerView.hidden =  false
+        bannerView.isHidden =  false
     }
-    func adViewDidDismissScreen(bannerView: GADBannerView!) {
+    func adViewDidDismissScreen(_ bannerView: GADBannerView!) {
         print ("adViewDidDismissScreen")
-        bannerView.hidden =  false
+        bannerView.isHidden =  false
     }
     
-    func adViewWillPresentScreen(bannerView: GADBannerView!) {
+    func adViewWillPresentScreen(_ bannerView: GADBannerView!) {
         print ("adViewDidDismissScreen")
-        bannerView.hidden =  false
+        bannerView.isHidden =  false
     }
     //BannerViewController
     
     
     
     //Google Analytics
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        /*let name = news?.linkNews
-        print ("----------------" + name!)
-
-        // [START screen_view_hit_swift]
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: name)
-        
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])*/
-        // [END screen_view_hit_swift]
-
     }
     //End Google Analytics
 }

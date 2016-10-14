@@ -14,9 +14,10 @@ class ServicesConnection  {
     
     let urlPath = "http://upsocl.com/wp-json/wp/v2/posts"
     let filterPaged =  "?filter[paged]="
+    let url_privacity = "//http://upsocl.com/wp-json/wp/v2/pages/445196"
 
     //save Customer
-    func saveCustomer(customer: Customer){
+    func saveCustomer(_ customer: Customer){
         customer.location = getLocationPhone()
         
         /*print (customer.firstName)
@@ -33,16 +34,16 @@ class ServicesConnection  {
         
         var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name=pruebaIOS2&last_name=pruebaIOS2&email=pruebaIOS2@gmail.com&birthday=00-00-0000&location=Chile&social_network_login=facebook&registration_id=qwedsazxc2"
         
-        urlPath =  urlPath.stringByReplacingOccurrencesOfString(" ", withString: "%20%")
+        urlPath =  urlPath.replacingOccurrences(of: " ", with: "%20%")
         
-        let request = NSMutableURLRequest(URL: NSURL(string: urlPath)!)
-        let session = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(url: URL(string: urlPath)!)
+        let session = URLSession.shared
         
-        request.HTTPMethod = "POST"
+        request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             guard error == nil else {
                 print("error calling POST custumer : " + urlPath)
                 print (error?.localizedDescription)
@@ -54,15 +55,15 @@ class ServicesConnection  {
                 return
             }
             
-            let nsdata = NSData(data: data!)
+            let nsdata = NSData(data: data!) as Data
             let json : AnyObject!
             do {
-                json = try NSJSONSerialization.JSONObjectWithData(nsdata, options: []) as? [String:AnyObject]
+                json = try JSONSerialization.jsonObject(with: nsdata, options: []) as AnyObject!
                 let id = json["success"] as! Int
                 if id == 0 {
                     customer.userId = "0"}
                 else{
-                    customer.userId = String(json["id"]) }
+                    customer.userId = json["id"] as! String }
                 
             }catch let error as NSError{
                 print (error.localizedDescription)
@@ -75,27 +76,27 @@ class ServicesConnection  {
     }
     
     //Load 10 News
-    func loadAllNews(wrapper: [News]?,  urlPath: String,  completionHandler: ([News]?, NSError?) -> Void) {
+    func loadAllNews(_ wrapper: [News]?,  urlPath: String,  completionHandler: @escaping ([News]?, NSError?) -> Void) {
 
         if wrapper == nil{
             completionHandler(nil, nil)
             return
         }
         
-        let urlPath = urlPath.stringByReplacingOccurrencesOfString("ñ", withString: "n")
-            .stringByReplacingOccurrencesOfString("í", withString: "i")
-            .stringByReplacingOccurrencesOfString("ó", withString: "o")
-            .stringByReplacingOccurrencesOfString("á", withString: "a")
-            .stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        let urlPath = urlPath.replacingOccurrences(of: "ñ", with: "n")
+            .replacingOccurrences(of: "í", with: "i")
+            .replacingOccurrences(of: "ó", with: "o")
+            .replacingOccurrences(of: "á", with: "a")
+            .replacingOccurrences(of: " ", with: "%20")
         
         self.newsList = wrapper!
-        guard let url = NSURL(string: urlPath) else{
+        guard let url = URL(string: urlPath) else{
             print("hay un error url")
             return
         }
         
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
+        let session = URLSession.shared
+        let task = session.dataTask(with: url, completionHandler: {data, response, error -> Void in
             
             guard error == nil else {
                 print("error calling GET on: " + urlPath)
@@ -108,9 +109,9 @@ class ServicesConnection  {
                 return
             }
             
-            let nsdata = NSData(data: data!)
+            let nsdata = NSData(data: data!) as Data
             self.convertJson(nsdata)
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 completionHandler(self.newsList, nil)
             })
             
@@ -118,7 +119,8 @@ class ServicesConnection  {
         task.resume()
     }
     
-    func loadNews(wrapper: [News]?,  urlPath: String, completionHandler: ([News]?, NSError?) -> Void) {
+    //load 1
+    func loadNews(_ wrapper: [News]?,  urlPath: String, completionHandler: @escaping ([News]?, NSError?) -> Void) {
         
         if wrapper == nil{
             completionHandler(nil, nil)
@@ -126,12 +128,12 @@ class ServicesConnection  {
         }
         
         self.newsList = wrapper!
-        guard let url = NSURL(string: urlPath) else{
+        guard let url = URL(string: urlPath) else{
             print("hay un error")
             return
         }
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
+        let session = URLSession.shared
+        let task = session.dataTask(with: url, completionHandler: {data, response, error -> Void in
             
             guard error == nil else {
                 print("error calling GET on: " + urlPath)
@@ -147,17 +149,17 @@ class ServicesConnection  {
                 return
             }
             
-            let nsdata = NSData(data: data!)            
+            let nsdata = NSData(data: data!) as Data            
             
             let json : AnyObject!
             do {
-                json = try NSJSONSerialization.JSONObjectWithData(nsdata, options: []) as? NSDictionary
+                json = try JSONSerialization.jsonObject(with: nsdata, options: []) as? NSDictionary
             }catch{
                 json=nil
                 return
             }
             self.encodeNews(json)
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 
                 completionHandler(self.newsList, nil)
             })
@@ -166,16 +168,16 @@ class ServicesConnection  {
     }
     
     
-    func createViewMessage(message: String){
+    func createViewMessage(_ message: String){
         let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
         alertView.tag = 1
         alertView.show()
     }
     
-    func convertJson(nsdata: NSData) -> Void {
+    func convertJson(_ nsdata: Data) -> Void {
         let json : AnyObject!
         do {
-            json = try NSJSONSerialization.JSONObjectWithData(nsdata, options: [])
+            json = try JSONSerialization.jsonObject(with: nsdata, options: []) as AnyObject!
         }catch{
             json=nil
             return
@@ -184,61 +186,99 @@ class ServicesConnection  {
         if let list =  json as? NSArray{
 
             for i in 0 ..< list.count  {
-                self.encodeNews(list[i])
+                self.encodeNews(list[i] as AnyObject)
             }
         }
     }
     
-    func encodeNews(object: AnyObject) {
+    func encodeNews(_ object: AnyObject) {
         
         if let data_block = object as? [String: AnyObject]
         {
-            var title = (data_block["title"]?.valueForKey("rendered") as? String)!
+            var title = (data_block["title"]?.value(forKey: "rendered") as? String)!
             let id  = data_block["id"] as! Int
-            let content  = (data_block["content"]?.valueForKey("rendered") as? String)!
-            let imageURL  = data_block["featured_media"] as? String!
-            let date  = data_block["date"] as? String!
-            let link  = data_block["link"] as? String!
-            let category  = data_block["categories_name"] as? String!
-            let authorLastName  = data_block["author_last_name"] as? String!
-            let authorFirstName = data_block["author_first_name"] as? String!
             
-            title = title.stringByReplacingOccurrencesOfString("&#8220;", withString: "'")
-                        .stringByReplacingOccurrencesOfString("&#8221;", withString: "'")
-                        .stringByReplacingOccurrencesOfString("&#8221;", withString: "'")
-                        .stringByReplacingOccurrencesOfString("&#8216;", withString: "'")
-                        .stringByReplacingOccurrencesOfString("&#8217;", withString: "'")
-                        .stringByReplacingOccurrencesOfString("&#8230;", withString: "'")
+            var meal: News
             
-            let meal = News(id: id,
+            if id == 1039 {
+                let content  = (data_block["content"]?.value(forKey: "rendered") as? String)!
+            
+                meal = News(id: id,
+                                title: title,
+                                content: content,
+                                imageURL: "",
+                                date: "",
+                                link: "",
+                                category: "" ,
+                                author: "")!
+                
+                self.newsList.append(meal)
+                return
+            }
+            if id == 445196{
+                
+                let content  = (data_block["content"]?.value(forKey: "rendered") as? String)!
+
+                meal = News(id: id,
                             title: title,
                             content: content,
-                            imageURL: imageURL,
-                            date: date,
-                            link: link,
-                            category: category ,
-                            author: authorLastName!+" "+authorFirstName!)!
+                            imageURL: "",
+                            date: "",
+                            link: "",
+                            category: "" ,
+                            author: "")!
+                
+                self.newsList.append(meal)
+                return
+            }
             
-            self.newsList.append(meal)
+                let content  = (data_block["content"]?.value(forKey: "rendered") as? String)!
+                let imageURL  = data_block["featured_media"] as? String!
+                let date  = data_block["date"] as? String!
+                let link  = data_block["link"] as? String!
+                let category  = data_block["categories_name"] as? String!
+                let authorLastName  = data_block["author_last_name"] as? String!
+                let authorFirstName = data_block["author_first_name"] as? String!
+                
+                title = title.replacingOccurrences(of: "&#8220;", with: "'")
+                    .replacingOccurrences(of: "&#8221;", with: "'")
+                    .replacingOccurrences(of: "&#8221;", with: "'")
+                    .replacingOccurrences(of: "&#8216;", with: "'")
+                    .replacingOccurrences(of: "&#8217;", with: "'")
+                    .replacingOccurrences(of: "&#8230;", with: "'")
+                
+                meal = News(id: id,
+                                title: title,
+                                content: content,
+                                imageURL: imageURL,
+                                date: date,
+                                link: link,
+                                category: category ,
+                                author: authorLastName!+" "+authorFirstName!)!
+
+            
+            
+            
+            
         }
     }
 
-    func loadImage(urlImage: String?, completionHandler: (UIImage, NSError?) -> Void ){
+    func loadImage(_ urlImage: String?, completionHandler: @escaping (UIImage, NSError?) -> Void ){
         
         if (urlImage == nil || (urlImage!.isEmpty) ) {
             completionHandler(UIImage(named: "webkit-featured")!, nil)
             
         }else{
             
-            let imgURL = NSURL(string: urlImage!)
+            let imgURL = URL(string: urlImage!)
             if imgURL != nil {
-                let task = NSURLSession.sharedSession().dataTaskWithURL(imgURL!) { (responseData, responseUrl, error) -> Void in
+                let task = URLSession.shared.dataTask(with: imgURL!, completionHandler: { (responseData, responseUrl, error) -> Void in
                     
                     // if responseData is not null...
                     if let data = responseData{
                         completionHandler(UIImage(data: data)!, nil)
                     }
-                }
+                }) 
                 // Run task
                 task.resume()
             }else {
@@ -248,10 +288,10 @@ class ServicesConnection  {
     }
     
     
-    func saveUser(customer: Customer){
+    func saveUser(_ customer: Customer){
         
         print ("Customer ID " + customer.userId)
-        let preferences = NSUserDefaults.standardUserDefaults()
+        let preferences = UserDefaults.standard
         preferences.setValue(customer.email , forKey: Customer.PropertyKey.email)
         preferences.setValue(customer.firstName, forKey: Customer.PropertyKey.firstName )
         preferences.setValue(customer.lastName, forKey: Customer.PropertyKey.lastName)
@@ -269,15 +309,15 @@ class ServicesConnection  {
     func getLocationPhone() -> String {
         
         var location =  ""
-        let allLocaleIdentifiers : Array<String> = NSLocale.availableLocaleIdentifiers() as Array<String>
-        let currentLocale = NSLocale.currentLocale()
-        let countryCode = currentLocale.objectForKey(NSLocaleCountryCode) as? String
-        let englishLocale : NSLocale = NSLocale.init(localeIdentifier : countryCode! )
+        let allLocaleIdentifiers : Array<String> = Locale.availableIdentifiers as Array<String>
+        let currentLocale = Locale.current
+        let countryCode = (currentLocale as NSLocale).object(forKey: NSLocale.Key.countryCode) as? String
+        let englishLocale : Locale = Locale.init(identifier : countryCode! )
         
         for anyLocaleID in allLocaleIdentifiers {
             
-            let theEnglishName : String? = englishLocale.displayNameForKey(NSLocaleIdentifier, value: anyLocaleID)
-            if anyLocaleID.rangeOfString(countryCode!) != nil {
+            let theEnglishName : String? = (englishLocale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: anyLocaleID)
+            if anyLocaleID.range(of: countryCode!) != nil {
                 location = theEnglishName!
             }
         }

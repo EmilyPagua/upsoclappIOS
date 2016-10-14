@@ -11,6 +11,8 @@ import TwitterKit
 
 
 class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate  {
+   
+
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -40,7 +42,7 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
     // [END viewcontroller Facebook]
     
     //Get preferences or notifications
-    let preferences = NSUserDefaults.standardUserDefaults()
+    let preferences = UserDefaults.standard
     let namePreferences = "peferencsNotification"
     var socialNetworkName: String = ""
     var socialNetworkTokenId: String = ""
@@ -53,18 +55,18 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
 
         // Do any additional setup after loading the view.
         
-        var prefe = preferences.objectForKey(namePreferences)
+        var prefe = preferences.object(forKey: namePreferences)
         if prefe == nil{
             prefe = "day"
         }
         savePreferences(prefe as! String)
         
-        let fistName  = preferences.objectForKey(Customer.PropertyKey.firstName) as! String
-        let lastName  = preferences.objectForKey(Customer.PropertyKey.lastName) as! String
-        let email  = preferences.objectForKey(Customer.PropertyKey.email) as! String
-        let location  = preferences.objectForKey(Customer.PropertyKey.location) as! String
-        socialNetworkName  = (preferences.objectForKey(Customer.PropertyKey.socialNetwork) as? String)!
-        socialNetworkTokenId = (preferences.objectForKey(Customer.PropertyKey.socialNetworkTokenId) as? String)!
+        let fistName  = preferences.object(forKey: Customer.PropertyKey.firstName) as! String
+        let lastName  = preferences.object(forKey: Customer.PropertyKey.lastName) as! String
+        let email  = preferences.object(forKey: Customer.PropertyKey.email) as! String
+        let location  = preferences.object(forKey: Customer.PropertyKey.location) as! String
+        socialNetworkName  = (preferences.object(forKey: Customer.PropertyKey.socialNetwork) as? String)!
+        socialNetworkTokenId = (preferences.object(forKey: Customer.PropertyKey.socialNetworkTokenId) as? String)!
         
         nameUserLabel.text = "Usuario: " + fistName + " " + String(lastName)
         emailUserLabel.text = "Email: " + email
@@ -91,34 +93,34 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
     }
     
 
-    @IBAction func dayButton(sender: UIButton) {
+    @IBAction func dayButton(_ sender: UIButton) {
         savePreferences("day")
     }
     
-    @IBAction func weekButton(sender: UIButton) {
+    @IBAction func weekButton(_ sender: UIButton) {
         savePreferences("week")
     }
     
-    @IBAction func monthButton(sender: UIButton) {
+    @IBAction func monthButton(_ sender: UIButton) {
         savePreferences("month")
     }
     
     
-    func savePreferences(frecuency: String){
+    func savePreferences(_ frecuency: String){
         
         switch frecuency {
         case "day":
-            daySelected.setImage(checkImage, forState: .Normal)
-            weekSelected.setImage(unCheckImage, forState: .Normal)
-            monthSelected.setImage(unCheckImage, forState: .Normal)
+            daySelected.setImage(checkImage, for: UIControlState())
+            weekSelected.setImage(unCheckImage, for: UIControlState())
+            monthSelected.setImage(unCheckImage, for: UIControlState())
         case "week":
-            weekSelected.setImage(checkImage, forState: .Normal)
-            daySelected.setImage(unCheckImage, forState: .Normal)
-            monthSelected.setImage(unCheckImage, forState: .Normal)
+            weekSelected.setImage(checkImage, for: UIControlState())
+            daySelected.setImage(unCheckImage, for: UIControlState())
+            monthSelected.setImage(unCheckImage, for: UIControlState())
         case "month":
-            monthSelected.setImage(checkImage, forState: .Normal)
-            daySelected.setImage(unCheckImage, forState: .Normal)
-            weekSelected.setImage(unCheckImage, forState: .Normal)
+            monthSelected.setImage(checkImage, for: UIControlState())
+            daySelected.setImage(unCheckImage, for: UIControlState())
+            weekSelected.setImage(unCheckImage, for: UIControlState())
         default:
             print ("no es nada")
         }
@@ -127,7 +129,7 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
     }
     
     
-    @IBAction func signOutButton(sender: AnyObject) {
+    @IBAction func signOutButton(_ sender: AnyObject) {
         
         if (socialNetworkName=="google" ){
             GIDSignIn.sharedInstance().signOut()
@@ -151,44 +153,51 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
         clearPreferences()
         category.clearCategoryPreference()
         
-        let signInPage = self.storyboard?.instantiateViewControllerWithIdentifier("LoginUserController") as! LoginUserController
+        let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
         let signInPageNav =  UINavigationController(rootViewController: signInPage)
-        let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController =  signInPageNav
     }
 
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print ("lFBSDKLoginButton - LoginButtonDidLogOut")
     }
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+    /*!
+     @abstract Sent to the delegate when the button was used to login.
+     @param loginButton the sender
+     @param result The results of the login
+     @param error The error (if any) from the login
+     */
+    
+    public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("LogOutButton Facebook")
     }
     
-    func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
+    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
         return true
     }
     
     func clearPreferences(){
         
-        let preferences = NSUserDefaults.standardUserDefaults()
-        preferences.removeObjectForKey(Customer.PropertyKey.email)
-        preferences.removeObjectForKey(Customer.PropertyKey.firstName )
-        preferences.removeObjectForKey(Customer.PropertyKey.lastName)
-        preferences.removeObjectForKey(Customer.PropertyKey.imagenURL)
-        preferences.removeObjectForKey(Customer.PropertyKey.userId) //-------------FIXME
-        preferences.removeObjectForKey(Customer.PropertyKey.socialNetwork)
-        preferences.removeObjectForKey(Customer.PropertyKey.socialNetworkTokenId)
+        let preferences = UserDefaults.standard
+        preferences.removeObject(forKey: Customer.PropertyKey.email)
+        preferences.removeObject(forKey: Customer.PropertyKey.firstName )
+        preferences.removeObject(forKey: Customer.PropertyKey.lastName)
+        preferences.removeObject(forKey: Customer.PropertyKey.imagenURL)
+        preferences.removeObject(forKey: Customer.PropertyKey.userId) //-------------FIXME
+        preferences.removeObject(forKey: Customer.PropertyKey.socialNetwork)
+        preferences.removeObject(forKey: Customer.PropertyKey.socialNetworkTokenId)
         //preferences.setValue(birthday, forKey: Customer.PropertyKey.birthday )
         //preferences.setValue(tocken, forKey: Customer.PropertyKey.token)
         
-        for elem in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
+        for elem in UserDefaults.standard.dictionaryRepresentation(){
             let key = elem.0
             
-            let numberCharacters = NSCharacterSet.decimalDigitCharacterSet().invertedSet
-            if !key.isEmpty && key.rangeOfCharacterFromSet(numberCharacters) == nil{
+            let numberCharacters = CharacterSet.decimalDigits.inverted
+            if !key.isEmpty && key.rangeOfCharacter(from: numberCharacters) == nil{
                 print (key)
-                preferences.removeObjectForKey(key)
+                preferences.removeObject(forKey: key)
             }
         }
         

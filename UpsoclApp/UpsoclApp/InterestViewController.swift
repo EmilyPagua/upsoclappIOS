@@ -20,7 +20,7 @@ class InterestViewController: UIViewController, UIAlertViewDelegate {
         
         let categoryCount = category.countCategory()
         if categoryCount < 3 {
-            menuButton.enabled =  false
+            menuButton.isEnabled =  false
         }else{
             enableMenu()
         }
@@ -38,23 +38,23 @@ class InterestViewController: UIViewController, UIAlertViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func aceptarButton(sender: UIButton) {
+    @IBAction func aceptarButton(_ sender: UIButton) {
 
         let categoryCount = category.countCategory()
         if categoryCount < 3 {
-            menuButton.enabled =  false
+            menuButton.isEnabled =  false
             
             createViewMessage("Debe seleccionar al menos 3 categorias")
             self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }else{
             enableMenu()
-            menuButton.enabled =  true
+            menuButton.isEnabled =  true
             createViewMessage("Categorías modificadas con éxito..!")
         }
     }
     
-    func createViewMessage(message: String){
+    func createViewMessage(_ message: String){
         let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
         alertView.tag = 1
         alertView.show()

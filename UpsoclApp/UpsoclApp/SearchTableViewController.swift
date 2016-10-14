@@ -20,7 +20,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     var searchActive : Bool = false
     var progressBar = ProgressBarLoad()
-    var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,31 +29,31 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         
         searchBar.delegate = self
-        searchBar.hidden =  false
+        searchBar.isHidden =  false
         
         //loadProgressBar
         indicator = progressBar.loadBar()
-        indicator.frame = CGRectMake(200.0, 40.0, 40.0, 40.0)
+        indicator.frame = CGRect(x: 200.0, y: 40.0, width: 40.0, height: 40.0)
         view.addSubview(indicator)
-        indicator.bringSubviewToFront(view)
+        indicator.bringSubview(toFront: view)
     }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = true
         
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.newsList = [News]()
         searchActive =  false
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.newsList = [News]()
         searchActive =  false
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.newsList = [News]()
         
         indicator.startAnimating()
@@ -75,12 +75,12 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         searchActive =  false
         return searchActive
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.filter = searchText
         self.tableView.reloadData()
     }
@@ -89,25 +89,25 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         super.didReceiveMemoryWarning()
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsList.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCellWithIdentifier("CellBookmark")! as UITableViewCell
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellSearch") as! NewsViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellSearch") as! NewsViewCell
         
         if (newsList.count != 0 ){
-            let news = newsList[indexPath.row]
+            let news = newsList[(indexPath as NSIndexPath).row]
             cell.postTitleLabel.text = news.titleNews
             loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
             
-            if indexPath.row == self.newsList.count - 3 {
+            if (indexPath as NSIndexPath).row == self.newsList.count - 3 {
                 paged += 1
                 callWebServices( String (paged), searchText: filter)
             }
@@ -116,11 +116,11 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func callWebServices(page: String , searchText: String){
+    func callWebServices(_ page: String , searchText: String){
                 
         let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + page + ApiConstants.PropertyKey.filterWord +  searchText
         
@@ -132,7 +132,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
                 self.displayAlert("Error", message: "No se encotraron post relacionados a: " + searchText )
             }
             
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.tableView.reloadData()
                 self.indicator.stopAnimating()
                 return
@@ -140,32 +140,32 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         })
     }
     
-    func loadImage(urlImage: String?, viewImagen: UIImageView){
+    func loadImage(_ urlImage: String?, viewImagen: UIImageView){
         servicesConnection.loadImage(urlImage, completionHandler: { (moreWrapper, error) in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 viewImagen.image = moreWrapper
             })
         })
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "ShowDetail" {
             
-            let detailViewController = segue.destinationViewController as! PageViewController
+            let detailViewController = segue.destination as! PageViewController
             
             // Get the cell that generated this segue.
             if let selectedMealCell = sender as? NewsViewCell {
-                let indexPath = tableView.indexPathForCell(selectedMealCell)!
+                let indexPath = tableView.indexPath(for: selectedMealCell)!
                 
                 var list =  [News]()
                 let listCount = newsList.count
                 
-                if indexPath.row + 5 <= listCount {
-                    for  i in indexPath.row  ..< indexPath.row + 5   {
+                if (indexPath as NSIndexPath).row + 5 <= listCount {
+                    for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
                         list.append(newsList[i])
                     }
                     detailViewController.newsList = list
@@ -175,10 +175,10 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    func displayAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(alertController, animated: true, completion: nil)
+    func displayAlert(_ title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
         return
     }
     

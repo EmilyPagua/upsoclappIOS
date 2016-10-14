@@ -10,12 +10,12 @@ import Foundation
 
 class ProgressBarLoad {
     
-    var indicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+    var indicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
     func loadBar() -> UIActivityIndicatorView {
-        indicator.frame = CGRectMake((UIScreen.mainScreen().bounds.width/2) - 20, 10.0, 40.0, 40.0)
-        indicator.color = UIColor.blueColor()
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        indicator.frame = CGRect(x: (UIScreen.main.bounds.width/2) - 20, y: 10.0, width: 40.0, height: 40.0)
+        indicator.color = UIColor.blue
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         return indicator
     }

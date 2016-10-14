@@ -30,6 +30,8 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     
     @IBOutlet weak var loginButtonTwitter: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,9 +56,9 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         //signInButtonGoogle.hidden = true
     }
     
-    @IBAction func validarLogin(sender: AnyObject) {
+    @IBAction func validarLogin(_ sender: AnyObject) {
         
-        Twitter.sharedInstance().logInWithCompletion { session, error in
+        Twitter.sharedInstance().logIn { session, error in
             if (session != nil) {
                 print("1 \(session!.userName)");
                 Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
@@ -66,23 +68,23 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         }
         
         // If using the log in methods on the Twitter instance
-        Twitter.sharedInstance().logInWithMethods([.WebBased]) { session, error in
+        Twitter.sharedInstance().logIn(withMethods: [.webBased]) { session, error in
             if (session != nil) {
                 print("2 \(session!.userName)");
                 Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
                 
                 // Swift
-                let client = TWTRAPIClient.clientWithCurrentUser()
-                let request = client.URLRequestWithMethod("GET",
-                                                          URL: "https://api.twitter.com/1.1/account/verify_credentials.json",
+                let client = TWTRAPIClient.withCurrentUser()
+                let request = client.urlRequest(withMethod: "GET",
+                                                          url: "https://api.twitter.com/1.1/account/verify_credentials.json",
                                                           parameters: ["include_email": "true", "skip_status": "true"],
                                                           error: nil)
                 
                 client.sendTwitterRequest(request) { response, data, connectionError in
-                    let nsdata = NSData(data: data!)
+                    let nsdata = NSData(data: data!) as Data
                     let json : AnyObject!
                     do {
-                        json = try NSJSONSerialization.JSONObjectWithData(nsdata, options: []) as? [String:AnyObject]
+                        json = try JSONSerialization.jsonObject(with: nsdata, options: []) as? [String:AnyObject] as AnyObject!
                        // print (json)
                         let user = Customer(firstName: json["name"] as! String,
                                             lastName: ".",
@@ -100,10 +102,10 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                         self.servicesConnection.saveCustomer(user!)
                         
                         let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                        let signOutPage = myStroryBoard.instantiateViewControllerWithIdentifier("SWRevealViewController") as! SWRevealViewController
+                        let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                         let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-                        signOutPageNav.setNavigationBarHidden(signOutPageNav.navigationBarHidden == false, animated: true)
-                        let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+                        signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
+                        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
                         appDelegate.window?.rootViewController =  signOutPageNav
                         
                         
@@ -123,7 +125,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         
     }
     
-    @IBAction func validCountCategory(sender: UIButton) {
+    @IBAction func validCountCategory(_ sender: UIButton) {
         //countCategory ()
     }
     
@@ -131,14 +133,14 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         let categoryCount = category.countCategory()
         
         if categoryCount <= 1 || beforeCategory <= 1  {
-            loginButtonFacebook!.hidden =  true
-            loginButtonTwitter.hidden = true
-            signInButtonGoogle.hidden = true
+            loginButtonFacebook!.isHidden =  true
+            loginButtonTwitter.isHidden = true
+            signInButtonGoogle.isHidden = true
 
         } else {
-            loginButtonFacebook!.hidden = false
-            loginButtonTwitter.hidden = false
-            signInButtonGoogle.hidden = false
+            loginButtonFacebook!.isHidden = false
+            loginButtonTwitter.isHidden = false
+            signInButtonGoogle.isHidden = false
         }
         
         beforeCategory = categoryCount
@@ -146,7 +148,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     
     
     // [------------------------START GOOGLE LOGIN-------------------]
-    @IBAction func loginButtonGoogle(sender: UIButton) {
+    @IBAction func loginButtonGoogle(_ sender: UIButton) {
         let categoryCount = category.countCategory()
         if categoryCount < 3 {
             createViewMessage("Debe seleccionar al menos 3 categorias")
@@ -159,57 +161,58 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     func toggleAuthUI() {
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()){
             // Signed in
-            signInButtonGoogle.hidden = true
+            signInButtonGoogle.isHidden = true
         } else {
-            signInButtonGoogle.hidden = false
+            signInButtonGoogle.isHidden = false
         }
     }
     // [END toggle_auth]
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-                                                            name: "ToggleAuthUINotification",
+        NotificationCenter.default.removeObserver(self,
+                                                            name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
                                                             object: nil)
     }
     
-    @objc func receiveToggleAuthUINotification(notification: NSNotification) {
-        if (notification.name == "ToggleAuthUINotification") {
+    @objc func receiveToggleAuthUINotification(_ notification: Notification) {
+        
+        if String(describing: notification.name) == "ToggleAuthUINotification" {
             self.toggleAuthUI()
-            if notification.userInfo != nil {
-                let userInfo:Dictionary<String,String!> =
-                    notification.userInfo as! Dictionary<String,String!>
-                print ("Google status: " + String(userInfo["statusText"]))
+            if (notification as NSNotification).userInfo != nil {
+                let userInfo:Dictionary<String,String?> =
+                    (notification as NSNotification).userInfo as! Dictionary<String,String?>
+                print ("Google status: " + String(describing: userInfo["statusText"]))
             }
         }
     }
     
     // Stop the UIActivityIndicatorView animation that was started when the user
     // pressed the Sign In button
-    func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
+    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
         //myActivityIndicator.stopAnimating()
     }
     
     // Present a view that prompts the user to sign in with Google
-    func signIn(signIn: GIDSignIn!, presentViewController viewController: UIViewController!) {
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
         
-        self.presentViewController(viewController, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
         
         print ("Google Login presented")
     }
     
     // Dismiss the "Sign in with Google" view
-    func signIn(signIn: GIDSignIn!,
-                dismissViewController viewController: UIViewController!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func sign(_ signIn: GIDSignIn!,
+                dismiss viewController: UIViewController!) {
+        self.dismiss(animated: true, completion: nil)
         
         print ("Google Login dismissed")
     }
     
-    func createViewMessage(message: String){
+    func createViewMessage(_ message: String){
         let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
         alertView.tag = 1
         alertView.show()
@@ -217,40 +220,40 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     // [------------------------FINISH GOOGLE LOGIN-------------------]
 
     // [------------------------START FACEBOOK LOGIN-------------------]
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print ("FBSDKLoginButton Completado Login")
         fetchProfile()
     }
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print ("lFBSDKLoginButton - LoginButtonDidLogOut")
 
     }
     
-    func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
+    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
         return true
     }
     
     func fetchProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
-        FBSDKGraphRequest(graphPath: "me", parameters: parameters).startWithCompletionHandler({ (connection, user, requestError) -> Void in
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start(completionHandler: { (connection, user, requestError) -> Void in
             
             if requestError != nil {
                 print(requestError)
                 return
             }
-            
+            /*
             let email = user["email"] as? String
             let firstName = user["first_name"] as? String
             let lastName = user["last_name"] as? String
             
             var pictureUrl = "firstName:  " + String(firstName)
-            if let picture = user["picture"] as? NSDictionary, data = picture["data"] as? NSDictionary, url = data["url"] as? String {
+            if let picture = user["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
                 pictureUrl = url
             }
             
-            let url = NSURL(string: pictureUrl)
-            NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
+            let url = URL(string: pictureUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) -> Void in
                 if error != nil {
                     print(error)
                     return
@@ -272,12 +275,12 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                                 registrationId: "tokentWordpress")
             
             self.servicesConnection.saveCustomer(user!)
-           
+           */
             let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let signOutPage = myStroryBoard.instantiateViewControllerWithIdentifier("SWRevealViewController") as! SWRevealViewController
+            let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-            signOutPageNav.setNavigationBarHidden(signOutPageNav.navigationBarHidden == false, animated: true)
-            let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+            signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
+            let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController =  signOutPageNav
         })
     }

@@ -19,8 +19,8 @@ class News: NSObject, NSCoding  {
     var linkNews: String
     var categoryNews: String
 
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("news")
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("news")
     
     struct PropertyKey {
         
@@ -50,28 +50,28 @@ class News: NSObject, NSCoding  {
     }
 
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    func encode(with aCoder: NSCoder) {
         
-        aCoder.encodeObject(idNews, forKey: PropertyKey.idKey)
-        aCoder.encodeObject(titleNews, forKey: PropertyKey.titleKey)
-        aCoder.encodeObject(contentNews, forKey: PropertyKey.contentKey)
-        aCoder.encodeObject(imageURLNews, forKey: PropertyKey.imageURLKey)
-        aCoder.encodeObject(dateNews, forKey: PropertyKey.dateKey)
-        aCoder.encodeObject(linkNews, forKey: PropertyKey.linkKey)
-        aCoder.encodeObject(categoryNews, forKey: PropertyKey.categoryKey)
-        aCoder.encodeObject(authorNews, forKey: PropertyKey.authorKey)
+        aCoder.encode(idNews, forKey: PropertyKey.idKey)
+        aCoder.encode(titleNews, forKey: PropertyKey.titleKey)
+        aCoder.encode(contentNews, forKey: PropertyKey.contentKey)
+        aCoder.encode(imageURLNews, forKey: PropertyKey.imageURLKey)
+        aCoder.encode(dateNews, forKey: PropertyKey.dateKey)
+        aCoder.encode(linkNews, forKey: PropertyKey.linkKey)
+        aCoder.encode(categoryNews, forKey: PropertyKey.categoryKey)
+        aCoder.encode(authorNews, forKey: PropertyKey.authorKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         
-        let id    = aDecoder.decodeObjectForKey(PropertyKey.idKey) as! Int
-        let title = aDecoder.decodeObjectForKey(PropertyKey.titleKey) as! String
-        let content = aDecoder.decodeObjectForKey(PropertyKey.contentKey) as? String
-        let imageURL = aDecoder.decodeObjectForKey(PropertyKey.imageURLKey) as? String
-        let date = aDecoder.decodeObjectForKey(PropertyKey.dateKey) as! String
-        let link = aDecoder.decodeObjectForKey(PropertyKey.linkKey) as! String
-        let category = aDecoder.decodeObjectForKey(PropertyKey.categoryKey) as! String
-        let author = aDecoder.decodeObjectForKey(PropertyKey.authorKey) as! String
+        let id    = aDecoder.decodeObject(forKey: PropertyKey.idKey) as! Int
+        let title = aDecoder.decodeObject(forKey: PropertyKey.titleKey) as! String
+        let content = aDecoder.decodeObject(forKey: PropertyKey.contentKey) as? String
+        let imageURL = aDecoder.decodeObject(forKey: PropertyKey.imageURLKey) as? String
+        let date = aDecoder.decodeObject(forKey: PropertyKey.dateKey) as! String
+        let link = aDecoder.decodeObject(forKey: PropertyKey.linkKey) as! String
+        let category = aDecoder.decodeObject(forKey: PropertyKey.categoryKey) as! String
+        let author = aDecoder.decodeObject(forKey: PropertyKey.authorKey) as! String
         
         // Must call designated initializer.
         self.init(id: id,

@@ -14,17 +14,17 @@ class CheckBoxInterest: UIButton {
     let unCheckImage = UIImage(named: "checkOutLine")! as UIImage
     var checkValue = ""
     
-    let preferences = NSUserDefaults.standardUserDefaults()
+    let preferences = UserDefaults.standard
     
     var isChecked : Bool = true {
         didSet{
             
             if isChecked == true {
-                self.setImage(checkImage, forState: .Normal)
+                self.setImage(checkImage, for: UIControlState())
                 preferences.setValue(true, forKey: checkValue )
             }else{
-                preferences.removeObjectForKey(checkValue)
-                self.setImage(unCheckImage, forState: .Normal)
+                preferences.removeObject(forKey: checkValue)
+                self.setImage(unCheckImage, for: UIControlState())
             }
             
             preferences.synchronize()
@@ -32,17 +32,17 @@ class CheckBoxInterest: UIButton {
     }
     override func awakeFromNib() {
         checkValue = self.restorationIdentifier!
-        let prefe = preferences.objectForKey(checkValue)
+        let prefe = preferences.object(forKey: checkValue)
         
         if prefe != nil{
             self.isChecked =  true
         }else {
             self.isChecked =  false
         }
-        self.addTarget(self, action: #selector(CheckBoxInterest.buttonCLicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        self.addTarget(self, action: #selector(CheckBoxInterest.buttonCLicked(_:)), for: UIControlEvents.touchUpInside)
     }
     
-    func buttonCLicked (sender: UIButton){
+    func buttonCLicked (_ sender: UIButton){
 
         checkValue = sender.restorationIdentifier!
         if sender == self{

@@ -25,14 +25,14 @@ class SignOutViewController: UIViewController, GIDSignInUIDelegate {
     }
     
 
-    @IBAction func signOutButton(sender: AnyObject) {
+    @IBAction func signOutButton(_ sender: AnyObject) {
         GIDSignIn.sharedInstance().signOut()
         
-        let signInPage = self.storyboard?.instantiateViewControllerWithIdentifier("LoginUserController") as! LoginUserController
+        let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
         
         let signInPageNav =  UINavigationController(rootViewController: signInPage)
         
-        let appDelegate: AppDelegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
         
         appDelegate.window?.rootViewController =  signInPageNav
     }

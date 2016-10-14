@@ -16,7 +16,7 @@ class NewsTableViewController: UITableViewController {
     var page =  1
     
     var progressBar = ProgressBarLoad()
-    var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     
     override func viewDidLoad() {
@@ -27,9 +27,9 @@ class NewsTableViewController: UITableViewController {
         indicator = progressBar.loadBar()
         //indicator.center = view.center
         view.addSubview(indicator)
-        indicator.bringSubviewToFront(view)
+        indicator.bringSubview(toFront: view)
         
-        self.refreshControl?.addTarget(self, action: #selector(NewsTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(NewsTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
 
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -39,7 +39,7 @@ class NewsTableViewController: UITableViewController {
         callWebServices(String(page))
     }
     
-    func handleRefresh(resfresControl: UIRefreshControl){
+    func handleRefresh(_ resfresControl: UIRefreshControl){
         newsList.removeAll()
 
         page = 1
@@ -54,26 +54,26 @@ class NewsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         return newsList.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NewsViewCell
         
         // Configure the cell...
         if (newsList.count != 0 ){
-            let news = newsList[indexPath.row]
+            let news = newsList[(indexPath as NSIndexPath).row]
             cell.postTitleLabel.text = news.titleNews
             loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
             
-            if indexPath.row == self.newsList.count - 3 {
+            if (indexPath as NSIndexPath).row == self.newsList.count - 3 {
                 page += 1
                 callWebServices(String (page))
             }
@@ -82,7 +82,7 @@ class NewsTableViewController: UITableViewController {
     }
 
     func saveNews() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(newsList, toFile: News.ArchiveURL.path!)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(newsList, toFile: News.ArchiveURL.path)
         if !isSuccessfulSave {
             print("Failed to save news...")
         }
@@ -90,23 +90,23 @@ class NewsTableViewController: UITableViewController {
     
     func loadNews() -> [News]? {
         
-        var list = NSKeyedUnarchiver.unarchiveObjectWithFile(News.ArchiveURL.path!) as? [News]
+        var list = NSKeyedUnarchiver.unarchiveObject(withFile: News.ArchiveURL.path) as? [News]
         list?.removeAll()
         return list
     }
     
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
        // print (tableView.setContentOffset(CGPointMake(0, tableView.rowHeight - tableView.frame.size.height), animated: true))
         return true
     }
     
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
     }
     // Override to support editing the table view.
    /* override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -141,23 +141,23 @@ class NewsTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
             
         if segue.identifier == "ShowDetail" {
             
-            let detailViewController = segue.destinationViewController as! PageViewController
+            let detailViewController = segue.destination as! PageViewController
             
             // Get the cell that generated this segue.
             if let selectedMealCell = sender as? NewsViewCell {
-                let indexPath = tableView.indexPathForCell(selectedMealCell)!
+                let indexPath = tableView.indexPath(for: selectedMealCell)!
 
                 var list =  [News]()
                 let listCount = newsList.count
                 
-                if indexPath.row + 5 <= listCount {
-                    for  i in indexPath.row  ..< indexPath.row + 5   {
+                if (indexPath as NSIndexPath).row + 5 <= listCount {
+                    for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
                             list.append(newsList[i])
                     }
                     detailViewController.newsList = list
@@ -166,7 +166,7 @@ class NewsTableViewController: UITableViewController {
         }
     }
     
-    func callWebServices(paged: String ){
+    func callWebServices(_ paged: String ){
         
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
@@ -177,7 +177,7 @@ class NewsTableViewController: UITableViewController {
             servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
                 
                 self.newsList = moreWrapper!
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                     return
                 })
@@ -189,10 +189,10 @@ class NewsTableViewController: UITableViewController {
         }
     }
     
-    func loadImage(urlImage: String?, viewImagen: UIImageView){
+    func loadImage(_ urlImage: String?, viewImagen: UIImageView){
         
         servicesConnection.loadImage(urlImage, completionHandler: { (moreWrapper, error) in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 viewImagen.image = moreWrapper
                 self.indicator.stopAnimating()
             })
@@ -200,9 +200,9 @@ class NewsTableViewController: UITableViewController {
     }
     
     
-    @IBAction func unwindToNewsList(sender: UIStoryboardSegue) {
-        self.tabBarController?.tabBar.hidden =  false
-        self.navigationController?.popViewControllerAnimated(true)
-        self.navigationController?.navigationBarHidden = false
+    @IBAction func unwindToNewsList(_ sender: UIStoryboardSegue) {
+        self.tabBarController?.tabBar.isHidden =  false
+        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.isNavigationBarHidden = false
         }
 }

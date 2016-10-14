@@ -11,8 +11,8 @@ import UIKit
 
 class Category  {
     
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("categoryKey")
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("categoryKey")
     
     struct PropertyKey {
         
@@ -58,7 +58,7 @@ class Category  {
     }
     func countCategory() -> Int {
         var categoryCount = 0
-        for elem in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
+        for elem in UserDefaults.standard.dictionaryRepresentation(){
             
             let key = elem.0
             
@@ -100,55 +100,55 @@ class Category  {
             case "world":
                 categoryCount += 1
             default:
-                0
+                break
             }
         }
         return categoryCount
     }
 
     func clearCategoryPreference () -> Void {
-        let preferences = NSUserDefaults.standardUserDefaults()
-        for elem in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
+        let preferences = UserDefaults.standard
+        for elem in UserDefaults.standard.dictionaryRepresentation(){
             let key = elem.0
             switch key {
             case "culture":
-                preferences.removeObjectForKey(Category.PropertyKeyName.cultura)
+                preferences.removeObject(forKey: Category.PropertyKeyName.cultura)
             case "beauty":
-                 preferences.removeObjectForKey(Category.PropertyKeyName.beauty)
+                 preferences.removeObject(forKey: Category.PropertyKeyName.beauty)
             case "colaboration":
-                preferences.removeObjectForKey(Category.PropertyKeyName.colaboration)
+                preferences.removeObject(forKey: Category.PropertyKeyName.colaboration)
             case "community":
-                preferences.removeObjectForKey(Category.PropertyKeyName.community)
+                preferences.removeObject(forKey: Category.PropertyKeyName.community)
             case "creativity":
-                preferences.removeObjectForKey(Category.PropertyKeyName.creativity)
+                preferences.removeObject(forKey: Category.PropertyKeyName.creativity)
             case "diversity":
-                preferences.removeObjectForKey(Category.PropertyKeyName.diversity)
+                preferences.removeObject(forKey: Category.PropertyKeyName.diversity)
             case "family":
-                preferences.removeObjectForKey(Category.PropertyKeyName.family)
+                preferences.removeObject(forKey: Category.PropertyKeyName.family)
             case "food":
-                preferences.removeObjectForKey(Category.PropertyKeyName.food)
+                preferences.removeObject(forKey: Category.PropertyKeyName.food)
             case "green":
-                preferences.removeObjectForKey(Category.PropertyKeyName.green)
+                preferences.removeObject(forKey: Category.PropertyKeyName.green)
             case "health":
-                preferences.removeObjectForKey(Category.PropertyKeyName.health)
+                preferences.removeObject(forKey: Category.PropertyKeyName.health)
             case "inspiration":
-                preferences.removeObjectForKey(Category.PropertyKeyName.inspiration)
+                preferences.removeObject(forKey: Category.PropertyKeyName.inspiration)
             case "movies":
-                preferences.removeObjectForKey(Category.PropertyKeyName.movies)
+                preferences.removeObject(forKey: Category.PropertyKeyName.movies)
             case "populary":
-                preferences.removeObjectForKey(Category.PropertyKeyName.populary)
+                preferences.removeObject(forKey: Category.PropertyKeyName.populary)
             case "quiz":
-                preferences.removeObjectForKey(Category.PropertyKeyName.quiz)
+                preferences.removeObject(forKey: Category.PropertyKeyName.quiz)
             case "relations":
-                preferences.removeObjectForKey(Category.PropertyKeyName.relations)
+                preferences.removeObject(forKey: Category.PropertyKeyName.relations)
             case "stileLive":
-                preferences.removeObjectForKey(Category.PropertyKeyName.styleLive)
+                preferences.removeObject(forKey: Category.PropertyKeyName.styleLive)
             case "women":
-                preferences.removeObjectForKey(Category.PropertyKeyName.women)
+                preferences.removeObject(forKey: Category.PropertyKeyName.women)
             case "world":
-                preferences.removeObjectForKey(Category.PropertyKeyName.world)
+                preferences.removeObject(forKey: Category.PropertyKeyName.world)
             default:
-                0
+                break
             }
         }
         preferences.synchronize()

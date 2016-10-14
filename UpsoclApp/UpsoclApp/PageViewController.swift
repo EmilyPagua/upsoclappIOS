@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class PageViewController: UIViewController, UIPageViewControllerDataSource  {
 
@@ -19,17 +39,17 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.tabBar.hidden =  true
-        self.navigationController?.navigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden =  true
+        self.navigationController?.isNavigationBarHidden = true
 
         
-        let preferences = NSUserDefaults.standardUserDefaults()
+        let preferences = UserDefaults.standard
         //let bookmark = newsList[0]
         // let currentLevel = preferences.objectForKey(String(bookmark.idNews))
         
         for  i in 0  ..< newsList.count    {
             let bookmark = newsList[i]
-            _ = preferences.objectForKey(String(bookmark.idNews))
+            _ = preferences.object(forKey: String(bookmark.idNews))
         }
         createPageViewController()
         setupPagecontrol()
@@ -38,30 +58,30 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
     
     func createPageViewController (){
         
-        let pageController =  self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! UIPageViewController
+        let pageController =  self.storyboard?.instantiateViewController(withIdentifier: "PageController") as! UIPageViewController
         pageController.dataSource = self
         
         if newsList.count > 0 {
             let firstController  =  getItemController(0)!
             let startingViewcontroller =  [firstController]
-            pageController.setViewControllers(startingViewcontroller, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            pageController.setViewControllers(startingViewcontroller, direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
         }
         
         pageViewController =  pageController
         addChildViewController(pageViewController!)
         self.view.addSubview(pageViewController!.view)
-        pageViewController!.didMoveToParentViewController(self)
+        pageViewController!.didMove(toParentViewController: self)
     }
     
     func setupPagecontrol(){
         let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor = UIColor.grayColor()
-        appearance.currentPageIndicatorTintColor = UIColor.whiteColor()
-        appearance.backgroundColor = UIColor.darkGrayColor()
+        appearance.pageIndicatorTintColor = UIColor.gray
+        appearance.currentPageIndicatorTintColor = UIColor.white
+        appearance.backgroundColor = UIColor.darkGray
         
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         let itemController = viewController as! PageItemController
         let previousIndex = itemController.itemIndex - 1
@@ -76,7 +96,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         return getItemController(previousIndex)
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let itemController = viewController as! PageItemController
         
         let nextIndex = itemController.itemIndex + 1
@@ -93,10 +113,10 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
     }
     
     
-    func getItemController (itemIndex: Int) -> PageItemController? {
+    func getItemController (_ itemIndex: Int) -> PageItemController? {
         
         if itemIndex < newsList.count{
-            let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemController
+            let pageItemController = self.storyboard!.instantiateViewController(withIdentifier: "ItemController") as! PageItemController
             pageItemController.itemIndex =  itemIndex
             pageItemController.news = newsList[itemIndex]
             pageItemController.isSearchResult = isSearchResult
@@ -108,11 +128,11 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
     }
     
     // MARK: - Page Indicator
-   func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+   func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return newsList.count
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
     
