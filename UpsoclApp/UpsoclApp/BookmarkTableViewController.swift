@@ -153,7 +153,7 @@ class BookmarkTableViewController: UITableViewController {
     
     func loadImage(_ urlImage: String?, viewImagen: UIImageView){
         
-        servicesConnection.loadImage(urlImage, completionHandler: { (moreWrapper, error) in
+        servicesConnection.loadImage(urlImage: urlImage!, completionHandler: { (moreWrapper, error) in
             DispatchQueue.main.async(execute: { () -> Void in
                 viewImagen.image = moreWrapper
                 self.indicator.stopAnimating()

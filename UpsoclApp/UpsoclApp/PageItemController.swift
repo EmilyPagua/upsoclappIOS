@@ -145,11 +145,11 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
             contentDetail = top
             
             if news.imageURLNews != nil{
-                let imagen  = "<center><p><img img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news.imageURLNews!+" width=\"728\" > </p></center>"
+                let imagen  = "<center><img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news.imageURLNews!+" width=\"728\" > </center>"
                 contentDetail = contentDetail + imagen
             }
             let line = "<hr  color=\"#009688\" />"
-            let title = "<div> <h1 class='entry-title' > "+news.titleNews+"</h1> </div>"
+            let title = "<h2 style=\"text-align: justify;\"><strong> "+news.titleNews+"</strong></h2>"
             let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news.authorNews!+" </font>.  El: <font color=\"#009688\"> "+news.dateNews!+" </font> "
             let category = " <br/> Categorias: <font color=\"#009688\">"+news.categoryNews+"</font> </div> "
             let content = news.contentNews
@@ -157,14 +157,13 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
             contentDetail = contentDetail  + title + detailAuthor + category + banner_up
             contentDetail = contentDetail + line + content! + banner_bot
             
-            print(contentDetail)
+            //print(contentDetail)
             
             let baseURL = URL(string: "http://api.instagram.com/oembed")
             self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
             webViewContent.delegate = self
         }
     }
-    
     
     func loadContent() {
         
@@ -184,20 +183,12 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
             let line = "<hr  color=\"#009688\" />"
             let publicity = ""
+            contentDetail = contentDetail + line + publicity + news.contentNews!
+                
+            let baseURL = URL(string: "http://api.instagram.com/oembed")
             
-            if news != nil {
-                
-                contentDetail = contentDetail + line + publicity + news.contentNews!
-                
-                
-                
-                let baseURL = URL(string: "http://api.instagram.com/oembed")
-                
-                self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
-                webViewContent.delegate = self
-                
-                
-            }
+            self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
+            webViewContent.delegate = self
         }
     }
     
@@ -233,7 +224,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     func loadImage(_ urlImage: String?, viewImagen: UIImageView){
         
-        servicesConnection.loadImage(urlImage, completionHandler: { (moreWrapper, error) in
+        servicesConnection.loadImage(urlImage: urlImage!, completionHandler: { (moreWrapper, error) in
             DispatchQueue.main.async(execute: { () -> Void in
                 viewImagen.image = moreWrapper
             })

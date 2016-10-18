@@ -10,6 +10,10 @@ import UIKit
 
 class MenuController: UITableViewController {
 
+    @IBOutlet weak var imagenUser: UIImageView!
+    @IBOutlet weak var nameUser: UILabel!
+    var servicesConnection =  ServicesConnection()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +24,16 @@ class MenuController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+        let preferences = UserDefaults.standard
+        let imagenURL  = preferences.object(forKey: Customer.PropertyKey.imagenURL) as! String
+        let firstName = preferences.object(forKey: Customer.PropertyKey.firstName) as! String
+        let lastName = preferences.object(forKey: Customer.PropertyKey.lastName) as! String
+        
+        nameUser.text  = String ( lastName + "  " + firstName)
+                
+        loadImage(imagenURL, viewImagen: imagenUser)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,10 +43,23 @@ class MenuController: UITableViewController {
     }
 
 
+    func loadImage(_ urlImage: String?, viewImagen: UIImageView){
+        
+        servicesConnection.loadImage(urlImage: urlImage as String!, completionHandler: { (moreWrapper, error) in
+            DispatchQueue.main.async(execute: { () -> Void in
+                viewImagen.image = moreWrapper
+                viewImagen.layer.frame = self.imagenUser!.layer.frame.insetBy(dx: 0, dy: 0)
+                viewImagen.layer.borderColor = UIColor.white.cgColor
+                viewImagen.layer.cornerRadius = self.imagenUser!.frame.height/2
+                viewImagen.layer.masksToBounds = false
+                viewImagen.clipsToBounds = true
+                viewImagen.layer.borderWidth = 1
+                viewImagen.contentMode = UIViewContentMode.scaleAspectFit
+            })
+        })
+    }
     
     // MARK: - Table view data source
-
-
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell

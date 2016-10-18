@@ -86,12 +86,15 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                     do {
                         json = try JSONSerialization.jsonObject(with: nsdata, options: []) as? [String:AnyObject] as AnyObject!
                        // print (json)
+                        
+                        let imagenUserURL =  json["profile_image_url"] as! String
+                        
                         let user = Customer(firstName: json["name"] as! String,
                                             lastName: ".",
                                             email: "pruebaIOS@gmail.com",
                                             location: "--",
                                             birthday: "00-00-0000",
-                                            imagenURL: json["profile_image_url"] as! String,
+                                            imagenURL: URL(string: imagenUserURL)!,
                                             token: "qwedsazxc2",
                                             userId: "0",
                                             socialNetwork: "twitter",
@@ -242,13 +245,16 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                 print(requestError)
                 return
             }
-            /*
-            let email = user["email"] as? String
-            let firstName = user["first_name"] as? String
-            let lastName = user["last_name"] as? String
+            print (user)
             
-            var pictureUrl = "firstName:  " + String(firstName)
-            if let picture = user["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
+            let data_block = user as? [String: AnyObject]
+            
+            let email  = data_block?["email"] as! String?
+            let firstName = data_block?["first_name"] as? String
+            let lastName = data_block?["last_name"] as? String
+            
+            var pictureUrl = "firstName:  " + String(describing: firstName)
+            if let picture = data_block?["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
                 pictureUrl = url
             }
             
@@ -258,8 +264,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                     print(error)
                     return
                 }
-
-                
             }).resume()
             
             let user = Customer(firstName: firstName!,
@@ -267,7 +271,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                                 email: email!,
                                 location: "--",
                                 birthday: "00-00-0000",
-                                imagenURL: pictureUrl,
+                                imagenURL: URL(string: pictureUrl)!,
                                 token: "qwedsazxc2",
                                 userId: "0",
                                 socialNetwork: "facebook",
@@ -275,7 +279,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                                 registrationId: "tokentWordpress")
             
             self.servicesConnection.saveCustomer(user!)
-           */
+           
             let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             let signOutPageNav = UINavigationController(rootViewController: signOutPage)

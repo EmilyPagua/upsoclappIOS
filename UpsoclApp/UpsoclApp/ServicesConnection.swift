@@ -20,7 +20,7 @@ class ServicesConnection  {
     func saveCustomer(_ customer: Customer){
         customer.location = getLocationPhone()
         
-        /*print (customer.firstName)
+     /*   print (customer.firstName)
         print (customer.lastName)
         print (customer.email)
         print (customer.birthday)
@@ -232,14 +232,19 @@ class ServicesConnection  {
                 return
             }
             
-                let content  = (data_block["content"]?.value(forKey: "rendered") as? String)!
-                let imageURL  = data_block["featured_media"] as? String!
-                let date  = data_block["date"] as? String!
-                let link  = data_block["link"] as? String!
-                let category  = data_block["categories_name"] as? String!
-                let authorLastName  = data_block["author_last_name"] as? String!
-                let authorFirstName = data_block["author_first_name"] as? String!
-                
+            let content  = (data_block["content"]?.value(forKey: "rendered") as? String)!
+            let imageURL  = data_block["featured_media"] as? String!
+            let date  = data_block["date"] as? String!
+            let link  = data_block["link"] as? String!
+            var category  = data_block["categories_name"] as? String!
+            let authorLastName  = data_block["author_last_name"] as? String!
+            let authorFirstName = data_block["author_first_name"] as? String!
+            
+            
+            if category?.description.uppercased() == "AI"{
+                category = "Portada"
+            }
+            
                 title = title.replacingOccurrences(of: "&#8220;", with: "'")
                     .replacingOccurrences(of: "&#8221;", with: "'")
                     .replacingOccurrences(of: "&#8221;", with: "'")
@@ -257,26 +262,32 @@ class ServicesConnection  {
                                 author: authorLastName!+" "+authorFirstName!)!
 
             
-            
-            
-            
+                self.newsList.append(meal)
+                return
         }
     }
 
-    func loadImage(_ urlImage: String?, completionHandler: @escaping (UIImage, NSError?) -> Void ){
-        
-        if (urlImage == nil || (urlImage!.isEmpty) ) {
+    func loadImage(urlImage: String, completionHandler: @escaping (UIImage, NSError?) -> Void ){
+    
+        if (urlImage.isEmpty) {
             completionHandler(UIImage(named: "webkit-featured")!, nil)
             
         }else{
+             print(urlImage as String)
             
-            let imgURL = URL(string: urlImage!)
+            let imgURL = URL(string: urlImage as String)
             if imgURL != nil {
                 let task = URLSession.shared.dataTask(with: imgURL!, completionHandler: { (responseData, responseUrl, error) -> Void in
                     
+                    print (responseData)
+                    print (imgURL)
+                    
                     // if responseData is not null...
                     if let data = responseData{
+                        print (data)
                         completionHandler(UIImage(data: data)!, nil)
+                    }else{
+                        print ("data = null")
                     }
                 }) 
                 // Run task
@@ -295,13 +306,15 @@ class ServicesConnection  {
         preferences.setValue(customer.email , forKey: Customer.PropertyKey.email)
         preferences.setValue(customer.firstName, forKey: Customer.PropertyKey.firstName )
         preferences.setValue(customer.lastName, forKey: Customer.PropertyKey.lastName)
-        preferences.setValue(customer.imagenURL, forKey: Customer.PropertyKey.imagenURL)
         preferences.setValue(customer.userId, forKey: Customer.PropertyKey.userId)
         preferences.setValue(customer.socialNetwork, forKey: Customer.PropertyKey.socialNetwork)
         preferences.setValue(customer.socialNetworkTokenId, forKey: Customer.PropertyKey.socialNetworkTokenId)
         preferences.setValue(customer.birthday, forKey: Customer.PropertyKey.birthday )
         preferences.setValue(customer.token, forKey: Customer.PropertyKey.token)
         preferences.setValue(customer.location, forKey: Customer.PropertyKey.location)
+        
+        let url = String (describing: customer.imagenURL)
+        preferences.setValue(url , forKey: Customer.PropertyKey.imagenURL)
         
         preferences.synchronize()
     }

@@ -93,11 +93,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
         
         let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController =  signOutPageNav
-    
-        
-        
-        
-    
     }
     
     
@@ -157,7 +152,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
                                 email:  email!,
                                 location: "--",
                                 birthday: birthday,
-                                imagenURL:  String(describing: imagenURL),
+                                imagenURL: imagenURL!,
                                 token: "qwedsazxc2",
                                 userId: userId,
                                 socialNetwork: "google",
@@ -165,6 +160,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
                                 registrationId: "tokentWordpress")
             
             servicesConnection.saveCustomer(user!)
+            
+            print (imagenURL)
             
             // [START_EXCLUDE]
             NotificationCenter.default.post(

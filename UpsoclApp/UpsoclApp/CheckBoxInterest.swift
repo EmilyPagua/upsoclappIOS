@@ -9,9 +9,13 @@
 import UIKit
 
 class CheckBoxInterest: UIButton {
-    
+    /*
     let checkImage = UIImage(named: "checkOffLine")! as UIImage
     let unCheckImage = UIImage(named: "checkOutLine")! as UIImage
+    */
+    let checkImage = UIImage(named: "icon_notCheck")! as UIImage
+    let unCheckImage = UIImage(named: "icon_check")! as UIImage
+    
     var checkValue = ""
     
     let preferences = UserDefaults.standard
