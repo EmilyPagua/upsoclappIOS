@@ -23,6 +23,11 @@ class CheckBoxInterest: UIButton {
     var isChecked : Bool = true {
         didSet{
             
+            /*for elem in UserDefaults.standard.dictionaryRepresentation(){
+                let key = elem.0
+                print (key)
+            }
+            */
             if isChecked == true {
                 self.setImage(checkImage, for: UIControlState())
                 preferences.setValue(true, forKey: checkValue )
@@ -30,10 +35,10 @@ class CheckBoxInterest: UIButton {
                 preferences.removeObject(forKey: checkValue)
                 self.setImage(unCheckImage, for: UIControlState())
             }
-            
             preferences.synchronize()
         }
     }
+    
     override func awakeFromNib() {
         checkValue = self.restorationIdentifier!
         let prefe = preferences.object(forKey: checkValue)

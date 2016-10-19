@@ -3042,11 +3042,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/CheckBoxInterest.swift"
-            timestampString = "498399354.073718"
+            timestampString = "498599363.604914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "buttonCLicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3058,11 +3058,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/CheckBoxInterest.swift"
-            timestampString = "498399354.073718"
+            timestampString = "498599363.604914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3070,15 +3070,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/CheckBoxInterest.swift"
-            timestampString = "498399354.073718"
+            timestampString = "498599363.604914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "buttonCLicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3106,11 +3106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/CheckBoxInterest.swift"
-            timestampString = "498399354.073718"
+            timestampString = "498599363.604914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "buttonCLicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3122,11 +3122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/CheckBoxInterest.swift"
-            timestampString = "498399354.073718"
+            timestampString = "498599363.604914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3138,11 +3138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/CheckBoxInterest.swift"
-            timestampString = "498399354.073718"
+            timestampString = "498599363.604914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3154,11 +3154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/CheckBoxInterest.swift"
-            timestampString = "498399354.073718"
+            timestampString = "498599363.604914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3170,11 +3170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/CheckBoxInterest.swift"
-            timestampString = "498399354.073718"
+            timestampString = "498599363.604914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
