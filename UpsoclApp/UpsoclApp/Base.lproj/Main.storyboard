@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,7 +37,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Dt-3d-133" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comida">
                                                     <attributes>
@@ -50,7 +52,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-eP-ejl" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Estilo de vida">
                                                     <attributes>
@@ -65,7 +67,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRx-QK-hSO" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Diversidad">
                                                     <attributes>
@@ -80,7 +82,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIa-vA-IaT" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Belleza">
                                                     <attributes>
@@ -95,7 +97,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-vK-JKE" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Creatividad">
                                                     <attributes>
@@ -110,7 +112,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEr-TS-JQN" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Pelicula">
                                                     <attributes>
@@ -125,7 +127,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-8O-4Ae" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Más populares">
                                                     <attributes>
@@ -140,7 +142,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-EX-LSU" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Colaboración">
                                                     <attributes>
@@ -155,7 +157,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-Ai-hKi" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mujer">
                                                     <attributes>
@@ -170,7 +172,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-QP-jex" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Cultura">
                                                     <attributes>
@@ -185,7 +187,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-fw-tcb" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Familia">
                                                     <attributes>
@@ -200,7 +202,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BF5-nK-i3k" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mundo">
                                                     <attributes>
@@ -215,7 +217,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgO-Gj-TRM" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Verde">
                                                     <attributes>
@@ -230,7 +232,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izv-ZR-vJm" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comunidad">
                                                     <attributes>
@@ -245,7 +247,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQR-WU-kUt" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Relaciones">
                                                     <attributes>
@@ -260,7 +262,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHo-ul-Flj" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Salud">
                                                     <attributes>
@@ -275,7 +277,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="val-ew-1pW" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Inspiración">
                                                     <attributes>
@@ -290,7 +292,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8I-xj-fTZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="04485419-2E34-4433-BDC0-4C0F5755854B">
+                                        <state key="normal" image="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Quiz">
                                                     <attributes>
@@ -1342,7 +1344,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EEf-Ca-74a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2564" y="-2006"/>
+            <point key="canvasLocation" x="2563" y="-1909"/>
         </scene>
         <!--Para ti-->
         <scene sceneID="hv1-uS-5W5">
@@ -2014,7 +2016,7 @@
         <scene sceneID="a23-LC-1XJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dXH-rC-dKS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Portada" image="home" id="48C-N4-e0M"/>
+                    <tabBarItem key="tabBarItem" title="Portada" image="home_lateral" id="48C-N4-e0M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WmJ-Ml-X7j">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2056,7 +2058,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-md-BkZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comida">
                                                     <attributes>
@@ -2071,7 +2073,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zS4-T8-Hyb" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Estilo de vida">
                                                     <attributes>
@@ -2086,7 +2088,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NnE-r9-lN7" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Diversidad">
                                                     <attributes>
@@ -2101,7 +2103,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-xx-EiK" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Belleza">
                                                     <attributes>
@@ -2116,7 +2118,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBW-q1-PXR" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Creatividad">
                                                     <attributes>
@@ -2131,7 +2133,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tk-bT-ly8" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Pelicula">
                                                     <attributes>
@@ -2146,7 +2148,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL1-1L-yff" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Más populares">
                                                     <attributes>
@@ -2161,7 +2163,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGU-II-JnZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Colaboración">
                                                     <attributes>
@@ -2176,7 +2178,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-rg-VR0" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mujer">
                                                     <attributes>
@@ -2191,7 +2193,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-IV-ACu" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Cultura">
                                                     <attributes>
@@ -2206,7 +2208,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bN-1V-iwp" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Familia">
                                                     <attributes>
@@ -2221,7 +2223,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Kv-Nh-n7r" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mundo">
                                                     <attributes>
@@ -2236,7 +2238,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-sz-Er6" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Verde">
                                                     <attributes>
@@ -2251,7 +2253,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-Gc-2b5" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comunidad">
                                                     <attributes>
@@ -2266,7 +2268,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gnp-u9-eol" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Relaciones">
                                                     <attributes>
@@ -2281,7 +2283,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rii-th-0o0" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Salud">
                                                     <attributes>
@@ -2296,7 +2298,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uyw-os-Nyp" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Inspiración">
                                                     <attributes>
@@ -2311,7 +2313,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gm-bg-Iec" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="934E7794-5E9F-44DF-8453-D0E002E84613">
+                                        <state key="normal" image="60F96D1F-4D6A-45CB-AAF3-E357B46D242B">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Quiz">
                                                     <attributes>
@@ -2445,21 +2447,39 @@
                                     <fragment content="Usuario: Pedro Pérez">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <font key="NSFont" size="16" name="SFMono-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: pedro.perez@xxx.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKy-o4-ylv">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKy-o4-ylv">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="E4x-V6-k80"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Email: pedro.perez@xxx.com">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="SFMono-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubicación: ciudad, país" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlV-gU-DeA">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlV-gU-DeA">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="BrB-QF-YJ1"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Ubicación: ciudad, país">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="SFMono-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0i-uh-8Gh">
@@ -2504,7 +2524,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="1 Semana">
                                             <attributes>
-                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -2513,28 +2533,44 @@
                                     <action selector="weekButton:" destination="4LN-xf-pdF" eventType="touchUpInside" id="IBf-Gz-rut"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78E-sk-3uN">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="month" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-kq-zKa">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="VCh-Q2-ETD"/>
-                                    <constraint firstAttribute="width" constant="134" id="tGz-zy-xfX"/>
+                                    <constraint firstAttribute="height" constant="35" id="2zx-nf-pXJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Cerrar Sesión"/>
+                                <state key="normal" image="radioButtonInactive">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="1 Mes">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
-                                    <action selector="signOutButton:" destination="4LN-xf-pdF" eventType="touchUpInside" id="Lix-Mb-adE"/>
+                                    <action selector="monthButton:" destination="4LN-xf-pdF" eventType="touchUpInside" id="lxZ-A5-S8G"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red social: social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v18-gq-Q3E">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v18-gq-Q3E">
+                                <attributedString key="attributedText">
+                                    <fragment content="Red social: social">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="SFMono-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" restorationIdentifier="day" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDP-jJ-CLk">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="SvJ-jf-Hil"/>
+                                </constraints>
                                 <state key="normal" image="radioButtonInactive">
                                     <attributedString key="attributedTitle">
                                         <fragment content="1 Día">
                                             <attributes>
-                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -2543,92 +2579,62 @@
                                     <action selector="dayButton:" destination="4LN-xf-pdF" eventType="touchUpInside" id="6nM-Qm-S5D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="month" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-kq-zKa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78E-sk-3uN">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="370" id="BdT-lr-WR6"/>
-                                    <constraint firstAttribute="width" constant="98" id="J2K-H9-50N"/>
-                                    <constraint firstAttribute="width" constant="98" id="zxP-9S-z9c"/>
+                                    <constraint firstAttribute="height" constant="30" id="A56-hZ-9pl"/>
+                                    <constraint firstAttribute="width" constant="134" id="iHN-Il-Ga1"/>
                                 </constraints>
-                                <state key="normal" image="radioButtonInactive">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="1 Mes">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="BdT-lr-WR6"/>
-                                        <exclude reference="J2K-H9-50N"/>
-                                        <exclude reference="zxP-9S-z9c"/>
-                                    </mask>
-                                </variation>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Cerrar Sesión"/>
                                 <connections>
-                                    <action selector="monthButton:" destination="4LN-xf-pdF" eventType="touchUpInside" id="lxZ-A5-S8G"/>
+                                    <action selector="signOutButton:" destination="4LN-xf-pdF" eventType="touchUpInside" id="Lix-Mb-adE"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3W7-JY-6oc" firstAttribute="top" secondItem="v18-gq-Q3E" secondAttribute="bottom" constant="78" id="1h6-CC-w9y"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="3W7-JY-6oc" secondAttribute="trailing" id="202-yz-uh7"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="HlV-gU-DeA" secondAttribute="trailing" id="2WK-my-LMW"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="uOd-G1-3Oh" secondAttribute="leading" id="3WA-mA-6QN"/>
-                            <constraint firstItem="q99-l9-9hT" firstAttribute="leading" secondItem="aYr-os-NGm" secondAttribute="leadingMargin" id="3vg-DE-68T"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="uOd-G1-3Oh" secondAttribute="trailing" id="4Fl-ft-DIz"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="top" secondItem="uOd-G1-3Oh" secondAttribute="bottom" constant="8" symbolic="YES" id="4RZ-W5-cBm"/>
-                            <constraint firstItem="fIv-IE-esk" firstAttribute="top" secondItem="aYr-os-NGm" secondAttribute="top" constant="343" id="4p2-Ld-GW6"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="sKy-o4-ylv" secondAttribute="trailing" id="6NU-PP-K7O"/>
-                            <constraint firstItem="78E-sk-3uN" firstAttribute="centerX" secondItem="aYr-os-NGm" secondAttribute="centerX" id="84C-26-5Rh"/>
-                            <constraint firstItem="sKy-o4-ylv" firstAttribute="top" secondItem="ftP-dQ-nDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="9Fp-f4-NXo"/>
-                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="top" secondItem="RLc-29-Em3" secondAttribute="bottom" constant="56" id="9Mh-EO-Mgt"/>
-                            <constraint firstItem="cqI-l8-mMe" firstAttribute="leading" secondItem="TDP-jJ-CLk" secondAttribute="trailing" constant="8" id="9zi-zB-e6s"/>
-                            <constraint firstItem="E1h-kq-zKa" firstAttribute="trailing" secondItem="aYr-os-NGm" secondAttribute="trailingMargin" id="B3Q-eF-W6t"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="V0i-uh-8Gh" secondAttribute="trailing" id="B9z-JO-KeL"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="top" secondItem="q99-l9-9hT" secondAttribute="bottom" constant="7" id="CHf-B8-g58"/>
-                            <constraint firstItem="E1h-kq-zKa" firstAttribute="bottom" secondItem="TDP-jJ-CLk" secondAttribute="bottom" id="GXf-nX-Syk"/>
-                            <constraint firstItem="TDP-jJ-CLk" firstAttribute="baseline" secondItem="cqI-l8-mMe" secondAttribute="baseline" id="Gey-1r-xhu"/>
-                            <constraint firstItem="YLw-DM-uZQ" firstAttribute="top" secondItem="TDP-jJ-CLk" secondAttribute="bottom" constant="201" id="Hqx-0c-cbP"/>
-                            <constraint firstItem="q99-l9-9hT" firstAttribute="trailing" secondItem="aYr-os-NGm" secondAttribute="trailingMargin" id="IFq-yi-qaO"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="V0i-uh-8Gh" secondAttribute="leading" id="IWg-y5-4SP"/>
-                            <constraint firstItem="sKy-o4-ylv" firstAttribute="leading" secondItem="aYr-os-NGm" secondAttribute="leadingMargin" id="KBF-Bw-EcA"/>
-                            <constraint firstItem="q99-l9-9hT" firstAttribute="top" secondItem="RLc-29-Em3" secondAttribute="bottom" constant="31" id="KiR-MH-zVI"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="fIv-IE-esk" secondAttribute="leading" id="KuF-wC-L0C"/>
-                            <constraint firstItem="V0i-uh-8Gh" firstAttribute="centerX" secondItem="aYr-os-NGm" secondAttribute="centerX" id="LFy-V6-OKh"/>
-                            <constraint firstItem="E1h-kq-zKa" firstAttribute="leading" secondItem="cqI-l8-mMe" secondAttribute="trailing" constant="10" id="LYq-6Q-ODL"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="q99-l9-9hT" secondAttribute="trailing" id="NgB-CO-Gyh"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="HlV-gU-DeA" secondAttribute="leading" id="PcM-hl-5hW"/>
-                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="leading" secondItem="aYr-os-NGm" secondAttribute="leadingMargin" id="QBT-iB-fIq"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="trailing" secondItem="fIv-IE-esk" secondAttribute="trailing" id="RkN-mV-CMc"/>
-                            <constraint firstItem="78E-sk-3uN" firstAttribute="top" secondItem="E1h-kq-zKa" secondAttribute="bottom" constant="48" id="TA1-Su-wcl"/>
-                            <constraint firstItem="HlV-gU-DeA" firstAttribute="top" secondItem="sKy-o4-ylv" secondAttribute="bottom" constant="8" symbolic="YES" id="TLs-BU-3xn"/>
-                            <constraint firstItem="E1h-kq-zKa" firstAttribute="top" secondItem="fIv-IE-esk" secondAttribute="bottom" constant="34" id="aID-Og-2W6"/>
-                            <constraint firstItem="V0i-uh-8Gh" firstAttribute="top" secondItem="3W7-JY-6oc" secondAttribute="bottom" constant="3" id="ash-3R-sCV"/>
-                            <constraint firstItem="v18-gq-Q3E" firstAttribute="leading" secondItem="aYr-os-NGm" secondAttribute="leadingMargin" id="dn6-hb-dUt"/>
-                            <constraint firstItem="v18-gq-Q3E" firstAttribute="top" secondItem="HlV-gU-DeA" secondAttribute="bottom" constant="8" id="gYA-pc-yrm"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="q99-l9-9hT" secondAttribute="leading" id="gtn-PL-IGK"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="leading" secondItem="3W7-JY-6oc" secondAttribute="leading" id="jr3-Gz-py9"/>
-                            <constraint firstItem="3W7-JY-6oc" firstAttribute="top" secondItem="HlV-gU-DeA" secondAttribute="bottom" constant="100" id="kyN-1A-vYy"/>
-                            <constraint firstItem="fIv-IE-esk" firstAttribute="top" secondItem="V0i-uh-8Gh" secondAttribute="bottom" constant="8" symbolic="YES" id="naM-6h-aVc"/>
-                            <constraint firstItem="cqI-l8-mMe" firstAttribute="top" secondItem="fIv-IE-esk" secondAttribute="bottom" constant="11" id="oaN-mN-3Sm"/>
-                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="top" secondItem="uOd-G1-3Oh" secondAttribute="bottom" constant="8" id="q1D-zf-tyj"/>
-                            <constraint firstItem="fIv-IE-esk" firstAttribute="centerX" secondItem="aYr-os-NGm" secondAttribute="centerX" id="rY8-hJ-yVo"/>
-                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="trailing" secondItem="aYr-os-NGm" secondAttribute="trailingMargin" id="s7G-d6-qMI"/>
-                            <constraint firstItem="YLw-DM-uZQ" firstAttribute="top" secondItem="cqI-l8-mMe" secondAttribute="bottom" constant="201" id="uVQ-KY-6jN"/>
-                            <constraint firstItem="v18-gq-Q3E" firstAttribute="trailing" secondItem="aYr-os-NGm" secondAttribute="trailingMargin" id="xY6-2C-Hiu"/>
-                            <constraint firstItem="TDP-jJ-CLk" firstAttribute="top" secondItem="fIv-IE-esk" secondAttribute="bottom" constant="11" id="yFN-F1-4P9"/>
-                            <constraint firstItem="TDP-jJ-CLk" firstAttribute="leading" secondItem="fIv-IE-esk" secondAttribute="leading" id="z9O-FB-fFJ"/>
-                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="centerX" secondItem="aYr-os-NGm" secondAttribute="centerX" id="zny-uX-ZF6"/>
+                            <constraint firstItem="V0i-uh-8Gh" firstAttribute="top" secondItem="3W7-JY-6oc" secondAttribute="bottom" constant="9" id="06N-2u-Svi"/>
+                            <constraint firstItem="q99-l9-9hT" firstAttribute="leading" secondItem="aYr-os-NGm" secondAttribute="leadingMargin" id="07C-da-gJz"/>
+                            <constraint firstItem="E1h-kq-zKa" firstAttribute="baseline" secondItem="TDP-jJ-CLk" secondAttribute="baseline" id="1fH-Wb-qe1"/>
+                            <constraint firstItem="V0i-uh-8Gh" firstAttribute="top" secondItem="aYr-os-NGm" secondAttribute="top" constant="260" id="1jT-iy-U92"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="leading" secondItem="fIv-IE-esk" secondAttribute="leading" id="8Sx-aU-ybv"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="leading" secondItem="sKy-o4-ylv" secondAttribute="leading" id="8Zm-nG-9tN"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="leading" secondItem="ftP-dQ-nDJ" secondAttribute="leading" id="8aX-Qd-1vS"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="trailing" secondItem="3W7-JY-6oc" secondAttribute="trailing" id="DDi-fq-Ju0"/>
+                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="top" secondItem="uOd-G1-3Oh" secondAttribute="bottom" constant="5" id="DgX-jd-WoB"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="centerX" secondItem="78E-sk-3uN" secondAttribute="centerX" id="EW7-ch-LhW"/>
+                            <constraint firstItem="HlV-gU-DeA" firstAttribute="top" secondItem="aYr-os-NGm" secondAttribute="top" constant="174" id="FRi-ro-ahK"/>
+                            <constraint firstItem="fIv-IE-esk" firstAttribute="top" secondItem="V0i-uh-8Gh" secondAttribute="bottom" constant="7" id="GWy-IT-VQ4"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="trailing" secondItem="HlV-gU-DeA" secondAttribute="trailing" id="Gec-xG-piq"/>
+                            <constraint firstItem="cqI-l8-mMe" firstAttribute="leading" secondItem="TDP-jJ-CLk" secondAttribute="trailing" constant="7" id="L27-eb-K2v"/>
+                            <constraint firstAttribute="trailing" secondItem="fIv-IE-esk" secondAttribute="trailing" constant="16" id="Lgt-Mg-wPh"/>
+                            <constraint firstItem="3W7-JY-6oc" firstAttribute="top" secondItem="HlV-gU-DeA" secondAttribute="bottom" constant="40" id="N3W-1g-6h6"/>
+                            <constraint firstItem="E1h-kq-zKa" firstAttribute="leading" secondItem="cqI-l8-mMe" secondAttribute="trailing" constant="8" symbolic="YES" id="NFa-KX-j5L"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="trailing" secondItem="q99-l9-9hT" secondAttribute="trailing" id="NTE-iN-R0q"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="leading" secondItem="V0i-uh-8Gh" secondAttribute="leading" id="NXf-8W-xcf"/>
+                            <constraint firstItem="sKy-o4-ylv" firstAttribute="top" secondItem="uOd-G1-3Oh" secondAttribute="bottom" constant="25" id="Pdg-sz-fvN"/>
+                            <constraint firstItem="E1h-kq-zKa" firstAttribute="baseline" secondItem="cqI-l8-mMe" secondAttribute="firstBaseline" id="Sk8-qp-hds"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="top" secondItem="aYr-os-NGm" secondAttribute="top" constant="128" id="Ttc-bN-AtE"/>
+                            <constraint firstItem="E1h-kq-zKa" firstAttribute="top" secondItem="fIv-IE-esk" secondAttribute="bottom" id="Vtz-Wj-7hv"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="trailing" secondItem="V0i-uh-8Gh" secondAttribute="trailing" id="WNH-kv-xgp"/>
+                            <constraint firstItem="E1h-kq-zKa" firstAttribute="baseline" secondItem="TDP-jJ-CLk" secondAttribute="firstBaseline" id="a7v-TJ-9ZJ"/>
+                            <constraint firstItem="q99-l9-9hT" firstAttribute="trailing" secondItem="aYr-os-NGm" secondAttribute="trailingMargin" id="cPF-YZ-i5c"/>
+                            <constraint firstItem="E1h-kq-zKa" firstAttribute="top" secondItem="cqI-l8-mMe" secondAttribute="top" id="clQ-2B-9Rz"/>
+                            <constraint firstItem="E1h-kq-zKa" firstAttribute="top" secondItem="TDP-jJ-CLk" secondAttribute="top" id="dtk-1F-sj8"/>
+                            <constraint firstItem="E1h-kq-zKa" firstAttribute="firstBaseline" secondItem="cqI-l8-mMe" secondAttribute="baseline" id="eDY-m5-jZu"/>
+                            <constraint firstItem="ftP-dQ-nDJ" firstAttribute="top" secondItem="q99-l9-9hT" secondAttribute="bottom" constant="12" id="eWL-OJ-CzD"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="trailing" secondItem="v18-gq-Q3E" secondAttribute="trailing" id="gl3-wv-iyT"/>
+                            <constraint firstItem="HlV-gU-DeA" firstAttribute="top" secondItem="ftP-dQ-nDJ" secondAttribute="bottom" constant="19" id="hS1-3z-4TZ"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="leading" secondItem="v18-gq-Q3E" secondAttribute="leading" id="kcW-hA-u5h"/>
+                            <constraint firstItem="TDP-jJ-CLk" firstAttribute="leading" secondItem="aYr-os-NGm" secondAttribute="leadingMargin" id="kjr-94-Ixz"/>
+                            <constraint firstItem="v18-gq-Q3E" firstAttribute="top" secondItem="sKy-o4-ylv" secondAttribute="bottom" constant="19" id="lnp-Eh-FhP"/>
+                            <constraint firstItem="78E-sk-3uN" firstAttribute="top" secondItem="E1h-kq-zKa" secondAttribute="bottom" constant="28" id="mGX-4S-wsB"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="trailing" secondItem="ftP-dQ-nDJ" secondAttribute="trailing" id="pAg-Pv-jYD"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="leading" secondItem="HlV-gU-DeA" secondAttribute="leading" id="u1S-91-TC8"/>
+                            <constraint firstItem="q99-l9-9hT" firstAttribute="top" secondItem="RLc-29-Em3" secondAttribute="bottom" constant="31" id="vVu-HY-6gd"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="leading" secondItem="3W7-JY-6oc" secondAttribute="leading" id="wgN-3o-YTX"/>
+                            <constraint firstItem="uOd-G1-3Oh" firstAttribute="leading" secondItem="q99-l9-9hT" secondAttribute="leading" id="yTl-9d-suZ"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="kyN-1A-vYy"/>
-                                <exclude reference="GXf-nX-Syk"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Peferencia" id="gtx-4k-rI6">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="Mh8-zG-gum"/>
@@ -2646,7 +2652,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aA9-KN-TFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3317" y="1341"/>
+            <point key="canvasLocation" x="3316" y="1340.7796101949027"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0XQ-e6-fkZ">
@@ -2865,7 +2871,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="04485419-2E34-4433-BDC0-4C0F5755854B" width="25" height="25">
+        <image name="2A13FDDC-A2D6-4D99-A2D0-FC9F14E51D37" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2958,7 +2964,7 @@ E34ThxOME5QTlxOcE6sTrxO2E74TyxPQE9IT1BPZE+ET5BPpE/ET9BQGFAkUDgAAAAAAAAIBAAAAAAAA
 AEEAAAAAAAAAAAAAAAAAABQQA
 </mutableData>
         </image>
-        <image name="934E7794-5E9F-44DF-8453-D0E002E84613" width="25" height="25">
+        <image name="60F96D1F-4D6A-45CB-AAF3-E357B46D242B" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -3056,22 +3062,21 @@ AEEAAAAAAAAAAAAAAAAAABQQA
         <image name="back" width="36" height="36"/>
         <image name="bookmark" width="25" height="25"/>
         <image name="bookmarkInactive" width="25" height="25"/>
-        <image name="creativity" width="24" height="24"/>
+        <image name="creativity" width="25" height="25"/>
         <image name="facebook_button" width="25" height="25"/>
-        <image name="food" width="24" height="24"/>
-        <image name="foryou" width="24" height="24"/>
-        <image name="green" width="24" height="24"/>
-        <image name="home" width="25" height="25"/>
+        <image name="food" width="25" height="25"/>
+        <image name="foryou" width="25" height="25"/>
+        <image name="green" width="25" height="25"/>
         <image name="home_lateral" width="25" height="25"/>
         <image name="interest" width="25" height="25"/>
         <image name="menu" width="22" height="22"/>
-        <image name="populary" width="24" height="24"/>
+        <image name="populary" width="25" height="25"/>
         <image name="preferences" width="25" height="25"/>
         <image name="privacity" width="25" height="25"/>
-        <image name="quiz" width="24" height="24"/>
+        <image name="quiz" width="25" height="25"/>
         <image name="radioButtonInactive" width="24" height="24"/>
         <image name="twitterLogin" width="180" height="40"/>
-        <image name="women" width="24" height="24"/>
+        <image name="women" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0dk-aj-aVm"/>
