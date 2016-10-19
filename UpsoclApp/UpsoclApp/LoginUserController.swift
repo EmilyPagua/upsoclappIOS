@@ -51,9 +51,9 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         }
         */
         //End FacebookLogin
-        //loginButtonFacebook!.hidden =  true
-        //loginButtonTwitter.hidden = true
-        //signInButtonGoogle.hidden = true
+        loginButtonFacebook?.isEnabled = false
+        loginButtonTwitter?.isEnabled = false
+        signInButtonGoogle?.isEnabled = false
     }
     
     @IBAction func validarLogin(_ sender: AnyObject) {
@@ -87,11 +87,12 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                         json = try JSONSerialization.jsonObject(with: nsdata, options: []) as? [String:AnyObject] as AnyObject!
                        // print (json)
                         
+                        print  (json)
                         let imagenUserURL =  json["profile_image_url"] as! String
                         
                         let user = Customer(firstName: json["name"] as! String,
                                             lastName: ".",
-                                            email: "pruebaIOS@gmail.com",
+                                            email: "",
                                             location: "--",
                                             birthday: "00-00-0000",
                                             imagenURL: URL(string: imagenUserURL)!,
@@ -101,16 +102,52 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                                               socialNetworkTokenId: "tokentFacebook",
                                             registrationId: "tokentWordpress")
                         
-                        print (user?.firstName)
-                        self.servicesConnection.saveCustomer(user!)
-                        
-                        let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                        let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                        let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-                        signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
-                        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.window?.rootViewController =  signOutPageNav
-                        
+                        if (user?.email.isEmpty)! {
+                            let alertController = UIAlertController(title: "Faltan datos en su pertfil", message: "Por favor, ingrese su email personal", preferredStyle: .alert)
+                            
+                            alertController.addAction(UIAlertAction(title: "Guardar", style: .default, handler: {
+                                alert -> Void in
+                                let textField = alertController.textFields![0] as UITextField
+                                
+                                let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+                                let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+                                if emailPredicate.evaluate(with: textField.text){
+                                    print("Es valido")
+                                    user?.email = textField.text!
+                                    
+                                    
+                                    self.servicesConnection.saveCustomer(user!)
+                                    
+                                    let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                                    let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                                    let signOutPageNav = UINavigationController(rootViewController: signOutPage)
+                                    signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
+                                    let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
+                                    appDelegate.window?.rootViewController =  signOutPageNav
+                                    
+                                }else{
+                                    print("No es válido")
+                                }
+                                
+                                print (textField.text)
+                                // do something with textField
+                            }))
+                            alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
+                                textField.placeholder = "Search"
+                            })
+                            
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                        else{
+                            self.servicesConnection.saveCustomer(user!)
+                            
+                            let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                            let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                            let signOutPageNav = UINavigationController(rootViewController: signOutPage)
+                            signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
+                            let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.window?.rootViewController =  signOutPageNav
+                        }
                         
                     }catch let error as NSError{
                         print (error.localizedDescription)
@@ -118,32 +155,28 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                         return
                     }
                 }
-                
-                
             } else {
                 print("error: \(error!.localizedDescription)");
             }
-            
         }
-        
     }
     
     @IBAction func validCountCategory(_ sender: UIButton) {
-        //countCategory ()
+        countCategory ()
     }
     
     func countCategory (){
         let categoryCount = category.countCategory()
-        
+        print (categoryCount)
         if categoryCount <= 1 || beforeCategory <= 1  {
-            loginButtonFacebook!.isHidden =  true
-            loginButtonTwitter.isHidden = true
-            signInButtonGoogle.isHidden = true
+            loginButtonFacebook?.isEnabled = false
+            loginButtonTwitter?.isEnabled = false
+            signInButtonGoogle?.isEnabled = false
 
         } else {
-            loginButtonFacebook!.isHidden = false
-            loginButtonTwitter.isHidden = false
-            signInButtonGoogle.isHidden = false
+            loginButtonFacebook?.isEnabled = true
+            loginButtonTwitter?.isEnabled = true
+            signInButtonGoogle?.isEnabled = true
         }
         
         beforeCategory = categoryCount

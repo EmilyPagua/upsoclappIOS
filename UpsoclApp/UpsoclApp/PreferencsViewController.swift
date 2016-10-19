@@ -128,37 +128,58 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
         preferences.synchronize()
     }
     
+    func closeSession(){
+        print ("close")
+    }
     
     @IBAction func signOutButton(_ sender: AnyObject) {
         
-        if (socialNetworkName=="google" ){
-            GIDSignIn.sharedInstance().signOut()
-            print ("Google - signOutButton")
-        }
-        if (socialNetworkName=="facebook" ){
-            print ("Facebook - signOutButton")
-            FBSDKLoginManager().logOut()
-        }
+        // create the alert
+        let alert = UIAlertController(title: "Alerta", message: "Esta seguro que desea cerrar sesión?", preferredStyle: UIAlertControllerStyle.alert)
         
-        if (socialNetworkName == "twitter"){
-            print ("Twitter - signOutButton")
-            let store = Twitter.sharedInstance().sessionStore
+        alert.addAction(UIAlertAction(title: "Si", style: UIAlertActionStyle.default, handler: { action in
+            print("Click of default button")
             
-            if let userID = store.session()?.userID {
-                store.logOutUserID(userID)
+            if (self.socialNetworkName=="google" ){
+                GIDSignIn.sharedInstance().signOut()
+                print ("Google - signOutButton")
             }
-            Twitter.sharedInstance().sessionStore.logOutUserID(socialNetworkTokenId)
-        }
+            if (self.socialNetworkName=="facebook" ){
+                print ("Facebook - signOutButton")
+                FBSDKLoginManager().logOut()
+            }
+            
+            if (self.socialNetworkName == "twitter"){
+                print ("Twitter - signOutButton")
+                let store = Twitter.sharedInstance().sessionStore
+                
+                if let userID = store.session()?.userID {
+                    store.logOutUserID(userID)
+                }
+                Twitter.sharedInstance().sessionStore.logOutUserID(self.socialNetworkTokenId)
+            }
+            
+            self.clearPreferences()
+            self.category.clearCategoryPreference()
+            
+            let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
+            let signInPageNav =  UINavigationController(rootViewController: signInPage)
+            let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController =  signInPageNav
+            
+            }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: { action in
+            print("Click of default button")
+            }
+        ))
         
-        clearPreferences()
-        category.clearCategoryPreference()
-        
-        let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
-        let signInPageNav =  UINavigationController(rootViewController: signInPage)
-        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController =  signInPageNav
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 
+    func login (text: UITextField){
+        print ("Login ")
+    }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print ("lFBSDKLoginButton - LoginButtonDidLogOut")
     }

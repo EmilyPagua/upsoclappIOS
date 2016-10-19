@@ -873,11 +873,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498510390.36564"
+            timestampString = "498572476.899988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -889,11 +889,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498510390.36564"
+            timestampString = "498572476.899988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -905,11 +905,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498510390.36564"
+            timestampString = "498572476.899988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -953,11 +953,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498510390.36564"
+            timestampString = "498572476.899988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1001,11 +1001,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498510390.36564"
+            timestampString = "498572476.899988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1017,11 +1017,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498510390.36564"
+            timestampString = "498572476.899988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1033,11 +1033,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498510390.36564"
+            timestampString = "498572476.899988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1671,11 +1671,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/PageItemController.swift"
-            timestampString = "498429011.798775"
+            timestampString = "498580239.691442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "loadContent()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2293,11 +2293,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/PageItemController.swift"
-            timestampString = "498429011.798775"
+            timestampString = "498580239.691442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "loadContent()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2341,11 +2341,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/PageItemController.swift"
-            timestampString = "498167427.94284"
+            timestampString = "498575025.366955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "PageItemController"
             landmarkType = "3">
          </BreakpointContent>
@@ -2652,6 +2652,83 @@
             endingLineNumber = "17"
             landmarkName = "BookmarkTableViewController"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UpsoclApp.BookmarkTableViewController.indicator.getter : __ObjC.UIActivityIndicatorView"
+                  moduleName = "UpsoclApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/upsocl/XcodeProjects/upsoclappIOS/UpsoclApp/UpsoclApp/BookmarkTableViewController.swift"
+                  timestampString = "498572137.613771"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UpsoclApp.BookmarkTableViewController.indicator.setter : __ObjC.UIActivityIndicatorView"
+                  moduleName = "UpsoclApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/upsocl/XcodeProjects/upsoclappIOS/UpsoclApp/UpsoclApp/BookmarkTableViewController.swift"
+                  timestampString = "498572137.616211"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UpsoclApp.BookmarkTableViewController.init (style : __C.UITableViewStyle) -&gt; UpsoclApp.BookmarkTableViewController"
+                  moduleName = "UpsoclApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/upsocl/XcodeProjects/upsoclappIOS/UpsoclApp/UpsoclApp/BookmarkTableViewController.swift"
+                  timestampString = "498572137.618775"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UpsoclApp.BookmarkTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; UpsoclApp.BookmarkTableViewController"
+                  moduleName = "UpsoclApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/upsocl/XcodeProjects/upsoclappIOS/UpsoclApp/UpsoclApp/BookmarkTableViewController.swift"
+                  timestampString = "498572137.621249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UpsoclApp.BookmarkTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;UpsoclApp.BookmarkTableViewController&gt;"
+                  moduleName = "UpsoclApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/upsocl/XcodeProjects/upsoclappIOS/UpsoclApp/UpsoclApp/BookmarkTableViewController.swift"
+                  timestampString = "498572137.62367"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "176">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

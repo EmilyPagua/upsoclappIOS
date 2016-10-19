@@ -273,14 +273,9 @@ class ServicesConnection  {
             completionHandler(UIImage(named: "webkit-featured")!, nil)
             
         }else{
-             print(urlImage as String)
-            
             let imgURL = URL(string: urlImage as String)
             if imgURL != nil {
                 let task = URLSession.shared.dataTask(with: imgURL!, completionHandler: { (responseData, responseUrl, error) -> Void in
-                    
-                    print (responseData)
-                    print (imgURL)
                     
                     // if responseData is not null...
                     if let data = responseData{

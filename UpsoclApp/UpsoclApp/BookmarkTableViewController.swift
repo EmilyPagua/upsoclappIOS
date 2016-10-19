@@ -134,11 +134,8 @@ class BookmarkTableViewController: UITableViewController {
             
             if !key.isEmpty && key.rangeOfCharacter(from: numberCharacters) == nil{
                 
-                //let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + "/" + key
-                let urlPath =     "//http://upsocl.com/wp-json/wp/v2/pages/445196"
-
-                
-                print (urlPath)
+                let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + "/" + key
+                //let urlPath =     "//http://upsocl.com/wp-json/wp/v2/pages/445196"
                 
                 servicesConnection.loadNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
                     self.newsList = moreWrapper!
