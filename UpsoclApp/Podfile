@@ -11,13 +11,15 @@ target 'UpsoclApp' do
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'Google-Mobile-Ads-SDK'
-  pod 'Google/Analytics'
   pod 'Google/SignIn'
+  pod 'GoogleAnalytics'
+  pod 'Google/Analytics'
 
   # Pods for UpsoclApp
 
   target 'UpsoclAppTests' do
     inherit! :search_paths
+    
     # Pods for testing
   end
 

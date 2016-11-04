@@ -21,11 +21,12 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     @IBOutlet weak var titleDetail: UILabel!
     @IBOutlet weak var authorDetail: UILabel!
     @IBOutlet weak var bookmark: UIBarButtonItem!
+    
 
     @IBOutlet weak var categoryDetail: UILabel!
     @IBOutlet weak var buttonShareFacebook: UIBarButtonItem!
     
-    //@IBOutlet weak var bannerViewUp: GADBannerView!
+    @IBOutlet weak var bannerViewUp: GADBannerView!
     
     var servicesConnection = ServicesConnection()
     let baseURL = URL(string: "http://api.instagram.com/oembed")
@@ -35,8 +36,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     let banner_up  = "<div id='div-gpt-ad-ct' align='center' > <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-ct') }); </script> </div>"
     let banner_bot = "<div id='div-gpt-ad-ca' align='center' > <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-ca') }); </script> </div> "
     
-    ///Users/upsocl/XcodeProjects/upsoclappIOS/UpsoclApp/UpsoclApp/PageItemController.swift:39:9: Stored property 'news' without initial value prevents synthesized initializers
-    var itemIndex: Int = 0
+     var itemIndex: Int = 0
     var news: News = News(id: 0, title: "", content: "", imageURL: "", date: "", link: "", category: "", author: "")!
     var contentDetail = ""
     var isSearchResult = false
@@ -56,14 +56,14 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         indicator.center = view.center
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
-        
-        /*bannerViewUp.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        /*
+        bannerViewUp.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerViewUp.rootViewController = self
         bannerViewUp.load(GADRequest())
-        
+ 
         self.view.willRemoveSubview(bannerViewUp)
         */
-        //loadContent()
+       // loadContent()
         loadContentWithHTML()
        // loadContentWithHTMLAdmob()
     }
@@ -239,9 +239,9 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     func webViewDidFinishLoad(_ webView: UIWebView) {
         self.indicator.stopAnimating()
         
-        /*webViewContent.frame =  CGRectMake(10, authorDetail.frame.maxY, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height + 600)
+       /* webViewContent.frame =  CGRectMake(10, authorDetail.frame.maxY, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height + 600)
          self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY, 0);
-         */
+        */
     }
     
     

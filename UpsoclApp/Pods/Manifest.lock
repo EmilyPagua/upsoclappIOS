@@ -52,6 +52,7 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Google/Analytics
   - Google/SignIn
+  - GoogleAnalytics
   - TwitterKit
 
 SPEC CHECKSUMS:
@@ -72,6 +73,6 @@ SPEC CHECKSUMS:
   TwitterCore: a139904c80805ad3dde9eef1100704f96f646d1d
   TwitterKit: 1cf9742edf9d182c1518cfdd6aaac0dfe313b38b
 
-PODFILE CHECKSUM: f85240d08578d4e57031572fb8a10c6a139f9893
+PODFILE CHECKSUM: 6880c8863a981bf00ac13a5411738390d31f3c7c
 
 COCOAPODS: 1.0.1

@@ -36,7 +36,10 @@
 
 
 //Google Analytics
-#import <Google/Analytics.h>
+//#import <Google/Analytics.h>
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
 //Google Analytics
 
 
