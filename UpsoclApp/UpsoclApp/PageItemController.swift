@@ -13,10 +13,10 @@ import FBSDKShareKit
 import GoogleMobileAds
 import iAd
 
-class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDelegate {
+class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDelegate, UIScrollViewDelegate , UITextFieldDelegate{
     //Banner
     
-    @IBOutlet weak var webViewContent: UIWebView!
+   // @IBOutlet weak var webViewContent: UIWebView!
     @IBOutlet weak var imagenDetail: UIImageView!
     @IBOutlet weak var titleDetail: UILabel!
     @IBOutlet weak var authorDetail: UILabel!
@@ -31,10 +31,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     var servicesConnection = ServicesConnection()
     let baseURL = URL(string: "http://api.instagram.com/oembed")
     
-    let top = "<html> <header> <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'> <link rel='stylesheet' type='text/css' media='all' href='http://www.upsocl.com/wp-content/themes/upso3/style.css'> <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'> <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'> <script type='text/javascript'>(function() {var useSSL = 'https:' == document.location.protocol;var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';document.write('<scr' + 'ipt src=\"' + src + '\"> </scr' + 'ipt>');})(); </script> <script> var mappingCT = googletag.sizeMapping().addSize([300, 100], [300, 250]). addSize([760, 200], [728, 90]). build(); var mappingCA = googletag.sizeMapping().addSize([300, 100], [300, 250]). addSize([760, 200], [728, 90]). build(); googletag.defineSlot('/100064084/contenidotop', [[300, 250], [728, 90]], 'div-gpt-ad-ct').defineSizeMapping(mappingCT).addService(googletag.pubads());  googletag.defineSlot('/100064084/contenidoabajo', [[300, 250], [728, 90]], 'div-gpt-ad-ca').defineSizeMapping(mappingCA).addService(googletag.pubads());  googletag.pubads().collapseEmptyDivs();  googletag.pubads().enableSyncRendering();googletag.enableServices(); </script> </header> <body>  "
-    
-    let banner_up  = "<div id='div-gpt-ad-ct' align='center' > <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-ct') }); </script> </div>"
-    let banner_bot = "<div id='div-gpt-ad-ca' align='center' > <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-ca') }); </script> </div> "
+    let top = "<html> <header> " + DetailConstants.PropertyKey.HTML_HEAD + "</header> <body>"
     
      var itemIndex: Int = 0
     var news: News = News(id: 0, title: "", content: "", imageURL: "", date: "", link: "", category: "", author: "")!
@@ -49,6 +46,15 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
 
     var ads: [String: GADAdSize]!
     
+    //VAR
+    var scrollViewDetail : UIScrollView!
+    var containerView: UIView!
+    var webDetail: UIWebView!
+    var bannerView: GADBannerView!
+    
+    var viewCount =  1
+    //END  VAR
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,15 +63,113 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
         /*
-        bannerViewUp.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerViewUp.rootViewController = self
-        bannerViewUp.load(GADRequest())
+        bannerView = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
  
         self.view.willRemoveSubview(bannerViewUp)
         */
-       // loadContent()
-        loadContentWithHTML()
-       // loadContentWithHTMLAdmob()
+        //loadContent()
+        
+        
+        webDetail =  UIWebView()
+        webDetail.delegate = self
+        webDetail.loadHTMLString(createHTML(), baseURL: baseURL)
+        
+        
+        bannerView =  GADBannerView(adSize: kGADAdSizeMediumRectangle)
+        bannerView.delegate = self
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+
+        
+        containerView =  UIView()
+        containerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector(("viewTapped:"))))
+        
+        scrollViewDetail = UIScrollView()
+        scrollViewDetail.delegate = self
+        scrollViewDetail.backgroundColor = UIColor.white
+        scrollViewDetail.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        
+
+        containerView.addSubview(webDetail)
+        containerView.addSubview(bannerView)
+        
+        //builControls()
+        scrollViewDetail.addSubview(containerView)
+        view.addSubview(scrollViewDetail)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        print ("-----")
+        scrollViewDetail.frame = CGRect(x:10, y:80, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height - 120)
+        scrollViewDetail.contentSize = CGSize(width:UIScreen.main.bounds.width-20, height:2000)//webDetail.scrollView.bounds.maxY)
+        
+        webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height)
+        bannerView.frame = CGRect(x:0, y:webDetail.scrollView.bounds.maxY+10, width: 300, height: 250)
+        containerView.frame = CGRect(x: 0, y: 0,width: scrollViewDetail.contentSize.width, height: scrollViewDetail.bounds.size.height)
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        self.indicator.stopAnimating()
+        
+        print ("webViewDidFinishLoad")
+        
+        print (webDetail.scrollView.bounds.size)
+        print (webDetail.scrollView.bounds.maxY)
+
+        print (webDetail.bounds.size)
+        print("......")
+        //scrollViewDetail.contentSize = CGSize(width:UIScreen.main.bounds.width-20, height:webDetail.scrollView.bounds.maxY)
+
+        print(scrollViewDetail.bounds.size)
+        //webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height:webDetail.scrollView.bounds.size.height+200)
+        //self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY, 0);
+        
+    }
+    
+    
+    func builControls(){
+    }
+    
+    func plus(sender : UIButton) {
+        update(zoomScale: scrollViewDetail.zoomScale+0.1, offSet: CGPoint.zero)
+    }
+    func minus(sender : UIButton) {
+        update(zoomScale: scrollViewDetail.zoomScale-0.1, offSet: CGPoint.zero)
+    }
+
+    func update(zoomScale: CGFloat, offSet: CGPoint) {
+        scrollViewDetail.zoomScale = zoomScale
+        scrollViewDetail.contentOffset = offSet
+    }
+    
+    
+    func viewTapped(gesture : UITapGestureRecognizer) {
+        if gesture.view == containerView {
+            let v = UIView(frame: CGRect(x: 0, y: 0,width: 100, height: 100))
+            v.center = gesture.location(in: containerView)
+            v.backgroundColor = UIColor.red
+            v.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector(("viewTapped:"))))
+            addView(view: v, tag: viewCount)
+            viewCount = viewCount + 1
+        } else {
+            deleteView(tag: gesture.view!.tag)
+        }
+    }
+    
+    
+    func addView (view: UIView, tag: Int) {
+        view.tag =  tag
+        containerView.addSubview(view)
+    }
+    
+    func deleteView(tag: Int){
+        containerView.viewWithTag(tag)?.removeFromSuperview()
+        
     }
     
     //ComeBack
@@ -144,37 +248,25 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         preferences.synchronize()
     }
     
-    
-    func loadContentWithHTMLAdmob() {
-    
-        loadIsBookmark()
-        contentDetail = top
-        self.webViewContent.scrollView.isScrollEnabled = false
-        
-        if news.imageURLNews != nil{
-            let imagen  = "<center><img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news.imageURLNews!+" width=\"728\" > </center>"
-            contentDetail = contentDetail + imagen
-        }
-        let line = "<hr  color=\"#009688\" />"
-        let title = "<h2 style=\"text-align: justify;\"><strong> "+news.titleNews+"</strong></h2>"
-        let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news.authorNews!+"</font>.  El: <font color=\"#009688\"> "+news.dateNews!+" </font> "
-        let category = " <br/> Categorias: <font color=\"#009688\">"+news.categoryNews+"</font> </div> "
-        let content = news.contentNews
-        
-        contentDetail = contentDetail  + title + detailAuthor + category + banner_up
-        contentDetail = contentDetail + line + content! + banner_bot
-        
-        //print(contentDetail)
-        let baseURL = URL(string: "http://api.instagram.com/oembed")
-        self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
-        webViewContent.delegate = self
-    }
-    
-    func loadContentWithHTML(){
+
+  /*  func loadContent(){
                         
         loadIsBookmark()
+       
+        
+        let baseURL = URL(string: "http://api.instagram.com/oembed")
+        self.webViewContent.loadHTMLString(createHTML(), baseURL: baseURL)
+        webViewContent.delegate = self
+        webViewContent.backgroundColor =  UIColor.white
+        
+        self.indicator.startAnimating()
+    }*/
+    
+    
+    func createHTML() -> String{
+        
         contentDetail = top
-            
+        
         if news.imageURLNews != nil{
             let imagen  = "<center><img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news.imageURLNews!+" width=\"728\" > </center>"
             contentDetail = contentDetail + imagen
@@ -185,40 +277,11 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news.authorNews!+" </font>.  El: <font color=\"#009688\"> "+news.dateNews!+" </font> "
         let category = " <br/> Categorias: <font color=\"#009688\">"+news.categoryNews+"</font> </div> "
         let content = news.contentNews
-            
-        contentDetail = contentDetail  + title + detailAuthor + category + banner_up + " </body> </html> "
-        contentDetail = contentDetail + line + content! + banner_bot
         
-        let baseURL = URL(string: "http://api.instagram.com/oembed")
-        self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
-        webViewContent.delegate = self
-        
-        self.indicator.startAnimating()
-    }
+        contentDetail = contentDetail  + title + detailAuthor + category
+        contentDetail = contentDetail + line + content! + " </body> </html> "
+        return contentDetail
     
-    func loadContent() {
-        
-        self.webViewContent.scrollView.isScrollEnabled = false
-    
-        loadIsBookmark()
-        
-        if news.imageURLNews != nil{
-            loadImage(news.imageURLNews!, viewImagen: imagenDetail)
-        }
-            
-        titleDetail.text = news.titleNews
-        categoryDetail.text = "Autor: " + news.authorNews! + ". Categoría: " + news.dateNews!
-        authorDetail.text = "Categoría: " + news.categoryNews
-    
-        let line = "<hr  color=\"#009688\" />"
-        let publicity = ""
-        contentDetail = contentDetail + line + publicity + news.contentNews!
-                
-        let baseURL = URL(string: "http://api.instagram.com/oembed")
-        
-        self.webViewContent.loadHTMLString(contentDetail, baseURL: baseURL)
-        webViewContent.delegate = self
-        
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
@@ -228,6 +291,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         print ("load Content webView")
+        
         return true;
     }
     
@@ -235,14 +299,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     func webViewDidStartLoad(_ webView: UIWebView){
         self.indicator.startAnimating()
     }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        self.indicator.stopAnimating()
-        
-       /* webViewContent.frame =  CGRectMake(10, authorDetail.frame.maxY, UIScreen.mainScreen().bounds.width - 20, webViewContent.scrollView.contentSize.height + 600)
-         self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY, 0);
-        */
-    }
+
     
     
     func loadIsBookmark() {

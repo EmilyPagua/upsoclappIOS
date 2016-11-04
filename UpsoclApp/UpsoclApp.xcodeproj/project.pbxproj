@@ -37,6 +37,7 @@
 		8C5D232C1D9B0BAE00E1CC14 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5D232B1D9B0BAE00E1CC14 /* CoreLocation.framework */; };
 		8C610DB21DA6748C00C1D4BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C610DB11DA6748C00C1D4BE /* GoogleService-Info.plist */; };
 		8C77823F1D7A12ED001A0596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77823E1D7A12ED001A0596 /* News.swift */; };
+		8CB426401DCCD39E0082A2C8 /* DetailConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */; };
 		8CE0972D1D79DEF500ABD404 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */; };
 		8CE94EA21D9C34FF0018CFFB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE94E9F1D9C34FF0018CFFB /* FBSDKCoreKit.framework */; };
 		8CE94EA31D9C34FF0018CFFB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE94EA01D9C34FF0018CFFB /* FBSDKLoginKit.framework */; };
@@ -96,6 +97,7 @@
 		8C5D232B1D9B0BAE00E1CC14 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8C610DB11DA6748C00C1D4BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C77823E1D7A12ED001A0596 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailConstants.swift; sourceTree = "<group>"; };
 		8CE0972A1D79DEF500ABD404 /* SidebarMenu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SidebarMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CE0972B1D79DEF500ABD404 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				8C5B064A1D80A34E00E2BB52 /* ApiConstants.swift */,
 				8C5B064D1D80B19A00E2BB52 /* Category.swift */,
+				8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */,
 			);
 			name = key;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB426401DCCD39E0082A2C8 /* DetailConstants.swift in Sources */,
 				8C5B06461D8057A800E2BB52 /* ServicesConnection.swift in Sources */,
 				8C51747C1D99626E00771EF1 /* LoginUserController.swift in Sources */,
 				8C5B06541D818A3000E2BB52 /* GreenTableViewController.swift in Sources */,

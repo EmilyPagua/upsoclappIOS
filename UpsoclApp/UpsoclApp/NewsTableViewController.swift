@@ -70,12 +70,15 @@ class NewsTableViewController: UITableViewController {
         // Configure the cell...
         if (newsList.count != 0 ){
             let news = newsList[(indexPath as NSIndexPath).row]
-            cell.postTitleLabel.text = news.titleNews
-            loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
             
-            if (indexPath as NSIndexPath).row == self.newsList.count - 3 {
-                page += 1
-                callWebServices(String (page))
+            if news.imageURLNews?.isEmpty==false {
+                cell.postTitleLabel.text = news.titleNews
+                loadImage(urlImage: news.imageURLNews!, viewImagen: cell.postImagenView)
+                
+                if (indexPath as NSIndexPath).row == self.newsList.count - 3 {
+                    page += 1
+                    callWebServices(String (page))
+                }
             }
         }
         return cell
@@ -189,14 +192,17 @@ class NewsTableViewController: UITableViewController {
         }
     }
     
-    func loadImage(_ urlImage: String?, viewImagen: UIImageView){
+    func loadImage(urlImage: String, viewImagen: UIImageView){
         
-        servicesConnection.loadImage(urlImage: urlImage!, completionHandler: { (moreWrapper, error) in
-            DispatchQueue.main.async(execute: { () -> Void in
-                viewImagen.image = moreWrapper
-                self.indicator.stopAnimating()
+        if urlImage != nil{
+            servicesConnection.loadImage(urlImage: urlImage, completionHandler: { (moreWrapper, error) in
+                DispatchQueue.main.async(execute: { () -> Void in
+                    viewImagen.image = moreWrapper
+                    self.indicator.stopAnimating()
+                })
             })
-        })
+        }
+       
     }
     
     
