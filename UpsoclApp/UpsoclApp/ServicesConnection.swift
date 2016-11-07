@@ -36,41 +36,44 @@ class ServicesConnection  {
         
         urlPath =  urlPath.replacingOccurrences(of: " ", with: "%20%")
         
+        print (urlPath)
         let request = NSMutableURLRequest(url: URL(string: urlPath)!)
+        print (request)
         let session = URLSession.shared
         
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        customer.userId = "0"
+        
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             guard error == nil else {
-                print("error calling POST custumer : " + urlPath)
+                print("ERROR_ LLAMANDO POST custumer : " + urlPath)
                 print (error?.localizedDescription)
                 return
             }
             
             guard data != nil else {
-                print("Error: did not receive data POST Customer")
+                print("ERROR_ NO PUEDE RECIBIR POST Customer")
                 return
             }
             
+            self.saveUser(customer) //FIXME
             let nsdata = NSData(data: data!) as Data
             let json : AnyObject!
             do {
                 json = try JSONSerialization.jsonObject(with: nsdata, options: []) as AnyObject!
                 let id = json["success"] as! Int
-                if id == 0 {
-                    customer.userId = "0"}
-                else{
+                if id != 0 {
                     customer.userId = json["id"] as! String }
                 
             }catch let error as NSError{
-                print (error.localizedDescription)
+                print ("ERROR_ "+error.localizedDescription)
                 json=nil
                 return
             }
-            self.saveUser(customer)
+            //self.saveUser(customer) FIXME Descomentar
         })
         task.resume()
     }
@@ -88,10 +91,11 @@ class ServicesConnection  {
             .replacingOccurrences(of: "ó", with: "o")
             .replacingOccurrences(of: "á", with: "a")
             .replacingOccurrences(of: " ", with: "%20")
+    
         
         self.newsList = wrapper!
         guard let url = URL(string: urlPath) else{
-            print("hay un error url")
+            print("ERROR_ ServicesConnection loadAllNews en URL")
             return
         }
         
@@ -99,13 +103,13 @@ class ServicesConnection  {
         let task = session.dataTask(with: url, completionHandler: {data, response, error -> Void in
             
             guard error == nil else {
-                print("error calling GET on: " + urlPath)
+                print("ERROR_ ServicesConnection loadAllNews calling GET on: " + urlPath)
                 print (error?.localizedDescription)
                 return
             }
             
             guard data != nil else {
-                print("Error: did not receive data")
+                print("ERROR_ ServicesConnection loadAllNews did not receive data")
                 return
             }
             
@@ -129,23 +133,20 @@ class ServicesConnection  {
         
         self.newsList = wrapper!
         guard let url = URL(string: urlPath) else{
-            print("hay un error")
+            print("ERROR_ ServicesConnection loadNews en URL")
             return
         }
         let session = URLSession.shared
         let task = session.dataTask(with: url, completionHandler: {data, response, error -> Void in
             
             guard error == nil else {
-                print("error calling GET on: " + urlPath)
+                print("ERROR_ ServicesConnection loadNews calling GET on: " + urlPath)
                 print (error?.localizedDescription)
-                //self.createViewMessage ("Problemas al obtener datos, verifique su conexion a internet..!")
-
                 return
             }
             
             guard data != nil else {
-                print("Error: did not receive data")
-                //self.createViewMessage ("Problemas al obtener datos, verifique su conexion a internet..!")
+                print("ERROR_ ServicesConnection loadNews did not receive data")
                 return
             }
             
@@ -216,7 +217,6 @@ class ServicesConnection  {
                 return
             }
             if id == 445196{
-                
                 let content  = (data_block["content"]?.value(forKey: "rendered") as? String)!
 
                 meal = News(id: id,
@@ -251,7 +251,9 @@ class ServicesConnection  {
                     .replacingOccurrences(of: "&#8216;", with: "'")
                     .replacingOccurrences(of: "&#8217;", with: "'")
                     .replacingOccurrences(of: "&#8230;", with: "'")
-                
+                    .replacingOccurrences(of: "&#8242;", with: "'")
+            
+            
                 meal = News(id: id,
                                 title: title,
                                 content: content,

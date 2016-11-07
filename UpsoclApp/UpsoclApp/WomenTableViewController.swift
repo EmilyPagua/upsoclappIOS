@@ -36,8 +36,8 @@ class WomenTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         if self.revealViewController() != nil {
-            //menuButton.target = self.revealViewController()
-            //menuButton.action = "revealToggle:"
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         

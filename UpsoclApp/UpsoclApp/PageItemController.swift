@@ -76,13 +76,11 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         webDetail.delegate = self
         webDetail.loadHTMLString(createHTML(), baseURL: baseURL)
         
-        
         bannerView =  GADBannerView(adSize: kGADAdSizeMediumRectangle)
         bannerView.delegate = self
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-mb-app-pub-7682123866908966/7102497723"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
-
         
         containerView =  UIView()
         containerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector(("viewTapped:"))))
@@ -105,11 +103,14 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         super.viewDidLayoutSubviews()
         
         print ("-----")
-        scrollViewDetail.frame = CGRect(x:10, y:80, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height - 120)
-        scrollViewDetail.contentSize = CGSize(width:UIScreen.main.bounds.width-20, height:2000)//webDetail.scrollView.bounds.maxY)
-        
         webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height)
         bannerView.frame = CGRect(x:0, y:webDetail.scrollView.bounds.maxY+10, width: 300, height: 250)
+
+        scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
+                                              height:webDetail.bounds.size.height + 260.0)
+
+        scrollViewDetail.frame = CGRect(x:10, y:80, width: view.bounds.width-20, height: view.bounds.height-82)
+        
         containerView.frame = CGRect(x: 0, y: 0,width: scrollViewDetail.contentSize.width, height: scrollViewDetail.bounds.size.height)
     }
     
@@ -117,18 +118,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         self.indicator.stopAnimating()
         
         print ("webViewDidFinishLoad")
-        
-        print (webDetail.scrollView.bounds.size)
-        print (webDetail.scrollView.bounds.maxY)
-
-        print (webDetail.bounds.size)
-        print("......")
-        //scrollViewDetail.contentSize = CGSize(width:UIScreen.main.bounds.width-20, height:webDetail.scrollView.bounds.maxY)
-
-        print(scrollViewDetail.bounds.size)
-        //webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height:webDetail.scrollView.bounds.size.height+200)
-        //self.scrollDetail.contentInset = UIEdgeInsetsMake(0, 0, webViewContent.scrollView.contentSize.height - authorDetail.frame.maxY, 0);
-        
     }
     
     
@@ -276,7 +265,10 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         let title = "<h2 style=\"text-align: justify;\"><strong> "+news.titleNews+"</strong></h2>"
         let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news.authorNews!+" </font>.  El: <font color=\"#009688\"> "+news.dateNews!+" </font> "
         let category = " <br/> Categorias: <font color=\"#009688\">"+news.categoryNews+"</font> </div> "
-        let content = news.contentNews
+        var content = news.contentNews
+        
+        let  result = content?.captureExpression(withRegex: "(class)[=][\"](wp-image-)\\d{6}[\"]")
+        content = result
         
         contentDetail = contentDetail  + title + detailAuthor + category
         contentDetail = contentDetail + line + content! + " </body> </html> "
@@ -285,9 +277,8 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        print("Error en webView \(error.localizedDescription)");
+        print("ERROR_ en webView \(error.localizedDescription)");
     }
-    
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         print ("load Content webView")
@@ -325,7 +316,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     //BannerViewController
     func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
-        print("adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
+        print("ERROR_ adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
     }
     
     func adViewDidReceiveAd(_ view: GADBannerView!) {

@@ -38,6 +38,7 @@
 		8C610DB21DA6748C00C1D4BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C610DB11DA6748C00C1D4BE /* GoogleService-Info.plist */; };
 		8C77823F1D7A12ED001A0596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77823E1D7A12ED001A0596 /* News.swift */; };
 		8CB426401DCCD39E0082A2C8 /* DetailConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */; };
+		8CB426421DD0A9A50082A2C8 /* ProssesingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */; };
 		8CE0972D1D79DEF500ABD404 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */; };
 		8CE94EA21D9C34FF0018CFFB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE94E9F1D9C34FF0018CFFB /* FBSDKCoreKit.framework */; };
 		8CE94EA31D9C34FF0018CFFB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE94EA01D9C34FF0018CFFB /* FBSDKLoginKit.framework */; };
@@ -98,6 +99,7 @@
 		8C610DB11DA6748C00C1D4BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C77823E1D7A12ED001A0596 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailConstants.swift; sourceTree = "<group>"; };
+		8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProssesingContent.swift; sourceTree = "<group>"; };
 		8CE0972A1D79DEF500ABD404 /* SidebarMenu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SidebarMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CE0972B1D79DEF500ABD404 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */,
 				8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */,
 				8C51747B1D99626E00771EF1 /* LoginUserController.swift */,
+				8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */,
 			);
 			path = UpsoclApp;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				8C5B06621D81B6BF00E2BB52 /* FoodTableViewController.swift in Sources */,
 				8C12D6B41D95628700A3FC6D /* SearchTableViewController.swift in Sources */,
 				8C5B065A1D81AA3700E2BB52 /* WomenTableViewController.swift in Sources */,
+				8CB426421DD0A9A50082A2C8 /* ProssesingContent.swift in Sources */,
 				8C5B066A1D81B9A600E2BB52 /* QuizTableViewController.swift in Sources */,
 				8C4726A31DA54D4400A9F6AC /* Reachability.swift in Sources */,
 				8C5B06641D81B97400E2BB52 /* PopularyTableViewController.swift in Sources */,

@@ -51,13 +51,13 @@ class PoliticasPrivacityViewController: UIViewController {
                 self.detail = moreWrapper!
                 DispatchQueue.main.async(execute: {
                     
+                    self.webViewContent.backgroundColor = UIColor.white
                     self.webViewContent.loadHTMLString(self.detail[0].contentNews!, baseURL: nil)
                     self.indicator.stopAnimating()
                     return
                 })
             })
         } else {
-            print("Internet connection FAILED")
             let alert = UIAlertView(title: "Error en conexión a datos", message: "Esta seguro que tiene conexion a internet?", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }

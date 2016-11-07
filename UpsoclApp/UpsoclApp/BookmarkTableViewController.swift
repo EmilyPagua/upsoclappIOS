@@ -67,7 +67,6 @@ class BookmarkTableViewController: UITableViewController {
         let newsPost  = self.newsList[(indexPath as NSIndexPath).row]
         
         let more = UITableViewRowAction(style: .normal, title: "Remover") { action, index in
-            print("Remover")
             
             let preferences = UserDefaults.standard
             //let newsPost  = self.newsList[indexPath.row]

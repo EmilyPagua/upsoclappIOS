@@ -777,11 +777,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498078343.625288"
+            timestampString = "500225972.362516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "loadAllNews(_:urlPath:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -793,11 +793,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498078343.625288"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "loadAllNews(_:urlPath:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -809,11 +809,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498078343.625288"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "loadAllNews(_:urlPath:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -857,11 +857,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498510390.36564"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -873,23 +873,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498572476.899988"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "loadImage(urlImage:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498572476.899988"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "281"
@@ -905,11 +889,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498572476.899988"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "loadImage(urlImage:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/ServicesConnection.swift"
+            timestampString = "500236043.512363"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -953,11 +953,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498572476.899988"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1001,11 +1001,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498572476.899988"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1017,11 +1017,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498572476.899988"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1033,11 +1033,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498572476.899988"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
             landmarkName = "loadImage(urlImage:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -2357,11 +2357,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498170627.347022"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "convertJson(_:)"
             landmarkType = "7">
             <Locations>
@@ -2405,11 +2405,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498170627.347022"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "convertJson(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2421,11 +2421,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498170627.347022"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "convertJson(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2437,11 +2437,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498170627.347022"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "convertJson(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2453,11 +2453,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498078343.625288"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "loadAllNews(_:urlPath:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2469,11 +2469,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498078343.625288"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "loadAllNews(_:urlPath:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2485,11 +2485,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498078343.625288"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "loadAllNews(_:urlPath:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2501,11 +2501,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498078343.625288"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "loadAllNews(_:urlPath:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2549,11 +2549,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/ServicesConnection.swift"
-            timestampString = "498170627.347022"
+            timestampString = "500236043.512363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "loadNews(_:urlPath:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3038,7 +3038,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/CheckBoxInterest.swift"
@@ -3218,11 +3218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3234,11 +3234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3250,7 +3250,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "searchBar(_:textDidChange:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/SearchTableViewController.swift"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
@@ -3266,7 +3282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
@@ -3282,27 +3298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500235187.793475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "searchBar(_:textDidChange:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496586005.93464"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "callWebServices(_:searchText:)"
             landmarkType = "7">
             <Locations>
@@ -3346,11 +3346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "searchBarTextDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3455,11 +3455,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "searchBarTextDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3471,11 +3471,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496586005.93464"
+            timestampString = "500235187.793475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "callWebServices(_:searchText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3487,11 +3487,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496586005.93464"
+            timestampString = "500235187.793475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "callWebServices(_:searchText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3503,71 +3503,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "searchBarTextDidBeginEditing(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "searchBarCancelButtonClicked(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "searchBarCancelButtonClicked(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -3583,7 +3519,87 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "searchBarCancelButtonClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/SearchTableViewController.swift"
+            timestampString = "500234089.232851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "searchBarSearchButtonClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/SearchTableViewController.swift"
+            timestampString = "500234089.232851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "searchBarCancelButtonClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/SearchTableViewController.swift"
+            timestampString = "500234089.232851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "searchBarTextDidBeginEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/SearchTableViewController.swift"
+            timestampString = "500234089.232851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "searchBarShouldEndEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/SearchTableViewController.swift"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -3599,27 +3615,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "searchBarShouldEndEditing(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3631,11 +3631,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3647,11 +3647,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3707,7 +3707,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
@@ -3727,11 +3727,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3743,11 +3743,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3755,11 +3755,27 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/SearchTableViewController.swift"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -3775,27 +3791,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3823,11 +3823,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/SearchTableViewController.swift"
-            timestampString = "496587896.458435"
+            timestampString = "500234089.232851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>

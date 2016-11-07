@@ -27,13 +27,12 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.delegate = self
         tableView.dataSource = self
-        
         searchBar.delegate = self
         searchBar.isHidden =  false
         
         //loadProgressBar
         indicator = progressBar.loadBar()
-        indicator.frame = CGRect(x: 200.0, y: 40.0, width: 40.0, height: 40.0)
+        indicator.frame = CGRect(x: (UIScreen.main.bounds.width/2) - 20, y: 40.0, width: 40.0, height: 40.0)
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
     }
@@ -76,7 +75,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        searchActive =  false
+        searchActive =  true
         return searchActive
     }
     
@@ -111,7 +110,6 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
                 paged += 1
                 callWebServices( String (paged), searchText: filter)
             }
-            
         }
         return cell
     }
@@ -135,6 +133,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
             DispatchQueue.main.async(execute: {
                 self.tableView.reloadData()
                 self.indicator.stopAnimating()
+                self.searchBar.endEditing(true)
                 return
             })
         })

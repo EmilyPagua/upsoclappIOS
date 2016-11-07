@@ -60,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
         print (socialNetworkName)
         if socialNetworkName != nil {
             if  GIDSignIn.sharedInstance().hasAuthInKeychain(){
-                print("user is signed in")
                 mainView()
                 return false
             }else{
@@ -68,13 +67,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
             }
     
             if FBSDKAccessToken.current() != nil {
-                print("tokenFacebook user is signed in")
                 mainView()
                 return false
             }else{
                 print("tokenFacebook user is NOT signed in")
             }
-            print("Twitter user is signed in")
+
             self.mainView()
             return false
         }
@@ -179,7 +177,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
             let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController =  signOutPageNav
         } else {
-            print("Error  " + error.localizedDescription)
+            print("Error_  " + error.localizedDescription)
             
             // [START_EXCLUDE silent]
             NotificationCenter.default.post(

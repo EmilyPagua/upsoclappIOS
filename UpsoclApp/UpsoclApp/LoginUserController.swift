@@ -150,13 +150,13 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                         }
                         
                     }catch let error as NSError{
-                        print (error.localizedDescription)
+                        print ("ERROR_ "+error.localizedDescription)
                         json=nil
                         return
                     }
                 }
             } else {
-                print("error: \(error!.localizedDescription)");
+                print("ERROR_: \(error!.localizedDescription)");
             }
         }
     }
@@ -275,7 +275,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start(completionHandler: { (connection, user, requestError) -> Void in
             
             if requestError != nil {
-                print(requestError)
+                print("ERROR_ "+(requestError?.localizedDescription)!)
                 return
             }
             print (user)
@@ -294,7 +294,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
             let url = URL(string: pictureUrl)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) -> Void in
                 if error != nil {
-                    print(error)
+                    print("ERROR_ "+(error?.localizedDescription)!)
                     return
                 }
             }).resume()
