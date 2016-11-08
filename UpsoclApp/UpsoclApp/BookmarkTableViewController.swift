@@ -80,8 +80,6 @@ class BookmarkTableViewController: UITableViewController {
         more.backgroundColor = UIColor.lightGray
         
         let favorite = UITableViewRowAction(style: .normal, title: "Compartir") { action, index in
-            print("compartir")
-            
             let objectShare: [String] = [(newsPost.titleNews), (newsPost.linkNews)]
             let activityViewController = UIActivityViewController(activityItems: objectShare, applicationActivities: nil)
             self.present(activityViewController, animated: true, completion: {})
@@ -170,7 +168,7 @@ class BookmarkTableViewController: UITableViewController {
     func saveNews() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(newsList, toFile: News.ArchiveURL.path)
         if !isSuccessfulSave {
-            print("Failed to save news...")
+            print("ERROR_ BookmarkTableViewController SaveNews failed to save news...")
         }
     }
 }

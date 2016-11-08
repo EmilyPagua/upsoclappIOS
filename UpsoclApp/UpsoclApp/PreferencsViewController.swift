@@ -142,15 +142,12 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
             
             if (self.socialNetworkName=="google" ){
                 GIDSignIn.sharedInstance().signOut()
-                print ("Google - signOutButton")
             }
             if (self.socialNetworkName=="facebook" ){
-                print ("Facebook - signOutButton")
                 FBSDKLoginManager().logOut()
             }
             
             if (self.socialNetworkName == "twitter"){
-                print ("Twitter - signOutButton")
                 let store = Twitter.sharedInstance().sessionStore
                 
                 if let userID = store.session()?.userID {

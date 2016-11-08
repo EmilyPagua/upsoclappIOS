@@ -63,14 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
                 mainView()
                 return false
             }else{
-                print("GIDSignIn user is NOT signed in")
+                print("ERROR_ AppDelegate GIDSignIn user is NOT signed in")
             }
     
             if FBSDKAccessToken.current() != nil {
                 mainView()
                 return false
             }else{
-                print("tokenFacebook user is NOT signed in")
+                print("ERROR_ AppDelegate tokenFacebook user is NOT signed in")
             }
 
             self.mainView()

@@ -173,6 +173,20 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             }
         }
     }*/
+    
+    //Google Analytics
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if (newsList[0] != nil){
+            let googleAnalytics : GAITracker = GAI.sharedInstance().tracker(withTrackingId: "UA-44944096-19")
+            GAI.sharedInstance().trackUncaughtExceptions = true
+            googleAnalytics.set(kGAIScreenName, value: newsList[0].linkNews)
+            let builder = GAIDictionaryBuilder.createScreenView()
+            googleAnalytics.send(builder!.build() as [NSObject : AnyObject])
+        }
+    }
+    //End Google Analytics
 }
 
 

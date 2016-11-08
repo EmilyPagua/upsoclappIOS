@@ -13,6 +13,7 @@ import FBSDKShareKit
 import GoogleMobileAds
 import iAd
 
+
 class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDelegate, UIScrollViewDelegate , UITextFieldDelegate{
     //Banner
     
@@ -71,7 +72,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         */
         //loadContent()
         
-        
         webDetail =  UIWebView()
         webDetail.delegate = self
         webDetail.loadHTMLString(createHTML(), baseURL: baseURL)
@@ -108,15 +108,16 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
 
         scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
                                               height:webDetail.bounds.size.height + 260.0)
-
+        
         scrollViewDetail.frame = CGRect(x:10, y:80, width: view.bounds.width-20, height: view.bounds.height-82)
         
-        containerView.frame = CGRect(x: 0, y: 0,width: scrollViewDetail.contentSize.width, height: scrollViewDetail.bounds.size.height)
+        containerView.frame = CGRect(x: 0, y: 0,
+                                     width: scrollViewDetail.contentSize.width,
+                                     height: scrollViewDetail.bounds.size.height)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         self.indicator.stopAnimating()
-        
         print ("webViewDidFinishLoad")
     }
     
@@ -317,6 +318,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     //BannerViewController
     func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
         print("ERROR_ adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
+        bannerView.isHidden = true
     }
     
     func adViewDidReceiveAd(_ view: GADBannerView!) {
@@ -337,12 +339,4 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         bannerView.isHidden =  false
     }
     //BannerViewController
-    
-    
-    
-    //Google Analytics
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
-    //End Google Analytics
 }

@@ -5,7 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'UpsoclApp' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'Google/SignIn'
+  platform :ios, '7.0'
   pod 'Fabric'
   pod 'TwitterKit'
   pod 'Firebase/Core'
@@ -13,7 +13,6 @@ target 'UpsoclApp' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'Google/SignIn'
   pod 'GoogleAnalytics'
-  pod 'Google/Analytics'
 
   # Pods for UpsoclApp
 
@@ -24,3 +23,4 @@ target 'UpsoclApp' do
   end
 
 end
+3

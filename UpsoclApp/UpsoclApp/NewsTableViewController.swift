@@ -87,7 +87,7 @@ class NewsTableViewController: UITableViewController {
     func saveNews() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(newsList, toFile: News.ArchiveURL.path)
         if !isSuccessfulSave {
-            print("Failed to save news...")
+            print("ERROR_ Failed to save news...")
         }
     }
     
@@ -186,23 +186,20 @@ class NewsTableViewController: UITableViewController {
                 })
             })
         } else {
-            print("Internet connection FAILED")
+            print("ERROR_ Internet connection FAILED")
             let alert = UIAlertView(title: "Error al conexión internet", message: "Esta seguro que tiene conexion a internet?", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
     }
     
     func loadImage(urlImage: String, viewImagen: UIImageView){
-        
-        if urlImage != nil{
+       
             servicesConnection.loadImage(urlImage: urlImage, completionHandler: { (moreWrapper, error) in
                 DispatchQueue.main.async(execute: { () -> Void in
                     viewImagen.image = moreWrapper
                     self.indicator.stopAnimating()
                 })
             })
-        }
-       
     }
     
     
