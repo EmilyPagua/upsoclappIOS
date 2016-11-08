@@ -187,7 +187,7 @@ class NewsTableViewController: UITableViewController {
             })
         } else {
             print("ERROR_ Internet connection FAILED")
-            let alert = UIAlertView(title: "Error al conexión internet", message: "Esta seguro que tiene conexion a internet?", delegate: nil, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Error!", message: "Verifique su conexión a dato..!", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
     }

@@ -51,6 +51,7 @@ class ServicesConnection  {
             guard error == nil else {
                 print("ERROR_ LLAMANDO POST custumer : " + urlPath)
                 print (error?.localizedDescription)
+                self.createViewMessage("Problemas, verifique su conexión a datos", title: "Error!")
                 return
             }
             
@@ -105,11 +106,13 @@ class ServicesConnection  {
             guard error == nil else {
                 print("ERROR_ ServicesConnection loadAllNews calling GET on: " + urlPath)
                 print (error?.localizedDescription)
+                self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
             
             guard data != nil else {
                 print("ERROR_ ServicesConnection loadAllNews did not receive data")
+                self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
             
@@ -142,11 +145,13 @@ class ServicesConnection  {
             guard error == nil else {
                 print("ERROR_ ServicesConnection loadNews calling GET on: " + urlPath)
                 print (error?.localizedDescription)
+                self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
             
             guard data != nil else {
                 print("ERROR_ ServicesConnection loadNews did not receive data")
+                self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
             
@@ -169,8 +174,8 @@ class ServicesConnection  {
     }
     
     
-    func createViewMessage(_ message: String){
-        let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
+    func createViewMessage(_ message: String, title: String ){
+        let alertView = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: "Aceptar")
         alertView.tag = 1
         alertView.show()
     }
