@@ -177,6 +177,7 @@ class NewsTableViewController: UITableViewController {
             self.indicator.startAnimating()
             
             let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + paged
+            print (urlPath)
             servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
                 
                 self.newsList = moreWrapper!
@@ -205,7 +206,7 @@ class NewsTableViewController: UITableViewController {
     
     @IBAction func unwindToNewsList(_ sender: UIStoryboardSegue) {
         self.tabBarController?.tabBar.isHidden =  false
-        self.navigationController?.popViewController(animated: true)
+      //  self.navigationController?.popViewController(animated: true)
         self.navigationController?.isNavigationBarHidden = false
         }
 }

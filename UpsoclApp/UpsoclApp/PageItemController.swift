@@ -166,7 +166,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     @IBAction func comeBack(_ sender: UIBarButtonItem) {
         
         self.tabBarController?.tabBar.isHidden =  false
-        self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popViewController(animated: true)
         self.navigationController?.isNavigationBarHidden = false
     }
     

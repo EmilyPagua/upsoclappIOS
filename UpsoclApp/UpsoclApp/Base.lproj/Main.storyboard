@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d2M-hT-Hdj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d2M-hT-Hdj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -23,8 +26,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="owV-MH-f9z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQ9-du-Ugz">
+                                        <rect key="frame" x="20" y="10" width="340" height="40"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Seleccione al menos tres  categorías para personalizar tu feed">
                                                 <attributes>
@@ -37,7 +42,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Dt-3d-133" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="215" y="337" width="89" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comida">
                                                     <attributes>
@@ -52,7 +58,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-eP-ejl" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="15" y="337" width="133" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Estilo de vida">
                                                     <attributes>
@@ -67,7 +74,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRx-QK-hSO" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="215" y="306" width="111" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Diversidad">
                                                     <attributes>
@@ -82,7 +90,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIa-vA-IaT" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="15" y="306" width="83" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Belleza">
                                                     <attributes>
@@ -97,7 +106,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-vK-JKE" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="215" y="275" width="117" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Creatividad">
                                                     <attributes>
@@ -112,7 +122,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEr-TS-JQN" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="15" y="275" width="88" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Pelicula">
                                                     <attributes>
@@ -127,7 +138,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-8O-4Ae" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="215" y="245" width="145" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Más populares">
                                                     <attributes>
@@ -142,7 +154,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-EX-LSU" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="215" y="214" width="133" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Colaboración">
                                                     <attributes>
@@ -157,7 +170,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-Ai-hKi" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="215" y="183" width="71" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mujer">
                                                     <attributes>
@@ -172,7 +186,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-QP-jex" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="215" y="152" width="84" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Cultura">
                                                     <attributes>
@@ -187,7 +202,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-fw-tcb" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="215" y="121" width="83" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Familia">
                                                     <attributes>
@@ -202,7 +218,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BF5-nK-i3k" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="215" y="90" width="82" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mundo">
                                                     <attributes>
@@ -217,7 +234,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgO-Gj-TRM" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="15" y="245" width="71" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Verde">
                                                     <attributes>
@@ -232,7 +250,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izv-ZR-vJm" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="15" y="152" width="119" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comunidad">
                                                     <attributes>
@@ -247,7 +266,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQR-WU-kUt" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="15" y="183" width="114" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Relaciones">
                                                     <attributes>
@@ -262,7 +282,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHo-ul-Flj" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="15" y="121" width="72" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Salud">
                                                     <attributes>
@@ -277,7 +298,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="val-ew-1pW" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="15" y="90" width="114" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Inspiración">
                                                     <attributes>
@@ -292,7 +314,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8I-xj-fTZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="FCA43202-F707-4C51-91C9-88781E75B19A">
+                                        <rect key="frame" x="15" y="214" width="62" height="25"/>
+                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Quiz">
                                                     <attributes>
@@ -307,6 +330,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCj-Zn-JQ5">
+                                        <rect key="frame" x="32" y="505" width="311" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Khg-JQ-hAb"/>
                                             <constraint firstAttribute="height" constant="45" id="WX4-HI-YFu"/>
@@ -317,12 +341,14 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGw-Zj-Vom" customClass="FBSDKLoginButton">
+                                        <rect key="frame" x="32" y="450" width="311" height="45"/>
                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Um2-CJ-1Gp"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Heh-2I-Mp8" customClass="GIDSignInButton">
+                                        <rect key="frame" x="29" y="392" width="317" height="48"/>
                                         <color key="backgroundColor" red="0.3253022183" green="0.58589672339999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="0df-82-UtG"/>
@@ -439,13 +465,14 @@
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellBookmark" rowHeight="200" id="8Fm-fb-Rtq" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Fm-fb-Rtq" id="Q1x-7v-g5Y">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlB-jv-dlg">
+                                            <rect key="frame" x="10" y="145" width="355" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="Bib-y7-nr9"/>
                                                 <constraint firstAttribute="height" constant="50" id="Bpy-3U-n0F"/>
@@ -469,6 +496,7 @@
                                             </variation>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C1W-LK-h4R">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="UVZ-7I-zvm"/>
                                             </constraints>
@@ -516,18 +544,20 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="209" id="m7N-Q8-5h6" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="209"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="209"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" tableViewCell="m7N-Q8-5h6" id="uxv-3b-FYp">
-                                    <frame key="frameInset" width="375" height="208"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="208"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0fY-zV-g8m">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="hNb-xf-Bom"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWv-wQ-DZa">
+                                            <rect key="frame" x="10" y="140" width="355" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="63" id="30o-nP-NgN"/>
                                             </constraints>
@@ -594,19 +624,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Buscar post" id="Hyd-hM-x1O">
-                            <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSearch" rowHeight="200" id="U38-8j-nM7" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="116" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U38-8j-nM7" id="5PP-dU-Qaf">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf0-Dk-0aG">
+                                            <rect key="frame" x="10" y="140" width="355" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="63" id="aq5-a5-OMw"/>
                                             </constraints>
@@ -622,6 +653,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TtG-Z0-M1U">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="e4W-oW-Y1R"/>
                                             </constraints>
@@ -720,6 +752,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odq-qq-lWn">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="KUi-MJ-DnO"/>
                                     <constraint firstAttribute="height" constant="44" id="ZHz-F2-Dau"/>
@@ -798,10 +831,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g9Q-QW-DeP" id="mav-NV-Wjh">
-                                            <frame key="frameInset" width="375" height="138"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-8I-3Bb">
+                                                    <rect key="frame" x="8" y="93" width="178" height="26"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Upsocl">
                                                             <attributes>
@@ -814,6 +848,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBa-rv-0c4">
+                                                    <rect key="frame" x="8" y="118" width="178" height="17"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Optimismo que nos une.">
                                                             <attributes>
@@ -825,6 +860,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="author" translatesAutoresizingMaskIntoConstraints="NO" id="wW5-Rq-XtE">
+                                                    <rect key="frame" x="57" y="10" width="80" height="80"/>
                                                     <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="99k-Lb-ExM"/>
@@ -850,11 +886,11 @@
                                         <rect key="frame" x="0.0" y="138" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ndk-jA-avy" id="2Mc-1j-0ud">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-5S-TMf">
-                                                    <frame key="frameInset" minX="61" minY="12" width="66" height="31"/>
+                                                    <rect key="frame" x="61" y="12" width="66" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Home">
@@ -868,7 +904,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvV-4P-Yid">
-                                                    <frame key="frameInset" minX="18" minY="11" width="30" height="30"/>
+                                                    <rect key="frame" x="18" y="11" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="home_lateral"/>
                                                 </button>
@@ -883,11 +919,11 @@
                                         <rect key="frame" x="0.0" y="182" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dcS-Um-JRf" id="tfV-qz-vFM">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efz-Bb-kny">
-                                                    <frame key="frameInset" minX="61" minY="12" width="129" height="31"/>
+                                                    <rect key="frame" x="61" y="12" width="129" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Bookmarks">
@@ -901,7 +937,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uie-uS-Jf9">
-                                                    <frame key="frameInset" minX="18" minY="11" width="30" height="30"/>
+                                                    <rect key="frame" x="18" y="11" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="bookmark"/>
                                                 </button>
@@ -916,11 +952,11 @@
                                         <rect key="frame" x="0.0" y="226" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fyu-8k-lj0" id="T53-k8-WHP">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="it0-69-JpN">
-                                                    <frame key="frameInset" minX="61" minY="12" width="133" height="31"/>
+                                                    <rect key="frame" x="61" y="12" width="133" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Intereses">
@@ -934,7 +970,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="928-CS-J66">
-                                                    <frame key="frameInset" minX="18" minY="11" width="30" height="30"/>
+                                                    <rect key="frame" x="18" y="11" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="interest"/>
                                                 </button>
@@ -949,11 +985,11 @@
                                         <rect key="frame" x="0.0" y="270" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AbO-Hc-lj3" id="gnR-dH-vFm">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZL-5F-5wC">
-                                                    <frame key="frameInset" minX="61" minY="12" width="147" height="31"/>
+                                                    <rect key="frame" x="61" y="12" width="147" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Preferencias">
@@ -967,7 +1003,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0m9-sA-0F8">
-                                                    <frame key="frameInset" minX="18" minY="11" width="30" height="30"/>
+                                                    <rect key="frame" x="18" y="11" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="preferences"/>
                                                 </button>
@@ -982,11 +1018,11 @@
                                         <rect key="frame" x="0.0" y="314" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z1h-pg-Qiq" id="y5Z-4U-Uou">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSE-yB-l01">
-                                                    <frame key="frameInset" minX="61" minY="12" width="180" height="31"/>
+                                                    <rect key="frame" x="61" y="12" width="180" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Sobre nosotros">
@@ -1000,7 +1036,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOV-0C-QFv">
-                                                    <frame key="frameInset" minX="18" minY="11" width="30" height="30"/>
+                                                    <rect key="frame" x="18" y="11" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="aboutUs"/>
                                                 </button>
@@ -1015,11 +1051,11 @@
                                         <rect key="frame" x="0.0" y="358" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0v2-nf-1RA" id="MAY-UK-B4T">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-g6-wgq">
-                                                    <frame key="frameInset" minX="61" minY="12" width="262" height="31"/>
+                                                    <rect key="frame" x="61" y="12" width="262" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Politicas de Privacidad">
@@ -1033,7 +1069,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kE3-2E-EfG">
-                                                    <frame key="frameInset" minX="18" minY="11" width="30" height="30"/>
+                                                    <rect key="frame" x="18" y="11" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="privacity"/>
                                                 </button>
@@ -1075,18 +1111,20 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellGreen" rowHeight="200" id="SOP-8q-kVE" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SOP-8q-kVE" id="vBh-He-cBb">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sxY-gz-lux">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="d4b-Ef-WiN"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNk-Bh-GK2">
+                                            <rect key="frame" x="10" y="140" width="355" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="63" id="RVk-PB-uga"/>
                                             </constraints>
@@ -1155,13 +1193,13 @@
             </objects>
             <point key="canvasLocation" x="3297" y="-1950"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Verde-->
         <scene sceneID="gNT-Xt-ZHT">
             <objects>
                 <navigationController id="aSO-EC-l4H" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="green" id="qRU-Sz-0yM"/>
+                    <tabBarItem key="tabBarItem" title="Verde" image="green" id="qRU-Sz-0yM"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ria-DU-p3i">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ria-DU-p3i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1187,13 +1225,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellForYou" rowHeight="200" id="UOT-2S-1Kj" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UOT-2S-1Kj" id="QXh-bb-alJ">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9B-PI-0gF">
+                                            <rect key="frame" x="10" y="140" width="355" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="63" id="OC3-qg-8ju"/>
                                             </constraints>
@@ -1209,6 +1248,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hmg-EK-flc">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="LVd-8K-BYp"/>
                                             </constraints>
@@ -1277,13 +1317,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellQuiz" rowHeight="200" id="oU2-tq-oRg" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oU2-tq-oRg" id="71o-j6-T2B">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J64-zq-fcg">
+                                            <rect key="frame" x="10" y="140" width="355" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="63" id="AYP-mZ-Pqv"/>
                                             </constraints>
@@ -1299,6 +1340,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W9D-3D-rJG">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="BrY-ZM-2Wg"/>
                                             </constraints>
@@ -1373,13 +1415,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellPopulary" rowHeight="200" id="Bp1-rj-164" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bp1-rj-164" id="PXm-IV-DnK">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkM-BI-TVs">
+                                            <rect key="frame" x="10" y="140" width="355" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="63" id="npA-au-ben"/>
                                             </constraints>
@@ -1395,6 +1438,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-NJ-omv">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="ESV-fj-vfO"/>
                                             </constraints>
@@ -1464,7 +1508,7 @@
             <objects>
                 <navigationController id="FRv-1f-8X5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mas popular" image="populary" id="Pjt-7v-mjx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5tS-ZY-bHT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5tS-ZY-bHT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1490,13 +1534,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellFood" rowHeight="200" id="0Se-uI-MOn" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Se-uI-MOn" id="9ml-hM-D88">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJm-NR-ZtL">
+                                            <rect key="frame" x="10" y="140" width="355" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="63" id="RTJ-9S-Bkd"/>
                                             </constraints>
@@ -1512,6 +1557,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BkK-SG-1jg">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="Xvm-iT-Ff6"/>
                                             </constraints>
@@ -1581,7 +1627,7 @@
             <objects>
                 <navigationController id="W91-EF-yco" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Comida" image="food" id="OZc-cl-KUU"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yxF-QC-Ouk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yxF-QC-Ouk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1602,7 +1648,7 @@
             <objects>
                 <navigationController id="lKj-og-K4y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Quiz" image="quiz" id="Tdy-Ph-0MI"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3c5-xg-UWG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3c5-xg-UWG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1628,13 +1674,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellWomen" rowHeight="200" id="jdk-bV-zZA" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jdk-bV-zZA" id="Xth-qj-aQJ">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phE-Qa-VIq">
+                                            <rect key="frame" x="10" y="140" width="355" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="63" id="MLK-JV-y6m"/>
                                             </constraints>
@@ -1650,6 +1697,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whq-jE-GhO">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="RFy-Al-Aql"/>
                                             </constraints>
@@ -1719,7 +1767,7 @@
             <objects>
                 <navigationController id="JLy-ZS-dTV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mujer" image="women" id="6cc-9N-bjj"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="B03-zA-Cm1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B03-zA-Cm1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1745,13 +1793,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellCreativity" rowHeight="200" id="O6V-V7-shO" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O6V-V7-shO" id="LHf-fO-ZeM">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-Ga-uGU">
+                                            <rect key="frame" x="10" y="140" width="355" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="63" id="QQp-DK-RQb"/>
                                             </constraints>
@@ -1767,6 +1816,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uJq-of-tnh">
+                                            <rect key="frame" x="10" y="8" width="355" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="pXg-wB-bHn"/>
                                             </constraints>
@@ -1830,7 +1880,7 @@
             <objects>
                 <navigationController id="aJj-GW-2e9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Creatividad" image="creativity" id="BXh-iI-Tkc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TdO-jk-9H2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TdO-jk-9H2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1851,7 +1901,7 @@
             <objects>
                 <navigationController id="1yr-dR-qHD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Para Ti" image="foryou" id="IhH-k1-wYg"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zrT-5g-QiR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zrT-5g-QiR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1873,7 +1923,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dXH-rC-dKS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Portada" image="home_lateral" id="48C-N4-e0M"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WmJ-Ml-X7j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WmJ-Ml-X7j">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1903,8 +1953,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEU-s2-odW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byp-VQ-19I">
+                                        <rect key="frame" x="20" y="10" width="340" height="40"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Seleccione al menos tres  categorías para personalizar tu feed">
                                                 <attributes>
@@ -1917,7 +1969,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-md-BkZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="215" y="337" width="89" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comida">
                                                     <attributes>
@@ -1932,7 +1985,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zS4-T8-Hyb" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="15" y="337" width="133" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Estilo de vida">
                                                     <attributes>
@@ -1947,7 +2001,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NnE-r9-lN7" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="215" y="306" width="111" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Diversidad">
                                                     <attributes>
@@ -1962,7 +2017,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-xx-EiK" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="15" y="306" width="83" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Belleza">
                                                     <attributes>
@@ -1977,7 +2033,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBW-q1-PXR" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="215" y="275" width="117" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Creatividad">
                                                     <attributes>
@@ -1992,7 +2049,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tk-bT-ly8" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="15" y="275" width="88" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Pelicula">
                                                     <attributes>
@@ -2007,7 +2065,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL1-1L-yff" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="215" y="245" width="145" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Más populares">
                                                     <attributes>
@@ -2022,7 +2081,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGU-II-JnZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="215" y="214" width="133" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Colaboración">
                                                     <attributes>
@@ -2037,7 +2097,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-rg-VR0" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="215" y="183" width="71" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mujer">
                                                     <attributes>
@@ -2052,7 +2113,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-IV-ACu" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="215" y="152" width="84" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Cultura">
                                                     <attributes>
@@ -2067,7 +2129,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bN-1V-iwp" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="215" y="121" width="83" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Familia">
                                                     <attributes>
@@ -2082,7 +2145,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Kv-Nh-n7r" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="215" y="90" width="82" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mundo">
                                                     <attributes>
@@ -2097,7 +2161,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-sz-Er6" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="15" y="245" width="71" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Verde">
                                                     <attributes>
@@ -2112,7 +2177,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-Gc-2b5" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="15" y="152" width="119" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comunidad">
                                                     <attributes>
@@ -2127,7 +2193,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gnp-u9-eol" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="15" y="183" width="114" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Relaciones">
                                                     <attributes>
@@ -2142,7 +2209,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rii-th-0o0" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="15" y="121" width="72" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Salud">
                                                     <attributes>
@@ -2157,7 +2225,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uyw-os-Nyp" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="15" y="90" width="114" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Inspiración">
                                                     <attributes>
@@ -2172,7 +2241,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gm-bg-Iec" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
-                                        <state key="normal" image="F1752299-55D4-4F3B-AB1F-7561DAC2147F">
+                                        <rect key="frame" x="15" y="214" width="62" height="25"/>
+                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Quiz">
                                                     <attributes>
@@ -2186,6 +2256,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuY-z2-pUr">
+                                        <rect key="frame" x="152" y="400" width="71" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Aceptar"/>
                                         <connections>
@@ -2264,7 +2335,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0J7-Hk-VFu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nxz-TN-o7k">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nxz-TN-o7k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2294,6 +2365,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q99-l9-9hT">
+                                <rect key="frame" x="16" y="95" width="343" height="27"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Perfil">
                                         <attributes>
@@ -2306,6 +2378,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftP-dQ-nDJ">
+                                <rect key="frame" x="16" y="134" width="343" height="21"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Usuario: Pedro Pérez">
                                         <attributes>
@@ -2318,6 +2391,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKy-o4-ylv">
+                                <rect key="frame" x="16" y="154" width="208" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="E4x-V6-k80"/>
                                 </constraints>
@@ -2332,6 +2406,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlV-gU-DeA">
+                                <rect key="frame" x="16" y="174" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="BrB-QF-YJ1"/>
                                 </constraints>
@@ -2346,6 +2421,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0i-uh-8Gh">
+                                <rect key="frame" x="16" y="260" width="343" height="1"/>
                                 <color key="backgroundColor" red="0.3253022183" green="0.58589672339999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -2357,6 +2433,7 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOd-G1-3Oh">
+                                <rect key="frame" x="16" y="128" width="343" height="1"/>
                                 <color key="backgroundColor" red="0.3253022183" green="0.58589672339999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="hOc-9a-oW6"/>
@@ -2367,6 +2444,7 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3W7-JY-6oc">
+                                <rect key="frame" x="16" y="235" width="343" height="16"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Notificaciones">
                                         <attributes>
@@ -2378,11 +2456,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Con qué frecuencia desea recibir notificaciones?" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIv-IE-esk">
+                                <rect key="frame" x="16" y="268" width="343" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="week" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqI-l8-mMe">
+                                <rect key="frame" x="90" y="309" width="97" height="35"/>
                                 <state key="normal" image="radioButtonInactive">
                                     <attributedString key="attributedTitle">
                                         <fragment content="1 Semana">
@@ -2397,6 +2477,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="month" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-kq-zKa">
+                                <rect key="frame" x="195" y="309" width="68" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="2zx-nf-pXJ"/>
                                 </constraints>
@@ -2415,6 +2496,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v18-gq-Q3E">
+                                <rect key="frame" x="16" y="194" width="343" height="19"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Red social: social">
                                         <attributes>
@@ -2426,6 +2508,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" restorationIdentifier="day" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDP-jJ-CLk">
+                                <rect key="frame" x="16" y="309" width="67" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="SvJ-jf-Hil"/>
                                 </constraints>
@@ -2443,6 +2526,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78E-sk-3uN">
+                                <rect key="frame" x="121" y="372" width="134" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="A56-hZ-9pl"/>
                                     <constraint firstAttribute="width" constant="134" id="iHN-Il-Ga1"/>
@@ -2547,7 +2631,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xGX-Up-JMg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M4h-yY-vYH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M4h-yY-vYH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2569,7 +2653,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BSE-kY-bhe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9ar-U3-vSH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ar-U3-vSH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2599,6 +2683,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eh3-DR-Ejn">
+                                <rect key="frame" x="6" y="0.0" width="363" height="666"/>
                                 <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -2639,6 +2724,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFF-WI-KuB">
+                                <rect key="frame" x="6" y="0.0" width="363" height="666"/>
                                 <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -2671,7 +2757,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="03U-Ec-qae" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DiQ-Oy-cE4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DiQ-Oy-cE4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2693,7 +2779,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A3t-D9-nX1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Ks-jX-EBG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Ks-jX-EBG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2715,7 +2801,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fjR-8n-Co1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="h7c-O3-lRK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h7c-O3-lRK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2738,7 +2824,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2M-hT-Hdj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="caR-ab-x73">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="caR-ab-x73">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2757,7 +2843,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="F1752299-55D4-4F3B-AB1F-7561DAC2147F" width="25" height="25">
+        <image name="05112713-BFDE-4D5A-83BD-56022F3B5D78" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2850,7 +2936,7 @@ E34ThxOME5QTlxOcE6sTrxO2E74TyxPQE9IT1BPZE+ET5BPpE/ET9BQGFAkUDgAAAAAAAAIBAAAAAAAA
 AEEAAAAAAAAAAAAAAAAAABQQA
 </mutableData>
         </image>
-        <image name="FCA43202-F707-4C51-91C9-88781E75B19A" width="25" height="25">
+        <image name="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
