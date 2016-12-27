@@ -737,7 +737,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.upsocl.UpsoclApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.upsocl.appupsocl;
 				PRODUCT_NAME = UpsoclApp;
 				SWIFT_OBJC_BRIDGING_HEADER = "UpsoclApp/SidebarMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -794,7 +794,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.upsocl.UpsoclApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.upsocl.appupsocl;
 				PRODUCT_NAME = UpsoclApp;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "UpsoclApp/SidebarMenu-Bridging-Header.h";

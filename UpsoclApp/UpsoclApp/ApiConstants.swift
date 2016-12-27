@@ -20,8 +20,8 @@ class ApiConstants  {
         static let listPost = "/posts"
         static let pageFilter = "?page="
         static let filterWord = "&filter[s]="
-        static let filterCategoryName = "?filter[category_name]="
-        static let filterPageForYou = "&filter[paged]="
+        static let filterCategoryName = "?categories="
+        static let filterPageForYou = "&page="
         static let filterPostId = "/posts/{id}"
     }
 }
