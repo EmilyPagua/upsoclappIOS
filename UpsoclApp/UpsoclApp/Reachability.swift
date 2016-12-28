@@ -1,6 +1,6 @@
 //
 //  Reachability.swift
-//  UpsoclApp
+//  appupsocl
 //
 //  Created by upsocl on 05-10-16.
 //  Copyright © 2016 AppCoda. All rights reserved.

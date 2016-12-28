@@ -1,6 +1,6 @@
 //
 //  CheckBox.swift
-//  UpsoclApp
+//  appupsocl
 //
 //  Created by upsocl on 16-09-16.
 //  Copyright © 2016 AppCoda. All rights reserved.

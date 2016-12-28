@@ -1,0 +1,6 @@
+framework module Pods_appupsoclTests {
+  umbrella header "Pods-appupsoclTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

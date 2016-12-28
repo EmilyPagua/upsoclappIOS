@@ -1,6 +1,6 @@
 //
 //  DetailConstants.swift
-//  UpsoclApp
+//  appupsocl
 //
 //  Created by upsocl on 04-11-16.
 //  Copyright © 2016 AppCoda. All rights reserved.

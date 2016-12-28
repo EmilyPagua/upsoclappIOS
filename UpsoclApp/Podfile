@@ -2,25 +2,23 @@
 # platform :ios, '9.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'UpsoclApp' do
+target 'appupsocl' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  platform :ios, '7.0'
+  platform :ios, '9.0'
   pod 'Fabric'
   pod 'TwitterKit'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
-  pod 'Google-Mobile-Ads-SDK'
   pod 'Google/SignIn'
-  pod 'GoogleAnalytics'
+  pod 'Google/Analytics'
 
-  # Pods for UpsoclApp
+  # Pods for appupsocl
 
-  target 'UpsoclAppTests' do
+  target 'appupsoclTests' do
     inherit! :search_paths
     
     # Pods for testing
   end
 
 end
-3

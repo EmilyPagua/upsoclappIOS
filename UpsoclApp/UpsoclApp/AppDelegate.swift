@@ -1,7 +1,7 @@
 
 //
 //  AppDelegate.swift
-//  UpsoclApp
+//  appupsocl
 //
 //  Created by Simon Ng on 2/2/15.
 //  Copyright (c) 2015 AppCoda. All rights reserved.
@@ -11,7 +11,6 @@ import UIKit
 import CoreLocation
 import Fabric
 import TwitterKit
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLocationManagerDelegate {

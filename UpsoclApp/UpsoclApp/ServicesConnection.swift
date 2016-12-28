@@ -1,6 +1,6 @@
 //
 //  ServicesConnection.swift
-//  UpsoclApp
+//  appupsocl
 //
 //  Created by upsocl on 07-09-16.
 //  Copyright © 2016 AppCoda. All rights reserved.
@@ -50,7 +50,7 @@ class ServicesConnection  {
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             guard error == nil else {
                 print("ERROR_ LLAMANDO POST custumer : " + urlPath)
-                print (error?.localizedDescription)
+                print (error?.localizedDescription ?? "Error en localizacion")
                 self.createViewMessage("Problemas, verifique su conexión a datos", title: "Error!")
                 return
             }

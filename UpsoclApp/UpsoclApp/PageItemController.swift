@@ -1,6 +1,6 @@
 //
 //  PageItemController.swift
-//  UpsoclApp
+//  appupsocl
 //
 //  Created by upsocl on 09-09-16.
 //  Copyright © 2016 AppCoda. All rights reserved.
@@ -10,11 +10,10 @@ import UIKit
 import Social
 import FBSDKLoginKit
 import FBSDKShareKit
-import GoogleMobileAds
 import iAd
+import GoogleMobileAds
 
-
-class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDelegate, UIScrollViewDelegate , UITextFieldDelegate{
+class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDelegate, UIScrollViewDelegate , UITextFieldDelegate {
     //Banner
     
    // @IBOutlet weak var webViewContent: UIWebView!
