@@ -2,32 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
     <dict>
-        <key>AD_UNIT_ID_FOR_BANNER_TEST</key>
-        <string>ca-app-pub-3940256099942544/2934735716</string>
-        <key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
-        <string>ca-app-pub-3940256099942544/4411468910</string>
-        <key>TRACKING_ID</key>
-        <string>UA-44944096-19</string>
         <key>CLIENT_ID</key>
-        <string>518973084315-8cmc2t0ce2n553m2astridil0l8enq6o.apps.googleusercontent.com</string>
+        <string>648822219545-hlcm9hc0878mms7dtdvi97nkr3sl7h9c.apps.googleusercontent.com</string>
         <key>REVERSED_CLIENT_ID</key>
-        <string>com.googleusercontent.apps.518973084315-8cmc2t0ce2n553m2astridil0l8enq6o</string>
-        <key>API_KEY</key>
-        <string>AIzaSyDfga0mNBAADf0C5Pu5Pt9l1mRbRq6Qtq4</string>
+        <string>com.googleusercontent.apps.648822219545-hlcm9hc0878mms7dtdvi97nkr3sl7h9c</string>
         <key>GCM_SENDER_ID</key>
-        <string>518973084315</string>
+        <string>648822219545</string>
         <key>PLIST_VERSION</key>
         <string>1</string>
         <key>BUNDLE_ID</key>
         <string>com.upsocl.appupsocl</string>
         <key>PROJECT_ID</key>
-        <string>upsocl-ios</string>
-        <key>STORAGE_BUCKET</key>
-        <string>upsocl-ios.appspot.com</string>
+        <string>upsocl-ios-9b368</string>
         <key>IS_ADS_ENABLED</key>
-        <true/>
+        <false/>
         <key>IS_ANALYTICS_ENABLED</key>
-        <true/>
+        <false/>
         <key>IS_APPINVITE_ENABLED</key>
         <false/>
         <key>IS_GCM_ENABLED</key>
@@ -35,8 +25,6 @@
         <key>IS_SIGNIN_ENABLED</key>
         <true/>
         <key>GOOGLE_APP_ID</key>
-        <string>1:518973084315:ios:0b13bf6e4b9a8f0f</string>
-        <key>DATABASE_URL</key>
-        <string>https://upsocl-ios.firebaseio.com</string>
+        <string>1:648822219545:ios:0b13bf6e4b9a8f0f</string>
     </dict>
 </plist>

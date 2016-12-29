@@ -49,8 +49,6 @@ class ServicesConnection  {
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             guard error == nil else {
-                print("ERROR_ LLAMANDO POST custumer : " + urlPath)
-                print (error?.localizedDescription ?? "Error en localizacion")
                 self.createViewMessage("Problemas, verifique su conexión a datos", title: "Error!")
                 return
             }
@@ -65,9 +63,12 @@ class ServicesConnection  {
             let json : AnyObject!
             do {
                 json = try JSONSerialization.jsonObject(with: nsdata, options: []) as AnyObject!
-                let id = json["success"] as! Int
-                if id != 0 {
-                    customer.userId = json["id"] as! String }
+                let id = json["success"] as! Bool
+                if id == true {
+                    customer.userId = json["id"] as! String
+                }else{
+                    print (json["message"] as! String)
+                }
                 
             }catch let error as NSError{
                 print ("ERROR_ "+error.localizedDescription)
@@ -306,7 +307,6 @@ class ServicesConnection  {
     
     func saveUser(_ customer: Customer){
         
-        print ("Customer ID " + customer.userId)
         let preferences = UserDefaults.standard
         preferences.setValue(customer.email , forKey: Customer.PropertyKey.email)
         preferences.setValue(customer.firstName, forKey: Customer.PropertyKey.firstName )

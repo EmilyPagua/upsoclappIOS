@@ -761,23 +761,7 @@ const int FrontViewPositionNone = 0xff;
 {
     [super viewDidAppear:animated];
 
-    // Uncomment the following code if you want the child controllers
-    // to be loaded at this point.
-    //
-    // We leave this commented out because we think loading childs here is conceptually wrong.
-    // Instead, we refrain view loads until necesary, for example we may never load
-    // the rear controller view -or the front controller view- if it is never displayed.
-    //
-    // If you need to manipulate views of any of your child controllers in an override
-    // of this method, you can load yourself the views explicitly on your overriden method.
-    // However we discourage it as an app following the MVC principles should never need to do so
-        
-//  [_frontViewController view];
-//  [_rearViewController view];
 
-    // we store at this point the view's user interaction state as we may temporarily disable it
-    // and resume it back to the previous state, it is possible to override this behaviour by
-    // intercepting it on the panGestureBegan and panGestureEnded delegates
     _userInteractionStore = _contentView.userInteractionEnabled;
 }
 

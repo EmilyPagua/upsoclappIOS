@@ -4,7 +4,9 @@
 #import "SWRevealViewController.h"
 
 // [START bridging_header]
-//#import <Google/SignIn.h>
+#import <Google/CloudMessaging.h>
+#import <Google/SignIn.h>
+#import <Google/Core.h>
 // [END bridging_header]
 
 // [START bridging_header facebook]
@@ -20,4 +22,4 @@
 #import "GAIFields.h"*/
 //Google Analytics
 
-//#import <Google/CloudMessaging.h>
+

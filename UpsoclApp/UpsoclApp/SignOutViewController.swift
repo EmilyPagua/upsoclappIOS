@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import Google
 
-class SignOutViewController: UIViewController{//, GIDSignInUIDelegate {
+class SignOutViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-      //  GIDSignIn.sharedInstance().uiDelegate = self
+       GIDSignIn.sharedInstance().uiDelegate = self
         
     }
 

@@ -9,11 +9,12 @@
 import UIKit
 //import Fabric
 //import TwitterKit
+import Google
 
-class LoginUserController: UIViewController { //, FBSDKLoginButtonDelegate {
+class LoginUserController: UIViewController, GIDSignInUIDelegate { //, FBSDKLoginButtonDelegate {
     
     // [START viewcontroller Google]
-    //@IBOutlet weak var signInButtonGoogle: GIDSignInButton!
+    @IBOutlet weak var signInButtonGoogle: GIDSignInButton!
     // [END viewcontroller Google]
     
     var category = Category()
@@ -37,7 +38,7 @@ class LoginUserController: UIViewController { //, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         //Start GoogleLogin
-      //  GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
         //End GoogleLogin
         
         //Start FacebookLogin
@@ -54,7 +55,7 @@ class LoginUserController: UIViewController { //, FBSDKLoginButtonDelegate {
         //End FacebookLogin
         //loginButtonFacebook?.isEnabled = false
         loginButtonTwitter?.isEnabled = false
-        //signInButtonGoogle?.isEnabled = false
+        signInButtonGoogle?.isEnabled = false
     }
     
     @IBAction func validarLogin(_ sender: AnyObject) {/*
@@ -165,22 +166,27 @@ class LoginUserController: UIViewController { //, FBSDKLoginButtonDelegate {
     }
     
     func countCategory (){
-        /*let categoryCount = category.countCategory()
+        let categoryCount = category.countCategory()
         print (categoryCount)
         if categoryCount <= 1 || beforeCategory <= 1  {
-            loginButtonFacebook?.isEnabled = false
-            loginButtonTwitter?.isEnabled = false
-            //signInButtonGoogle?.isEnabled = false
+            //loginButtonFacebook?.isEnabled = false
+            //loginButtonTwitter?.isEnabled = false
+            signInButtonGoogle?.isEnabled = false
 
         } else {
-            loginButtonFacebook?.isEnabled = true
-            loginButtonTwitter?.isEnabled = true
-            //signInButtonGoogle?.isEnabled = true
+            //loginButtonFacebook?.isEnabled = true
+            //loginButtonTwitter?.isEnabled = true
+            signInButtonGoogle?.isEnabled = true
         }
-        */
-       // beforeCategory = categoryCount
+        
+        beforeCategory = categoryCount
     }
     
+    func createViewMessage(_ message: String){
+        let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
+        alertView.tag = 1
+        alertView.show()
+    }
     
     // [------------------------START GOOGLE LOGIN-------------------]
     @IBAction func loginButtonGoogle(_ sender: UIButton) {
@@ -194,12 +200,12 @@ class LoginUserController: UIViewController { //, FBSDKLoginButtonDelegate {
     
     // [START toggle_auth]
     func toggleAuthUI() {
-        /*if (GIDSignIn.sharedInstance().hasAuthInKeychain()){
+        if (GIDSignIn.sharedInstance().hasAuthInKeychain()){
             // Signed in
             signInButtonGoogle.isHidden = true
         } else {
             signInButtonGoogle.isHidden = false
-        }*/
+        }
     }
     // [END toggle_auth]
     
@@ -227,31 +233,26 @@ class LoginUserController: UIViewController { //, FBSDKLoginButtonDelegate {
     
     // Stop the UIActivityIndicatorView animation that was started when the user
     // pressed the Sign In button
-    /*func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
         //myActivityIndicator.stopAnimating()
-    }*/
+    }
     
     // Present a view that prompts the user to sign in with Google
-    /*func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
         
         self.present(viewController, animated: true, completion: nil)
         
         print ("Google Login presented")
-    }*/
+    }
     
     // Dismiss the "Sign in with Google" view
-   /* func sign(_ signIn: GIDSignIn!,
+    func sign(_ signIn: GIDSignIn!,
                 dismiss viewController: UIViewController!) {
         self.dismiss(animated: true, completion: nil)
         
         print ("Google Login dismissed")
-    }*/
-    
-    func createViewMessage(_ message: String){
-        let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
-        alertView.tag = 1
-        alertView.show()
     }
+    
     // [------------------------FINISH GOOGLE LOGIN-------------------]
 
     // [------------------------START FACEBOOK LOGIN-------------------]

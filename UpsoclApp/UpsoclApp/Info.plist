@@ -27,7 +27,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.518973084315-mrc1fho3ka27snqiqji84raavc1k5jr9</string>
+				<string>com.googleusercontent.apps.648822219545-hlcm9hc0878mms7dtdvi97nkr3sl7h9c</string>
 			</array>
 		</dict>
 		<dict>
@@ -35,7 +35,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.upsocl.UpsoclApp</string>
+				<string>com.upsocl.appupsocl</string>
 			</array>
 		</dict>
 		<dict>
