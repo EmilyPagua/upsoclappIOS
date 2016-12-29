@@ -8,14 +8,14 @@
 
 import UIKit
 
-class SignOutViewController: UIViewController, GIDSignInUIDelegate {
+class SignOutViewController: UIViewController{//, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        GIDSignIn.sharedInstance().uiDelegate = self
+      //  GIDSignIn.sharedInstance().uiDelegate = self
         
     }
 
@@ -26,7 +26,7 @@ class SignOutViewController: UIViewController, GIDSignInUIDelegate {
     
 
     @IBAction func signOutButton(_ sender: AnyObject) {
-        GIDSignIn.sharedInstance().signOut()
+       // GIDSignIn.sharedInstance().signOut()
         
         let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
         

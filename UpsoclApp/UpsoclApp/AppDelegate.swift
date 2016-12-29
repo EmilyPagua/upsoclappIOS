@@ -9,73 +9,77 @@
 
 import UIKit
 import CoreLocation
-import Fabric
-import TwitterKit
+//import Fabric
+//import TwitterKit
+//import Google
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {//{, GIDSignInDelegate, GCMReceiverDelegate,  CLLocationManagerDelegate {
     
     var window: UIWindow?
     var locationManager: CLLocationManager!
     var category = Category()
     var servicesConnection = ServicesConnection()
+    var gcmSenderID: String?
     
     // [START didfinishlaunching Google, Facebook]
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
         // Initialize sign-in Google
-        var configureError: NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
+       // var configureError: NSError?
+        /*GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configurando el servicio de Google: \(configureError)")
-        GIDSignIn.sharedInstance().delegate = self
+        gcmSenderID = GGLContext.sharedInstance().configuration.gcmSenderID*/
+        
+       // GIDSignIn.sharedInstance().delegate = self
         
         // Initialize sign-in Facebook
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+       // FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         // Initialize sign-in Twitter
-        Fabric.with([Twitter.self])
+        //Fabric.with([Twitter.self])
         
-        category.clearCategoryPreference()
+        //category.clearCategoryPreference()
 
         // [START tracker_swift]
         // Configure tracker from GoogleService-Info.plist.
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        //GGLContext.sharedInstance().configureWithError(&configureError)
+      //  assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
         // Optional: configure GAI options.
-        let gai = GAI.sharedInstance()
-        gai?.trackUncaughtExceptions = true  // report uncaught exceptions
-        gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
+        //let gai = GAI.sharedInstance()
+        //gai?.trackUncaughtExceptions = true  // report uncaught exceptions
+        //gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
         // [END tracker_swift]
         
         
         print ("--------------------------Inicio------------------")
-
-        let preferences = UserDefaults.standard
-        let socialNetworkName  = preferences.object(forKey: "socialNetwork")
+        //Get social Network
+       /* let preferences = UserDefaults.standard
+        let networkName  = preferences.object(forKey: "socialNetwork") as! String
+         //end social Network
         
-        print (socialNetworkName)
-        if socialNetworkName != nil {
-            if  GIDSignIn.sharedInstance().hasAuthInKeychain(){
-                mainView()
-                return false
-            }else{
-                print("ERROR_ AppDelegate GIDSignIn user is NOT signed in")
-            }
+        
+        // Register for remote notifications
+        if #available(iOS 8.0, *) {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        } else {
+            // Fallback
+            let types: UIRemoteNotificationType = [.alert, .badge, .sound]
+            application.registerForRemoteNotifications(matching: types)
+        }*/
+        
+        // [END register_for_remote_notifications]
+        // [START start_gcm_service]
+     /*   let gcmConfig = GCMConfig.default()
+        gcmConfig?.receiverDelegate = self
+        GCMService.sharedInstance().start(with: gcmConfig)*/
+        // [END start_gcm_service]
     
-            if FBSDKAccessToken.current() != nil {
-                mainView()
-                return false
-            }else{
-                print("ERROR_ AppDelegate tokenFacebook user is NOT signed in")
-            }
-
-            self.mainView()
-            return false
-        }
-        print ("--------------------------Inicio FIN ------------------")
         return true
     }
     // [END didfinishlaunching Google, Facebook]
@@ -95,15 +99,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
     
     // [------------------------START GOOGLE LOGIN-------------------]
     // [START openurl]
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+   /* func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
 
-        let signIn =  GIDSignIn.sharedInstance().handle(url,
+        /*let signIn =  GIDSignIn.sharedInstance().handle(url,
                                                         sourceApplication: sourceApplication,
                                                         annotation: annotation)
        
         if signIn {
             return signIn
-        }
+        }*/
         
         return  FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
                                                                       sourceApplication: sourceApplication,
@@ -117,22 +121,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
         
         var signIn: Bool = false
-        signIn = GIDSignIn.sharedInstance().handle(url,
+        /*signIn = GIDSignIn.sharedInstance().handle(url,
                                                     sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                     annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
         if (signIn){
             return signIn}
-        
+        */
         signIn = FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
                                                                        sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                                        annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
         return signIn
-    }
+    }*/
     
     // [START signin_handler]
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+   /* func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
             // Perform any operations on signed in user here.
             let userId = "112233" //user.userID                  // For client-side use only!
@@ -158,8 +162,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
             
             servicesConnection.saveCustomer(user!)
             
-            print (imagenURL)
-            
             // [START_EXCLUDE]
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: "ToggleAuthUINotification"),
@@ -183,12 +185,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
                 name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
             // [END_EXCLUDE]
         }
-    }
+    }*/
     // [END signin_handler]
     
     
     // [START disconnect_handler]
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
+    /*func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
                 withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // [START_EXCLUDE]
@@ -197,7 +199,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
             object: nil,
             userInfo: ["statusText": "User has disconnected."])
         // [END_EXCLUDE]
-    }
+    }*/
     // [END disconnect_handler]
     // [------------------------FINISH GOOGLE LOGIN-------------------]
     
@@ -223,6 +225,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+  /*  func application( application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken
+        deviceToken: NSData ) {
+        // Create a config and set a delegate that implements the GGLInstaceIDDelegate protocol.
+        //let instanceIDConfig = GGLInstanceIDConfig.default()
+        //instanceIDConfig?.delegate = self
+        // Start the GGLInstanceID shared instance with that config and request a registration
+        // token to enable reception of notifications
+        //GGLInstanceID.sharedInstance().startWithConfig(instanceIDConfig)
+        //registrationOptions = [kGGLInstanceIDRegisterAPNSOption:deviceToken,
+         //                      kGGLInstanceIDAPNSServerTypeSandboxOption:true]
+        //GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity(gcmSenderID,
+          //                                                       scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: registrationHandler)
+
+    }*/
+    
+    func validSocialNetwork(socialNetworkName: String) -> Bool {
+        var flag: Bool = true
+        
+        if socialNetworkName.isEmpty == false {
+           /* if  GIDSignIn.sharedInstance().hasAuthInKeychain(){
+                mainView()
+                flag = false
+            }else{
+                print("ERROR_ AppDelegate GIDSignIn user is NOT signed in")
+            }
+            
+            if FBSDKAccessToken.current() != nil {
+                mainView()
+                flag = false
+            }else{
+                print("ERROR_ AppDelegate tokenFacebook user is NOT signed in")
+            }*/
+            
+            self.mainView()
+            flag = false
+        }
+        return flag
     }
 }
 

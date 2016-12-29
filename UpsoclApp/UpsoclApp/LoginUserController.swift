@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import Fabric
-import TwitterKit
+//import Fabric
+//import TwitterKit
 
-class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
+class LoginUserController: UIViewController { //, FBSDKLoginButtonDelegate {
     
     // [START viewcontroller Google]
-    @IBOutlet weak var signInButtonGoogle: GIDSignInButton!
+    //@IBOutlet weak var signInButtonGoogle: GIDSignInButton!
     // [END viewcontroller Google]
     
     var category = Category()
@@ -21,11 +21,11 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     let servicesConnection  = ServicesConnection()
     
     // [START viewcontroller Facebook]
-    @IBOutlet weak var loginButtonFacebook: FBSDKLoginButton?  = {
+   /* @IBOutlet weak var loginButtonFacebook: FBSDKLoginButton?  = {
     let button = FBSDKLoginButton()
     button.readPermissions = ["email"]
     return button
-    }()
+    }()*/
    
     // [END viewcontroller Facebook]
     
@@ -37,11 +37,11 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         super.viewDidLoad()
         
         //Start GoogleLogin
-        GIDSignIn.sharedInstance().uiDelegate = self
+      //  GIDSignIn.sharedInstance().uiDelegate = self
         //End GoogleLogin
         
         //Start FacebookLogin
-        loginButtonFacebook!.delegate = self
+      //  loginButtonFacebook!.delegate = self
         
         /*Twitter.sharedInstance().logInWithCompletion { session, error in
             if (session != nil) {
@@ -52,12 +52,12 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
         }
         */
         //End FacebookLogin
-        loginButtonFacebook?.isEnabled = false
+        //loginButtonFacebook?.isEnabled = false
         loginButtonTwitter?.isEnabled = false
-        signInButtonGoogle?.isEnabled = false
+        //signInButtonGoogle?.isEnabled = false
     }
     
-    @IBAction func validarLogin(_ sender: AnyObject) {
+    @IBAction func validarLogin(_ sender: AnyObject) {/*
         
         Twitter.sharedInstance().logIn { session, error in
             if (session != nil) {
@@ -129,7 +129,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                                     print("ERROR_ validarLogin No es válido")
                                 }
                                 
-                                print (textField.text)
                                 // do something with textField
                             }))
                             alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
@@ -158,7 +157,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
             } else {
                 print("ERROR_: \(error!.localizedDescription)");
             }
-        }
+        }*/
     }
     
     @IBAction func validCountCategory(_ sender: UIButton) {
@@ -166,20 +165,20 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     }
     
     func countCategory (){
-        let categoryCount = category.countCategory()
+        /*let categoryCount = category.countCategory()
         print (categoryCount)
         if categoryCount <= 1 || beforeCategory <= 1  {
             loginButtonFacebook?.isEnabled = false
             loginButtonTwitter?.isEnabled = false
-            signInButtonGoogle?.isEnabled = false
+            //signInButtonGoogle?.isEnabled = false
 
         } else {
             loginButtonFacebook?.isEnabled = true
             loginButtonTwitter?.isEnabled = true
-            signInButtonGoogle?.isEnabled = true
+            //signInButtonGoogle?.isEnabled = true
         }
-        
-        beforeCategory = categoryCount
+        */
+       // beforeCategory = categoryCount
     }
     
     
@@ -195,12 +194,12 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     
     // [START toggle_auth]
     func toggleAuthUI() {
-        if (GIDSignIn.sharedInstance().hasAuthInKeychain()){
+        /*if (GIDSignIn.sharedInstance().hasAuthInKeychain()){
             // Signed in
             signInButtonGoogle.isHidden = true
         } else {
             signInButtonGoogle.isHidden = false
-        }
+        }*/
     }
     // [END toggle_auth]
     
@@ -228,25 +227,25 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     
     // Stop the UIActivityIndicatorView animation that was started when the user
     // pressed the Sign In button
-    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+    /*func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
         //myActivityIndicator.stopAnimating()
-    }
+    }*/
     
     // Present a view that prompts the user to sign in with Google
-    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+    /*func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
         
         self.present(viewController, animated: true, completion: nil)
         
         print ("Google Login presented")
-    }
+    }*/
     
     // Dismiss the "Sign in with Google" view
-    func sign(_ signIn: GIDSignIn!,
+   /* func sign(_ signIn: GIDSignIn!,
                 dismiss viewController: UIViewController!) {
         self.dismiss(animated: true, completion: nil)
         
         print ("Google Login dismissed")
-    }
+    }*/
     
     func createViewMessage(_ message: String){
         let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
@@ -256,7 +255,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
     // [------------------------FINISH GOOGLE LOGIN-------------------]
 
     // [------------------------START FACEBOOK LOGIN-------------------]
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+    /*func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print ("FBSDKLoginButton Completado Login")
         fetchProfile()
     }
@@ -278,7 +277,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
                 print("ERROR_ "+(requestError?.localizedDescription)!)
                 return
             }
-            print (user)
+            print (user ?? "Usuario es null")
             
             let data_block = user as? [String: AnyObject]
             
@@ -320,7 +319,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButt
             let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController =  signOutPageNav
         })
-    }
+    }*/
      // [------------------------FINISH FACEBOOK LOGIN-------------------]
     
 }

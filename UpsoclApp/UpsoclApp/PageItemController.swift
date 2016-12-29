@@ -8,12 +8,12 @@
 
 import UIKit
 import Social
-import FBSDKLoginKit
-import FBSDKShareKit
+//import FBSDKLoginKit
+//import FBSDKShareKit
 import iAd
-import GoogleMobileAds
+//import GoogleMobileAds
 
-class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDelegate, UIScrollViewDelegate , UITextFieldDelegate {
+class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {//, GADBannerViewDelegate , UITextFieldDelegate {
     //Banner
     
    // @IBOutlet weak var webViewContent: UIWebView!
@@ -26,7 +26,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     @IBOutlet weak var categoryDetail: UILabel!
     @IBOutlet weak var buttonShareFacebook: UIBarButtonItem!
     
-    @IBOutlet weak var bannerViewUp: GADBannerView!
+   // @IBOutlet weak var bannerViewUp: GADBannerView!
     
     var servicesConnection = ServicesConnection()
     let baseURL = URL(string: "http://api.instagram.com/oembed")
@@ -44,13 +44,13 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     
     @IBOutlet weak var contentWebView: UIWebView!
 
-    var ads: [String: GADAdSize]!
+   // var ads: [String: GADAdSize]!
     
     //VAR
     var scrollViewDetail : UIScrollView!
     var containerView: UIView!
     var webDetail: UIWebView!
-    var bannerView: GADBannerView!
+  //  var bannerView: GADBannerView!
     
     var viewCount =  1
     //END  VAR
@@ -75,11 +75,11 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         webDetail.delegate = self
         webDetail.loadHTMLString(createHTML(), baseURL: baseURL)
         
-        bannerView =  GADBannerView(adSize: kGADAdSizeMediumRectangle)
+        /*bannerView =  GADBannerView(adSize: kGADAdSizeMediumRectangle)
         bannerView.delegate = self
         bannerView.adUnitID = "ca-mb-app-pub-7682123866908966/7102497723"
         bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        bannerView.load(GADRequest()) */
         
         containerView =  UIView()
         containerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector(("viewTapped:"))))
@@ -91,7 +91,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         
 
         containerView.addSubview(webDetail)
-        containerView.addSubview(bannerView)
+        //containerView.addSubview(bannerView)
         
         //builControls()
         scrollViewDetail.addSubview(containerView)
@@ -102,7 +102,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         super.viewDidLayoutSubviews()
         
         print ("-----")
-        webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height)
+       /* webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height)
         bannerView.frame = CGRect(x:0, y:webDetail.scrollView.bounds.maxY+10, width: 300, height: 250)
 
         scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
@@ -112,7 +112,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
         
         containerView.frame = CGRect(x: 0, y: 0,
                                      width: scrollViewDetail.contentSize.width,
-                                     height: scrollViewDetail.bounds.size.height)
+                                     height: scrollViewDetail.bounds.size.height)*/
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -183,12 +183,12 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     //Share
     @IBAction func shareButtonFacebook(_ sender: UIBarButtonItem) {
         
-        let content: FBSDKShareLinkContent = FBSDKShareLinkContent()
+      /*  let content: FBSDKShareLinkContent = FBSDKShareLinkContent()
         content.contentURL = URL(string: (news.linkNews))
         content.contentTitle = news.titleNews
         content.contentDescription = "http://www.upsocl.com/"
         content.imageURL = URL(string: (news.imageURLNews)!)
-        FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+        FBSDKShareDialog.show(from: self, with: content, delegate: nil)*/
     }
     
     func displayShareSheet() {
@@ -290,8 +290,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     func webViewDidStartLoad(_ webView: UIWebView){
         self.indicator.startAnimating()
     }
-
-    
     
     func loadIsBookmark() {
         
@@ -315,27 +313,27 @@ class PageItemController: UIViewController, UIWebViewDelegate, GADBannerViewDele
     }
     
     //BannerViewController
-    func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+  /*  func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
         print("ERROR_ adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
         bannerView.isHidden = true
     }
     
-    func adViewDidReceiveAd(_ view: GADBannerView!) {
+    func adViewDidReceiveAd(_ view: GADBannerView) {
         print ("adViewDidReceiveAd ")
     }
     
-    func adViewWillLeaveApplication(_ bannerView: GADBannerView!) {
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
         print ("adViewWillLeaveApplication")
         bannerView.isHidden =  false
     }
-    func adViewDidDismissScreen(_ bannerView: GADBannerView!) {
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
         print ("adViewDidDismissScreen")
         bannerView.isHidden =  false
     }
     
-    func adViewWillPresentScreen(_ bannerView: GADBannerView!) {
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
         print ("adViewDidDismissScreen")
         bannerView.isHidden =  false
-    }
+    } */
     //BannerViewController
 }
