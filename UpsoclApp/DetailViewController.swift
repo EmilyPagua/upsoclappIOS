@@ -109,7 +109,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIWebViewDelega
             return
         }
         
-        print (urlImage)
         let task = URLSession.shared.dataTask(with: imgURL, completionHandler: { (responseData, responseUrl, error) -> Void in
             // if responseData is not null...
             if let data = responseData{

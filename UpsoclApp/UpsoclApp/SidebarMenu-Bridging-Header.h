@@ -4,20 +4,20 @@
 #import "SWRevealViewController.h"
 
 // [START bridging_header]
-#import <Google/SignIn.h>
+//#import <Google/SignIn.h>
 // [END bridging_header]
 
 // [START bridging_header facebook]
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+//#import <FBSDKCoreKit/FBSDKCoreKit.h>
+//#import <FBSDKLoginKit/FBSDKLoginKit.h>
 // [END bridging_header facebook]
 
 
 //Google Analytics
-#import <Google/Analytics.h>
-//#import "GAI.h"
-//#import "GAIDictionaryBuilder.h"
-//#import "GAIFields.h"
+/*#import <Google/Analytics.h>
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"*/
 //Google Analytics
 
-
+//#import <Google/CloudMessaging.h>

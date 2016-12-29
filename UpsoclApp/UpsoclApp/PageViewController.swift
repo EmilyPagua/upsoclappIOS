@@ -175,7 +175,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
     }*/
     
     //Google Analytics
-    override func viewWillAppear(_ animated: Bool) {
+    /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
             let googleAnalytics : GAITracker = GAI.sharedInstance().tracker(withTrackingId: "UA-44944096-19")
@@ -187,7 +187,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             let builder = GAIDictionaryBuilder.createScreenView()
             googleAnalytics.send(builder!.build() as [NSObject : AnyObject])
         
-    }
+    }*/
     //End Google Analytics
 }
 

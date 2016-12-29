@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import TwitterKit
+//import TwitterKit
 
 
-class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate  {
+class PreferencsViewController: UIViewController {//FBSDKLoginButtonDelegate, GIDSignInUIDelegate, {
    
 
 
@@ -34,11 +34,11 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
     let unCheckImage = UIImage(named: "radioButtonInactive")! as UIImage
     
     // [START viewcontroller Facebook]
-    let loginButtonFacebook: FBSDKLoginButton = {
+    /*let loginButtonFacebook: FBSDKLoginButton = {
         let button = FBSDKLoginButton()
         button.readPermissions = ["email"]
         return button
-    }()
+    }()*/
     // [END viewcontroller Facebook]
     
     //Get preferences or notifications
@@ -73,9 +73,9 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
         locationUSerLabel.text = "Ubicación: " + location
         socialNetwork.text = "Red social: " + socialNetworkName
         
-        GIDSignIn.sharedInstance().uiDelegate = self
+       // GIDSignIn.sharedInstance().uiDelegate = self
         
-        loginButtonFacebook.delegate = self
+        //loginButtonFacebook.delegate = self
         
         //controller buttonMenu
         if self.revealViewController() != nil {
@@ -140,7 +140,7 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
         alert.addAction(UIAlertAction(title: "Si", style: UIAlertActionStyle.default, handler: { action in
             print("Click of default button")
             
-            if (self.socialNetworkName=="google" ){
+            /*if (self.socialNetworkName=="google" ){
                 GIDSignIn.sharedInstance().signOut()
             }
             if (self.socialNetworkName=="facebook" ){
@@ -154,7 +154,7 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
                     store.logOutUserID(userID)
                 }
                 Twitter.sharedInstance().sessionStore.logOutUserID(self.socialNetworkTokenId)
-            }
+            }*/
             
             self.clearPreferences()
             self.category.clearCategoryPreference()
@@ -177,9 +177,9 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
     func login (text: UITextField){
         print ("Login ")
     }
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+  /*  func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print ("lFBSDKLoginButton - LoginButtonDidLogOut")
-    }
+    }*/
     
     /*!
      @abstract Sent to the delegate when the button was used to login.
@@ -188,14 +188,14 @@ class PreferencsViewController: UIViewController, GIDSignInUIDelegate, FBSDKLogi
      @param error The error (if any) from the login
      */
     
-    public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+   /* public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("LogOutButton Facebook")
     }
-    
+ 
     func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
         return true
     }
-    
+    */
     func clearPreferences(){
         
         let preferences = UserDefaults.standard

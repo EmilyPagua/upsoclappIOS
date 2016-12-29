@@ -16,7 +16,7 @@
         <!--Inicio de Sesión-->
         <scene sceneID="Xj6-MC-rIe">
             <objects>
-                <viewController storyboardIdentifier="LoginUserController" id="xtg-Bd-eIr" customClass="LoginUserController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginUserController" id="xtg-Bd-eIr" customClass="LoginUserController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3jy-DC-axX"/>
                         <viewControllerLayoutGuide type="bottom" id="DDw-YP-3ER"/>
@@ -41,9 +41,9 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Dt-3d-133" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Dt-3d-133" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="337" width="89" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comida">
                                                     <attributes>
@@ -57,9 +57,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="IqH-b9-a9l"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-eP-ejl" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-eP-ejl" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="337" width="133" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Estilo de vida">
                                                     <attributes>
@@ -73,9 +73,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="8sA-wo-jSX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRx-QK-hSO" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRx-QK-hSO" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="306" width="111" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Diversidad">
                                                     <attributes>
@@ -89,9 +89,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="IXt-qZ-bVo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIa-vA-IaT" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIa-vA-IaT" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="306" width="83" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Belleza">
                                                     <attributes>
@@ -105,9 +105,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="dH3-vm-3S0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-vK-JKE" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-vK-JKE" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="275" width="117" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Creatividad">
                                                     <attributes>
@@ -121,9 +121,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="4lj-Gd-MNB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEr-TS-JQN" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEr-TS-JQN" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="275" width="88" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Pelicula">
                                                     <attributes>
@@ -137,9 +137,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="uvv-bq-b6w"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-8O-4Ae" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-8O-4Ae" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="245" width="145" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Más populares">
                                                     <attributes>
@@ -153,9 +153,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="k2V-Z2-6ay"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-EX-LSU" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-EX-LSU" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="214" width="133" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Colaboración">
                                                     <attributes>
@@ -169,9 +169,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="EH1-bY-hHB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-Ai-hKi" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-Ai-hKi" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="183" width="71" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mujer">
                                                     <attributes>
@@ -185,9 +185,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="i13-R8-WOC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-QP-jex" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-QP-jex" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="152" width="84" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Cultura">
                                                     <attributes>
@@ -201,9 +201,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="CYk-lx-Gkj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-fw-tcb" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-fw-tcb" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="121" width="83" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Familia">
                                                     <attributes>
@@ -217,9 +217,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="mmK-lx-OgT"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BF5-nK-i3k" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BF5-nK-i3k" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="90" width="82" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mundo">
                                                     <attributes>
@@ -233,9 +233,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="TQy-SA-odS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgO-Gj-TRM" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgO-Gj-TRM" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="245" width="71" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Verde">
                                                     <attributes>
@@ -249,9 +249,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="3ht-zD-jEo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izv-ZR-vJm" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izv-ZR-vJm" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="152" width="119" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comunidad">
                                                     <attributes>
@@ -265,9 +265,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="5lP-dt-gOb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQR-WU-kUt" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQR-WU-kUt" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="183" width="114" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Relaciones">
                                                     <attributes>
@@ -281,9 +281,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="EUW-yT-d7F"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHo-ul-Flj" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHo-ul-Flj" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="121" width="72" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Salud">
                                                     <attributes>
@@ -297,9 +297,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="u0O-ys-fW7"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="val-ew-1pW" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="val-ew-1pW" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="90" width="114" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Inspiración">
                                                     <attributes>
@@ -313,9 +313,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="rfS-zL-T9T"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8I-xj-fTZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8I-xj-fTZ" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="214" width="62" height="25"/>
-                                        <state key="normal" image="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56">
+                                        <state key="normal" image="1C229A06-830A-493A-B21A-DC3B9E7E2508">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Quiz">
                                                     <attributes>
@@ -456,7 +456,7 @@
         <!--Bookmark-->
         <scene sceneID="Mgn-pq-MO8">
             <objects>
-                <tableViewController id="RrH-d8-ynE" customClass="BookmarkTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="RrH-d8-ynE" customClass="BookmarkTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Em-Vp-Osx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -464,7 +464,7 @@
                         <color key="separatorColor" red="0.3253022183" green="0.58589672339999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellBookmark" rowHeight="200" id="8Fm-fb-Rtq" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellBookmark" rowHeight="200" id="8Fm-fb-Rtq" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Fm-fb-Rtq" id="Q1x-7v-g5Y">
@@ -537,13 +537,13 @@
         <!--Portada-->
         <scene sceneID="3qE-8D-r7Z">
             <objects>
-                <tableViewController id="RaP-X2-i0v" customClass="NewsTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="RaP-X2-i0v" customClass="NewsTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="209" sectionHeaderHeight="28" sectionFooterHeight="28" id="Idv-M6-Zjl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="209" id="m7N-Q8-5h6" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="209" id="m7N-Q8-5h6" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="209"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" tableViewCell="m7N-Q8-5h6" id="uxv-3b-FYp">
@@ -618,7 +618,7 @@
         <!--Búsqueda de post-->
         <scene sceneID="xAL-UQ-3J2">
             <objects>
-                <tableViewController id="0Y4-FI-pg7" customClass="SearchTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="0Y4-FI-pg7" customClass="SearchTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="BSJ-DJ-RFY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -629,7 +629,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSearch" rowHeight="200" id="U38-8j-nM7" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSearch" rowHeight="200" id="U38-8j-nM7" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U38-8j-nM7" id="5PP-dU-Qaf">
@@ -713,7 +713,7 @@
         <!--Page View Controller-->
         <scene sceneID="b8x-hl-3xX">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="FbB-Mj-FSl" customClass="PageViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="FbB-Mj-FSl" customClass="PageViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tz3-F7-JeH"/>
                         <viewControllerLayoutGuide type="bottom" id="mU5-lb-82T"/>
@@ -742,7 +742,7 @@
         <!--Post-->
         <scene sceneID="D69-k9-7id">
             <objects>
-                <viewController storyboardIdentifier="ItemController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="brC-WD-Mqd" customClass="PageItemController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ItemController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="brC-WD-Mqd" customClass="PageItemController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FtT-wg-eji"/>
                         <viewControllerLayoutGuide type="bottom" id="Hpm-HZ-fOT"/>
@@ -818,7 +818,7 @@
         <!--Menu Controller-->
         <scene sceneID="WvI-gM-KFV">
             <objects>
-                <tableViewController storyboardIdentifier="MenuController" id="c8U-hf-vWv" customClass="MenuController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MenuController" id="c8U-hf-vWv" customClass="MenuController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="haP-s8-5Sh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1104,13 +1104,13 @@
         <!--Verde-->
         <scene sceneID="3IY-4M-Fm0">
             <objects>
-                <tableViewController id="qvO-Ns-hJq" customClass="GreenTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qvO-Ns-hJq" customClass="GreenTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="220" sectionHeaderHeight="28" sectionFooterHeight="28" id="UfK-Zo-DTg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellGreen" rowHeight="200" id="SOP-8q-kVE" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellGreen" rowHeight="200" id="SOP-8q-kVE" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SOP-8q-kVE" id="vBh-He-cBb">
@@ -1199,7 +1199,7 @@
                 <navigationController id="aSO-EC-l4H" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Verde" image="green" id="qRU-Sz-0yM"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ria-DU-p3i">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ria-DU-p3i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1218,13 +1218,13 @@
         <!--Para ti-->
         <scene sceneID="hv1-uS-5W5">
             <objects>
-                <tableViewController id="zkg-vi-JP2" customClass="ForYouTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="zkg-vi-JP2" customClass="ForYouTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="220" sectionHeaderHeight="28" sectionFooterHeight="28" id="UNr-bg-4im">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellForYou" rowHeight="200" id="UOT-2S-1Kj" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellForYou" rowHeight="200" id="UOT-2S-1Kj" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UOT-2S-1Kj" id="QXh-bb-alJ">
@@ -1310,13 +1310,13 @@
         <!--Quiz-->
         <scene sceneID="nJR-rI-OIY">
             <objects>
-                <tableViewController id="21V-sC-4Ws" customClass="QuizTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="21V-sC-4Ws" customClass="QuizTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="UKA-SM-xb3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellQuiz" rowHeight="200" id="oU2-tq-oRg" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellQuiz" rowHeight="200" id="oU2-tq-oRg" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oU2-tq-oRg" id="71o-j6-T2B">
@@ -1408,13 +1408,13 @@
         <!--Mas Polular-->
         <scene sceneID="F0V-6x-YYE">
             <objects>
-                <tableViewController id="eHK-k8-6lM" customClass="PopularyTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="eHK-k8-6lM" customClass="PopularyTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="OTl-uc-zWn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellPopulary" rowHeight="200" id="Bp1-rj-164" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellPopulary" rowHeight="200" id="Bp1-rj-164" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bp1-rj-164" id="PXm-IV-DnK">
@@ -1508,7 +1508,7 @@
             <objects>
                 <navigationController id="FRv-1f-8X5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mas popular" image="populary" id="Pjt-7v-mjx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5tS-ZY-bHT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5tS-ZY-bHT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1527,13 +1527,13 @@
         <!--Comida-->
         <scene sceneID="g4P-4P-Fgr">
             <objects>
-                <tableViewController id="s5w-8I-MNB" customClass="FoodTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="s5w-8I-MNB" customClass="FoodTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="220" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ltr-yr-Hvh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellFood" rowHeight="200" id="0Se-uI-MOn" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellFood" rowHeight="200" id="0Se-uI-MOn" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Se-uI-MOn" id="9ml-hM-D88">
@@ -1627,7 +1627,7 @@
             <objects>
                 <navigationController id="W91-EF-yco" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Comida" image="food" id="OZc-cl-KUU"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yxF-QC-Ouk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yxF-QC-Ouk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1648,7 +1648,7 @@
             <objects>
                 <navigationController id="lKj-og-K4y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Quiz" image="quiz" id="Tdy-Ph-0MI"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3c5-xg-UWG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3c5-xg-UWG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1667,13 +1667,13 @@
         <!--Mujer-->
         <scene sceneID="5az-F8-ozf">
             <objects>
-                <tableViewController id="oKO-Hi-adw" customClass="WomenTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oKO-Hi-adw" customClass="WomenTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="220" sectionHeaderHeight="28" sectionFooterHeight="28" id="QFM-9G-Bdf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellWomen" rowHeight="200" id="jdk-bV-zZA" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellWomen" rowHeight="200" id="jdk-bV-zZA" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jdk-bV-zZA" id="Xth-qj-aQJ">
@@ -1767,7 +1767,7 @@
             <objects>
                 <navigationController id="JLy-ZS-dTV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mujer" image="women" id="6cc-9N-bjj"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B03-zA-Cm1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="B03-zA-Cm1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1786,13 +1786,13 @@
         <!--Creatividad-->
         <scene sceneID="MTC-Fv-JT5">
             <objects>
-                <tableViewController id="nMZ-j7-S8J" customClass="CreativityTableViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="nMZ-j7-S8J" customClass="CreativityTableViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="220" sectionHeaderHeight="28" sectionFooterHeight="28" id="bnn-b9-QWX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellCreativity" rowHeight="200" id="O6V-V7-shO" customClass="NewsViewCell" customModule="UpsoclApp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellCreativity" rowHeight="200" id="O6V-V7-shO" customClass="NewsViewCell" customModule="appupsocl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O6V-V7-shO" id="LHf-fO-ZeM">
@@ -1880,7 +1880,7 @@
             <objects>
                 <navigationController id="aJj-GW-2e9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Creatividad" image="creativity" id="BXh-iI-Tkc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TdO-jk-9H2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TdO-jk-9H2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1901,7 +1901,7 @@
             <objects>
                 <navigationController id="1yr-dR-qHD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Para Ti" image="foryou" id="IhH-k1-wYg"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zrT-5g-QiR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zrT-5g-QiR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1923,7 +1923,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dXH-rC-dKS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Portada" image="home_lateral" id="48C-N4-e0M"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WmJ-Ml-X7j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WmJ-Ml-X7j">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1943,7 +1943,7 @@
         <!--Intereses-->
         <scene sceneID="yCp-Wv-509">
             <objects>
-                <viewController id="sE8-Cy-yWP" customClass="InterestViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sE8-Cy-yWP" customClass="InterestViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IPC-hk-0Qs"/>
                         <viewControllerLayoutGuide type="bottom" id="VBi-dM-ohh"/>
@@ -1968,9 +1968,9 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-md-BkZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-md-BkZ" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="337" width="89" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comida">
                                                     <attributes>
@@ -1984,9 +1984,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="Md8-kh-BgQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zS4-T8-Hyb" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zS4-T8-Hyb" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="337" width="133" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Estilo de vida">
                                                     <attributes>
@@ -2000,9 +2000,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="RCd-3L-grM"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NnE-r9-lN7" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NnE-r9-lN7" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="306" width="111" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Diversidad">
                                                     <attributes>
@@ -2016,9 +2016,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="Pv6-PN-BZq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-xx-EiK" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-xx-EiK" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="306" width="83" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Belleza">
                                                     <attributes>
@@ -2032,9 +2032,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="pHk-fM-dGp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBW-q1-PXR" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBW-q1-PXR" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="275" width="117" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Creatividad">
                                                     <attributes>
@@ -2048,9 +2048,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="lO8-Sx-atB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tk-bT-ly8" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tk-bT-ly8" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="275" width="88" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Pelicula">
                                                     <attributes>
@@ -2064,9 +2064,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="cn8-TX-EbL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL1-1L-yff" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL1-1L-yff" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="245" width="145" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Más populares">
                                                     <attributes>
@@ -2080,9 +2080,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="JOo-f4-hhn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGU-II-JnZ" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGU-II-JnZ" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="214" width="133" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Colaboración">
                                                     <attributes>
@@ -2096,9 +2096,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="hDP-Xv-JN2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-rg-VR0" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-rg-VR0" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="183" width="71" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mujer">
                                                     <attributes>
@@ -2112,9 +2112,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="MJN-x2-00a"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-IV-ACu" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-IV-ACu" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="152" width="84" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Cultura">
                                                     <attributes>
@@ -2128,9 +2128,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="Azp-py-IYg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bN-1V-iwp" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bN-1V-iwp" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="121" width="83" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Familia">
                                                     <attributes>
@@ -2144,9 +2144,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="Gtp-Xu-dNY"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Kv-Nh-n7r" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Kv-Nh-n7r" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="90" width="82" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mundo">
                                                     <attributes>
@@ -2160,9 +2160,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="Q14-hf-QZE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-sz-Er6" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-sz-Er6" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="245" width="71" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Verde">
                                                     <attributes>
@@ -2176,9 +2176,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="4rh-iZ-TjP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-Gc-2b5" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-Gc-2b5" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="152" width="119" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comunidad">
                                                     <attributes>
@@ -2192,9 +2192,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="lfu-CR-TMY"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gnp-u9-eol" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gnp-u9-eol" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="183" width="114" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Relaciones">
                                                     <attributes>
@@ -2208,9 +2208,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="EFV-XC-Gpl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rii-th-0o0" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rii-th-0o0" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="121" width="72" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Salud">
                                                     <attributes>
@@ -2224,9 +2224,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="vt0-32-OSs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uyw-os-Nyp" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uyw-os-Nyp" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="90" width="114" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Inspiración">
                                                     <attributes>
@@ -2240,9 +2240,9 @@
                                             <action selector="validCountCategory:" destination="xtg-Bd-eIr" eventType="touchUpInside" id="Aau-TX-CFX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gm-bg-Iec" customClass="CheckBoxInterest" customModule="UpsoclApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gm-bg-Iec" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="214" width="62" height="25"/>
-                                        <state key="normal" image="05112713-BFDE-4D5A-83BD-56022F3B5D78">
+                                        <state key="normal" image="D5C0976E-266B-40F9-90BF-F86DA59787F9">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Quiz">
                                                     <attributes>
@@ -2335,7 +2335,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0J7-Hk-VFu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nxz-TN-o7k">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nxz-TN-o7k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2355,7 +2355,7 @@
         <!--Peferencia-->
         <scene sceneID="k3c-G7-Obd">
             <objects>
-                <viewController id="4LN-xf-pdF" customClass="PreferencsViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4LN-xf-pdF" customClass="PreferencsViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RLc-29-Em3"/>
                         <viewControllerLayoutGuide type="bottom" id="YLw-DM-uZQ"/>
@@ -2631,7 +2631,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xGX-Up-JMg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M4h-yY-vYH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M4h-yY-vYH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2653,7 +2653,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BSE-kY-bhe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ar-U3-vSH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9ar-U3-vSH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2673,7 +2673,7 @@
         <!--Sobre nosotros-->
         <scene sceneID="QUF-rD-e1x">
             <objects>
-                <viewController id="dYl-MW-B7u" customClass="AboutUsViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dYl-MW-B7u" customClass="AboutUsViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I7T-Jp-JIl"/>
                         <viewControllerLayoutGuide type="bottom" id="k2i-fU-LKs"/>
@@ -2714,7 +2714,7 @@
         <!--Politicas de privacidad-->
         <scene sceneID="w62-ao-jOc">
             <objects>
-                <viewController id="BTp-SL-35m" customClass="PoliticasPrivacityViewController" customModule="UpsoclApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BTp-SL-35m" customClass="PoliticasPrivacityViewController" customModule="appupsocl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="piu-9c-OPL"/>
                         <viewControllerLayoutGuide type="bottom" id="Gr6-rE-3PL"/>
@@ -2757,7 +2757,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="03U-Ec-qae" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DiQ-Oy-cE4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DiQ-Oy-cE4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2779,7 +2779,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A3t-D9-nX1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Ks-jX-EBG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Ks-jX-EBG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2801,7 +2801,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fjR-8n-Co1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h7c-O3-lRK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="h7c-O3-lRK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2824,7 +2824,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2M-hT-Hdj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="caR-ab-x73">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="caR-ab-x73">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2843,7 +2843,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="05112713-BFDE-4D5A-83BD-56022F3B5D78" width="25" height="25">
+        <image name="1C229A06-830A-493A-B21A-DC3B9E7E2508" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2936,7 +2936,7 @@ E34ThxOME5QTlxOcE6sTrxO2E74TyxPQE9IT1BPZE+ET5BPpE/ET9BQGFAkUDgAAAAAAAAIBAAAAAAAA
 AEEAAAAAAAAAAAAAAAAAABQQA
 </mutableData>
         </image>
-        <image name="8E7D9BA9-025D-47DD-9CBD-F769FF0D3D56" width="25" height="25">
+        <image name="D5C0976E-266B-40F9-90BF-F86DA59787F9" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

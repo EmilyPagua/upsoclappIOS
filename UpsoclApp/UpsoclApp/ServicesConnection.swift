@@ -108,7 +108,7 @@ class ServicesConnection  {
             
             guard error == nil else {
                 print("ERROR_ ServicesConnection loadAllNews calling GET on: " + urlPath)
-                print (error?.localizedDescription)
+                print (error?.localizedDescription ?? "Error en url")
                 self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
@@ -147,7 +147,7 @@ class ServicesConnection  {
             
             guard error == nil else {
                 print("ERROR_ ServicesConnection loadNews calling GET on: " + urlPath)
-                print (error?.localizedDescription)
+                print (error?.localizedDescription ?? "Error en url")
                 self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }

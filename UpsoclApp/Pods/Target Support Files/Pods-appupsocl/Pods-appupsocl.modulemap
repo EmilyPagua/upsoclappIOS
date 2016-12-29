@@ -1,6 +1,0 @@
-framework module Pods_appupsocl {
-  umbrella header "Pods-appupsocl-umbrella.h"
-
-  export *
-  module * { export * }
-}
