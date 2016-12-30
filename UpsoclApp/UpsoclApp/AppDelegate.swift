@@ -12,11 +12,10 @@ import CoreLocation
 //import Fabric
 //import TwitterKit
 import Google
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLInstanceIDDelegate, GCMReceiverDelegate {
-    
-    //{, GCMReceiverDelegate,  CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLInstanceIDDelegate, GCMReceiverDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
     var locationManager: CLLocationManager!
@@ -33,16 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     var connectedToGCM = false
     var subscribedToTopic = false
     //end Google
+
     
-    
-    /**
-     *  Called when the system determines that tokens need to be refreshed.
-     *  This method is also called if Instance ID has been reset in which
-     *  case, tokens and `GcmPubSub` subscriptions also need to be refreshed.
-     *
-     *  Instance ID service will throttle the refresh event across all devices
-     *  to control the rate of token updates on application servers.
-     */
     func onTokenRefresh() {
         // A rotation of the registration tokens is happening, so the app needs to request a new token.
         print("The GCM registration token needs to be changed.")
@@ -56,7 +47,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
-        self.startGoogle()
+        //Initialize sign-in Google
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configurando el servicio de Google: \(configureError)")
+        GIDSignIn.sharedInstance().delegate = self  //Login Google
+        gcmSenderID = GGLContext.sharedInstance().configuration.gcmSenderID
+        
+        print ("gcmSenderId   ",gcmSenderID ?? "tokent")
         
        // [START register_for_remote_notifications]
         if #available(iOS 8.0, *) {
@@ -158,6 +156,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -189,16 +189,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     
     
     // [------------------------START GOOGLE-------------------]
-    
-    func startGoogle() -> Void {
-        
-        //Initialize sign-in Google
-        var configureError: NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configurando el servicio de Google: \(configureError)")
-        GIDSignIn.sharedInstance().delegate = self  //Login Google
-        gcmSenderID = GGLContext.sharedInstance().configuration.gcmSenderID
-    }
     
     
     // [START openurl]
@@ -305,7 +295,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     func application( _ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken
         deviceToken: Data ) {
         
-        print (deviceToken)
+        print ("deviceTokent ", deviceToken)
         let instanceIDConfig = GGLInstanceIDConfig.default()
         instanceIDConfig?.delegate = self
         GGLInstanceID.sharedInstance().start(with: instanceIDConfig)
@@ -316,6 +306,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     }
     // [END get_gcm_reg_token]
     
+
     // [------------------------FINISH GOOGLE -------------------]
     
     func registrationHandler(_ registrationToken: String?, error: Error?) {
@@ -359,5 +350,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     }
         
     
+    // [START receive_apns_token_error]
+    func application( _ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError
+        error: Error ) {
+        print("Registration for remote notification failed with error: \(error.localizedDescription)")
+        // [END receive_apns_token_error]
+        let userInfo = ["error": error.localizedDescription]
+        NotificationCenter.default.post(
+            name: Notification.Name(rawValue: registrationKey), object: nil, userInfo: userInfo)
+    }
+    
+    // [START ack_message_reception]
+    func application( _ application: UIApplication,
+                      didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        
+        print("Notification received: \(userInfo)")
+        // This works only if the app started the GCM service
+        GCMService.sharedInstance().appDidReceiveMessage(userInfo)
+        // Handle the received message
+        // [START_EXCLUDE]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: messageKey), object: nil,
+                                        userInfo: userInfo)
+        // [END_EXCLUDE]
+    }
+    
+    func application( _ application: UIApplication,
+                      didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                      fetchCompletionHandler handler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        print("Notification received: \(userInfo)")
+        // This works only if the app started the GCM service
+       // GCMService.sharedInstance().appDidReceiveMessage(userInfo)
+        //NotificationCenter.default.post(name: Notification.Name(rawValue: messageKey), object: nil,
+          //                              userInfo: userInfo)
+       // handler(UIBackgroundFetchResult.noData)
+
+        
+        print ("redireccionar")
+        // [END_EXCLUDE]
+    }
 }
 
