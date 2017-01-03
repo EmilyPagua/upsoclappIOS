@@ -27,6 +27,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
+import Google
 
 class PageViewController: UIViewController, UIPageViewControllerDataSource  {
 
@@ -172,22 +173,23 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
                 
             }
         }
-    }*/
-    
+    }
+    */
     //Google Analytics
-    /*override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-            let googleAnalytics : GAITracker = GAI.sharedInstance().tracker(withTrackingId: "UA-44944096-19")
+            let name = newsList[0].linkNews
+        
+            let googleAnalytics : GAITracker = GAI.sharedInstance().tracker(withTrackingId: ApiConstants.PropertyKey.googleAnalyticsTrackingId)
             GAI.sharedInstance().trackUncaughtExceptions = true
             GAI.sharedInstance().dispatchInterval =  20
             
-            googleAnalytics.set(kGAIScreenName, value: newsList[0].linkNews)
+            googleAnalytics.set(kGAIScreenName, value: name)
             
             let builder = GAIDictionaryBuilder.createScreenView()
             googleAnalytics.send(builder!.build() as [NSObject : AnyObject])
-        
-    }*/
+    }
     //End Google Analytics
 }
 

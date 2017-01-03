@@ -8,12 +8,12 @@
 
 import UIKit
 import Social
-//import FBSDKLoginKit
-//import FBSDKShareKit
+import FBSDKLoginKit
+import FBSDKShareKit
 import iAd
 //import GoogleMobileAds
 
-class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {//, GADBannerViewDelegate , UITextFieldDelegate {
+class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate, UITextFieldDelegate { //GADBannerViewDelegate ,  {
     //Banner
     
    // @IBOutlet weak var webViewContent: UIWebView!
@@ -183,12 +183,12 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     //Share
     @IBAction func shareButtonFacebook(_ sender: UIBarButtonItem) {
         
-      /*  let content: FBSDKShareLinkContent = FBSDKShareLinkContent()
+        let content: FBSDKShareLinkContent = FBSDKShareLinkContent()
         content.contentURL = URL(string: (news.linkNews))
         content.contentTitle = news.titleNews
         content.contentDescription = "http://www.upsocl.com/"
         content.imageURL = URL(string: (news.imageURLNews)!)
-        FBSDKShareDialog.show(from: self, with: content, delegate: nil)*/
+        FBSDKShareDialog.show(from: self, with: content, delegate: nil)
     }
     
     func displayShareSheet() {

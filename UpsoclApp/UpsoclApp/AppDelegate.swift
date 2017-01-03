@@ -46,26 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     
         
         self.googleStartConfig(application)
-        
         self.facebookStartConfig(application, didFinishLaunchingWithOptions: launchOptions)
-        
         self.twitterStartConfig()
-
-        // Initialize sign-in Twitter
-       
         
         category.clearCategoryPreference()
-
-        // [START tracker_swift]
-        // Configure tracker from GoogleService-Info.plist.
-        //GGLContext.sharedInstance().configureWithError(&configureError)
-        // assert(configureError == nil, "Error configuring Google services: \(configureError)")
-        
-        // Optional: configure GAI options.
-        //let gai = GAI.sharedInstance()
-        //gai?.trackUncaughtExceptions = true  // report uncaught exceptions
-        //gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
-        // [END tracker_swift]
+        self.googleAnalyticsStart()
         
         
         print ("--------------------------Inicio------------------")
@@ -89,14 +74,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     
     func mainView(){
        
-        let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-
+       /* let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         let signOutPageNav = UINavigationController(rootViewController: signOutPage)
         signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
         
         let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController =  signOutPageNav
+        appDelegate.window?.rootViewController =  signOutPageNav*/
+        
+        self.sendActivityMain()
+        
     }
     
     
@@ -110,9 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
             } else {
                 self.connectedToGCM = true
                 print("Connected to GCM")
-                // [START_EXCLUDE]
                 self.subscribeToTopic()
-                // [END_EXCLUDE]
             }
         })
          // [END connect_gcm_service]
@@ -230,15 +215,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
                 object: nil,
                 userInfo: ["statusText": "Signed in user:\n\(fullName)"])
             // [END_EXCLUDE]
-     
-     
-            let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-            let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-            signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
-     
-            let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-                appDelegate.window?.rootViewController =  signOutPageNav
+            
+            self.sendActivityMain()
+            
             } else {
                 print("\(error.localizedDescription)")
      
@@ -400,6 +379,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     
     func twitterStartConfig(){
          Fabric.with([Twitter.self])
+    }
+    
+    func googleAnalyticsStart(){
+    
+        // [START tracker_swift]
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        // Optional: configure GAI options.
+        let gai = GAI.sharedInstance()
+        gai?.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
+        // [END tracker_swift]
+        
+    }
+    
+    func sendActivityMain() {
+        
+        let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        let signOutPageNav = UINavigationController(rootViewController: signOutPage)
+        signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
+        
+        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController =  signOutPageNav
+        
+        
     }
 }
 

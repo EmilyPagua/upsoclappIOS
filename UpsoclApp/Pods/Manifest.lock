@@ -1,6 +1,9 @@
 PODS:
   - Fabric (1.6.11)
   - GGLInstanceID (1.2.1)
+  - Google/Analytics (2.0.4):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
   - Google/CloudMessaging (2.0.4):
     - GGLInstanceID (~> 1.0)
     - Google/Core
@@ -13,6 +16,7 @@ PODS:
   - Google/SignIn (2.0.4):
     - Google/Core
     - GoogleSignIn (~> 3.0)
+  - GoogleAnalytics (3.17.0)
   - GoogleAppUtilities (1.1.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleAuthUtilities (2.0.2):
@@ -44,6 +48,7 @@ PODS:
 
 DEPENDENCIES:
   - Fabric
+  - Google/Analytics
   - Google/CloudMessaging
   - Google/SignIn
   - TwitterKit
@@ -52,6 +57,7 @@ SPEC CHECKSUMS:
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   GGLInstanceID: 4a317044f744281b82cd03015f379899f277cad3
   Google: d0932824c5b97c96be489aa6f4e8cd6c294d637d
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
   GoogleAuthUtilities: ccad2e0a9284699973ff57c0dd24c3893657fda4
   GoogleCloudMessaging: f37ea14dd0f41d4d889c10b5559dd35bbfd9ac26
@@ -64,6 +70,6 @@ SPEC CHECKSUMS:
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: a64aabc344bf2c47fc0c2abe98b98904397e3f15
+PODFILE CHECKSUM: 6f907cc69f10f3d47316a25ea9f9d7f5818c66d0
 
 COCOAPODS: 1.1.1

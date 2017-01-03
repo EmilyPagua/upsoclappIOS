@@ -37,9 +37,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         
         
         GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
-        
         loginButtonFacebook!.delegate = self  //Start FacebookLogin
-        
         Twitter.sharedInstance().logIn { session, error in
             if (session != nil) {
                 print("1 \(session!.userName)");
