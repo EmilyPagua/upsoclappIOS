@@ -7,11 +7,11 @@
 //
 
 import UIKit
-//import Fabric
-//import TwitterKit
+import Fabric
+import TwitterKit
 import Google
 
-class LoginUserController: UIViewController, GIDSignInUIDelegate { //, FBSDKLoginButtonDelegate {
+class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginButtonDelegate {
     
     // [START viewcontroller Google]
     @IBOutlet weak var signInButtonGoogle: GIDSignInButton!
@@ -22,60 +22,55 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate { //, FBSDKLogi
     let servicesConnection  = ServicesConnection()
     
     // [START viewcontroller Facebook]
-   /* @IBOutlet weak var loginButtonFacebook: FBSDKLoginButton?  = {
+    @IBOutlet weak var loginButtonFacebook: FBSDKLoginButton?  = {
     let button = FBSDKLoginButton()
     button.readPermissions = ["email"]
     return button
-    }()*/
+    }()
    
     // [END viewcontroller Facebook]
     
     @IBOutlet weak var loginButtonTwitter: UIButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Start GoogleLogin
-        GIDSignIn.sharedInstance().uiDelegate = self
-        //End GoogleLogin
         
-        //Start FacebookLogin
-      //  loginButtonFacebook!.delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
         
-        /*Twitter.sharedInstance().logInWithCompletion { session, error in
-            if (session != nil) {
-                print("1 \(session!.userName)");
-            } else {
-                print("5 error: \(error!.localizedDescription)");
-            }
-        }
-        */
-        //End FacebookLogin
-        //loginButtonFacebook?.isEnabled = false
-        loginButtonTwitter?.isEnabled = false
-        signInButtonGoogle?.isEnabled = false
-    }
-    
-    @IBAction func validarLogin(_ sender: AnyObject) {/*
+        loginButtonFacebook!.delegate = self  //Start FacebookLogin
         
         Twitter.sharedInstance().logIn { session, error in
             if (session != nil) {
                 print("1 \(session!.userName)");
-                Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
             } else {
                 print("5 error: \(error!.localizedDescription)");
             }
         }
         
+        loginButtonFacebook?.isEnabled = false
+        loginButtonTwitter?.isEnabled = false
+        signInButtonGoogle?.isEnabled = false
+    }
+    
+    @IBAction func validarLogin(_ sender: AnyObject) {
+        
+       /* Twitter.sharedInstance().logIn { session, error in
+            if (session != nil) {
+                print("1 \(session!.userName)");
+                Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
+            } else {
+                print("5 error: \(error!.localizedDescription)");
+            }
+        }*/
+        
         // If using the log in methods on the Twitter instance
         Twitter.sharedInstance().logIn(withMethods: [.webBased]) { session, error in
             if (session != nil) {
-                print("2 \(session!.userName)");
+                print(" session!.userName  \(session!.userName)");
                 Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
                 
-                // Swift
+                
                 let client = TWTRAPIClient.withCurrentUser()
                 let request = client.urlRequest(withMethod: "GET",
                                                           url: "https://api.twitter.com/1.1/account/verify_credentials.json",
@@ -87,7 +82,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate { //, FBSDKLogi
                     let json : AnyObject!
                     do {
                         json = try JSONSerialization.jsonObject(with: nsdata, options: []) as? [String:AnyObject] as AnyObject!
-                       // print (json)
                         
                         print  (json)
                         let imagenUserURL =  json["profile_image_url"] as! String
@@ -105,38 +99,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate { //, FBSDKLogi
                                             registrationId: "tokentWordpress")
                         
                         if (user?.email.isEmpty)! {
-                            let alertController = UIAlertController(title: "Faltan datos en su pertfil", message: "Por favor, ingrese su email personal", preferredStyle: .alert)
-                            
-                            alertController.addAction(UIAlertAction(title: "Guardar", style: .default, handler: {
-                                alert -> Void in
-                                let textField = alertController.textFields![0] as UITextField
-                                
-                                let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-                                let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
-                                if emailPredicate.evaluate(with: textField.text){
-                                    user?.email = textField.text!
-                                    
-                                    
-                                    self.servicesConnection.saveCustomer(user!)
-                                    
-                                    let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                                    let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                                    let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-                                    signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
-                                    let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-                                    appDelegate.window?.rootViewController =  signOutPageNav
-                                    
-                                }else{
-                                    print("ERROR_ validarLogin No es válido")
-                                }
-                                
-                                // do something with textField
-                            }))
-                            alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
-                                textField.placeholder = "Search"
-                            })
-                            
-                            self.present(alertController, animated: true, completion: nil)
+                            self.validEmailUser(user: user!)
                         }
                         else{
                             self.servicesConnection.saveCustomer(user!)
@@ -150,15 +113,15 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate { //, FBSDKLogi
                         }
                         
                     }catch let error as NSError{
-                        print ("ERROR_ "+error.localizedDescription)
-                        json=nil
+                        print ("ERROR_:   \(error.localizedDescription)")
+                        json = nil
                         return
                     }
                 }
             } else {
                 print("ERROR_: \(error!.localizedDescription)");
             }
-        }*/
+        }
     }
     
     @IBAction func validCountCategory(_ sender: UIButton) {
@@ -167,15 +130,15 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate { //, FBSDKLogi
     
     func countCategory (){
         let categoryCount = category.countCategory()
-        print (categoryCount)
+        print ("Category:  \(categoryCount)")
         if categoryCount <= 1 || beforeCategory <= 1  {
-            //loginButtonFacebook?.isEnabled = false
-            //loginButtonTwitter?.isEnabled = false
+            loginButtonFacebook?.isEnabled = false
+            loginButtonTwitter?.isEnabled = false
             signInButtonGoogle?.isEnabled = false
 
         } else {
-            //loginButtonFacebook?.isEnabled = true
-            //loginButtonTwitter?.isEnabled = true
+            loginButtonFacebook?.isEnabled = true
+            loginButtonTwitter?.isEnabled = true
             signInButtonGoogle?.isEnabled = true
         }
         
@@ -256,13 +219,13 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate { //, FBSDKLogi
     // [------------------------FINISH GOOGLE LOGIN-------------------]
 
     // [------------------------START FACEBOOK LOGIN-------------------]
-    /*func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print ("FBSDKLoginButton Completado Login")
         fetchProfile()
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print ("lFBSDKLoginButton - LoginButtonDidLogOut")
+        print ("FBSDKLoginButton - LoginButtonDidLogOut")
 
     }
     
@@ -320,7 +283,44 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate { //, FBSDKLogi
             let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController =  signOutPageNav
         })
-    }*/
+    }
      // [------------------------FINISH FACEBOOK LOGIN-------------------]
+    
+    
+    func validEmailUser(user: Customer){
+        
+        let alertController = UIAlertController(title: "Faltan datos en su pertfil", message: "Por favor, ingrese su email personal", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Guardar", style: .default, handler: {
+            alert -> Void in
+            let textField = alertController.textFields![0] as UITextField
+            
+            let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+            if emailPredicate.evaluate(with: textField.text){
+                user.email = textField.text!
+                
+                self.servicesConnection.saveCustomer(user)
+                
+                let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                let signOutPageNav = UINavigationController(rootViewController: signOutPage)
+                signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
+                let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController =  signOutPageNav
+                
+            }else{
+                print("ERROR_ validarLogin No es válido")
+            }
+            
+            // do something with textField
+        }))
+        alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
+            textField.placeholder = "Search"
+        })
+        
+        self.present(alertController, animated: true, completion: nil)
+    
+    }
     
 }

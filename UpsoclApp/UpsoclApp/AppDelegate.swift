@@ -3,14 +3,13 @@
 //  AppDelegate.swift
 //  appupsocl
 //
-//  Created by Simon Ng on 2/2/15.
-//  Copyright (c) 2015 AppCoda. All rights reserved.
+//  Created by Emily.pagua on 10/10/16.
 //
 
 import UIKit
 import CoreLocation
-//import Fabric
-//import TwitterKit
+import Fabric
+import TwitterKit
 import Google
 import UserNotifications
 
@@ -42,53 +41,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     }
 
 
-    // [START didfinishlaunching Google, Facebook]
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
         
+        self.googleStartConfig(application)
         
-        //Initialize sign-in Google
-        var configureError: NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configurando el servicio de Google: \(configureError)")
-        GIDSignIn.sharedInstance().delegate = self  //Login Google
-        gcmSenderID = GGLContext.sharedInstance().configuration.gcmSenderID
+        self.facebookStartConfig(application, didFinishLaunchingWithOptions: launchOptions)
         
-        print ("gcmSenderId   ",gcmSenderID ?? "tokent")
-        
-       // [START register_for_remote_notifications]
-        if #available(iOS 8.0, *) {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
-        } else {
-            // Fallback
-            let types: UIRemoteNotificationType = [.alert, .badge, .sound]
-            application.registerForRemoteNotifications(matching: types)
-        }
-        // [END register_for_remote_notifications]
-        
-        // [START start_gcm_service]
-        let gcmConfig = GCMConfig.default()
-        gcmConfig?.receiverDelegate = self
-        GCMService.sharedInstance().start(with: gcmConfig)
-        // [END start_gcm_service]
-        
-        
-        
-        // Initialize sign-in Facebook
-       // FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        self.twitterStartConfig()
 
         // Initialize sign-in Twitter
-        //Fabric.with([Twitter.self])
+       
         
-        //category.clearCategoryPreference()
+        category.clearCategoryPreference()
 
         // [START tracker_swift]
         // Configure tracker from GoogleService-Info.plist.
         //GGLContext.sharedInstance().configureWithError(&configureError)
-      //  assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        // assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
         // Optional: configure GAI options.
         //let gai = GAI.sharedInstance()
@@ -100,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         print ("--------------------------Inicio------------------")
         //Get social Network
         //let preferences = UserDefaults.standard
-        //let networkName  = preferences.object(forKey: "socialNetwork") as! String
+       // _  = preferences.object(forKey: "socialNetwork") as! String
          //end social Network
     
         
@@ -146,6 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         })
          // [END connect_gcm_service]
         
+        FBSDKAppEvents.activateApp()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -178,11 +150,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
                 mainView()
                 flag = false
             }
-            /*
+            
             if FBSDKAccessToken.current() != nil {
                 mainView()
                 flag = false
-            }*/
+            }
         }
         return flag
     }
@@ -194,14 +166,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     // [START openurl]
      func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
      
-        let signIn =  GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+        var signIn =  GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
      
         if signIn { return signIn}
-     
-     /*return  FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
-     sourceApplication: sourceApplication,
-     annotation: annotation)*/
-        return false
+        else{
+            signIn =  FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
+                                                                            sourceApplication: sourceApplication,
+                                                                        annotation: annotation)
+        }
+        
+        return signIn
      }
      // [END openurl]
      
@@ -211,17 +185,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
      
      var signIn: Bool = false
      signIn = GIDSignIn.sharedInstance().handle(url,
+                                                sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+     
+     if (signIn){ return true }
+    
+     signIn = FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
      sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
      annotation: options[UIApplicationOpenURLOptionsKey.annotation])
      
-     if (signIn){
-     return signIn
-        }
-    
-     /*signIn = FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
-     sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-     annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-     */
      return signIn
      }
     
@@ -388,6 +360,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         
         print ("redireccionar")
         // [END_EXCLUDE]
+    }
+    
+    func googleStartConfig(_ application: UIApplication) {
+        
+        //Initialize sign-in Google
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configurando el servicio de Google: \(configureError)")
+        GIDSignIn.sharedInstance().delegate = self  //Login Google
+        gcmSenderID = GGLContext.sharedInstance().configuration.gcmSenderID
+        
+        print ("gcmSenderId   ",gcmSenderID ?? "tokent")
+        
+        // [START register_for_remote_notifications]
+        if #available(iOS 8.0, *) {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        } else {
+            // Fallback
+            let types: UIRemoteNotificationType = [.alert, .badge, .sound]
+            application.registerForRemoteNotifications(matching: types)
+        }
+        // [END register_for_remote_notifications]
+        
+        // [START start_gcm_service]
+        let gcmConfig = GCMConfig.default()
+        gcmConfig?.receiverDelegate = self
+        GCMService.sharedInstance().start(with: gcmConfig)
+        // [END start_gcm_service]
+    }
+    
+    func facebookStartConfig(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?){
+        // Initialize sign-in Facebook
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func twitterStartConfig(){
+         Fabric.with([Twitter.self])
     }
 }
 
