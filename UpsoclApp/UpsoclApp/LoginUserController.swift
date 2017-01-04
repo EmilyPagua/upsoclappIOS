@@ -35,7 +35,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
         loginButtonFacebook!.delegate = self  //Start FacebookLogin
         Twitter.sharedInstance().logIn { session, error in
@@ -52,15 +51,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     }
     
     @IBAction func validarLogin(_ sender: AnyObject) {
-        
-       /* Twitter.sharedInstance().logIn { session, error in
-            if (session != nil) {
-                print("1 \(session!.userName)");
-                Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
-            } else {
-                print("5 error: \(error!.localizedDescription)");
-            }
-        }*/
         
         // If using the log in methods on the Twitter instance
         Twitter.sharedInstance().logIn(withMethods: [.webBased]) { session, error in
@@ -101,13 +91,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                         }
                         else{
                             self.servicesConnection.saveCustomer(user!)
-                            
-                            let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                            let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                            let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-                            signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
-                            let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-                            appDelegate.window?.rootViewController =  signOutPageNav
+                            self.sendActivityMain()
                         }
                         
                     }catch let error as NSError{
@@ -273,13 +257,9 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                                 registrationId: "tokentWordpress")
             
             self.servicesConnection.saveCustomer(user!)
-           
-            let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-            let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-            signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
-            let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController =  signOutPageNav
+           self.sendActivityMain()
+            
+            
         })
     }
      // [------------------------FINISH FACEBOOK LOGIN-------------------]
@@ -299,13 +279,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                 user.email = textField.text!
                 
                 self.servicesConnection.saveCustomer(user)
-                
-                let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-                signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
-                let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-                appDelegate.window?.rootViewController =  signOutPageNav
+                self.sendActivityMain()
                 
             }else{
                 print("ERROR_ validarLogin No es válido")
@@ -318,7 +292,16 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         })
         
         self.present(alertController, animated: true, completion: nil)
+    }
     
+    func sendActivityMain() -> Void {
+        
+        let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        let signOutPageNav = UINavigationController(rootViewController: signOutPage)
+        signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
+        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController =  signOutPageNav
     }
     
 }

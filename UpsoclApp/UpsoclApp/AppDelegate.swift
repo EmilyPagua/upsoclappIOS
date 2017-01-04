@@ -1,4 +1,3 @@
-
 //
 //  AppDelegate.swift
 //  appupsocl
@@ -43,22 +42,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
-        
+        print ("--------------------------Inicio------------------")
         self.googleStartConfig(application)
         self.facebookStartConfig(application, didFinishLaunchingWithOptions: launchOptions)
         self.twitterStartConfig()
-        
-        category.clearCategoryPreference()
         self.googleAnalyticsStart()
-        
-        
-        print ("--------------------------Inicio------------------")
-        //Get social Network
-        //let preferences = UserDefaults.standard
-       // _  = preferences.object(forKey: "socialNetwork") as! String
-         //end social Network
     
+        
+        if self.validLoginUser(){
+            self.sendActivityMain()
+        }else{
+            category.clearCategoryPreference()
+        }
         
         // [END register_for_remote_notifications]
         // [START start_gcm_service]
@@ -69,25 +64,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     
         return true
     }
+
     
-    // [END didfinishlaunching Google, Facebook]
-    
-    func mainView(){
-       
-       /* let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-        signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
-        
-        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController =  signOutPageNav*/
-        
-        self.sendActivityMain()
-        
+    func GCMStart() -> Void {
+        <#function body#>
     }
-    
-    
-    
     func applicationDidBecomeActive(_ application: UIApplication) {
         
         // [START connect_gcm_service]
@@ -100,147 +81,73 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
                 self.subscribeToTopic()
             }
         })
-         // [END connect_gcm_service]
-        
         FBSDKAppEvents.activateApp()
-    }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
-        
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    
-    func validSocialNetwork(socialNetworkName: String) -> Bool {
-        var flag: Bool = true
-        
-        if socialNetworkName.isEmpty == false {
-            if  GIDSignIn.sharedInstance().hasAuthInKeychain() {
-                mainView()
-                flag = false
-            }
-            
-            if FBSDKAccessToken.current() != nil {
-                mainView()
-                flag = false
-            }
-        }
-        return flag
     }
     
     
     // [------------------------START GOOGLE-------------------]
-    
-    
     // [START openurl]
      func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-     
-        var signIn =  GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
-     
-        if signIn { return signIn}
-        else{
-            signIn =  FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
-                                                                            sourceApplication: sourceApplication,
-                                                                        annotation: annotation)
-        }
+
+        return self.isSignIn(application, open: url, sourceApplication: sourceApplication! ,annotation:  annotation)
         
-        return signIn
      }
      // [END openurl]
      
     
      @available(iOS 9.0, *)
      func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
-     
-     var signIn: Bool = false
-     signIn = GIDSignIn.sharedInstance().handle(url,
-                                                sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-     
-     if (signIn){ return true }
-    
-     signIn = FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
-     sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-     annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-     
-     return signIn
+  
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String
+        let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
+        
+        return self.isSignIn(application, open: url, sourceApplication: sourceApplication ,annotation:  annotation)
      }
     
     // [START signin_handler]
      func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        var userInfo: [AnyHashable : Any]? = nil
         if (error == nil) {
             // Perform any operations on signed in user here.
-            let userId = "112233" //user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            _ = user.profile.name
             let fullName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            let imagenURL = user.profile.imageURL(withDimension: 50)
-            let birthday =  "00-00-0000"
-     
-            let user = Customer(firstName: fullName!,
-                                lastName: familyName!,
-                                email:  email!,
-                                location: "--",
-                                birthday: birthday,
-                                imagenURL: imagenURL!,
-                                token: "qwedsazxc2",
-                                userId: userId,
-                                socialNetwork: "google",
-                                socialNetworkTokenId: idToken!,
+                
+            let user = Customer(firstName: user.profile.givenName!,     lastName: user.profile.familyName!,
+                                email:  user.profile.email!,            location: "--",
+                                birthday: "00-00-0000",                 imagenURL: user.profile.imageURL(withDimension: 50)!,
+                                token: "qwedsazxc2",                    userId: "112233",
+                                socialNetwork: "google",                socialNetworkTokenId: user.authentication.idToken!,
                                 registrationId: "tokentWordpress")
      
             servicesConnection.saveCustomer(user!)
-     
-            // [START_EXCLUDE]
-            NotificationCenter.default.post(
-                name: Notification.Name(rawValue: "ToggleAuthUINotification"),
-                object: nil,
-                userInfo: ["statusText": "Signed in user:\n\(fullName)"])
-            // [END_EXCLUDE]
-            
+            userInfo = ["statusText": "Signed in user:\n\(fullName)"]
+        } else {
+            print("\(error.localizedDescription)")
+            userInfo = nil
+        }
+        
+        NotificationCenter.default.post( name: Notification.Name(rawValue: SocialNetwork.PropertyKey.ToggleAuthUINotification),
+                                         object: nil,
+                                         userInfo: userInfo)
+        
+        if userInfo != nil{
             self.sendActivityMain()
-            
-            } else {
-                print("\(error.localizedDescription)")
-     
-                // [START_EXCLUDE silent]
-                NotificationCenter.default.post(
-                name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
-                // [END_EXCLUDE]
-            }
-    
+        }
+        
      }
     // [END signin_handler]
     
+    
     // [START disconnect_handler]
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!, withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
         // [START_EXCLUDE]
-        NotificationCenter.default.post(
-            name: Notification.Name(rawValue: "ToggleAuthUINotification"),
-            object: nil,
-            userInfo: ["statusText": "User has disconnected."])
-        // [END_EXCLUDE]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: SocialNetwork.PropertyKey.ToggleAuthUINotification),
+                                        object: nil,
+                                        userInfo: ["statusText": "User has disconnected."])
+        //  [END_EXCLUDE]
     }
     // [END disconnect_handler]
+    
     
     // [START receive_apns_token]
     func application( _ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken
@@ -252,8 +159,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         GGLInstanceID.sharedInstance().start(with: instanceIDConfig)
         registrationOptions = [kGGLInstanceIDRegisterAPNSOption:deviceToken as AnyObject,
                                kGGLInstanceIDAPNSServerTypeSandboxOption:true as AnyObject]
+        
         GGLInstanceID.sharedInstance().token(withAuthorizedEntity: gcmSenderID,
-                                             scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: registrationHandler)
+                                             scope: kGGLInstanceIDScopeGCM,
+                                             options: registrationOptions,
+                                             handler: registrationHandler)
     }
     // [END get_gcm_reg_token]
     
@@ -261,19 +171,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     // [------------------------FINISH GOOGLE -------------------]
     
     func registrationHandler(_ registrationToken: String?, error: Error?) {
+        
+        var userInfo: [AnyHashable : Any]? = nil
+        
         if let registrationToken = registrationToken {
             self.registrationToken = registrationToken
-            print("Registration Token: \(registrationToken)")
             self.subscribeToTopic()
-            let userInfo = ["registrationToken": registrationToken]
-            NotificationCenter.default.post(
-                name: Notification.Name(rawValue: self.registrationKey), object: nil, userInfo: userInfo)
+            userInfo = ["registrationToken": registrationToken]
         } else if let error = error {
             print("Registration to GCM failed with error: \(error.localizedDescription)")
-            let userInfo = ["error": error.localizedDescription]
-            NotificationCenter.default.post(
-                name: Notification.Name(rawValue: self.registrationKey), object: nil, userInfo: userInfo)
+            userInfo = ["error": error.localizedDescription]
+            
         }
+        
+        NotificationCenter.default.post( name: Notification.Name(rawValue: self.registrationKey),
+                                         object: nil,
+                                         userInfo: userInfo)
     }
     
     func subscribeToTopic() {
@@ -307,8 +220,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         print("Registration for remote notification failed with error: \(error.localizedDescription)")
         // [END receive_apns_token_error]
         let userInfo = ["error": error.localizedDescription]
-        NotificationCenter.default.post(
-            name: Notification.Name(rawValue: registrationKey), object: nil, userInfo: userInfo)
+        
+        NotificationCenter.default.post( name: Notification.Name(rawValue: registrationKey),
+                                         object: nil,
+                                         userInfo: userInfo)
     }
     
     // [START ack_message_reception]
@@ -372,18 +287,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         // [END start_gcm_service]
     }
     
+    
     func facebookStartConfig(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?){
-        // Initialize sign-in Facebook
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
-    func twitterStartConfig(){
+    func twitterStartConfig() -> Void {
          Fabric.with([Twitter.self])
     }
     
-    func googleAnalyticsStart(){
-    
-        // [START tracker_swift]
+    func googleAnalyticsStart() -> Void{
         // Configure tracker from GoogleService-Info.plist.
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
@@ -393,11 +306,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         let gai = GAI.sharedInstance()
         gai?.trackUncaughtExceptions = true  // report uncaught exceptions
         gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
-        // [END tracker_swift]
-        
+      
     }
     
-    func sendActivityMain() {
+    func sendActivityMain() -> Void {
         
         let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
@@ -406,8 +318,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         
         let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController =  signOutPageNav
+    }
+    
+    func validLoginUser() -> Bool{
+        
+        let preferences = UserDefaults.standard
+        if let socialNetworkName  = preferences.string(forKey: SocialNetwork.PropertyKey.socialNetwork) {
+            
+            print ("socialNetworkName    \(socialNetworkName)")
+            if  GIDSignIn.sharedInstance().hasAuthInKeychain(){
+                print("user is signed in")
+                return true
+            }else{
+                print("GIDSignIn user is NOT signed in")
+            }
+            
+            if FBSDKAccessToken.current() != nil {
+                print("tokenFacebook user is signed in")
+                return true
+            }else{
+                print("tokenFacebook user is NOT signed in")
+            }
+            
+            print("Twitter user is signed in")
+            self.sendActivityMain()
+        }else{
+            print ("NO LOGIN")}
+
+         return false
+    }
+    
+
+    func isSignIn (_ application: UIApplication, open url: URL, sourceApplication: String , annotation: Any! )-> Bool {
+        
+        var signIn = GIDSignIn.sharedInstance().handle(url,
+                                                       sourceApplication: sourceApplication,
+                                                       annotation: annotation)
+        
+        if (signIn){ return true }
+        
+        signIn = FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
+                                                                       sourceApplication: sourceApplication,
+                                                                       annotation: annotation)
+        
+        return signIn
+        
+    }
+    
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    }
+    
+    
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
 

@@ -17,5 +17,7 @@ class SocialNetwork{
         static let sn_google = "google"
         static let sn_facebook = "facebook"
         static let sn_twitter = "twitter"
+        static let socialNetwork = "socialNetwork"
+        static let ToggleAuthUINotification = "ToggleAuthUINotification"
     }
 }

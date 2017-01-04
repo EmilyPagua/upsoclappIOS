@@ -156,10 +156,10 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         return nil
     }
     
-    /*
+    
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+   /* // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
@@ -173,22 +173,26 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
                 
             }
         }
-    }
-    */
+    }*/
+    
     //Google Analytics
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
             let name = newsList[0].linkNews
+            print(name)
         
+            /*
+            DESCOMENTAR PARA QUE SE ENVIEN A GOOGLE ANALYTICS
+         
             let googleAnalytics : GAITracker = GAI.sharedInstance().tracker(withTrackingId: ApiConstants.PropertyKey.googleAnalyticsTrackingId)
             GAI.sharedInstance().trackUncaughtExceptions = true
             GAI.sharedInstance().dispatchInterval =  20
             
-            googleAnalytics.set(kGAIScreenName, value: name)
+            googleAnalytics.set(kGAIScreenName, value: "pruebaIOS")
             
             let builder = GAIDictionaryBuilder.createScreenView()
-            googleAnalytics.send(builder!.build() as [NSObject : AnyObject])
+            googleAnalytics.send(builder!.build() as [NSObject : AnyObject])*/
     }
     //End Google Analytics
 }
