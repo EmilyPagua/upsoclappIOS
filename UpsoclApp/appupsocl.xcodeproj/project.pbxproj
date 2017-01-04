@@ -39,6 +39,7 @@
 		8C5BACBF1D7DF5990021DFBE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */; };
 		8C5D23281D9AC39100E1CC14 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */; };
 		8C5D232A1D9AF93A00E1CC14 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D23291D9AF93A00E1CC14 /* Customer.swift */; };
+		8C7487481E1D6A7C00650561 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7487471E1D6A7C00650561 /* GoogleMobileAds.framework */; };
 		8C77823F1D7A12ED001A0596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77823E1D7A12ED001A0596 /* News.swift */; };
 		8C816BDE1E158694000D1BE6 /* SocialNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C816BDD1E158694000D1BE6 /* SocialNetwork.swift */; };
 		8C816BE01E159751000D1BE6 /* MessagesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C816BDF1E159751000D1BE6 /* MessagesConstants.swift */; };
@@ -99,6 +100,7 @@
 		8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
 		8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		8C5D23291D9AF93A00E1CC14 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		8C7487471E1D6A7C00650561 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		8C77823E1D7A12ED001A0596 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		8C816BD81E15535D000D1BE6 /* appupsocl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appupsocl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C816BDB1E1562DD000D1BE6 /* appupsocl.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = appupsocl.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C7487481E1D6A7C00650561 /* GoogleMobileAds.framework in Frameworks */,
 				1A2287E0B9E881B0A10DB82F /* Pods_appupsocl.framework in Frameworks */,
 				8C0950B41E1BD2AC007CE73A /* FBSDKCoreKit.framework in Frameworks */,
 				8C0950B61E1BD2AC007CE73A /* FBSDKShareKit.framework in Frameworks */,
@@ -231,6 +234,7 @@
 		F47029E71A7F27DB00E30A3C = {
 			isa = PBXGroup;
 			children = (
+				8C7487471E1D6A7C00650561 /* GoogleMobileAds.framework */,
 				8C0950AF1E1BD2AC007CE73A /* Bolts.framework */,
 				8C0950B01E1BD2AC007CE73A /* FBSDKCoreKit.framework */,
 				8C0950B11E1BD2AC007CE73A /* FBSDKLoginKit.framework */,

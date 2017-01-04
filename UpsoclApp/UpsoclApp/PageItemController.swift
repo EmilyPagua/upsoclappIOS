@@ -11,22 +11,20 @@ import Social
 import FBSDKLoginKit
 import FBSDKShareKit
 import iAd
-//import GoogleMobileAds
+import GoogleMobileAds
 
-class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate, UITextFieldDelegate { //GADBannerViewDelegate ,  {
-    //Banner
+class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate, UITextFieldDelegate, GADBannerViewDelegate  {
+
     
-   // @IBOutlet weak var webViewContent: UIWebView!
+   /* @IBOutlet weak var webViewContent: UIWebView!
     @IBOutlet weak var imagenDetail: UIImageView!
     @IBOutlet weak var titleDetail: UILabel!
     @IBOutlet weak var authorDetail: UILabel!
-    @IBOutlet weak var bookmark: UIBarButtonItem!
-    
-
     @IBOutlet weak var categoryDetail: UILabel!
-    @IBOutlet weak var buttonShareFacebook: UIBarButtonItem!
+   */
     
-   // @IBOutlet weak var bannerViewUp: GADBannerView!
+    @IBOutlet weak var bookmark: UIBarButtonItem!
+    @IBOutlet weak var buttonShareFacebook: UIBarButtonItem!
     
     var servicesConnection = ServicesConnection()
     let baseURL = URL(string: "http://api.instagram.com/oembed")
@@ -43,14 +41,12 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     @IBOutlet weak var contentWebView: UIWebView!
-
-   // var ads: [String: GADAdSize]!
     
     //VAR
     var scrollViewDetail : UIScrollView!
     var containerView: UIView!
     var webDetail: UIWebView!
-  //  var bannerView: GADBannerView!
+    var bannerView: GADBannerView!
     
     var viewCount =  1
     //END  VAR
@@ -62,47 +58,43 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         indicator.center = view.center
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
-        /*
-        bannerView = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
- 
-        self.view.willRemoveSubview(bannerViewUp)
-        */
-        //loadContent()
-        
-        webDetail =  UIWebView()
-        webDetail.delegate = self
-        webDetail.loadHTMLString(createHTML(), baseURL: baseURL)
-        
-        /*bannerView =  GADBannerView(adSize: kGADAdSizeMediumRectangle)
-        bannerView.delegate = self
-        bannerView.adUnitID = "ca-mb-app-pub-7682123866908966/7102497723"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest()) */
-        
-        containerView =  UIView()
-        containerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector(("viewTapped:"))))
-        
-        scrollViewDetail = UIScrollView()
-        scrollViewDetail.delegate = self
-        scrollViewDetail.backgroundColor = UIColor.white
-        scrollViewDetail.autoresizingMask = UIViewAutoresizing.flexibleWidth
-        
 
-        containerView.addSubview(webDetail)
-        //containerView.addSubview(bannerView)
+        self.isBookmark()
+        self.createView()
+    }
+    
+    func createView () -> Void{
         
-        //builControls()
-        scrollViewDetail.addSubview(containerView)
-        view.addSubview(scrollViewDetail)
+        self.containerView =  UIView()
+        self.containerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector(("viewTapped:"))))
+        
+        self.indicator.startAnimating()
+        self.bannerView =  GADBannerView(adSize: kGADAdSizeMediumRectangle)
+        self.bannerView.delegate = self
+        self.bannerView.adUnitID = "ca-mb-app-pub-7682123866908966/7102497723"
+        self.bannerView.rootViewController = self
+        self.bannerView.load(GADRequest())
+        
+        self.webDetail =  UIWebView()
+        self.webDetail.delegate = self
+        self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
+        
+        self.scrollViewDetail = UIScrollView()
+        self.scrollViewDetail.delegate = self
+        self.scrollViewDetail.backgroundColor = UIColor.white
+        self.scrollViewDetail.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        
+        self.containerView.addSubview(self.webDetail)
+        self.containerView.addSubview(self.bannerView)
+    
+        scrollViewDetail.addSubview(self.containerView)
+        view.addSubview(self.scrollViewDetail)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        print ("-----")
-       /* webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height)
+        webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height)
         bannerView.frame = CGRect(x:0, y:webDetail.scrollView.bounds.maxY+10, width: 300, height: 250)
 
         scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
@@ -112,17 +104,14 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         
         containerView.frame = CGRect(x: 0, y: 0,
                                      width: scrollViewDetail.contentSize.width,
-                                     height: scrollViewDetail.bounds.size.height)*/
+                                     height: scrollViewDetail.bounds.size.height)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         self.indicator.stopAnimating()
         print ("webViewDidFinishLoad")
     }
-    
-    
-    func builControls(){
-    }
+
     
     func plus(sender : UIButton) {
         update(zoomScale: scrollViewDetail.zoomScale+0.1, offSet: CGPoint.zero)
@@ -172,10 +161,8 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     //Share
     @IBAction func shareButton(_ sender: UIBarButtonItem) {
         if news.idNews == 0 {
-            // Hide the keyboard
             displayAlert("Error", message: "Error en el post, vuelva a seleccionarlo")
         } else {
-            // We have contents so display the share sheet
             displayShareSheet()
         }
     }
@@ -227,29 +214,15 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) as! String
             
             preferences.setValue(jsonString, forKey: currentLevelKey )            
-            bookmark.image = UIImage(named: "bookmarkActive")
+            self.bookmark.image = UIImage(named: "bookmarkActive")
             print ("bookmarkActive")
         } else {
             preferences.removeObject(forKey: currentLevelKey)
-            bookmark.image = UIImage(named: "bookmarkInactive")
+            self.bookmark.image = UIImage(named: "bookmarkInactive")
             print ("bookmarkInactive")
         }
         preferences.synchronize()
     }
-    
-
-  /*  func loadContent(){
-                        
-        loadIsBookmark()
-       
-        
-        let baseURL = URL(string: "http://api.instagram.com/oembed")
-        self.webViewContent.loadHTMLString(createHTML(), baseURL: baseURL)
-        webViewContent.delegate = self
-        webViewContent.backgroundColor =  UIColor.white
-        
-        self.indicator.startAnimating()
-    }*/
     
     
     func createHTML() -> String{
@@ -257,7 +230,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         contentDetail = top
         
         if news.imageURLNews != nil{
-            let imagen  = "<center><img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news.imageURLNews!+" width=\"728\" > </center>"
+            let imagen  = " <center><img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news.imageURLNews!+" width=\"728\" > </center>"
             contentDetail = contentDetail + imagen
         }
         
@@ -272,6 +245,8 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         
         contentDetail = contentDetail  + title + detailAuthor + category
         contentDetail = contentDetail + line + content! + " </body> </html> "
+        
+        /*contentDetail =  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\"> <head>  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />  </head> <body>  <div id=\"myDiv\">Hello</div> <script>  var inlineScript   = document.createElement(\"script\"); inlineScript.type  = \"text/javascript\";  inlineScript.text  = '<!--google_ad_client = \"ca-mb-app-pub-7682123866908966\";  google_ad_slot = \"7102497723\";  google_ad_width = 300;  google_ad_height = 250;//-->' document.getElementById(\"myDiv\").appendChild(inlineScript);  var externalScript   = document.createElement(\"script\");  externalScript.type  = \"text/javascript\"; externalScript.src = \"http://pagead2.googlesyndication.com/pagead/show_ads.js\"; document.getElementById(\"myDiv\").appendChild(externalScript);  </script>  </body>  </html>"*/
         return contentDetail
     
     }
@@ -291,7 +266,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.indicator.startAnimating()
     }
     
-    func loadIsBookmark() {
+    func isBookmark() {
         
         let preferences = UserDefaults.standard
         let currentLevel = preferences.object(forKey: String(news.idNews))
@@ -313,7 +288,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     }
     
     //BannerViewController
-  /*  func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+   func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
         print("ERROR_ adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
         bannerView.isHidden = true
     }
@@ -334,6 +309,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     func adViewWillPresentScreen(_ bannerView: GADBannerView) {
         print ("adViewDidDismissScreen")
         bannerView.isHidden =  false
-    } */
+    }
     //BannerViewController
 }

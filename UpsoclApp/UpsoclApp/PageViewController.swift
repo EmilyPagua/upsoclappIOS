@@ -180,7 +180,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         super.viewWillAppear(animated)
         
             let name = newsList[0].linkNews
-            print(name)
+            print("URL articlo a compartir en GAnalytics\(name)")
         
             /*
             DESCOMENTAR PARA QUE SE ENVIEN A GOOGLE ANALYTICS

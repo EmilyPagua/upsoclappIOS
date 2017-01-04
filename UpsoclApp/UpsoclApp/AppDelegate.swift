@@ -47,28 +47,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         self.facebookStartConfig(application, didFinishLaunchingWithOptions: launchOptions)
         self.twitterStartConfig()
         self.googleAnalyticsStart()
-    
         
         if self.validLoginUser(){
             self.sendActivityMain()
         }else{
             category.clearCategoryPreference()
         }
-        
-        // [END register_for_remote_notifications]
-        // [START start_gcm_service]
-     /*   let gcmConfig = GCMConfig.default()
-        gcmConfig?.receiverDelegate = self
-        GCMService.sharedInstance().start(with: gcmConfig)*/
-        // [END start_gcm_service]
     
         return true
     }
 
-    
-    func GCMStart() -> Void {
-        <#function body#>
-    }
+
     func applicationDidBecomeActive(_ application: UIApplication) {
         
         // [START connect_gcm_service]
@@ -111,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         if (error == nil) {
             // Perform any operations on signed in user here.
             let fullName = user.profile.givenName
-                
+            
             let user = Customer(firstName: user.profile.givenName!,     lastName: user.profile.familyName!,
                                 email:  user.profile.email!,            location: "--",
                                 birthday: "00-00-0000",                 imagenURL: user.profile.imageURL(withDimension: 50)!,

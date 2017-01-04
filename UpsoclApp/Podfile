@@ -10,7 +10,6 @@ target 'appupsocl' do
   #pod 'Firebase/AdMob'
   pod 'Google/SignIn'
   pod 'Google/Analytics'
-  #pod 'GoogleAnalytics'
   pod 'Google/CloudMessaging'
   
 
