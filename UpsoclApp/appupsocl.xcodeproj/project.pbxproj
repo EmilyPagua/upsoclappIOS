@@ -20,6 +20,10 @@
 		8C31A7131D8B05190091A36A /* BookmarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */; };
 		8C31A7151D8B40CB0091A36A /* NewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A7141D8B40CB0091A36A /* NewsViewCell.swift */; };
 		8C31A7171D8C4FAB0091A36A /* CheckBoxInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A7161D8C4FAB0091A36A /* CheckBoxInterest.swift */; };
+		8C46F77D1E1ED89E001436D7 /* NewsSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46F77C1E1ED89E001436D7 /* NewsSingleton.swift */; };
+		8C46F77E1E1ED89E001436D7 /* NewsSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46F77C1E1ED89E001436D7 /* NewsSingleton.swift */; };
+		8C46F7801E1ED98E001436D7 /* NewsNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46F77F1E1ED98E001436D7 /* NewsNotification.swift */; };
+		8C46F7811E1ED98E001436D7 /* NewsNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46F77F1E1ED98E001436D7 /* NewsNotification.swift */; };
 		8C4726A31DA54D4400A9F6AC /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4726A21DA54D4400A9F6AC /* Reachability.swift */; };
 		8C51747C1D99626E00771EF1 /* LoginUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51747B1D99626E00771EF1 /* LoginUserController.swift */; };
 		8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */; };
@@ -81,6 +85,8 @@
 		8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewController.swift; sourceTree = "<group>"; };
 		8C31A7141D8B40CB0091A36A /* NewsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewCell.swift; sourceTree = "<group>"; };
 		8C31A7161D8C4FAB0091A36A /* CheckBoxInterest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxInterest.swift; sourceTree = "<group>"; };
+		8C46F77C1E1ED89E001436D7 /* NewsSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsSingleton.swift; path = UpsoclApp/NewsSingleton.swift; sourceTree = "<group>"; };
+		8C46F77F1E1ED98E001436D7 /* NewsNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsNotification.swift; sourceTree = "<group>"; };
 		8C4726A21DA54D4400A9F6AC /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8C51747B1D99626E00771EF1 /* LoginUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserController.swift; sourceTree = "<group>"; };
 		8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForYouTableViewController.swift; path = ../ForYouTableViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +174,14 @@
 			name = connectionServices;
 			sourceTree = "<group>";
 		};
+		8C46F7821E1EDDB0001436D7 /* singleton */ = {
+			isa = PBXGroup;
+			children = (
+				8C46F77C1E1ED89E001436D7 /* NewsSingleton.swift */,
+			);
+			name = singleton;
+			sourceTree = "<group>";
+		};
 		8C5B064C1D80B17F00E2BB52 /* key */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +255,7 @@
 				8C0950B21E1BD2AC007CE73A /* FBSDKShareKit.framework */,
 				8CF173071E1698E100AE615E /* appupsocl.entitlements */,
 				F4702A151A7F342F00E30A3C /* MapKit.framework */,
+				8C46F7821E1EDDB0001436D7 /* singleton */,
 				F47029F21A7F27DB00E30A3C /* UpsoclApp */,
 				F4702A081A7F27DC00E30A3C /* appupsoclTests */,
 				8C816BD81E15535D000D1BE6 /* appupsocl.app */,
@@ -273,6 +288,7 @@
 				8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */,
 				8C51747B1D99626E00771EF1 /* LoginUserController.swift */,
 				8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */,
+				8C46F77F1E1ED98E001436D7 /* NewsNotification.swift */,
 			);
 			path = UpsoclApp;
 			sourceTree = "<group>";
@@ -361,6 +377,12 @@
 						DevelopmentTeam = Q479SBKZW7;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
@@ -371,7 +393,7 @@
 					};
 					F4702A041A7F27DC00E30A3C = {
 						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						TestTargetID = F47029EF1A7F27DB00E30A3C;
 					};
 				};
@@ -542,6 +564,7 @@
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
 				8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */,
 				8C5B06561D8192D500E2BB52 /* CreativityTableViewController.swift in Sources */,
+				8C46F7801E1ED98E001436D7 /* NewsNotification.swift in Sources */,
 				8CE94EA61D9C4F1B0018CFFB /* PreferencsViewController.swift in Sources */,
 				8C5B06621D81B6BF00E2BB52 /* FoodTableViewController.swift in Sources */,
 				8C816BE01E159751000D1BE6 /* MessagesConstants.swift in Sources */,
@@ -551,6 +574,7 @@
 				8C816BDE1E158694000D1BE6 /* SocialNetwork.swift in Sources */,
 				8C5B066A1D81B9A600E2BB52 /* QuizTableViewController.swift in Sources */,
 				8C4726A31DA54D4400A9F6AC /* Reachability.swift in Sources */,
+				8C46F77D1E1ED89E001436D7 /* NewsSingleton.swift in Sources */,
 				8C5B06641D81B97400E2BB52 /* PopularyTableViewController.swift in Sources */,
 				8C31A70F1D8732100091A36A /* PageViewController.swift in Sources */,
 				8C12D6B21D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift in Sources */,
@@ -570,6 +594,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C46F7811E1ED98E001436D7 /* NewsNotification.swift in Sources */,
+				8C46F77E1E1ED89E001436D7 /* NewsSingleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +716,7 @@
 			baseConfigurationReference = 56DA20B74E90D17D192CC12D /* Pods-appupsoclTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -703,6 +730,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.appcoda.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = appupsocl;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/appupsocl.app/appupsocl";
 			};

@@ -46,7 +46,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         
         let preferences = UserDefaults.standard
         //let bookmark = newsList[0]
-        // let currentLevel = preferences.objectForKey(String(bookmark.idNews))
+        //let currentLevel = preferences.objectForKey(String(bookmark.idNews))
         
         for  i in 0  ..< newsList.count    {
             let bookmark = newsList[i]
@@ -179,20 +179,26 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if (newsList.count>1){
             let name = newsList[0].linkNews
             print("URL articlo a compartir en GAnalytics\(name)")
-        
+            
             /*
-            DESCOMENTAR PARA QUE SE ENVIEN A GOOGLE ANALYTICS
-         
-            let googleAnalytics : GAITracker = GAI.sharedInstance().tracker(withTrackingId: ApiConstants.PropertyKey.googleAnalyticsTrackingId)
-            GAI.sharedInstance().trackUncaughtExceptions = true
-            GAI.sharedInstance().dispatchInterval =  20
-            
-            googleAnalytics.set(kGAIScreenName, value: "pruebaIOS")
-            
-            let builder = GAIDictionaryBuilder.createScreenView()
-            googleAnalytics.send(builder!.build() as [NSObject : AnyObject])*/
+             DESCOMENTAR PARA QUE SE ENVIEN A GOOGLE ANALYTICS
+             
+             let googleAnalytics : GAITracker = GAI.sharedInstance().tracker(withTrackingId: ApiConstants.PropertyKey.googleAnalyticsTrackingId)
+             GAI.sharedInstance().trackUncaughtExceptions = true
+             GAI.sharedInstance().dispatchInterval =  20
+             
+             googleAnalytics.set(kGAIScreenName, value: "pruebaIOS")
+             
+             let builder = GAIDictionaryBuilder.createScreenView()
+             googleAnalytics.send(builder!.build() as [NSObject : AnyObject])*/
+        }else{
+            print ("-- GoogleAnalytics, NO se encontro news")
+        }
+        
+        
     }
     //End Google Analytics
 }

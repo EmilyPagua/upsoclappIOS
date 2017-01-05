@@ -14,14 +14,6 @@ import iAd
 import GoogleMobileAds
 
 class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate, UITextFieldDelegate, GADBannerViewDelegate  {
-
-    
-   /* @IBOutlet weak var webViewContent: UIWebView!
-    @IBOutlet weak var imagenDetail: UIImageView!
-    @IBOutlet weak var titleDetail: UILabel!
-    @IBOutlet weak var authorDetail: UILabel!
-    @IBOutlet weak var categoryDetail: UILabel!
-   */
     
     @IBOutlet weak var bookmark: UIBarButtonItem!
     @IBOutlet weak var buttonShareFacebook: UIBarButtonItem!
@@ -61,6 +53,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
 
         self.isBookmark()
         self.createView()
+    
     }
     
     func createView () -> Void{
@@ -246,9 +239,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         contentDetail = contentDetail  + title + detailAuthor + category
         contentDetail = contentDetail + line + content! + " </body> </html> "
         
-        /*contentDetail =  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\"> <head>  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />  </head> <body>  <div id=\"myDiv\">Hello</div> <script>  var inlineScript   = document.createElement(\"script\"); inlineScript.type  = \"text/javascript\";  inlineScript.text  = '<!--google_ad_client = \"ca-mb-app-pub-7682123866908966\";  google_ad_slot = \"7102497723\";  google_ad_width = 300;  google_ad_height = 250;//-->' document.getElementById(\"myDiv\").appendChild(inlineScript);  var externalScript   = document.createElement(\"script\");  externalScript.type  = \"text/javascript\"; externalScript.src = \"http://pagead2.googlesyndication.com/pagead/show_ads.js\"; document.getElementById(\"myDiv\").appendChild(externalScript);  </script>  </body>  </html>"*/
         return contentDetail
-    
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
@@ -257,7 +248,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         print ("load Content webView")
-        
         return true;
     }
     

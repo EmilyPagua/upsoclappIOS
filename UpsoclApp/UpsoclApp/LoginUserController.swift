@@ -35,16 +35,22 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
-        loginButtonFacebook!.delegate = self  //Start FacebookLogin
-        Twitter.sharedInstance().logIn { session, error in
-            if (session != nil) {
-                print("1 \(session!.userName)");
-            } else {
-                print("5 error: \(error!.localizedDescription)");
+        let preferences = UserDefaults.standard
+        if let socialNetworkName  = preferences.string(forKey: SocialNetwork.PropertyKey.socialNetwork) {
+            
+            print ("LoginUserController    \(socialNetworkName)")
+            Twitter.sharedInstance().logIn { session, error in
+                if (session != nil) {
+                    print("1 \(session!.userName)");
+                } else {
+                    print("5 error: \(error!.localizedDescription)");
+                }
             }
         }
         
+        GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
+        loginButtonFacebook!.delegate = self  //Start FacebookLogin
+       
         loginButtonFacebook?.isEnabled = false
         loginButtonTwitter?.isEnabled = false
         signInButtonGoogle?.isEnabled = false

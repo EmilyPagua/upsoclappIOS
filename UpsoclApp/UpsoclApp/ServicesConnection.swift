@@ -83,9 +83,6 @@ class ServicesConnection  {
     //Load 10 News
     func loadAllNews(_ wrapper: [News]?,  urlPath: String,  completionHandler: @escaping ([News]?, NSError?) -> Void) {
 
-        print(" ++++++++++  ")
-        print(urlPath)
-        
         if wrapper == nil{
             completionHandler(nil, nil)
             return
@@ -97,7 +94,7 @@ class ServicesConnection  {
             .replacingOccurrences(of: "á", with: "a")
             .replacingOccurrences(of: " ", with: "%20")
     
-        
+    
         self.newsList = wrapper!
         guard let url = URL(string: urlPath) else{
             print("ERROR_ ServicesConnection loadAllNews en URL")

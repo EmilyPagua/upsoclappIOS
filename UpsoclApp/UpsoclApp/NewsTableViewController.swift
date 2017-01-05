@@ -11,14 +11,20 @@ import UIKit
 class NewsTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton:UIBarButtonItem!
+    
     var newsList = [News]()
+    var newsNotification = [News]()
     var servicesConnection = ServicesConnection()
     var page =  1
+    var isNotification = true
     
     var progressBar = ProgressBarLoad()
     var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
-    
+    @IBAction func notificationButton(_ sender: UIBarButtonItem) {
+        self.isNotification = true
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -147,7 +153,31 @@ class NewsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-            
+        
+        print(segue.identifier)
+        /*if segue.identifier == "ShowNotification" {
+         
+         if self.isNotification{
+         
+         //564792
+         let idPost = "564792"
+         let urlPath = ApiConstants.PropertyKey.baseURL + ""+ApiConstants.PropertyKey.listPost+"/\(idPost)"
+         
+         print (urlPath)
+         servicesConnection.loadNews(self.newsNotification, urlPath: urlPath, completionHandler: {(moreWrapper, error) in
+         
+         self.newsNotification = moreWrapper!
+         
+         DispatchQueue.main.async(execute: {
+         print (self.newsNotification.count)
+         let detailViewController = segue.destination as! PageViewController
+         detailViewController.newsList = self.newsNotification
+         return
+         })
+         })
+         }
+         }*/
+        
         if segue.identifier == "ShowDetail" {
             
             let detailViewController = segue.destination as! PageViewController

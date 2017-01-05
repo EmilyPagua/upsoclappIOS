@@ -43,7 +43,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Dt-3d-133" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="337" width="89" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comida">
                                                     <attributes>
@@ -59,7 +59,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-eP-ejl" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="337" width="133" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Estilo de vida">
                                                     <attributes>
@@ -75,7 +75,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRx-QK-hSO" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="306" width="111" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Diversidad">
                                                     <attributes>
@@ -91,7 +91,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIa-vA-IaT" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="306" width="83" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Belleza">
                                                     <attributes>
@@ -107,7 +107,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-vK-JKE" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="275" width="117" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Creatividad">
                                                     <attributes>
@@ -123,7 +123,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEr-TS-JQN" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="275" width="88" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Pelicula">
                                                     <attributes>
@@ -139,7 +139,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-8O-4Ae" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="245" width="145" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Más populares">
                                                     <attributes>
@@ -155,7 +155,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-EX-LSU" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="214" width="133" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Colaboración">
                                                     <attributes>
@@ -171,7 +171,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-Ai-hKi" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="183" width="71" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mujer">
                                                     <attributes>
@@ -187,7 +187,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-QP-jex" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="152" width="84" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Cultura">
                                                     <attributes>
@@ -203,7 +203,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-fw-tcb" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="121" width="83" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Familia">
                                                     <attributes>
@@ -219,7 +219,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BF5-nK-i3k" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="90" width="82" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mundo">
                                                     <attributes>
@@ -235,7 +235,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgO-Gj-TRM" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="245" width="71" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Verde">
                                                     <attributes>
@@ -251,7 +251,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izv-ZR-vJm" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="152" width="119" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comunidad">
                                                     <attributes>
@@ -267,7 +267,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQR-WU-kUt" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="183" width="114" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Relaciones">
                                                     <attributes>
@@ -283,7 +283,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHo-ul-Flj" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="121" width="72" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Salud">
                                                     <attributes>
@@ -299,7 +299,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="val-ew-1pW" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="90" width="114" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Inspiración">
                                                     <attributes>
@@ -315,7 +315,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8I-xj-fTZ" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="214" width="62" height="25"/>
-                                        <state key="normal" image="D55E1504-B94F-4CD6-BA1C-5226F4DB7642">
+                                        <state key="normal" image="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Quiz">
                                                     <attributes>
@@ -594,7 +594,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Portada" id="ovY-ud-e84">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="bvR-yD-ToH"/>
+                        <leftBarButtonItems>
+                            <barButtonItem image="menu" id="bvR-yD-ToH"/>
+                            <barButtonItem image="notification_enable" id="bVi-h4-2ka">
+                                <connections>
+                                    <action selector="notificationButton:" destination="RaP-X2-i0v" id="XgT-d7-G9a"/>
+                                    <segue destination="FbB-Mj-FSl" kind="showDetail" identifier="ShowNotification" id="PUI-2C-7fb"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="ls6-wD-PxD">
                             <connections>
                                 <segue destination="fjR-8n-Co1" kind="presentation" id="pT1-aE-j8D"/>
@@ -723,12 +731,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="YZR-5F-xFh"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJr-1r-VV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4334" y="-917"/>
+            <point key="canvasLocation" x="4434" y="-917"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="JlW-sv-yoC">
@@ -812,7 +821,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHe-Bi-4c8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6488" y="-1935"/>
+            <point key="canvasLocation" x="5258" y="-1597"/>
         </scene>
         <!--Menu Controller-->
         <scene sceneID="WvI-gM-KFV">
@@ -1198,7 +1207,7 @@
                 <navigationController id="aSO-EC-l4H" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Verde" image="green" id="qRU-Sz-0yM"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ria-DU-p3i">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ria-DU-p3i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1507,7 +1516,7 @@
             <objects>
                 <navigationController id="FRv-1f-8X5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mas popular" image="populary" id="Pjt-7v-mjx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5tS-ZY-bHT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5tS-ZY-bHT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1626,7 +1635,7 @@
             <objects>
                 <navigationController id="W91-EF-yco" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Comida" image="food" id="OZc-cl-KUU"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yxF-QC-Ouk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yxF-QC-Ouk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1647,7 +1656,7 @@
             <objects>
                 <navigationController id="lKj-og-K4y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Quiz" image="quiz" id="Tdy-Ph-0MI"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3c5-xg-UWG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3c5-xg-UWG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1766,7 +1775,7 @@
             <objects>
                 <navigationController id="JLy-ZS-dTV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mujer" image="women" id="6cc-9N-bjj"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="B03-zA-Cm1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B03-zA-Cm1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1879,7 +1888,7 @@
             <objects>
                 <navigationController id="aJj-GW-2e9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Creatividad" image="creativity" id="BXh-iI-Tkc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TdO-jk-9H2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TdO-jk-9H2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1900,7 +1909,7 @@
             <objects>
                 <navigationController id="1yr-dR-qHD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Para Ti" image="foryou" id="IhH-k1-wYg"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zrT-5g-QiR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zrT-5g-QiR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1922,7 +1931,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dXH-rC-dKS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Portada" image="home_lateral" id="48C-N4-e0M"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WmJ-Ml-X7j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WmJ-Ml-X7j">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1937,7 +1946,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkz-3n-E2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2576" y="-497"/>
+            <point key="canvasLocation" x="2561" y="-499"/>
         </scene>
         <!--Intereses-->
         <scene sceneID="yCp-Wv-509">
@@ -1969,7 +1978,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="763" restorationIdentifier="food" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-md-BkZ" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="337" width="89" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comida">
                                                     <attributes>
@@ -1985,7 +1994,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="stileLive" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zS4-T8-Hyb" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="337" width="133" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Estilo de vida">
                                                     <attributes>
@@ -2001,7 +2010,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="diversity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NnE-r9-lN7" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="306" width="111" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Diversidad">
                                                     <attributes>
@@ -2017,7 +2026,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="beauty" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-xx-EiK" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="306" width="83" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Belleza">
                                                     <attributes>
@@ -2033,7 +2042,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" verticalCompressionResistancePriority="761" restorationIdentifier="creativity" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBW-q1-PXR" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="275" width="117" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Creatividad">
                                                     <attributes>
@@ -2049,7 +2058,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="757" restorationIdentifier="movies" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tk-bT-ly8" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="275" width="88" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Pelicula">
                                                     <attributes>
@@ -2065,7 +2074,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="populary" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL1-1L-yff" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="245" width="145" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Más populares">
                                                     <attributes>
@@ -2081,7 +2090,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="261" verticalCompressionResistancePriority="762" restorationIdentifier="colaboration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGU-II-JnZ" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="214" width="133" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Colaboración">
                                                     <attributes>
@@ -2097,7 +2106,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" restorationIdentifier="women" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-rg-VR0" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="183" width="71" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mujer">
                                                     <attributes>
@@ -2113,7 +2122,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" restorationIdentifier="culture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-IV-ACu" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="152" width="84" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Cultura">
                                                     <attributes>
@@ -2129,7 +2138,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" restorationIdentifier="family" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bN-1V-iwp" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="121" width="83" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Familia">
                                                     <attributes>
@@ -2145,7 +2154,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="world" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Kv-Nh-n7r" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="215" y="90" width="82" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Mundo">
                                                     <attributes>
@@ -2161,7 +2170,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="green" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-sz-Er6" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="245" width="71" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Verde">
                                                     <attributes>
@@ -2177,7 +2186,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" restorationIdentifier="community" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-Gc-2b5" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="152" width="119" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Comunidad">
                                                     <attributes>
@@ -2193,7 +2202,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="relations" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gnp-u9-eol" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="183" width="114" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Relaciones">
                                                     <attributes>
@@ -2209,7 +2218,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" restorationIdentifier="health" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rii-th-0o0" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="121" width="72" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Salud">
                                                     <attributes>
@@ -2225,7 +2234,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="inspiration" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uyw-os-Nyp" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="90" width="114" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Inspiración">
                                                     <attributes>
@@ -2241,7 +2250,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" verticalCompressionResistancePriority="759" restorationIdentifier="quiz" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gm-bg-Iec" customClass="CheckBoxInterest" customModule="appupsocl" customModuleProvider="target">
                                         <rect key="frame" x="15" y="214" width="62" height="25"/>
-                                        <state key="normal" image="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9">
+                                        <state key="normal" image="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Quiz">
                                                     <attributes>
@@ -2334,7 +2343,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0J7-Hk-VFu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nxz-TN-o7k">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nxz-TN-o7k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2630,7 +2639,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xGX-Up-JMg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M4h-yY-vYH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M4h-yY-vYH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2652,7 +2661,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BSE-kY-bhe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9ar-U3-vSH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ar-U3-vSH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2756,7 +2765,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="03U-Ec-qae" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DiQ-Oy-cE4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DiQ-Oy-cE4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2778,7 +2787,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A3t-D9-nX1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Ks-jX-EBG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Ks-jX-EBG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2800,7 +2809,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fjR-8n-Co1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="h7c-O3-lRK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h7c-O3-lRK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2823,7 +2832,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2M-hT-Hdj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="caR-ab-x73">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="caR-ab-x73">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2842,7 +2851,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="60A318D0-0FB0-4CDD-AFD0-1A73F7D714A9" width="25" height="25">
+        <image name="5BD52890-7FA2-46DE-AE2B-3DD54D3C8374" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2935,7 +2944,7 @@ E34ThxOME5QTlxOcE6sTrxO2E74TyxPQE9IT1BPZE+ET5BPpE/ET9BQGFAkUDgAAAAAAAAIBAAAAAAAA
 AEEAAAAAAAAAAAAAAAAAABQQA
 </mutableData>
         </image>
-        <image name="D55E1504-B94F-4CD6-BA1C-5226F4DB7642" width="25" height="25">
+        <image name="7FE2C924-B65A-4B2D-BBFA-F86B3CC757D1" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -3041,6 +3050,7 @@ AEEAAAAAAAAAAAAAAAAAABQQA
         <image name="home_lateral" width="25" height="25"/>
         <image name="interest" width="25" height="25"/>
         <image name="menu" width="22" height="22"/>
+        <image name="notification_enable" width="24" height="24"/>
         <image name="populary" width="25" height="25"/>
         <image name="preferences" width="25" height="25"/>
         <image name="privacity" width="25" height="25"/>
@@ -3050,8 +3060,8 @@ AEEAAAAAAAAAAAAAAAAAABQQA
         <image name="women" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pT1-aE-j8D"/>
         <segue reference="Icd-mH-gTg"/>
-        <segue reference="ENO-j9-uZD"/>
-        <segue reference="l6J-HB-wrz"/>
+        <segue reference="p7G-Xk-1x4"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 import CoreLocation
 import Fabric
 import TwitterKit
@@ -13,7 +14,8 @@ import Google
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLInstanceIDDelegate, GCMReceiverDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
+                    GGLInstanceIDDelegate, GCMReceiverDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
     var locationManager: CLLocationManager!
@@ -43,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         print ("--------------------------Inicio------------------")
+        
+        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+
         self.googleStartConfig(application)
         self.facebookStartConfig(application, didFinishLaunchingWithOptions: launchOptions)
         self.twitterStartConfig()
@@ -54,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
             category.clearCategoryPreference()
         }
     
+        
         return true
     }
 
@@ -182,6 +188,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         // If the app has a registration token and is connected to GCM, proceed to subscribe to the
         // topic
         if registrationToken != nil && connectedToGCM {
+            
             GCMPubSub.sharedInstance().subscribe(withToken: self.registrationToken,
                                                  topic: subscriptionTopic,
                                                  options: nil,
@@ -204,8 +211,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         
     
     // [START receive_apns_token_error]
-    func application( _ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError
-        error: Error ) {
+    func application( _ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error ) {
         print("Registration for remote notification failed with error: \(error.localizedDescription)")
         // [END receive_apns_token_error]
         let userInfo = ["error": error.localizedDescription]
@@ -219,11 +225,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
     func application( _ application: UIApplication,
                       didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
-        print("Notification received: \(userInfo)")
-        // This works only if the app started the GCM service
+        print("1  Notification received: \(userInfo)")
         GCMService.sharedInstance().appDidReceiveMessage(userInfo)
-        // Handle the received message
-        // [START_EXCLUDE]
         NotificationCenter.default.post(name: Notification.Name(rawValue: messageKey), object: nil,
                                         userInfo: userInfo)
         // [END_EXCLUDE]
@@ -234,15 +237,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
                       fetchCompletionHandler handler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         print("Notification received: \(userInfo)")
-        // This works only if the app started the GCM service
-       // GCMService.sharedInstance().appDidReceiveMessage(userInfo)
-        //NotificationCenter.default.post(name: Notification.Name(rawValue: messageKey), object: nil,
-          //                              userInfo: userInfo)
-       // handler(UIBackgroundFetchResult.noData)
-
+        GCMService.sharedInstance().appDidReceiveMessage(userInfo)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: messageKey),
+                                        object: nil,
+                                       userInfo: userInfo)
         
-        print ("redireccionar")
-        // [END_EXCLUDE]
+        handler(UIBackgroundFetchResult.noData)
+        
+        var notification = [News]()
+        let idPost = "564792"
+        let urlPath = ApiConstants.PropertyKey.baseURL + ""+ApiConstants.PropertyKey.listPost+"/\(idPost)"
+        
+        servicesConnection.loadNews(notification, urlPath: urlPath, completionHandler: {(moreWrapper, error) in
+            notification = moreWrapper!
+            DispatchQueue.main.async(execute: {
+                print (notification.count)
+                
+                if (notification.count>0){
+                    let item = NewsNotification(idPost: String(describing: notification.first?.idNews) ,
+                                                title: (notification.first?.titleNews)! ,
+                                                subTitle: (notification.first?.titleNews)! , UUID: UUID().uuidString)
+                    
+                    NewsSingleton.sharedInstance.removeAllItem()
+                    NewsSingleton.sharedInstance.addNotification(item)
+                }
+                return
+            })
+        })
+
+        /*NewsSingleton.sharedInstance.removeItem(item)
+        todoItems = NewsSingleton.sharedInstance.allItems()
+        var todoItems: [NewsNotification] = []
+        todoItems = NewsSingleton.sharedInstance.allItems()
+         */
     }
     
     func googleStartConfig(_ application: UIApplication) {
@@ -315,6 +342,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         if let socialNetworkName  = preferences.string(forKey: SocialNetwork.PropertyKey.socialNetwork) {
             
             print ("socialNetworkName    \(socialNetworkName)")
+            
+            Twitter.sharedInstance().logIn { session, error in
+                if (session != nil) {
+                    print("1 \(session!.userName)");
+                } else {
+                    print("5 error: \(error!.localizedDescription)");
+                }
+            }
+
+            
             if  GIDSignIn.sharedInstance().hasAuthInKeychain(){
                 print("user is signed in")
                 return true
@@ -349,7 +386,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GGLIns
         signIn = FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
                                                                        sourceApplication: sourceApplication,
                                                                        annotation: annotation)
-        
         return signIn
         
     }

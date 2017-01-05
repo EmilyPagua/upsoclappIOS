@@ -23,8 +23,7 @@ class ApiConstants  {
         static let filterCategoryName = "?categories="
         static let filterPageForYou = "&page="
         static let filterPostId = "/posts/{id}"
-        
-        
+    
         static let googleAnalyticsTrackingId = "UA-44944096-19"
     }
 }
