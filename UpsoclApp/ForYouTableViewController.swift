@@ -10,7 +10,9 @@ import UIKit
 
 class ForYouTableViewController: UITableViewController {
 
+    @IBOutlet weak var notificationButton: UIBarButtonItem!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     var newsList = [News]()
     var servicesConnection = ServicesConnection()
     var page = 1
@@ -29,12 +31,6 @@ class ForYouTableViewController: UITableViewController {
         indicator.bringSubview(toFront: view)
         
          self.refreshControl?.addTarget(self, action: #selector(NewsTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -196,8 +192,22 @@ class ForYouTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        if segue.identifier == "ShowDetail" {
+        
+        let id = segue.identifier! as String
+        switch id {
+        case "ShowNotification":
             
+            var notification: [PostNotification] = []
+            notification = NewsSingleton.sharedInstance.allItems()
+            
+            if (notification.isEmpty){
+                print("No tiene noticaciones disponibles")
+            }else{
+                self.processingNotification(notification: notification, segue: segue )
+                return
+            }
+            
+        case "ShowDetail":
             let detailViewController = segue.destination as! PageViewController
             
             // Get the cell that generated this segue.
@@ -207,16 +217,18 @@ class ForYouTableViewController: UITableViewController {
                 var list =  [News]()
                 let listCount = newsList.count
                 
-                for i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 4  {
-                    if listCount >= i {
+                if (indexPath as NSIndexPath).row + 5 <= listCount {
+                    for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
                         list.append(newsList[i])
                     }
+                    detailViewController.newsList = list
                 }
-                detailViewController.newsList = list
             }
+            
+        default:
+            print ("Es otro boton")
+            
         }
-        else{
-        print ("Es otro boton")}
     }
 
     func callWebServices(_ paged: String ){
@@ -244,4 +256,31 @@ class ForYouTableViewController: UITableViewController {
             })
         })
     }
+    
+    func processingNotification(notification: [PostNotification], segue: UIStoryboardSegue) -> Void {
+        
+        let news: News = News(id: (notification.first?.idPost)!,
+                              title: (notification.first?.title)!,
+                              content: notification.first?.content,
+                              imageURL: notification.first?.imageURL,
+                              date: notification.first?.date,
+                              link: notification.first?.link,
+                              category: notification.first?.category,
+                              author: notification.first?.author)!
+        
+        var newsList = [News]()
+        newsList.append(news)
+        
+        var post = notification.first
+        post?.isRead  = true
+        notificationButton.image = UIImage(named: "notification_disable")
+        
+        NewsSingleton.sharedInstance.removeAllItem()
+        NewsSingleton.sharedInstance.addNotification(post!)
+        
+        let detailViewController = segue.destination as! PageViewController
+        detailViewController.newsList = newsList
+    }
+
+    
 }

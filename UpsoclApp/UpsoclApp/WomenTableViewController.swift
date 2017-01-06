@@ -11,6 +11,7 @@ import UIKit
 class WomenTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var notificationButton: UIBarButtonItem!
     
     var newsList = [News]()
     var servicesConnection =  ServicesConnection()
@@ -175,6 +176,31 @@ class WomenTableViewController: UITableViewController {
                 viewImagen.image = moreWrapper
             })
         })
+    }
+    
+    func processingNotification(notification: [PostNotification], segue: UIStoryboardSegue) -> Void {
+        
+        let news: News = News(id: (notification.first?.idPost)!,
+                              title: (notification.first?.title)!,
+                              content: notification.first?.content,
+                              imageURL: notification.first?.imageURL,
+                              date: notification.first?.date,
+                              link: notification.first?.link,
+                              category: notification.first?.category,
+                              author: notification.first?.author)!
+        
+        var newsList = [News]()
+        newsList.append(news)
+        
+        var post = notification.first
+        post?.isRead  = true
+        notificationButton.image = UIImage(named: "notification_disable")
+        
+        NewsSingleton.sharedInstance.removeAllItem()
+        NewsSingleton.sharedInstance.addNotification(post!)
+        
+        let detailViewController = segue.destination as! PageViewController
+        detailViewController.newsList = newsList
     }
     
 }

@@ -11,6 +11,8 @@ import UIKit
 class GreenTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var notificationButton: UIBarButtonItem!
+    
     var newsList = [News]()
     
     let servicesConnection = ServicesConnection()
@@ -21,19 +23,13 @@ class GreenTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //loadProgressBar
         indicator = progressBar.loadBar()
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
         
          self.refreshControl?.addTarget(self, action: #selector(NewsTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -70,7 +66,7 @@ class GreenTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellGreen", for: indexPath) as! NewsViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NewsViewCell
         
         // Configure the cell...
         if (newsList.count != 0 ){
@@ -79,21 +75,20 @@ class GreenTableViewController: UITableViewController {
             loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
         
             if (indexPath as NSIndexPath).row == self.newsList.count - 3 {
-                page += 1
+                self.page += 1
                 callWebServices(String (page))
             }
         }
         return cell
     }
-
     
     func callWebServices(_ paged: String ){
         
         self.indicator.startAnimating()
         
-        let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.filterCategoryName + Category.PropertyKey.green
+        let urlPath = validateViewId()
         
-        servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
+        servicesConnection.loadAllNews(self.newsList, urlPath: urlPath as! String, completionHandler: { (moreWrapper, error) in
             
             self.newsList = moreWrapper!
             DispatchQueue.main.async(execute: {
@@ -104,13 +99,50 @@ class GreenTableViewController: UITableViewController {
         })
     }
     
-    func loadImage(_ urlImage: String?, viewImagen: UIImageView){
+    func validateViewId() -> Any? {
+        let idView = self.restorationIdentifier ?? "idGreen"
         
-        servicesConnection.loadImage(urlImage: urlImage!, completionHandler: { (moreWrapper, error) in
-            DispatchQueue.main.async(execute: { () -> Void in
-                viewImagen.image = moreWrapper
+        var urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.filterCategoryName
+        
+        switch idView {
+        case "idGreen":
+            urlPath += Category.PropertyKey.green
+            
+        case "idCreativity":
+            urlPath += Category.PropertyKey.creativity
+            
+        case "idWomen":
+            urlPath += Category.PropertyKey.women
+            
+        case "idFood":
+            urlPath += Category.PropertyKey.food
+            
+        case "idPopulary":
+            urlPath += Category.PropertyKey.populary
+            
+        case "idQuiz":
+            urlPath += Category.PropertyKey.quiz
+            
+        default:
+            urlPath += Category.PropertyKey.green
+        }
+        
+        urlPath += ApiConstants.PropertyKey.filterPageForYou + "\(String(self.page))"
+        
+        print (urlPath)
+        return urlPath
+    }
+    
+    
+    func loadImage(_ urlImage: String?, viewImagen: UIImageView){
+        print ("urlImage \(urlImage)")
+        if urlImage?.isEmpty==false{
+            servicesConnection.loadImage(urlImage: urlImage!, completionHandler: { (moreWrapper, error) in
+                DispatchQueue.main.async(execute: { () -> Void in
+                    viewImagen.image = moreWrapper
+                })
             })
-        })
+        }
     }
     
 
@@ -121,43 +153,25 @@ class GreenTableViewController: UITableViewController {
         return true
     }
     
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "ShowDetail" {
+        let id = segue.identifier! as String
+        switch id {
+        case "ShowNotification":
             
+            var notification: [PostNotification] = []
+            notification = NewsSingleton.sharedInstance.allItems()
+            
+            if (notification.isEmpty){
+                print("No tiene noticaciones disponibles")
+            }else{
+                self.processingNotification(notification: notification, segue: segue )
+                return
+            }
+            
+        case "ShowDetail":
             let detailViewController = segue.destination as! PageViewController
             
             // Get the cell that generated this segue.
@@ -167,13 +181,44 @@ class GreenTableViewController: UITableViewController {
                 var list =  [News]()
                 let listCount = newsList.count
                 
-                for i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 4  {
-                    if listCount >= i{
+                if (indexPath as NSIndexPath).row + 5 <= listCount {
+                    for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
                         list.append(newsList[i])
                     }
+                    detailViewController.newsList = list
                 }
-                detailViewController.newsList = list
             }
+            
+        default:
+            print ("Indefinido")
+            
         }
+
     }
+    
+    func processingNotification(notification: [PostNotification], segue: UIStoryboardSegue) -> Void {
+        
+        let news: News = News(id: (notification.first?.idPost)!,
+                              title: (notification.first?.title)!,
+                              content: notification.first?.content,
+                              imageURL: notification.first?.imageURL,
+                              date: notification.first?.date,
+                              link: notification.first?.link,
+                              category: notification.first?.category,
+                              author: notification.first?.author)!
+        
+        var newsList = [News]()
+        newsList.append(news)
+        
+        var post = notification.first
+        post?.isRead  = true
+        notificationButton.image = UIImage(named: "notification_disable")
+        
+        NewsSingleton.sharedInstance.removeAllItem()
+        NewsSingleton.sharedInstance.addNotification(post!)
+        
+        let detailViewController = segue.destination as! PageViewController
+        detailViewController.newsList = newsList
+    }
+    
 }

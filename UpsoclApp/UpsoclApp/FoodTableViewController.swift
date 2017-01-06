@@ -11,6 +11,7 @@ import UIKit
 class FoodTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var notificationButton: UIBarButtonItem!
     var newsList =  [News]()
     var servicesConnection = ServicesConnection()
     var page = 1

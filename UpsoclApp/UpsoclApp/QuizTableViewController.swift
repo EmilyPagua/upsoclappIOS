@@ -11,6 +11,8 @@ import UIKit
 class QuizTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var notificationButton: UIBarButtonItem!
+    
     var newsList =  [News]()
     var servicesConnection = ServicesConnection()
     var page = 1
@@ -93,33 +95,6 @@ class QuizTableViewController: UITableViewController {
         return true
     }
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
 
     // MARK: - Navigation
 
@@ -129,21 +104,40 @@ class QuizTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "ShowDetail" {
             
-            let detailViewController = segue.destination as! PageViewController
-            
-            // Get the cell that generated this segue.
-            if let selectedMealCell = sender as? NewsViewCell {
-                let indexPath = tableView.indexPath(for: selectedMealCell)!
+            let id = segue.identifier! as String
+            switch id {
+            case "ShowNotification":
                 
-                var list =  [News]()
-                let listCount = newsList.count
+                var notification: [PostNotification] = []
+                notification = NewsSingleton.sharedInstance.allItems()
                 
-                for i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 4   {
-                    if listCount >= i {
-                        list.append(newsList[i])
+                if (notification.isEmpty){
+                    print("No tiene noticaciones disponibles")
+                }else{
+                    self.processingNotification(notification: notification, segue: segue )
+                    return
+                }
+                
+            case "ShowDetail":
+                let detailViewController = segue.destination as! PageViewController
+                
+                // Get the cell that generated this segue.
+                if let selectedMealCell = sender as? NewsViewCell {
+                    let indexPath = tableView.indexPath(for: selectedMealCell)!
+                    
+                    var list =  [News]()
+                    let listCount = newsList.count
+                    
+                    if (indexPath as NSIndexPath).row + 5 <= listCount {
+                        for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
+                            list.append(newsList[i])
+                        }
+                        detailViewController.newsList = list
                     }
                 }
-                detailViewController.newsList = list
+                
+            default:
+                print ("Indefinido")
             }
         }
     }
@@ -173,6 +167,31 @@ class QuizTableViewController: UITableViewController {
                 })
             })
         }
+    }
+    
+    func processingNotification(notification: [PostNotification], segue: UIStoryboardSegue) -> Void {
+        
+        let news: News = News(id: (notification.first?.idPost)!,
+                              title: (notification.first?.title)!,
+                              content: notification.first?.content,
+                              imageURL: notification.first?.imageURL,
+                              date: notification.first?.date,
+                              link: notification.first?.link,
+                              category: notification.first?.category,
+                              author: notification.first?.author)!
+        
+        var newsList = [News]()
+        newsList.append(news)
+        
+        var post = notification.first
+        post?.isRead  = true
+        notificationButton.image = UIImage(named: "notification_disable")
+        
+        NewsSingleton.sharedInstance.removeAllItem()
+        NewsSingleton.sharedInstance.addNotification(post!)
+        
+        let detailViewController = segue.destination as! PageViewController
+        detailViewController.newsList = newsList
     }
     
 }

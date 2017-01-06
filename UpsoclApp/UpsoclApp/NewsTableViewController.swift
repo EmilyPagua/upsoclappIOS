@@ -11,23 +11,30 @@ import UIKit
 class NewsTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton:UIBarButtonItem!
+    @IBOutlet weak var notificationButton: UIBarButtonItem!
     
     var newsList = [News]()
     var newsNotification = [News]()
     var servicesConnection = ServicesConnection()
     var page =  1
-    var isNotification = true
     
     var progressBar = ProgressBarLoad()
     var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
-    @IBAction func notificationButton(_ sender: UIBarButtonItem) {
-        self.isNotification = true
-    }
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let notification = NewsSingleton.sharedInstance.allItems()
+        
+        if (notification.isEmpty){
+            notificationButton.image = UIImage(named: "notification_disable")
+        }else{
+            if (notification.first?.isRead)!{
+                notificationButton.image = UIImage(named: "notification_disable")
+            }else{
+                notificationButton.image = UIImage(named: "notification_enable")
+            }
+        }
         
         //loadProgressBar
         indicator = progressBar.loadBar()
@@ -117,87 +124,75 @@ class NewsTableViewController: UITableViewController {
         
         self.navigationController?.isNavigationBarHidden = false
     }
-    // Override to support editing the table view.
-   /* override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            
-            newsList.removeAtIndex(indexPath.row)
-            saveNews()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }*/
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-        
-        print(segue.identifier)
-        /*if segue.identifier == "ShowNotification" {
-         
-         if self.isNotification{
-         
-         //564792
-         let idPost = "564792"
-         let urlPath = ApiConstants.PropertyKey.baseURL + ""+ApiConstants.PropertyKey.listPost+"/\(idPost)"
-         
-         print (urlPath)
-         servicesConnection.loadNews(self.newsNotification, urlPath: urlPath, completionHandler: {(moreWrapper, error) in
-         
-         self.newsNotification = moreWrapper!
-         
-         DispatchQueue.main.async(execute: {
-         print (self.newsNotification.count)
-         let detailViewController = segue.destination as! PageViewController
-         detailViewController.newsList = self.newsNotification
-         return
-         })
-         })
-         }
-         }*/
-        
-        if segue.identifier == "ShowDetail" {
+    
+        let id = segue.identifier! as String
+        switch id {
+        case "ShowNotification":
             
+            var notification: [PostNotification] = []
+            notification = NewsSingleton.sharedInstance.allItems()
+            
+            if (notification.isEmpty){
+                print("No tiene noticaciones disponibles")
+            }else{
+                self.processingNotification(notification: notification, segue: segue )
+                return
+            }
+            
+        case "ShowDetail":
             let detailViewController = segue.destination as! PageViewController
             
             // Get the cell that generated this segue.
             if let selectedMealCell = sender as? NewsViewCell {
                 let indexPath = tableView.indexPath(for: selectedMealCell)!
-
+                
                 var list =  [News]()
                 let listCount = newsList.count
                 
                 if (indexPath as NSIndexPath).row + 5 <= listCount {
                     for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
-                            list.append(newsList[i])
+                        list.append(newsList[i])
                     }
                     detailViewController.newsList = list
                 }
             }
+            
+        default:
+            print ("Indefinido")
+            
         }
+        
     }
+    
+    func processingNotification(notification: [PostNotification], segue: UIStoryboardSegue) -> Void {
+        
+        let news: News = News(id: (notification.first?.idPost)!,
+                              title: (notification.first?.title)!,
+                              content: notification.first?.content,
+                              imageURL: notification.first?.imageURL,
+                              date: notification.first?.date,
+                              link: notification.first?.link,
+                              category: notification.first?.category,
+                              author: notification.first?.author)!
+        
+        var newsList = [News]()
+        newsList.append(news)
+        
+        var post = notification.first
+        post?.isRead  = true
+        notificationButton.image = UIImage(named: "notification_disable")
+        
+        NewsSingleton.sharedInstance.removeAllItem()
+        NewsSingleton.sharedInstance.addNotification(post!)
+        
+        let detailViewController = segue.destination as! PageViewController
+        detailViewController.newsList = newsList
+    }
+    
     
     func callWebServices(_ paged: String ){
         

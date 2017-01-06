@@ -185,8 +185,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     }
     
     func subscribeToTopic() {
-        // If the app has a registration token and is connected to GCM, proceed to subscribe to the
-        // topic
         if registrationToken != nil && connectedToGCM {
             
             GCMPubSub.sharedInstance().subscribe(withToken: self.registrationToken,
@@ -251,25 +249,31 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         servicesConnection.loadNews(notification, urlPath: urlPath, completionHandler: {(moreWrapper, error) in
             notification = moreWrapper!
             DispatchQueue.main.async(execute: {
-                print (notification.count)
+                print ("Notificaciones encontradas \(notification)")
                 
                 if (notification.count>0){
-                    let item = NewsNotification(idPost: String(describing: notification.first?.idNews) ,
-                                                title: (notification.first?.titleNews)! ,
-                                                subTitle: (notification.first?.titleNews)! , UUID: UUID().uuidString)
+                    
+                    let item = PostNotification(idPost: (notification.first?.idNews)!,
+                                                title: (notification.first?.titleNews)!,
+                                                subTitle: (notification.first?.titleNews)! ,
+                                                UUID: UUID().uuidString,
+                                                imageURL: (notification.first?.imageURLNews) ?? "SinImagen",
+                                                date: (notification.first?.dateNews) ?? "01-01-2017",
+                                                link: (notification.first?.linkNews) ?? "www.upsocl.com",
+                                                category: (notification.first?.categoryNews) ?? "Portada",
+                                                author: (notification.first?.authorNews) ?? "Anonimo",
+                                                content: (notification.first?.contentNews) ?? "",
+                                                isRead: false)
                     
                     NewsSingleton.sharedInstance.removeAllItem()
                     NewsSingleton.sharedInstance.addNotification(item)
+                   // print(NewsSingleton.sharedInstance.allItems())
+                    self.sendActivityMain()
+                    return
                 }
                 return
             })
         })
-
-        /*NewsSingleton.sharedInstance.removeItem(item)
-        todoItems = NewsSingleton.sharedInstance.allItems()
-        var todoItems: [NewsNotification] = []
-        todoItems = NewsSingleton.sharedInstance.allItems()
-         */
     }
     
     func googleStartConfig(_ application: UIApplication) {
