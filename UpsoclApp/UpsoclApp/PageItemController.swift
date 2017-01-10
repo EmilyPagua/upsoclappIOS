@@ -27,16 +27,15 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     var news: News = News(id: 0, title: "", content: "", imageURL: "", date: "", link: "", category: "", author: "")!
     var contentDetail = ""
     var isSearchResult = false
-    var webViewSize = 0
     
     var progressBar = ProgressBarLoad()
     var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
+    @IBOutlet weak var contentWebView: UIWebView!
+    
     //VAR
     var scrollViewDetail : UIScrollView!
-    var containerView: UIView!
     var webDetail: UIWebView!
-   // var bannerView: GADBannerView!
     
     var viewCount =  1
     //END  VAR
@@ -62,55 +61,60 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
 
         self.isBookmark()
         self.createView()
+    
     }
     
     func createView () -> Void{
         
-        self.containerView =  UIView()
-        self.containerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector(("viewTapped:"))))
-        
         self.indicator.startAnimating()
+        
         self.bannerView.load(GADRequest())
         
         self.webDetail =  UIWebView()
         self.webDetail.delegate = self
         self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
-        self.webDetail.scrollView.addSubview(self.bannerView)
+        self.webDetail.scrollView.isScrollEnabled =  false
         
         self.scrollViewDetail = UIScrollView()
         self.scrollViewDetail.delegate = self
         self.scrollViewDetail.backgroundColor = UIColor.white
         self.scrollViewDetail.autoresizingMask = UIViewAutoresizing.flexibleWidth
-        
-        self.containerView.addSubview(self.webDetail)
-       // self.containerView.addSubview(self.bannerView)
     
-        self.scrollViewDetail.addSubview(self.containerView)
+        scrollViewDetail.addSubview(self.bannerView)
+        scrollViewDetail.addSubview(self.webDetail)
         
-
         view.addSubview(self.scrollViewDetail)
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         self.webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height)
-        self.bannerView.frame = CGRect(x:0, y: self.webDetail.bounds.maxY+10, width: 300, height: 250)
+        
 
+        self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
+                                              height:webDetail.bounds.size.height )
         
-        self.scrollViewDetail.contentSize = CGSize(width: self.webDetail.bounds.size.width,
-                                            height: self.webDetail.bounds.size.height + 260.0)
+        self.scrollViewDetail.frame = CGRect(x:10, y:80, width: view.bounds.width-20,
+                                             height: view.bounds.height-85)
         
-        self.scrollViewDetail.frame = CGRect(x:10, y:80, width: self.view.bounds.width-20, height: self.view.bounds.height-82)
-        
-        self.containerView.frame = CGRect(x: 0, y: 0,
-                                     width: self.scrollViewDetail.contentSize.width,
-                                     height: self.scrollViewDetail.bounds.size.height)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         self.indicator.stopAnimating()
         print ("webViewDidFinishLoad")
+        
+     /*   if (self.webDetail.scrollView.contentSize.height==0){
+            self.webDetail.reload()
+            print ("RELOAD")
+        }
+*/
+        //create banner
+        self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height+10, width: 300, height: 250)
+        self.webDetail.frame = CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: self.webDetail.scrollView.contentSize.height)
+        self.uploadWebView(height: self.webDetail.scrollView.contentSize.height )
+    
     }
 
     
@@ -124,31 +128,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     func update(zoomScale: CGFloat, offSet: CGPoint) {
         scrollViewDetail.zoomScale = zoomScale
         scrollViewDetail.contentOffset = offSet
-    }
-    
-    
-    func viewTapped(gesture : UITapGestureRecognizer) {
-        if gesture.view == containerView {
-            let v = UIView(frame: CGRect(x: 0, y: 0,width: 100, height: 100))
-            v.center = gesture.location(in: containerView)
-            v.backgroundColor = UIColor.red
-            v.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector(("viewTapped:"))))
-            addView(view: v, tag: viewCount)
-            viewCount = viewCount + 1
-        } else {
-            deleteView(tag: gesture.view!.tag)
-        }
-    }
-    
-    
-    func addView (view: UIView, tag: Int) {
-        view.tag =  tag
-        containerView.addSubview(view)
-    }
-    
-    func deleteView(tag: Int){
-        containerView.viewWithTag(tag)?.removeFromSuperview()
-        
     }
     
     //ComeBack
@@ -252,6 +231,9 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         print("ERROR_ en webView \(error.localizedDescription)");
+        self.uploadWebView(height: self.webDetail.scrollView.contentSize.height )
+        
+        
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -294,14 +276,8 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     func adViewDidReceiveAd(_ view: GADBannerView) {
         print ("Banner loaded successfully ")
         
-        let translateTransform = CGAffineTransform(translationX: 0, y: -bannerView.bounds.size.height)
-        bannerView.transform = translateTransform
+        self.uploadWebView(height: self.webDetail.scrollView.contentSize.height + self.bannerView.bounds.height)
         
-        UIView.animate(withDuration: 0.5) {
-           // self.webDetail.frame = bannerView.frame
-            self.bannerView.transform = CGAffineTransform.identity
-        //    self.webDetail = bannerView
-        }
     }
     
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
@@ -318,4 +294,13 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         bannerView.isHidden =  false
     }
     //BannerViewController
+    
+    func uploadWebView(height: CGFloat) -> Void {
+        self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
+                                                   height: height + 10)
+        
+        print(self.bannerView.frame.height)
+        print(self.scrollViewDetail.frame.height)
+        print(self.webDetail.scrollView.contentSize.height)
+    }
 }
