@@ -1,5 +1,5 @@
 //
-//  GreenTableViewController.swift
+//  NewsListTableViewController.swift
 //  appupsocl
 //
 //  Created by upsocl on 08-09-16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GreenTableViewController: UITableViewController {
+class NewsListTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var notificationButton: UIBarButtonItem!

@@ -7,10 +7,11 @@
 //
 
 import UIKit
-//import TwitterKit
+import TwitterKit
+import Google
 
 
-class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate{ //, GIDSignInUIDelegate {
+class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDSignInUIDelegate {
    
 
 
@@ -73,7 +74,7 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate{ //, G
         locationUSerLabel.text = "Ubicación: " + location
         socialNetwork.text = "Red social: " + socialNetworkName
         
-        //GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
         
         loginButtonFacebook.delegate = self
         
@@ -144,7 +145,7 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate{ //, G
                 FBSDKLoginManager().logOut()
             }
             
-            /*
+            
              if (self.socialNetworkName=="google" ){
              GIDSignIn.sharedInstance().signOut()
              }
@@ -156,7 +157,7 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate{ //, G
                     store.logOutUserID(userID)
                 }
                 Twitter.sharedInstance().sessionStore.logOutUserID(self.socialNetworkTokenId)
-            }*/
+            }
             
             self.clearPreferences()
             self.category.clearCategoryPreference()

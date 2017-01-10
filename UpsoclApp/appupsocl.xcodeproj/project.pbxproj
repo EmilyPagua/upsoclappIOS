@@ -32,12 +32,7 @@
 		8C5B06461D8057A800E2BB52 /* ServicesConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */; };
 		8C5B064B1D80A34E00E2BB52 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B064A1D80A34E00E2BB52 /* ApiConstants.swift */; };
 		8C5B064E1D80B19A00E2BB52 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B064D1D80B19A00E2BB52 /* Category.swift */; };
-		8C5B06541D818A3000E2BB52 /* GreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06531D818A3000E2BB52 /* GreenTableViewController.swift */; };
-		8C5B06561D8192D500E2BB52 /* CreativityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06551D8192D500E2BB52 /* CreativityTableViewController.swift */; };
-		8C5B065A1D81AA3700E2BB52 /* WomenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06591D81AA3700E2BB52 /* WomenTableViewController.swift */; };
-		8C5B06621D81B6BF00E2BB52 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06611D81B6BF00E2BB52 /* FoodTableViewController.swift */; };
-		8C5B06641D81B97400E2BB52 /* PopularyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06631D81B97400E2BB52 /* PopularyTableViewController.swift */; };
-		8C5B066A1D81B9A600E2BB52 /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06691D81B9A600E2BB52 /* QuizTableViewController.swift */; };
+		8C5B06541D818A3000E2BB52 /* NewsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06531D818A3000E2BB52 /* NewsListTableViewController.swift */; };
 		8C5B066C1D81DC1900E2BB52 /* ProgressBarLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */; };
 		8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06731D8331DA00E2BB52 /* PageItemController.swift */; };
 		8C5B06781D83400B00E2BB52 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B06771D83400B00E2BB52 /* Base.lproj */; };
@@ -96,12 +91,7 @@
 		8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesConnection.swift; sourceTree = "<group>"; };
 		8C5B064A1D80A34E00E2BB52 /* ApiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		8C5B064D1D80B19A00E2BB52 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		8C5B06531D818A3000E2BB52 /* GreenTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenTableViewController.swift; sourceTree = "<group>"; };
-		8C5B06551D8192D500E2BB52 /* CreativityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreativityTableViewController.swift; sourceTree = "<group>"; };
-		8C5B06591D81AA3700E2BB52 /* WomenTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WomenTableViewController.swift; sourceTree = "<group>"; };
-		8C5B06611D81B6BF00E2BB52 /* FoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
-		8C5B06631D81B97400E2BB52 /* PopularyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularyTableViewController.swift; sourceTree = "<group>"; };
-		8C5B06691D81B9A600E2BB52 /* QuizTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizTableViewController.swift; sourceTree = "<group>"; };
+		8C5B06531D818A3000E2BB52 /* NewsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsListTableViewController.swift; sourceTree = "<group>"; };
 		8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarLoad.swift; sourceTree = "<group>"; };
 		8C5B06731D8331DA00E2BB52 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		8C5B06771D83400B00E2BB52 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
@@ -208,12 +198,7 @@
 				8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */,
 				F491E7491A7F4B300026528E /* NewsTableViewController.swift */,
 				8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */,
-				8C5B06531D818A3000E2BB52 /* GreenTableViewController.swift */,
-				8C5B06551D8192D500E2BB52 /* CreativityTableViewController.swift */,
-				8C5B06591D81AA3700E2BB52 /* WomenTableViewController.swift */,
-				8C5B06611D81B6BF00E2BB52 /* FoodTableViewController.swift */,
-				8C5B06631D81B97400E2BB52 /* PopularyTableViewController.swift */,
-				8C5B06691D81B9A600E2BB52 /* QuizTableViewController.swift */,
+				8C5B06531D818A3000E2BB52 /* NewsListTableViewController.swift */,
 				8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */,
 				F491E7541A7F7E010026528E /* InterestViewController.swift */,
 				8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */,
@@ -558,7 +543,7 @@
 				8CB426401DCCD39E0082A2C8 /* DetailConstants.swift in Sources */,
 				8C5B06461D8057A800E2BB52 /* ServicesConnection.swift in Sources */,
 				8C51747C1D99626E00771EF1 /* LoginUserController.swift in Sources */,
-				8C5B06541D818A3000E2BB52 /* GreenTableViewController.swift in Sources */,
+				8C5B06541D818A3000E2BB52 /* NewsListTableViewController.swift in Sources */,
 				8C5D23281D9AC39100E1CC14 /* SignOutViewController.swift in Sources */,
 				8C5B064B1D80A34E00E2BB52 /* ApiConstants.swift in Sources */,
 				8CE0972D1D79DEF500ABD404 /* SWRevealViewController.m in Sources */,
@@ -568,20 +553,15 @@
 				8C77823F1D7A12ED001A0596 /* News.swift in Sources */,
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
 				8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */,
-				8C5B06561D8192D500E2BB52 /* CreativityTableViewController.swift in Sources */,
 				8C46F7801E1ED98E001436D7 /* PostNotification.swift in Sources */,
 				8C46F7841E1FCAE9001436D7 /* UserSingleton.swift in Sources */,
 				8CE94EA61D9C4F1B0018CFFB /* PreferencsViewController.swift in Sources */,
-				8C5B06621D81B6BF00E2BB52 /* FoodTableViewController.swift in Sources */,
 				8C816BE01E159751000D1BE6 /* MessagesConstants.swift in Sources */,
 				8C12D6B41D95628700A3FC6D /* SearchTableViewController.swift in Sources */,
-				8C5B065A1D81AA3700E2BB52 /* WomenTableViewController.swift in Sources */,
 				8CB426421DD0A9A50082A2C8 /* ProssesingContent.swift in Sources */,
 				8C816BDE1E158694000D1BE6 /* SocialNetwork.swift in Sources */,
-				8C5B066A1D81B9A600E2BB52 /* QuizTableViewController.swift in Sources */,
 				8C4726A31DA54D4400A9F6AC /* Reachability.swift in Sources */,
 				8C46F77D1E1ED89E001436D7 /* NewsSingleton.swift in Sources */,
-				8C5B06641D81B97400E2BB52 /* PopularyTableViewController.swift in Sources */,
 				8C31A70F1D8732100091A36A /* PageViewController.swift in Sources */,
 				8C12D6B21D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift in Sources */,
 				8C5D232A1D9AF93A00E1CC14 /* Customer.swift in Sources */,

@@ -6,8 +6,6 @@ target 'appupsocl' do
   use_frameworks!
   pod 'Fabric'
   pod 'TwitterKit'
-  #pod 'Firebase/Core'
-  #pod 'Firebase/AdMob'
   pod 'Google/SignIn'
   pod 'Google/Analytics'
   pod 'Google/CloudMessaging'

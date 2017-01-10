@@ -35,7 +35,11 @@ class NewsTableViewController: UITableViewController {
                 notificationButton.image = UIImage(named: "notification_enable")
             }
         }
-        
+        loadingView()
+    }
+    
+    
+    func loadingView(){
         //loadProgressBar
         indicator = progressBar.loadBar()
         //indicator.center = view.center
@@ -43,13 +47,14 @@ class NewsTableViewController: UITableViewController {
         indicator.bringSubview(toFront: view)
         
         self.refreshControl?.addTarget(self, action: #selector(NewsTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
-
+        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         callWebServices(String(page))
+        
     }
     
     func handleRefresh(_ resfresControl: UIRefreshControl){
@@ -129,43 +134,44 @@ class NewsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-        let id = segue.identifier! as String
-        switch id {
-        case "ShowNotification":
-            
-            var notification: [PostNotification] = []
-            notification = NewsSingleton.sharedInstance.allItems()
-            
-            if (notification.isEmpty){
-                print("No tiene noticaciones disponibles")
-            }else{
-                self.processingNotification(notification: notification, segue: segue )
-                return
-            }
-            
-        case "ShowDetail":
-            let detailViewController = segue.destination as! PageViewController
-            
-            // Get the cell that generated this segue.
-            if let selectedMealCell = sender as? NewsViewCell {
-                let indexPath = tableView.indexPath(for: selectedMealCell)!
+        if (segue.identifier?.isEmpty == false){
+            let id = segue.identifier! as String
+            switch id {
+            case "ShowNotification":
                 
-                var list =  [News]()
-                let listCount = newsList.count
+                var notification: [PostNotification] = []
+                notification = NewsSingleton.sharedInstance.allItems()
                 
-                if (indexPath as NSIndexPath).row + 5 <= listCount {
-                    for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
-                        list.append(newsList[i])
-                    }
-                    detailViewController.newsList = list
+                if (notification.isEmpty){
+                    print("No tiene noticaciones disponibles")
+                }else{
+                    self.processingNotification(notification: notification, segue: segue )
+                    return
                 }
+                
+            case "ShowDetail":
+                let detailViewController = segue.destination as! PageViewController
+                
+                // Get the cell that generated this segue.
+                if let selectedMealCell = sender as? NewsViewCell {
+                    let indexPath = tableView.indexPath(for: selectedMealCell)!
+                    
+                    var list =  [News]()
+                    let listCount = newsList.count
+                    
+                    if (indexPath as NSIndexPath).row + 5 <= listCount {
+                        for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
+                            list.append(newsList[i])
+                        }
+                        detailViewController.newsList = list
+                    }
+                }
+                
+            default:
+                print ("Indefinido")
+                
             }
-            
-        default:
-            print ("Indefinido")
-            
         }
-        
     }
     
     func processingNotification(notification: [PostNotification], segue: UIStoryboardSegue) -> Void {

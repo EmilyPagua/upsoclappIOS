@@ -12,6 +12,7 @@ import Fabric
 import TwitterKit
 import Google
 import UserNotifications
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
@@ -59,6 +60,8 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
             category.clearCategoryPreference()
         }
     
+        //Admob
+        GADMobileAds.configure(withApplicationID: "ca-mb-app-pub-7682123866908966/2346534963")
         
         return true
     }
@@ -148,7 +151,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     func application( _ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken
         deviceToken: Data ) {
         
-        print ("deviceTokent ", deviceToken)
+        print ("deviceTokent ", deviceToken.description)
         let instanceIDConfig = GGLInstanceIDConfig.default()
         instanceIDConfig?.delegate = self
         GGLInstanceID.sharedInstance().start(with: instanceIDConfig)
@@ -234,7 +237,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                       didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                       fetchCompletionHandler handler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        print("Notification received: \(userInfo)")
         GCMService.sharedInstance().appDidReceiveMessage(userInfo)
         NotificationCenter.default.post(name: Notification.Name(rawValue: messageKey),
                                         object: nil,
@@ -243,13 +245,16 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         handler(UIBackgroundFetchResult.noData)
         
         var notification = [News]()
-        let idPost = "564792"
+        var idPost = userInfo[AnyHashable("gcm.notification.idPost")] as! String
+        if idPost.isEmpty{
+            idPost = "564792"
+        }
         let urlPath = ApiConstants.PropertyKey.baseURL + ""+ApiConstants.PropertyKey.listPost+"/\(idPost)"
         
+        print (urlPath)
         servicesConnection.loadNews(notification, urlPath: urlPath, completionHandler: {(moreWrapper, error) in
             notification = moreWrapper!
             DispatchQueue.main.async(execute: {
-                print ("Notificaciones encontradas \(notification)")
                 
                 if (notification.count>0){
                     
@@ -269,6 +274,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                     NewsSingleton.sharedInstance.addNotification(item)
                    // print(NewsSingleton.sharedInstance.allItems())
                     self.sendActivityMain()
+                    
                     return
                 }
                 return
