@@ -44,6 +44,10 @@
 		8C77823F1D7A12ED001A0596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77823E1D7A12ED001A0596 /* News.swift */; };
 		8C816BDE1E158694000D1BE6 /* SocialNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C816BDD1E158694000D1BE6 /* SocialNetwork.swift */; };
 		8C816BE01E159751000D1BE6 /* MessagesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C816BDF1E159751000D1BE6 /* MessagesConstants.swift */; };
+		8CA498FA1E266294000D7E33 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA498F91E266294000D7E33 /* UserLogin.swift */; };
+		8CA498FB1E266294000D7E33 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA498F91E266294000D7E33 /* UserLogin.swift */; };
+		8CA498FD1E266B4E000D7E33 /* MessageAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA498FC1E266B4E000D7E33 /* MessageAlert.swift */; };
+		8CA498FE1E266B4E000D7E33 /* MessageAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA498FC1E266B4E000D7E33 /* MessageAlert.swift */; };
 		8CB426401DCCD39E0082A2C8 /* DetailConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */; };
 		8CB426421DD0A9A50082A2C8 /* ProssesingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */; };
 		8CE0972D1D79DEF500ABD404 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */; };
@@ -105,6 +109,8 @@
 		8C816BDB1E1562DD000D1BE6 /* appupsocl.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = appupsocl.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C816BDD1E158694000D1BE6 /* SocialNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetwork.swift; sourceTree = "<group>"; };
 		8C816BDF1E159751000D1BE6 /* MessagesConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesConstants.swift; sourceTree = "<group>"; };
+		8CA498F91E266294000D7E33 /* UserLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		8CA498FC1E266B4E000D7E33 /* MessageAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageAlert.swift; sourceTree = "<group>"; };
 		8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailConstants.swift; sourceTree = "<group>"; };
 		8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProssesingContent.swift; sourceTree = "<group>"; };
 		8CE0972A1D79DEF500ABD404 /* SidebarMenu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SidebarMenu-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 			children = (
 				8C46F77C1E1ED89E001436D7 /* NewsSingleton.swift */,
 				8C46F7831E1FCAE9001436D7 /* UserSingleton.swift */,
+				8CA498FC1E266B4E000D7E33 /* MessageAlert.swift */,
 			);
 			name = singleton;
 			path = ..;
@@ -213,6 +220,7 @@
 				8C46F77F1E1ED98E001436D7 /* PostNotification.swift */,
 				8C77823E1D7A12ED001A0596 /* News.swift */,
 				8C5D23291D9AF93A00E1CC14 /* Customer.swift */,
+				8CA498F91E266294000D7E33 /* UserLogin.swift */,
 			);
 			name = domain;
 			sourceTree = "<group>";
@@ -554,6 +562,7 @@
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
 				8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */,
 				8C46F7801E1ED98E001436D7 /* PostNotification.swift in Sources */,
+				8CA498FA1E266294000D7E33 /* UserLogin.swift in Sources */,
 				8C46F7841E1FCAE9001436D7 /* UserSingleton.swift in Sources */,
 				8CE94EA61D9C4F1B0018CFFB /* PreferencsViewController.swift in Sources */,
 				8C816BE01E159751000D1BE6 /* MessagesConstants.swift in Sources */,
@@ -567,6 +576,7 @@
 				8C5D232A1D9AF93A00E1CC14 /* Customer.swift in Sources */,
 				F491E74A1A7F4B300026528E /* NewsTableViewController.swift in Sources */,
 				8C31A7131D8B05190091A36A /* BookmarkTableViewController.swift in Sources */,
+				8CA498FD1E266B4E000D7E33 /* MessageAlert.swift in Sources */,
 				8C31A7171D8C4FAB0091A36A /* CheckBoxInterest.swift in Sources */,
 				F491E7551A7F7E010026528E /* InterestViewController.swift in Sources */,
 				8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */,
@@ -582,6 +592,8 @@
 			files = (
 				8C46F7811E1ED98E001436D7 /* PostNotification.swift in Sources */,
 				8C46F77E1E1ED89E001436D7 /* NewsSingleton.swift in Sources */,
+				8CA498FB1E266294000D7E33 /* UserLogin.swift in Sources */,
+				8CA498FE1E266B4E000D7E33 /* MessageAlert.swift in Sources */,
 				8C46F7851E1FCAE9001436D7 /* UserSingleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

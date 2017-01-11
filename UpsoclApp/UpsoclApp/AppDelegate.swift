@@ -107,18 +107,24 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         
         var userInfo: [AnyHashable : Any]? = nil
         if (error == nil) {
-            // Perform any operations on signed in user here.
-            let fullName = user.profile.givenName
+            let userLogin  =  UserLogin(email: user.profile.email ?? "NA",
+                                        firstName: user.profile.givenName ?? "NA",
+                                        lastName: user.profile.familyName ?? "NA",
+                                        location : "--" ,
+                                        birthday: "00-00-0000" ,
+                                        imagenURL: user.profile.imageURL(withDimension: 50)! as URL,
+                                        token: "qwedsazxc2",
+                                        userId: "112233",
+                                        socialNetwork: "google" as String,
+                                        socialNetworkTokenId: user.authentication.idToken! ,
+                                        registrationId: "tokentWordpress" )
             
-            let user = Customer(firstName: user.profile.givenName!,     lastName: user.profile.familyName!,
-                                email:  user.profile.email!,            location: "--",
-                                birthday: "00-00-0000",                 imagenURL: user.profile.imageURL(withDimension: 50)!,
-                                token: "qwedsazxc2",                    userId: "112233",
-                                socialNetwork: "google",                socialNetworkTokenId: user.authentication.idToken!,
-                                registrationId: "tokentWordpress")
-     
-            servicesConnection.saveCustomer(user!)
-            userInfo = ["statusText": "Signed in user:\n\(fullName)"]
+            UserSingleton.sharedInstance.removeUseLogin()
+            UserSingleton.sharedInstance.addUser(userLogin)
+            print("USER_LOGIN:  ")//\(UserSingleton.sharedInstance.getUserLogin())")
+            
+            //servicesConnection.saveCustomer(user_!)
+            userInfo = ["statusText": "Signed in user:\n\(userLogin.email)"]
         } else {
             print("\(error.localizedDescription)")
             userInfo = nil
@@ -272,7 +278,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                     
                     NewsSingleton.sharedInstance.removeAllItem()
                     NewsSingleton.sharedInstance.addNotification(item)
-                   // print(NewsSingleton.sharedInstance.allItems())
                     self.sendActivityMain()
                     
                     return
@@ -348,10 +353,10 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     func validLoginUser() -> Bool{
         
-        let preferences = UserDefaults.standard
-        if let socialNetworkName  = preferences.string(forKey: SocialNetwork.PropertyKey.socialNetwork) {
+        let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
+        if user.first?.email.isEmpty == false {
             
-            print ("socialNetworkName    \(socialNetworkName)")
+            print ("socialNetworkName  \(user.first?.email)  \(user.first?.socialNetwork)")
             
             Twitter.sharedInstance().logIn { session, error in
                 if (session != nil) {
@@ -361,7 +366,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                 }
             }
 
-            
             if  GIDSignIn.sharedInstance().hasAuthInKeychain(){
                 print("user is signed in")
                 return true

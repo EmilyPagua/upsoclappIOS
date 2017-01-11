@@ -35,10 +35,11 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let preferences = UserDefaults.standard
-        if let socialNetworkName  = preferences.string(forKey: SocialNetwork.PropertyKey.socialNetwork) {
-            
-            print ("LoginUserController    \(socialNetworkName)")
+        var user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
+        if user.first?.email.isEmpty == false {
+            print ("LOGIN \(user.first?.email)")
+        }else{
+            print ("NO LOGIN")
             Twitter.sharedInstance().logIn { session, error in
                 if (session != nil) {
                     print("1 \(session!.userName)");
@@ -46,11 +47,11 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                     print("5 error: \(error!.localizedDescription)");
                 }
             }
+            
+            GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
+            loginButtonFacebook!.delegate = self  //Start FacebookLogin
         }
         
-        GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
-        loginButtonFacebook!.delegate = self  //Start FacebookLogin
-       
         loginButtonFacebook?.isEnabled = false
         loginButtonTwitter?.isEnabled = false
         signInButtonGoogle?.isEnabled = false
@@ -79,24 +80,26 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                         
                         print  (json)
                         let imagenUserURL =  json["profile_image_url"] as! String
+                        print (imagenUserURL)
                         
-                        let user = Customer(firstName: json["name"] as! String,
-                                            lastName: ".",
-                                            email: "",
-                                            location: "--",
-                                            birthday: "00-00-0000",
-                                            imagenURL: URL(string: imagenUserURL)!,
-                                            token: "qwedsazxc2",
-                                            userId: "0",
-                                            socialNetwork: "twitter",
-                                              socialNetworkTokenId: "tokentFacebook",
-                                            registrationId: "tokentWordpress")
+                        let userLogin  =  UserLogin(email: "",
+                                                    firstName: json["name"] as! String,
+                                                    lastName:  "",
+                                                    location : "--" ,
+                                                    birthday: "00-00-0000" ,
+                                                    imagenURL: URL(string: imagenUserURL)!,
+                                                    token: "qwedsazxc2",
+                                                    userId: "112233",
+                                                    socialNetwork: "twitter" as String,
+                                                    socialNetworkTokenId: "tokentTwitter",
+                                                    registrationId: "tokentWordpress" )
                         
-                        if (user?.email.isEmpty)! {
-                            self.validEmailUser(user: user!)
+                        
+                        if (userLogin.email.isEmpty) {
+                            self.validEmailUser(userLogin: userLogin)
                         }
                         else{
-                            self.servicesConnection.saveCustomer(user!)
+                            self.sendUser(userLogin)
                             self.sendActivityMain()
                         }
                         
@@ -114,6 +117,12 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     
     @IBAction func validCountCategory(_ sender: UIButton) {
         countCategory ()
+    }
+    
+    func saveUser(userLogin: UserLogin ) -> void {
+        self.servicesConnection.saveCustomer
+        UserSingleton.sharedInstance.removeUseLogin()
+        UserSingleton.sharedInstance.addUser(userLogin)
     }
     
     func countCategory (){
@@ -271,7 +280,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
      // [------------------------FINISH FACEBOOK LOGIN-------------------]
     
     
-    func validEmailUser(user: Customer){
+    func validEmailUser(userLogin: UserLogin){
         
         let alertController = UIAlertController(title: "Faltan datos en su pertfil", message: "Por favor, ingrese su email personal", preferredStyle: .alert)
         
@@ -282,9 +291,21 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
             let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
             let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
             if emailPredicate.evaluate(with: textField.text){
-                user.email = textField.text!
+                let mail = textField.text!
                 
-                self.servicesConnection.saveCustomer(user)
+                let user = Customer(firstName: userLogin.firstName,
+                                    lastName: userLogin.lastName,
+                                    email: mail,
+                                    location: userLogin.location,
+                                    birthday: userLogin.birthday,
+                                    imagenURL: userLogin.imagenURL,
+                                    token: userLogin.token,
+                                    userId:userLogin.userId,
+                                    socialNetwork: userLogin.socialNetwork,
+                                    socialNetworkTokenId: userLogin.socialNetworkTokenId,
+                                    registrationId: userLogin.registrationId)
+                    
+                self.saveUser(user)
                 self.sendActivityMain()
                 
             }else{

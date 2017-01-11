@@ -62,17 +62,19 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
         }
         savePreferences(prefe as! String)
         
-        let fistName  = preferences.object(forKey: Customer.PropertyKey.firstName) as! String
-        let lastName  = preferences.object(forKey: Customer.PropertyKey.lastName) as! String
-        let email  = preferences.object(forKey: Customer.PropertyKey.email) as! String
-        let location  = preferences.object(forKey: Customer.PropertyKey.location) as! String
-        socialNetworkName  = (preferences.object(forKey: Customer.PropertyKey.socialNetwork) as? String)!
-        socialNetworkTokenId = (preferences.object(forKey: Customer.PropertyKey.socialNetworkTokenId) as? String)!
+        let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
         
-        nameUserLabel.text = "Usuario: " + fistName + " " + String(lastName)
-        emailUserLabel.text = "Email: " + email
-        locationUSerLabel.text = "Ubicación: " + location
-        socialNetwork.text = "Red social: " + socialNetworkName
+        let fistName  = user.first?.firstName
+        let lastName  = user.first?.lastName
+        let email  = user.first?.email
+        let location  = user.first?.location
+        socialNetworkName  =  (user.first?.socialNetwork)!
+        socialNetworkTokenId =  (user.first?.socialNetworkTokenId)!
+        
+        nameUserLabel.text = "Usuario: \(fistName!)  \(lastName!)"
+        emailUserLabel.text = "Email: \(email!)"
+        locationUSerLabel.text = "Ubicación:  \(location!)"
+        socialNetwork.text = "Red social: \(socialNetworkName)"
         
         GIDSignIn.sharedInstance().uiDelegate = self
         
@@ -84,8 +86,6 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -159,7 +159,8 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
                 Twitter.sharedInstance().sessionStore.logOutUserID(self.socialNetworkTokenId)
             }
             
-            self.clearPreferences()
+            //self.clearPreferences()
+            UserSingleton.sharedInstance.removeUseLogin()
             self.category.clearCategoryPreference()
             
             let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController

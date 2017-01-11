@@ -25,15 +25,16 @@ class MenuController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
         
-        let preferences = UserDefaults.standard
-        let imagenURL  = preferences.object(forKey: Customer.PropertyKey.imagenURL) as! String
-        let firstName = preferences.object(forKey: Customer.PropertyKey.firstName) as! String
-        let lastName = preferences.object(forKey: Customer.PropertyKey.lastName) as! String
+        print (user.first?.imagenURL.absoluteString)
+        let imagenURL  = (user.first?.imagenURL.absoluteString)!
+        let firstName = user.first?.firstName
+        let lastName = user.first?.lastName
         
-        nameUser.text  = String ( lastName + "  " + firstName)
+        nameUser.text  = String ( lastName! + "  " + firstName!)
                 
-        loadImage(imagenURL, viewImagen: imagenUser)
+        self.loadImage(imagenURL, viewImagen: imagenUser)
     }
 
     override func didReceiveMemoryWarning() {
