@@ -124,10 +124,6 @@ class NewsTableViewController: UITableViewController {
         return true
     }
     
-    @IBAction func buttonNotificationAction(_ sender: UIBarButtonItem) {
-        print ("enviar detalle de notificacion")
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -194,7 +190,6 @@ class NewsTableViewController: UITableViewController {
             post?.isRead  = true
             NewsSingleton.sharedInstance.removeAllItem()
             NewsSingleton.sharedInstance.addNotification(post!)
-            // notificationButton.image = UIImage(named: "notification_disable")
             let detailViewController = segue.destination as! PageViewController
             print ("cantidad de registros  en la tabla \(newsList.count)")
             detailViewController.newsList = newsList
@@ -239,11 +234,8 @@ class NewsTableViewController: UITableViewController {
     
     @IBAction func unwindToNewsList(_ sender: UIStoryboardSegue) {
         self.tabBarController?.tabBar.isHidden =  false
-      //  self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
         self.navigationController?.isNavigationBarHidden = false
         }
-    
-    @IBAction func buttonNotification(_ sender: UIBarButtonItem) {
-    }
     
 }

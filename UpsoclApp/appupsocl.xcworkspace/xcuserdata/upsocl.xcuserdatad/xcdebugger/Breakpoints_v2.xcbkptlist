@@ -1140,11 +1140,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/NewsTableViewController.swift"
-            timestampString = "505940795.430679"
+            timestampString = "505945696.652682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2318,11 +2318,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ForYouTableViewController.swift"
-            timestampString = "505422113.288539"
+            timestampString = "505945806.560878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3278,11 +3278,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/NewsTableViewController.swift"
-            timestampString = "505941000.400283"
+            timestampString = "505945696.652682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3326,11 +3326,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/NewsTableViewController.swift"
-            timestampString = "505941068.471236"
+            timestampString = "505945696.652682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "processingNotification(notification:segue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3342,11 +3342,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpsoclApp/NewsTableViewController.swift"
-            timestampString = "505941700.208712"
+            timestampString = "505945696.652682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "processingNotification(notification:segue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3364,6 +3364,38 @@
             startingLineNumber = "62"
             endingLineNumber = "62"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/NewsTableViewController.swift"
+            timestampString = "505945696.652682"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "unwindToNewsList(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpsoclApp/NewsTableViewController.swift"
+            timestampString = "505946189.73552"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
+            landmarkName = "unwindToNewsList(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

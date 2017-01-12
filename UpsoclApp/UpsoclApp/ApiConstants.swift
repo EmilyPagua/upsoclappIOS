@@ -19,7 +19,7 @@ class ApiConstants  {
         static let baseURL = "http://upsocl.com/wp-json/wp/v2"
         static let listPost = "/posts"
         static let pageFilter = "?page="
-        static let filterWord = "&filter[s]="
+        static let filterWord = "&search="
         static let filterCategoryName = "?categories="
         static let filterPageForYou = "&page="
         static let filterPostId = "/posts/{id}"

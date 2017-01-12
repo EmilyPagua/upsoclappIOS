@@ -122,6 +122,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
                 
         let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + page + ApiConstants.PropertyKey.filterWord +  searchText
         
+        print ("URL_ BUSQUEDA\(urlPath)")
         servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
             
             self.newsList = moreWrapper!

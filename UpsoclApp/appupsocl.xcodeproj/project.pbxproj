@@ -197,12 +197,12 @@
 			isa = PBXGroup;
 			children = (
 				F491E7491A7F4B300026528E /* NewsTableViewController.swift */,
+				8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */,
+				8C5B06531D818A3000E2BB52 /* NewsListTableViewController.swift */,
 				8C31A70E1D8732100091A36A /* PageViewController.swift */,
 				8C12D6AF1D92CD5F00A3FC6D /* AboutUsViewController.swift */,
 				8C12D6B11D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift */,
 				8C5BACBE1D7DF5990021DFBE /* DetailViewController.swift */,
-				8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */,
-				8C5B06531D818A3000E2BB52 /* NewsListTableViewController.swift */,
 				8C31A7121D8B05190091A36A /* BookmarkTableViewController.swift */,
 				F491E7541A7F7E010026528E /* InterestViewController.swift */,
 				8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */,
