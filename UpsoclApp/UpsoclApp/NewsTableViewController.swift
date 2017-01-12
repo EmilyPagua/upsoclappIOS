@@ -27,22 +27,23 @@ class NewsTableViewController: UITableViewController {
         let notification = NewsSingleton.sharedInstance.allItems()
         
         if (notification.isEmpty){
-            notificationButton.image = UIImage(named: "notification_disable")
+            self.notificationButton.image = UIImage(named: "notification_disable")
+            self.notificationButton.isEnabled =  false
         }else{
             if (notification.first?.isRead)!{
                 notificationButton.image = UIImage(named: "notification_disable")
+                self.notificationButton.isEnabled =  true
             }else{
                 notificationButton.image = UIImage(named: "notification_enable")
+                self.notificationButton.isEnabled =  true
             }
         }
         loadingView()
     }
     
-    
     func loadingView(){
-        //loadProgressBar
+
         indicator = progressBar.loadBar()
-        //indicator.center = view.center
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
         
@@ -123,6 +124,9 @@ class NewsTableViewController: UITableViewController {
         return true
     }
     
+    @IBAction func buttonNotificationAction(_ sender: UIBarButtonItem) {
+        print ("enviar detalle de notificacion")
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -144,10 +148,9 @@ class NewsTableViewController: UITableViewController {
                 
                 if (notification.isEmpty){
                     print("No tiene noticaciones disponibles")
-                }else{
-                    self.processingNotification(notification: notification, segue: segue )
-                    return
+                    notificationButton.image = UIImage(named: "notification_disable")
                 }
+                self.processingNotification(notification: notification, segue: segue )
                 
             case "ShowDetail":
                 let detailViewController = segue.destination as! PageViewController
@@ -176,7 +179,9 @@ class NewsTableViewController: UITableViewController {
     
     func processingNotification(notification: [PostNotification], segue: UIStoryboardSegue) -> Void {
         
-        let news: News = News(id: (notification.first?.idPost)!,
+        if (notification.isEmpty == false ){
+            var newsList = [News]()
+            let news: News = News(id: (notification.first?.idPost)!,
                               title: (notification.first?.title)!,
                               content: notification.first?.content,
                               imageURL: notification.first?.imageURL,
@@ -184,19 +189,17 @@ class NewsTableViewController: UITableViewController {
                               link: notification.first?.link,
                               category: notification.first?.category,
                               author: notification.first?.author)!
-        
-        var newsList = [News]()
-        newsList.append(news)
-        
-        var post = notification.first
-        post?.isRead  = true
-        notificationButton.image = UIImage(named: "notification_disable")
-        
-        NewsSingleton.sharedInstance.removeAllItem()
-        NewsSingleton.sharedInstance.addNotification(post!)
-        
-        let detailViewController = segue.destination as! PageViewController
-        detailViewController.newsList = newsList
+            newsList.append(news)
+            var post = notification.first
+            post?.isRead  = true
+            NewsSingleton.sharedInstance.removeAllItem()
+            NewsSingleton.sharedInstance.addNotification(post!)
+            // notificationButton.image = UIImage(named: "notification_disable")
+            let detailViewController = segue.destination as! PageViewController
+            print ("cantidad de registros  en la tabla \(newsList.count)")
+            detailViewController.newsList = newsList
+            detailViewController.isNotificaction =  true
+        }
     }
     
     
@@ -208,7 +211,6 @@ class NewsTableViewController: UITableViewController {
             self.indicator.startAnimating()
             
             let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + paged
-            print (urlPath)
             servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
                 
                 self.newsList = moreWrapper!
@@ -240,4 +242,8 @@ class NewsTableViewController: UITableViewController {
       //  self.navigationController?.popViewController(animated: true)
         self.navigationController?.isNavigationBarHidden = false
         }
+    
+    @IBAction func buttonNotification(_ sender: UIBarButtonItem) {
+    }
+    
 }

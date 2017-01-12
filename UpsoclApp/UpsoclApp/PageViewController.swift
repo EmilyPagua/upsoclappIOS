@@ -34,6 +34,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
     var newsList = [News]()
     var pageViewController: UIPageViewController?
     var isSearchResult: Bool = false
+    var isNotificaction: Bool = false
     
     var item = 0
     
@@ -42,18 +43,24 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         
         self.tabBarController?.tabBar.isHidden =  true
         self.navigationController?.isNavigationBarHidden = true
-
-        
         let preferences = UserDefaults.standard
-        //let bookmark = newsList[0]
-        //let currentLevel = preferences.objectForKey(String(bookmark.idNews))
         
-        for  i in 0  ..< newsList.count    {
-            let bookmark = newsList[i]
-            _ = preferences.object(forKey: String(bookmark.idNews))
+        if (isNotificaction){
+            self.navigationItem.title =  "Post Destacado"
         }
-        createPageViewController()
-        setupPagecontrol()
+        
+        if (newsList.count==0){
+            self.tabBarController?.tabBar.isHidden =  false
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.isNavigationBarHidden = false
+        }else{
+            for  i in 0  ..< newsList.count    {
+                let bookmark = newsList[i]
+                _ = preferences.object(forKey: String(bookmark.idNews))
+            }
+            createPageViewController()
+            setupPagecontrol()
+        }
     }
     
     
@@ -156,24 +163,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         return nil
     }
     
-    
-    // MARK: - Navigation
-    
-   /* // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "ShowDetail" {
-            
-            _ = segue.destinationViewController as! PageViewController
-            
-            // Get the cell that generated this segue.
-            if let selectedMealCell = sender as? NewsTableViewCell {
-                
-            }
-        }
-    }*/
     
     //Google Analytics
     override func viewWillAppear(_ animated: Bool) {

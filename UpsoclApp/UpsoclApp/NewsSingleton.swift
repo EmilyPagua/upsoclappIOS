@@ -51,7 +51,6 @@ class NewsSingleton {
         
         let todoDictionary = UserDefaults.standard.dictionary(forKey: ITEMS_KEY) ?? [:]
         let items = Array(todoDictionary.values)
-        print (items.count)
         
         return items.map({
             let item = $0 as! [String:AnyObject]

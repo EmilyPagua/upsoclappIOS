@@ -1,5 +1,5 @@
 //
-//  CustomerSingleton.swift
+//  UserSingleton.swift
 //  appupsocl
 //
 //  Created by upsocl on 06-01-17.
@@ -84,7 +84,6 @@ class UserSingleton {
         
         urlPath =  urlPath.replacingOccurrences(of: " ", with: "%20%")
         
-        print (urlPath)
         let request = NSMutableURLRequest(url: URL(string: urlPath)!)
         let session = URLSession.shared
         
@@ -101,7 +100,7 @@ class UserSingleton {
             }
             
             guard data != nil else {
-                print("ERROR_ NO PUEDE RECIBIR POST Customer")
+                print("ERROR_ NO PUEDE RECIBIR POST USER desde BD")
                 return
             }
             

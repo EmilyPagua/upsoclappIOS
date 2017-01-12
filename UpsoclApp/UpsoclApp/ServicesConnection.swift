@@ -15,71 +15,6 @@ class ServicesConnection  {
     let urlPath = "http://upsocl.com/wp-json/wp/v2/posts"
     let filterPaged =  "?filter[paged]="
     let url_privacity = "//http://upsocl.com/wp-json/wp/v2/pages/445196"
-
-    //save Customer
-    func saveCustomer(_ customer: Customer){
-        customer.location = getLocationPhone()
-        
-     /*   print (customer.firstName)
-        print (customer.lastName)
-        print (customer.email)
-        print (customer.birthday)
-        print (customer.location)
-        print (customer.socialNetwork)
-        print (customer.socialNetworkTokenId)
-        print (customer.registrationId)
-        print (customer.imagenURL)*/
-        
-        //var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name="+customer.firstName+"&last_name="+customer.lastName+"&email="+customer.email+"&birthday="+customer.birthday+"&location="+customer.location+"&social_network_login="+customer.socialNetwork+"&registration_id="+customer.registrationId
-        
-        var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name=pruebaIOS2&last_name=pruebaIOS2&email=pruebaIOS2@gmail.com&birthday=00-00-0000&location=Chile&social_network_login=facebook&registration_id=qwedsazxc2"
-        
-        urlPath =  urlPath.replacingOccurrences(of: " ", with: "%20%")
-        
-        print (urlPath)
-        let request = NSMutableURLRequest(url: URL(string: urlPath)!)
-        print (request)
-        let session = URLSession.shared
-        
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        customer.userId = "0"
-        
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-            guard error == nil else {
-                self.createViewMessage("Problemas, verifique su conexión a datos", title: "Error!")
-                return
-            }
-            
-            guard data != nil else {
-                print("ERROR_ NO PUEDE RECIBIR POST Customer")
-                return
-            }
-            
-            self.saveUser(customer) //FIXME
-            let nsdata = NSData(data: data!) as Data
-            let json : AnyObject!
-            do {
-                json = try JSONSerialization.jsonObject(with: nsdata, options: []) as AnyObject!
-                let id = json["success"] as! Bool
-                if id == true {
-                    customer.userId = json["id"] as! String
-                }else{
-                    print (json["message"] as! String)
-                }
-                
-            }catch let error as NSError{
-                print ("ERROR_ "+error.localizedDescription)
-                json=nil
-                return
-            }
-            //self.saveUser(customer) FIXME Descomentar
-        })
-        task.resume()
-    }
-    
     //Load 10 News
     func loadAllNews(_ wrapper: [News]?,  urlPath: String,  completionHandler: @escaping ([News]?, NSError?) -> Void) {
 
@@ -299,26 +234,6 @@ class ServicesConnection  {
                 completionHandler(UIImage(named: "webkit-featured")!, nil)
             }
         }
-    }
-    
-    
-    func saveUser(_ customer: Customer){
-        
-        let preferences = UserDefaults.standard
-        preferences.setValue(customer.email , forKey: Customer.PropertyKey.email)
-        preferences.setValue(customer.firstName, forKey: Customer.PropertyKey.firstName )
-        preferences.setValue(customer.lastName, forKey: Customer.PropertyKey.lastName)
-        preferences.setValue(customer.userId, forKey: Customer.PropertyKey.userId)
-        preferences.setValue(customer.socialNetwork, forKey: Customer.PropertyKey.socialNetwork)
-        preferences.setValue(customer.socialNetworkTokenId, forKey: Customer.PropertyKey.socialNetworkTokenId)
-        preferences.setValue(customer.birthday, forKey: Customer.PropertyKey.birthday )
-        preferences.setValue(customer.token, forKey: Customer.PropertyKey.token)
-        preferences.setValue(customer.location, forKey: Customer.PropertyKey.location)
-        
-        let url = String (describing: customer.imagenURL)
-        preferences.setValue(url , forKey: Customer.PropertyKey.imagenURL)
-        
-        preferences.synchronize()
     }
     
     func getLocationPhone() -> String {

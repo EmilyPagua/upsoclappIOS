@@ -159,7 +159,6 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
                 Twitter.sharedInstance().sessionStore.logOutUserID(self.socialNetworkTokenId)
             }
             
-            //self.clearPreferences()
             UserSingleton.sharedInstance.removeUseLogin()
             self.category.clearCategoryPreference()
             
@@ -184,13 +183,7 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print ("lFBSDKLoginButton - LoginButtonDidLogOut")
     }
-    
-    /*!
-     @abstract Sent to the delegate when the button was used to login.
-     @param loginButton the sender
-     @param result The results of the login
-     @param error The error (if any) from the login
-     */
+
     
     public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("LogOutButton Facebook")
@@ -200,39 +193,5 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
         return true
     }
     
-    func clearPreferences(){
-        
-        let preferences = UserDefaults.standard
-        preferences.removeObject(forKey: Customer.PropertyKey.email)
-        preferences.removeObject(forKey: Customer.PropertyKey.firstName )
-        preferences.removeObject(forKey: Customer.PropertyKey.lastName)
-        preferences.removeObject(forKey: Customer.PropertyKey.imagenURL)
-        preferences.removeObject(forKey: Customer.PropertyKey.userId) //-------------FIXME
-        preferences.removeObject(forKey: Customer.PropertyKey.socialNetwork)
-        preferences.removeObject(forKey: Customer.PropertyKey.socialNetworkTokenId)
-        //preferences.setValue(birthday, forKey: Customer.PropertyKey.birthday )
-        //preferences.setValue(tocken, forKey: Customer.PropertyKey.token)
-        
-        for elem in UserDefaults.standard.dictionaryRepresentation(){
-            let key = elem.0
-            
-            let numberCharacters = CharacterSet.decimalDigits.inverted
-            if !key.isEmpty && key.rangeOfCharacter(from: numberCharacters) == nil{
-                print (key)
-                preferences.removeObject(forKey: key)
-            }
-        }
-        
-        preferences.synchronize()
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

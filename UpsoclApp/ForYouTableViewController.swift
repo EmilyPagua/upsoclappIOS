@@ -93,8 +93,6 @@ class ForYouTableViewController: UITableViewController {
         if (keyCategory.isEmpty){
             keyCategory = keyCategory + Category.PropertyKey.populary + ","
         }
-        
-        print (keyCategory)
         keyCategory = keyCategory.substring(to: keyCategory.characters.index(before: keyCategory.endIndex))
     }
     

@@ -99,7 +99,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                             self.validEmailUser(userLogin: userLogin)
                         }
                         else{
-                            self.sendUser(userLogin)
+                            self.saveUser(userLogin: userLogin)
                             self.sendActivityMain()
                         }
                         
@@ -119,8 +119,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         countCategory ()
     }
     
-    func saveUser(userLogin: UserLogin ) -> void {
-        self.servicesConnection.saveCustomer
+    func saveUser(userLogin: UserLogin ) -> Void {
         UserSingleton.sharedInstance.removeUseLogin()
         UserSingleton.sharedInstance.addUser(userLogin)
     }
@@ -258,21 +257,22 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                     return
                 }
             }).resume()
+            let userLogin  =  UserLogin(email: email!,
+                                        firstName: firstName!,
+                                        lastName: lastName!,
+                                        location: "--",
+                                        birthday: "00-00-0000",
+                                        imagenURL: URL(string: pictureUrl)!,
+                                        token: "qwedsazxc2",
+                                        userId: "0",
+                                        socialNetwork: "facebook",
+                                        socialNetworkTokenId: "tokentFacebook",
+                                        registrationId: "tokentWordpress" )
             
-            let user = Customer(firstName: firstName!,
-                                lastName: lastName!,
-                                email: email!,
-                                location: "--",
-                                birthday: "00-00-0000",
-                                imagenURL: URL(string: pictureUrl)!,
-                                token: "qwedsazxc2",
-                                userId: "0",
-                                socialNetwork: "facebook",
-                                socialNetworkTokenId: "tokentFacebook",
-                                registrationId: "tokentWordpress")
+            UserSingleton.sharedInstance.removeUseLogin()
+            UserSingleton.sharedInstance.addUser(userLogin)
             
-            self.servicesConnection.saveCustomer(user!)
-           self.sendActivityMain()
+            self.sendActivityMain()
             
             
         })
@@ -293,19 +293,19 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
             if emailPredicate.evaluate(with: textField.text){
                 let mail = textField.text!
                 
-                let user = Customer(firstName: userLogin.firstName,
-                                    lastName: userLogin.lastName,
-                                    email: mail,
-                                    location: userLogin.location,
-                                    birthday: userLogin.birthday,
-                                    imagenURL: userLogin.imagenURL,
-                                    token: userLogin.token,
-                                    userId:userLogin.userId,
-                                    socialNetwork: userLogin.socialNetwork,
-                                    socialNetworkTokenId: userLogin.socialNetworkTokenId,
-                                    registrationId: userLogin.registrationId)
-                    
-                self.saveUser(user)
+                let userLogin  =  UserLogin(email: mail,
+                                            firstName: userLogin.firstName,
+                                            lastName: userLogin.lastName,
+                                            location: userLogin.location,
+                                            birthday: userLogin.birthday,
+                                            imagenURL: userLogin.imagenURL,
+                                            token: userLogin.token,
+                                            userId:userLogin.userId,
+                                            socialNetwork: userLogin.socialNetwork,
+                                            socialNetworkTokenId: userLogin.socialNetworkTokenId,
+                                            registrationId: userLogin.registrationId )
+                
+                self.saveUser(userLogin: userLogin)
                 self.sendActivityMain()
                 
             }else{

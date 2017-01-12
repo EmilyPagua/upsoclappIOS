@@ -123,7 +123,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
             UserSingleton.sharedInstance.addUser(userLogin)
             print("USER_LOGIN:  ")//\(UserSingleton.sharedInstance.getUserLogin())")
             
-            //servicesConnection.saveCustomer(user_!)
             userInfo = ["statusText": "Signed in user:\n\(userLogin.email)"]
         } else {
             print("\(error.localizedDescription)")
@@ -249,7 +248,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                                        userInfo: userInfo)
         
         handler(UIBackgroundFetchResult.noData)
-        
+        print (userInfo)
         var notification = [News]()
         var idPost = userInfo[AnyHashable("gcm.notification.idPost")] as! String
         if idPost.isEmpty{
