@@ -21,7 +21,6 @@ class MenuController: UITableViewController {
 
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
         
-        print (user.first?.imagenURL.absoluteString)
         let imagenURL  = (user.first?.imagenURL.absoluteString)!
         let firstName = user.first?.firstName
         let lastName = user.first?.lastName

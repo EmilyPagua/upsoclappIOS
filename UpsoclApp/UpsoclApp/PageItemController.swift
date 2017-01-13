@@ -73,7 +73,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.webDetail =  UIWebView()
         self.webDetail.delegate = self
         self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
-        self.webDetail.scrollView.isScrollEnabled =  false
+        self.webDetail.scrollView.isScrollEnabled =  true
         
         self.scrollViewDetail = UIScrollView()
         self.scrollViewDetail.delegate = self
@@ -105,11 +105,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.indicator.stopAnimating()
         print ("webViewDidFinishLoad")
         
-     /*   if (self.webDetail.scrollView.contentSize.height==0){
-            self.webDetail.reload()
-            print ("RELOAD")
-        }
-*/
         //create banner
         self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height+10, width: 300, height: 250)
         self.webDetail.frame = CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: self.webDetail.scrollView.contentSize.height)
@@ -132,7 +127,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     //ComeBack
     @IBAction func comeBack(_ sender: UIBarButtonItem) {
-        
         self.tabBarController?.tabBar.isHidden =  false
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.isNavigationBarHidden = false
@@ -276,6 +270,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     func adViewDidReceiveAd(_ view: GADBannerView) {
         print ("Banner loaded successfully ")
         
+        self.webDetail.scrollView.isScrollEnabled =  false
         self.uploadWebView(height: self.webDetail.scrollView.contentSize.height + self.bannerView.bounds.height)
         
     }
@@ -299,6 +294,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
                                                    height: height + 10)
         
+        print ("Modificado tamaño del Scroll")
         print(self.bannerView.frame.height)
         print(self.scrollViewDetail.frame.height)
         print(self.webDetail.scrollView.contentSize.height)

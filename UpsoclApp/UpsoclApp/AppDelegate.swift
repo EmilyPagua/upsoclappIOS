@@ -121,7 +121,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
             
             UserSingleton.sharedInstance.removeUseLogin()
             UserSingleton.sharedInstance.addUser(userLogin)
-            print("USER_LOGIN:  ")//\(UserSingleton.sharedInstance.getUserLogin())")
+            print("USER_LOGIN:  ")
             
             userInfo = ["statusText": "Signed in user:\n\(userLogin.email)"]
         } else {

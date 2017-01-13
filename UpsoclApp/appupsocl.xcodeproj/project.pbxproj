@@ -185,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				8C5B064A1D80A34E00E2BB52 /* ApiConstants.swift */,
-				8C5B064D1D80B19A00E2BB52 /* Category.swift */,
 				8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */,
 				8C816BDD1E158694000D1BE6 /* SocialNetwork.swift */,
 				8C816BDF1E159751000D1BE6 /* MessagesConstants.swift */,
@@ -214,6 +213,7 @@
 		8C77823D1D7A12D4001A0596 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				8C5B064D1D80B19A00E2BB52 /* Category.swift */,
 				8C46F77F1E1ED98E001436D7 /* PostNotification.swift */,
 				8C77823E1D7A12ED001A0596 /* News.swift */,
 				8CA498F91E266294000D7E33 /* UserLogin.swift */,

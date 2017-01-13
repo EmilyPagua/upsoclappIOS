@@ -43,20 +43,15 @@ class InterestViewController: UIViewController, UIAlertViewDelegate {
         let categoryCount = category.countCategory()
         if categoryCount < 3 {
             menuButton.isEnabled =  false
-            
-            createViewMessage("Debe seleccionar al menos 3 categorias")
+            MessageAlert.sharedInstance.createViewMessage("Debe seleccionar al menos 3 categorias", title: "Mesaje")
+
             self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }else{
             enableMenu()
             menuButton.isEnabled =  true
-            createViewMessage("Categorías modificadas con éxito..!")
+            MessageAlert.sharedInstance.createViewMessage("Categorías modificadas con éxito..!", title: "Mensaje")
+            
         }
-    }
-    
-    func createViewMessage(_ message: String){
-        let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
-        alertView.tag = 1
-        alertView.show()
     }
 }

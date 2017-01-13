@@ -130,7 +130,7 @@ class ForYouTableViewController: UITableViewController {
         if (newsList.count != 0 ){
             let news = newsList[(indexPath as NSIndexPath).row]
             cell.postTitleLabel.text = news.titleNews
-            loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
+            self.loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
             
             if (indexPath as NSIndexPath).row == self.newsList.count - 3 {
                 page += 1
@@ -241,11 +241,11 @@ class ForYouTableViewController: UITableViewController {
     }
     
     
-    /*@IBAction func unwindToNewsList(_ sender: UIStoryboardSegue) {
+    @IBAction func unwindToNewsList2(_ sender: UIStoryboardSegue) {
         self.tabBarController?.tabBar.isHidden =  false
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.isNavigationBarHidden = false
-    }*/
+    }
 
     
 }

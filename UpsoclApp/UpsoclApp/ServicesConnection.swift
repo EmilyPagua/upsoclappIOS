@@ -13,7 +13,6 @@ class ServicesConnection  {
     var newsList = [News]()
     
     let urlPath = "http://upsocl.com/wp-json/wp/v2/posts"
-    let filterPaged =  "?filter[paged]="
     let url_privacity = "//http://upsocl.com/wp-json/wp/v2/pages/445196"
     //Load 10 News
     func loadAllNews(_ wrapper: [News]?,  urlPath: String,  completionHandler: @escaping ([News]?, NSError?) -> Void) {
@@ -22,6 +21,8 @@ class ServicesConnection  {
             completionHandler(nil, nil)
             return
         }
+        
+        print (urlPath)
         
         let urlPath = urlPath.replacingOccurrences(of: "ñ", with: "n")
             .replacingOccurrences(of: "í", with: "i")
@@ -42,13 +43,13 @@ class ServicesConnection  {
             guard error == nil else {
                 print("ERROR_ ServicesConnection loadAllNews calling GET on: " + urlPath)
                 print (error?.localizedDescription ?? "Error en url")
-                self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
+                MessageAlert.sharedInstance.createViewMessage("Problemas, verifique su conexión a datos", title: "Error!")
                 return
             }
             
             guard data != nil else {
                 print("ERROR_ ServicesConnection loadAllNews did not receive data")
-                self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
+                MessageAlert.sharedInstance.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
             
@@ -81,13 +82,13 @@ class ServicesConnection  {
             guard error == nil else {
                 print("ERROR_ ServicesConnection loadNews calling GET on: " + urlPath)
                 print (error?.localizedDescription ?? "Error en url")
-                self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
+                MessageAlert.sharedInstance.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
             
             guard data != nil else {
                 print("ERROR_ ServicesConnection loadNews did not receive data")
-                self.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
+                MessageAlert.sharedInstance.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
             
@@ -109,12 +110,6 @@ class ServicesConnection  {
         task.resume()
     }
     
-    
-    func createViewMessage(_ message: String, title: String ){
-        let alertView = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: "Aceptar")
-        alertView.tag = 1
-        alertView.show()
-    }
     
     func convertJson(_ nsdata: Data) -> Void {
         let json : AnyObject!
@@ -220,7 +215,6 @@ class ServicesConnection  {
             if imgURL != nil {
                 let task = URLSession.shared.dataTask(with: imgURL!, completionHandler: { (responseData, responseUrl, error) -> Void in
                     
-                    // if responseData is not null...
                     if let data = responseData{
                         print (data)
                         completionHandler(UIImage(data: data)!, nil)

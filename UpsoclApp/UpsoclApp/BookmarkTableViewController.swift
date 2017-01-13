@@ -50,7 +50,7 @@ class BookmarkTableViewController: UITableViewController {
         let news = newsList[(indexPath as NSIndexPath).row]
         cell.postTitleLabel.text = news.titleNews
         
-        loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
+        self.loadImage( news.imageURLNews, viewImagen: cell.postImagenView)
         return cell
     }
     

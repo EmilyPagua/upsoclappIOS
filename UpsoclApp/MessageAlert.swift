@@ -23,5 +23,40 @@ class MessageAlert {
         alertView.show()
     }
     
+    func loadImage(_ urlImage: String?, viewImagen: UIImageView, indicator: UIActivityIndicatorView){
+        
+        self.loadImage(urlImage: urlImage!, completionHandler: { (moreWrapper, error) in
+            DispatchQueue.main.async(execute: { () -> Void in
+                viewImagen.image = moreWrapper
+                indicator.stopAnimating()
+            })
+        })
+    }
+    
+    
+    func loadImage(urlImage: String, completionHandler: @escaping (UIImage, NSError?) -> Void ){
+        
+        if (urlImage.isEmpty) {
+            completionHandler(UIImage(named: "webkit-featured")!, nil)
+            
+        }else{
+            let imgURL = URL(string: urlImage as String)
+            if imgURL != nil {
+                let task = URLSession.shared.dataTask(with: imgURL!, completionHandler: { (responseData, responseUrl, error) -> Void in
+                    
+                    if let data = responseData{
+                        print (data)
+                        completionHandler(UIImage(data: data)!, nil)
+                    }else{
+                        print ("data = null")
+                    }
+                })
+                // Run task
+                task.resume()
+            }else {
+                completionHandler(UIImage(named: "webkit-featured")!, nil)
+            }
+        }
+    }
     
 }

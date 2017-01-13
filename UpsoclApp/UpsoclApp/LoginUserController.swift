@@ -141,19 +141,13 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         beforeCategory = categoryCount
     }
     
-    func createViewMessage(_ message: String){
-        let alertView = UIAlertView(title: "Mensaje", message: message, delegate: self, cancelButtonTitle: "Aceptar")
-        alertView.tag = 1
-        alertView.show()
-    }
-    
     // [------------------------START GOOGLE LOGIN-------------------]
     @IBAction func loginButtonGoogle(_ sender: UIButton) {
         let categoryCount = category.countCategory()
         if categoryCount < 3 {
-            createViewMessage("Debe seleccionar al menos 3 categorias")
-        }else{                                                                                                                                                                                                         
-            //createViewMessage("Categorias modificadas con éxito..!")
+            MessageAlert.sharedInstance.createViewMessage("Debe seleccionar al menos 3 categorias", title: "Mensaje")
+        }else{
+            MessageAlert.sharedInstance.createViewMessage("Categorias modificadas con éxito..!", title: "Mensaje")
         }
     }
     
@@ -279,7 +273,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     }
      // [------------------------FINISH FACEBOOK LOGIN-------------------]
     
-    
     func validEmailUser(userLogin: UserLogin){
         
         let alertController = UIAlertController(title: "Faltan datos en su pertfil", message: "Por favor, ingrese su email personal", preferredStyle: .alert)
@@ -311,9 +304,8 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
             }else{
                 print("ERROR_ validarLogin No es válido")
             }
-            
-            // do something with textField
         }))
+        
         alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
             textField.placeholder = "Search"
         })
