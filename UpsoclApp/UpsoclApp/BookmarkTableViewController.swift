@@ -56,8 +56,6 @@ class BookmarkTableViewController: UITableViewController {
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        // print (tableView.setContentOffset(CGPointMake(0, tableView.rowHeight - tableView.frame.size.height), animated: true))
         return true
     }
     
@@ -80,7 +78,6 @@ class BookmarkTableViewController: UITableViewController {
                                         author: (newsPost.authorNews) ?? "Anonimo",
                                         content: (newsPost.contentNews) ?? "",
                                         isRead: false)
-
             
             NewsSingleton.sharedInstance.removeItem(item: item, isBookmark: true)
             
@@ -131,8 +128,6 @@ class BookmarkTableViewController: UITableViewController {
     func loadList() {
         
         let list:[PostNotification] = NewsSingleton.sharedInstance.getAllBookmark()
-        
-        print (list.count)
         
         for elem in list {
             let news: News = News(id: (elem.idPost),

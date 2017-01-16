@@ -42,6 +42,23 @@ class NewsTableViewController: UITableViewController {
     }
     
     func loadingView(){
+        
+        let list:[PostNotification] = NewsSingleton.sharedInstance.get10FisrtNews()
+        
+        for elem in list {
+            let news: News = News(id: (elem.idPost),
+                                  title: (elem.title),
+                                  content: elem.content,
+                                  imageURL: elem.imageURL,
+                                  date: elem.date,
+                                  link: elem.link,
+                                  category: elem.category,
+                                  author: elem.author)!
+            
+            self.newsList.append(news)
+            self.tableView.reloadData()
+        }
+
 
         indicator = progressBar.loadBar()
         view.addSubview(indicator)
@@ -213,6 +230,24 @@ class NewsTableViewController: UITableViewController {
                     self.tableView.reloadData()
                     return
                 })
+                
+                if (paged=="1"){
+                    for  i in 0  ..< self.newsList.count{
+                        let item = PostNotification(idPost: (self.newsList[i].idNews),
+                                                    title: (self.newsList[i].titleNews),
+                                                    subTitle: (self.newsList[i].titleNews) ,
+                                                    UUID: UUID().uuidString,
+                                                    imageURL: (self.newsList[i].imageURLNews) ?? "SinImagen",
+                                                    date: (self.newsList[i].dateNews) ?? "01-01-2017",
+                                                    link: (self.newsList[i].linkNews) ,
+                                                    category: (self.newsList[i].categoryNews) ,
+                                                    author: (self.newsList[i].authorNews) ?? "Anonimo",
+                                                    content: (self.newsList[i].contentNews) ?? "",
+                                                    isRead: false)
+                    
+                        NewsSingleton.sharedInstance.save10FisrtNews(item)
+                    }
+                }
             })
         } else {
             print("ERROR_ Internet connection FAILED")

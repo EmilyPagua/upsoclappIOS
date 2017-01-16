@@ -18,6 +18,7 @@ class NewsSingleton {
     }
     
     var ITEMS_KEY = "todoLis"
+    var ITEMS_KEY_10NEWS = "10fistNews"
     var ITEMS_KEY_BOOKMARK = "bookmarkNews"
     
     func addBookmark(_ item: PostNotification){
@@ -37,6 +38,11 @@ class NewsSingleton {
     func getAllBookmark() -> [PostNotification] {
         return self.getList(itemKey: ITEMS_KEY_BOOKMARK)
     }
+    
+    func get10FisrtNews() -> [PostNotification] {
+        return self.getList(itemKey: ITEMS_KEY_10NEWS)
+    }
+
     
     
     func removeAllItem (isBookmark: Bool) {
@@ -156,8 +162,11 @@ class NewsSingleton {
                 }
             }
         }
-        
-        return false
 
+        return false
+    }
+    
+    func save10FisrtNews(_ item: PostNotification) {
+        self.saveNews(itemKey: ITEMS_KEY_10NEWS, isBookmark: false, item)
     }
 }
