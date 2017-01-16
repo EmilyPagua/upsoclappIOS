@@ -67,11 +67,23 @@ class BookmarkTableViewController: UITableViewController {
         let newsPost  = self.newsList[(indexPath as NSIndexPath).row]
         
         let more = UITableViewRowAction(style: .normal, title: "Remover") { action, index in
+
             
-            let preferences = UserDefaults.standard
-            //let newsPost  = self.newsList[indexPath.row]
-            preferences.removeObject(forKey: String(newsPost.idNews))
-            preferences.synchronize()
+            let item = PostNotification(idPost: (newsPost.idNews),
+                                        title: (newsPost.titleNews),
+                                        subTitle: (newsPost.titleNews) ,
+                                        UUID: UUID().uuidString,
+                                        imageURL: (newsPost.imageURLNews) ?? "SinImagen",
+                                        date: (newsPost.dateNews) ?? "01-01-2017",
+                                        link: (newsPost.linkNews) ,
+                                        category: (newsPost.categoryNews) ,
+                                        author: (newsPost.authorNews) ?? "Anonimo",
+                                        content: (newsPost.contentNews) ?? "",
+                                        isRead: false)
+
+            
+            NewsSingleton.sharedInstance.removeItem(item: item, isBookmark: true)
+            
             
             self.newsList.remove(at: (indexPath as NSIndexPath).row)
             self.saveNews()
@@ -89,12 +101,8 @@ class BookmarkTableViewController: UITableViewController {
     }
 
     // MARK: - Navigation
-    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-        
         if segue.identifier == "ShowDetail" {
             
             let detailViewController = segue.destination as! PageViewController
@@ -116,32 +124,28 @@ class BookmarkTableViewController: UITableViewController {
                     list.append(newsList[(indexPath as NSIndexPath).row])
                     detailViewController.newsList = list
                 }
-                
             }
         }
     }
     
-    
     func loadList() {
         
-        for elem in UserDefaults.standard.dictionaryRepresentation(){
+        let list:[PostNotification] = NewsSingleton.sharedInstance.getAllBookmark()
+        
+        print (list.count)
+        
+        for elem in list {
+            let news: News = News(id: (elem.idPost),
+                                  title: (elem.title),
+                                  content: elem.content,
+                                  imageURL: elem.imageURL,
+                                  date: elem.date,
+                                  link: elem.link,
+                                  category: elem.category,
+                                  author: elem.author)!
             
-            let key = elem.0
-            let numberCharacters = CharacterSet.decimalDigits.inverted
-            
-            if !key.isEmpty && key.rangeOfCharacter(from: numberCharacters) == nil{
-                
-                let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + "/" + key
-                //let urlPath =     "//http://upsocl.com/wp-json/wp/v2/pages/445196"
-                
-                servicesConnection.loadNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
-                    self.newsList = moreWrapper!
-                    DispatchQueue.main.async(execute: {
-                        self.tableView.reloadData()
-                    return
-                    })
-                })
-            }
+            self.newsList.append(news)
+            self.tableView.reloadData()
         }
     }
     
@@ -161,7 +165,6 @@ class BookmarkTableViewController: UITableViewController {
             // Delete the row from the data source
         } else if editingStyle == .none {
             print ("none")
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     

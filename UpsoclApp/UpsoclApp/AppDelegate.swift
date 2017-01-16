@@ -275,7 +275,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                                                 content: (notification.first?.contentNews) ?? "",
                                                 isRead: false)
                     
-                    NewsSingleton.sharedInstance.removeAllItem()
+                    NewsSingleton.sharedInstance.removeAllItem(isBookmark: false)
                     NewsSingleton.sharedInstance.addNotification(item)
                     self.sendActivityMain()
                     

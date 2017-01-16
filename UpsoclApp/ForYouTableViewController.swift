@@ -175,7 +175,7 @@ class ForYouTableViewController: UITableViewController {
                 var list =  [News]()
                 let listCount = newsList.count
                 
-                if (indexPath as NSIndexPath).row + 5 <= listCount {
+                if (indexPath as NSIndexPath).row + 3 <= listCount {
                     for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
                         list.append(newsList[i])
                     }
@@ -233,7 +233,7 @@ class ForYouTableViewController: UITableViewController {
         post?.isRead  = true
         notificationButton.image = UIImage(named: "notification_disable")
         
-        NewsSingleton.sharedInstance.removeAllItem()
+        NewsSingleton.sharedInstance.removeAllItem(isBookmark: false)
         NewsSingleton.sharedInstance.addNotification(post!)
         
         let detailViewController = segue.destination as! PageViewController

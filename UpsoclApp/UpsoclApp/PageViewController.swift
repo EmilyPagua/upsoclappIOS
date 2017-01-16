@@ -43,7 +43,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         
         self.tabBarController?.tabBar.isHidden =  true
         self.navigationController?.isNavigationBarHidden = true
-        let preferences = UserDefaults.standard
         
         if (isNotificaction){
             self.navigationItem.title =  "Post Destacado"
@@ -55,8 +54,11 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             self.navigationController?.isNavigationBarHidden = false
         }else{
             for  i in 0  ..< newsList.count    {
-                let bookmark = newsList[i]
-                _ = preferences.object(forKey: String(bookmark.idNews))
+                let flag  = NewsSingleton.sharedInstance.getValueById(newsList[i].idNews, isBookmark: true)
+                if flag {
+                    print ("IsBookmark")
+                
+                }
             }
             createPageViewController()
             setupPagecontrol()

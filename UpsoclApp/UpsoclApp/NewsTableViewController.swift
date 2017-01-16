@@ -158,7 +158,7 @@ class NewsTableViewController: UITableViewController {
                     var list =  [News]()
                     let listCount = newsList.count
                     
-                    if (indexPath as NSIndexPath).row + 5 <= listCount {
+                    if (indexPath as NSIndexPath).row + 3 <= listCount {
                         for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
                             list.append(newsList[i])
                         }
@@ -188,7 +188,7 @@ class NewsTableViewController: UITableViewController {
             newsList.append(news)
             var post = notification.first
             post?.isRead  = true
-            NewsSingleton.sharedInstance.removeAllItem()
+            NewsSingleton.sharedInstance.removeAllItem(isBookmark: false )
             NewsSingleton.sharedInstance.addNotification(post!)
             let detailViewController = segue.destination as! PageViewController
             print ("cantidad de registros  en la tabla \(newsList.count)")

@@ -214,7 +214,7 @@ class NewsListTableViewController: UITableViewController {
         post?.isRead  = true
         notificationButton.image = UIImage(named: "notification_disable")
         
-        NewsSingleton.sharedInstance.removeAllItem()
+        NewsSingleton.sharedInstance.removeAllItem(isBookmark: false)
         NewsSingleton.sharedInstance.addNotification(post!)
         
         let detailViewController = segue.destination as! PageViewController

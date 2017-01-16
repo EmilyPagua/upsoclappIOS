@@ -169,33 +169,31 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     @IBAction func bookmarkButton(_ sender: UIBarButtonItem) {
 
-        let preferences = UserDefaults.standard
-        let currentLevelKey = String(news.idNews)
-        let currentLevel = preferences.object(forKey: currentLevelKey)
+        let item = PostNotification(idPost: (news.idNews),
+                                    title: (news.titleNews),
+                                    subTitle: (news.imageURLNews)! ,
+                                    UUID: UUID().uuidString,
+                                    imageURL: (news.imageURLNews) ?? "SinImagen",
+                                    date: (news.dateNews) ?? "01-01-2017",
+                                    link: (news.linkNews) ,
+                                    category: (news.categoryNews) ,
+                                    author: (news.authorNews) ?? "Anonimo",
+                                    content: (news.contentNews) ?? "",
+                                    isRead: true)
         
-        if currentLevel == nil {
+        let flag  = NewsSingleton.sharedInstance.getValueById(news.idNews, isBookmark: true)
+        if flag {
             
-            let objectJson: NSMutableDictionary =  NSMutableDictionary()
-            objectJson.setValue(news.idNews, forKey: News.PropertyKey.idKey)
-            objectJson.setValue(news.titleNews, forKey: News.PropertyKey.titleKey)
-            objectJson.setValue(news.imageURLNews, forKey: News.PropertyKey.imageURLKey)
-            objectJson.setValue(news.authorNews, forKey: News.PropertyKey.authorKey)
-            objectJson.setValue(news.categoryNews, forKey: News.PropertyKey.categoryKey)
-            objectJson.setValue(news.linkNews, forKey: News.PropertyKey.linkKey)
-            objectJson.setValue(news.contentNews, forKey: News.PropertyKey.contentKey)
-            
-            let jsonData = try! JSONSerialization.data(withJSONObject: objectJson, options: JSONSerialization.WritingOptions())
-            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) as! String
-            
-            preferences.setValue(jsonString, forKey: currentLevelKey )            
-            self.bookmark.image = UIImage(named: "bookmarkActive")
-            print ("bookmarkActive")
-        } else {
-            preferences.removeObject(forKey: currentLevelKey)
+            NewsSingleton.sharedInstance.removeItem(item: item, isBookmark: true)
             self.bookmark.image = UIImage(named: "bookmarkInactive")
             print ("bookmarkInactive")
         }
-        preferences.synchronize()
+        else{
+            NewsSingleton.sharedInstance.addBookmark(item)
+            
+            self.bookmark.image = UIImage(named: "bookmarkActive")
+            print ("bookmarkActive")
+        }
     }
     
     
@@ -242,13 +240,11 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     func isBookmark() {
         
-        let preferences = UserDefaults.standard
-        let currentLevel = preferences.object(forKey: String(news.idNews))
-        
-        if currentLevel != nil{
+        let flag  = NewsSingleton.sharedInstance.getValueById(news.idNews, isBookmark: true)
+        if flag {
             bookmark.image = UIImage(named: "bookmarkActive")
         }else{
-            bookmark.image = UIImage(named: "bookmarkInactive")
+             bookmark.image = UIImage(named: "bookmarkInactive")
         }
     }
     
@@ -291,8 +287,9 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     //BannerViewController
     
     func uploadWebView(height: CGFloat) -> Void {
+        
         self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
-                                                   height: height + 10)
+                                                   height: height + 240)
         
         print ("Modificado tamaño del Scroll")
         print(self.bannerView.frame.height)

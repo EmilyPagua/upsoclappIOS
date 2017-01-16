@@ -13,29 +13,34 @@ import Google
 
 class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginButtonDelegate {
     
+     @IBOutlet weak var loginButtonTwitter: UIButton!
     // [START viewcontroller Google]
     @IBOutlet weak var signInButtonGoogle: GIDSignInButton!
     // [END viewcontroller Google]
     
+    // [START viewcontroller Facebook]
+    @IBOutlet weak var loginButtonFacebook: FBSDKLoginButton?  = {
+        let button = FBSDKLoginButton()
+        button.readPermissions = ["email"]
+        return button
+    }()
+    // [END viewcontroller Facebook]
+    
     var category = Category()
     var beforeCategory = 0
     let servicesConnection  = ServicesConnection()
-    
-    // [START viewcontroller Facebook]
-    @IBOutlet weak var loginButtonFacebook: FBSDKLoginButton?  = {
-    let button = FBSDKLoginButton()
-    button.readPermissions = ["email"]
-    return button
-    }()
+
+    var progressView: UIProgressView?
+    var progressLabel: UILabel?
+    var timer: Timer?
    
-    // [END viewcontroller Facebook]
-    
-    @IBOutlet weak var loginButtonTwitter: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addControls()
+        self.addGestures()
         
-        var user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
+        let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
         if user.first?.email.isEmpty == false {
             print ("LOGIN \(user.first?.email)")
         }else{
@@ -56,6 +61,56 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         loginButtonTwitter?.isEnabled = false
         signInButtonGoogle?.isEnabled = false
     }
+    
+    //ProgressBar
+    func addControls() {
+        // Create Progress View Control
+        progressView = UIProgressView(progressViewStyle: UIProgressViewStyle.default)
+        progressView?.center = self.view.center
+        view.addSubview(progressView!)
+        
+        // Add Label
+        progressLabel = UILabel()
+        let frame = CGRect(x: view.center.x - 25, y: view.center.y - 100, width: 100, height: 50)
+        progressLabel?.frame = frame
+        view.addSubview(progressLabel!)
+    }
+
+    func addGestures() {
+        // Add Single Tap and Doube Tap Gestures
+        let tap = UITapGestureRecognizer(target: self, action: Selector(("handleTap:")))
+        tap.numberOfTapsRequired = 1
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: Selector(("handleDoubleTap:")))
+        doubleTap.numberOfTapsRequired = 2
+        
+        view.addGestureRecognizer(tap)
+        view.addGestureRecognizer(doubleTap)
+        tap.require(toFail: doubleTap)
+    }
+    
+    // Start Progress View
+    func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(LoginUserController.updateProgress), userInfo: nil, repeats: true)
+        }
+    }
+    //MARK:- Double Tap
+    // Reset Progress View
+    func handleDoubleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            progressView?.progress = 0.0
+            progressLabel?.text = "0 %"
+            timer?.invalidate()
+        }
+    }
+    
+    func updateProgress() {
+        progressView?.progress += 0.05
+        let progressValue = self.progressView?.progress
+        progressLabel?.text = "\(progressValue! * 100) %"
+    }
+    //End progressBar
     
     @IBAction func validarLogin(_ sender: AnyObject) {
         
