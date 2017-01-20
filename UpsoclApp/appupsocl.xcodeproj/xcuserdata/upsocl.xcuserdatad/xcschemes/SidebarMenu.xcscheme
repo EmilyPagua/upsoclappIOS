@@ -29,12 +29,32 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F4702A041A7F27DC00E30A3C"
                BuildableName = "appupsocl.xctest"
                BlueprintName = "appupsoclTests"
+               ReferencedContainer = "container:appupsocl.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8CC216F91E2E5EDE002CAE04"
+               BuildableName = "appupsocl_Tests.xctest"
+               BlueprintName = "appupsocl_Tests"
+               ReferencedContainer = "container:appupsocl.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8CC217091E2EAD01002CAE04"
+               BuildableName = "appupsoclUITests.xctest"
+               BlueprintName = "appupsoclUITests"
                ReferencedContainer = "container:appupsocl.xcodeproj">
             </BuildableReference>
          </TestableReference>
