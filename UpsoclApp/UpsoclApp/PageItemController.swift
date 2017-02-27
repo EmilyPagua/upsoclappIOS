@@ -212,7 +212,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        NSLog("ERROR_ en webView \(error.localizedDescription)");
+        //NSLog("ERROR_ en webView \(error.localizedDescription)");
         self.uploadWebView(height: self.webDetail.scrollView.contentSize.height )
     }
     
@@ -252,8 +252,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     }
     
     func adViewDidReceiveAd(_ view: GADBannerView) {
-        NSLog ("Banner loaded successfully ")
-        
+        //NSLog ("Banner loaded successfully ")
         self.isLoadBanner =  true
         self.uploadWebView(height: self.webDetail.scrollView.contentSize.height)
     }
@@ -275,26 +274,24 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     func uploadWebView( height: CGFloat) -> Void {
         
         var height = height
+        /*
         print ("Modificado tamaño del Scroll")
         print ("height: \(height)")
         print(self.bannerView.frame.height)
         print(self.scrollViewDetail.frame.height)
         print(self.webDetail.scrollView.contentSize.height)
+        */
         
         if (height==0.0){
-            NSLog ("news.titleNews  \(news.titleNews)")
-            //self.webDetail.loadRequest(NSURLRequest(url: NSURL(string:"about:blank")! as URL) as URLRequest)
-           
+          //  NSLog ("news.titleNews  \(news.titleNews)")
+          //  self.webDetail.loadRequest(NSURLRequest(url: NSURL(string:"about:blank")! as URL) as URLRequest)
+            self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
         }else{
             if (self.isLoadBanner)
             {
-                NSLog ("Load banner")
                 self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height+10, width: 300, height: 250)
                 self.scrollViewDetail.addSubview(self.bannerView)
                 height = height + 260.0
-                //self.webDetail.scrollView.isScrollEnabled =  false
-                //self.uploadWebView(height: self.webDetail.scrollView.contentSize.height + self.bannerView.bounds.height)
-                
             }
             self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
                                                        height: height)

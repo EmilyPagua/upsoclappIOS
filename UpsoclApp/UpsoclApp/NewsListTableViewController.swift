@@ -135,7 +135,6 @@ class NewsListTableViewController: UITableViewController {
     
     
     func loadImage(_ urlImage: String?, viewImagen: UIImageView){
-        NSLog ("urlImage \(urlImage)")
         if urlImage?.isEmpty==false{
             servicesConnection.loadImage(urlImage: urlImage!, completionHandler: { (moreWrapper, error) in
                 DispatchQueue.main.async(execute: { () -> Void in

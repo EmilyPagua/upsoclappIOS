@@ -173,7 +173,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         
         if (newsList.count>1){
             let name = newsList[0].linkNews
-            NSLog("URL articlo a compartir en GAnalytics\(name)")
+            NSLog("URL articlo a compartir en GAnalytics:  \(name)")
             
             /*
              DESCOMENTAR PARA QUE SE ENVIEN A GOOGLE ANALYTICS
