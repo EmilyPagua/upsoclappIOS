@@ -37,7 +37,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     func onTokenRefresh() {
         // A rotation of the registration tokens is happening, so the app needs to request a new token.
-        print("The GCM registration token needs to be changed.")
+        NSLog("The GCM registration token needs to be changed.")
         GGLInstanceID.sharedInstance().token(withAuthorizedEntity: gcmSenderID,
                                              scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: registrationHandler)
     }
@@ -45,7 +45,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        print ("--------------------------Inicio------------------")
+        NSLog ("--------------------------Inicio------------------")
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
 
@@ -72,10 +72,10 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         // [START connect_gcm_service]
         GCMService.sharedInstance().connect(handler: { error -> Void in
             if let error = error as? NSError {
-                print("Could not connect to GCM: \(error.localizedDescription)")
+                NSLog("Could not connect to GCM: \(error.localizedDescription)")
             } else {
                 self.connectedToGCM = true
-                print("Connected to GCM")
+                NSLog("Connected to GCM")
                 self.subscribeToTopic()
             }
         })
@@ -121,11 +121,11 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
             
             UserSingleton.sharedInstance.removeUseLogin()
             UserSingleton.sharedInstance.addUser(userLogin)
-            print("USER_LOGIN:  ")
+            NSLog("USER_LOGIN:  ")
             
             userInfo = ["statusText": "Signed in user:\n\(userLogin.email)"]
         } else {
-            print("\(error.localizedDescription)")
+            NSLog("\(error.localizedDescription)")
             userInfo = nil
         }
         
@@ -156,7 +156,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     func application( _ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken
         deviceToken: Data ) {
         
-        print ("deviceTokent ", deviceToken.description)
+        NSLog ("deviceTokent ", deviceToken.description)
         let instanceIDConfig = GGLInstanceIDConfig.default()
         instanceIDConfig?.delegate = self
         GGLInstanceID.sharedInstance().start(with: instanceIDConfig)
@@ -182,7 +182,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
             self.subscribeToTopic()
             userInfo = ["registrationToken": registrationToken]
         } else if let error = error {
-            print("Registration to GCM failed with error: \(error.localizedDescription)")
+            NSLog("Registration to GCM failed with error: \(error.localizedDescription)")
             userInfo = ["error": error.localizedDescription]
             
         }
@@ -203,9 +203,9 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                                                         if let error = error as? NSError {
                                                             // Treat the "already subscribed" error more gently
                                                             if error.code == 3001 {
-                                                                print("Already subscribed to \(self.subscriptionTopic)")
+                                                                NSLog("Already subscribed to \(self.subscriptionTopic)")
                                                             } else {
-                                                                print("Subscription failed: \(error.localizedDescription)")
+                                                                NSLog("Subscription failed: \(error.localizedDescription)")
                                                             }
                                                         } else {
                                                             self.subscribedToTopic = true
@@ -218,7 +218,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     // [START receive_apns_token_error]
     func application( _ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error ) {
-        print("Registration for remote notification failed with error: \(error.localizedDescription)")
+        NSLog("Registration for remote notification failed with error: \(error.localizedDescription)")
         // [END receive_apns_token_error]
         let userInfo = ["error": error.localizedDescription]
         
@@ -231,7 +231,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     func application( _ application: UIApplication,
                       didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
-        print("1  Notification received: \(userInfo)")
+        NSLog("1  Notification received: \(userInfo)")
         GCMService.sharedInstance().appDidReceiveMessage(userInfo)
         NotificationCenter.default.post(name: Notification.Name(rawValue: messageKey), object: nil,
                                         userInfo: userInfo)
@@ -256,7 +256,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         }
         let urlPath = ApiConstants.PropertyKey.baseURL + ""+ApiConstants.PropertyKey.listPost+"/\(idPost)"
         
-        print (urlPath)
+        NSLog(urlPath)
         servicesConnection.loadNews(notification, urlPath: urlPath, completionHandler: {(moreWrapper, error) in
             notification = moreWrapper!
             DispatchQueue.main.async(execute: {
@@ -275,7 +275,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                                                 content: (notification.first?.contentNews) ?? "",
                                                 isRead: false)
                     
-                    NewsSingleton.sharedInstance.removeAllItem(isBookmark: false)
+                    NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_Notification)
                     NewsSingleton.sharedInstance.addNotification(item)
                     self.sendActivityMain()
                     
@@ -295,7 +295,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         GIDSignIn.sharedInstance().delegate = self  //Login Google
         gcmSenderID = GGLContext.sharedInstance().configuration.gcmSenderID
         
-        print ("gcmSenderId   ",gcmSenderID ?? "tokent")
+        NSLog ("gcmSenderId   ",gcmSenderID ?? "tokent")
         
         // [START register_for_remote_notifications]
         if #available(iOS 8.0, *) {
@@ -355,34 +355,34 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
         if user.first?.email.isEmpty == false {
             
-            print ("socialNetworkName  \(user.first?.email)  \(user.first?.socialNetwork)")
+            NSLog ("socialNetworkName  \(user.first?.email)  \(user.first?.socialNetwork)")
             
-            Twitter.sharedInstance().logIn { session, error in
+            /*Twitter.sharedInstance().logIn { session, error in
                 if (session != nil) {
-                    print("1 \(session!.userName)");
+                    NSLog("1 \(session!.userName)");
                 } else {
-                    print("5 error: \(error!.localizedDescription)");
+                    NSLog("validLoginUser 5 error: \(error!.localizedDescription)");
                 }
             }
 
             if  GIDSignIn.sharedInstance().hasAuthInKeychain(){
-                print("user is signed in")
+                NSLog("user is signed in")
                 return true
             }else{
-                print("GIDSignIn user is NOT signed in")
+                NSLog("GIDSignIn user is NOT signed in")
             }
             
             if FBSDKAccessToken.current() != nil {
-                print("tokenFacebook user is signed in")
+                NSLog("tokenFacebook user is signed in")
                 return true
             }else{
-                print("tokenFacebook user is NOT signed in")
+                NSLog("tokenFacebook user is NOT signed in")
             }
             
-            print("Twitter user is signed in")
+            NSLog("Twitter user is signed in")*/
             self.sendActivityMain()
         }else{
-            print ("NO LOGIN")}
+            NSLog ("NO LOGIN")}
 
          return false
     }

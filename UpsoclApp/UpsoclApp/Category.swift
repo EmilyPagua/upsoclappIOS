@@ -110,6 +110,7 @@ class Category  {
         let preferences = UserDefaults.standard
         for elem in UserDefaults.standard.dictionaryRepresentation(){
             let key = elem.0
+            NSLog (key)
             switch key {
             case "culture":
                 preferences.removeObject(forKey: Category.PropertyKeyName.cultura)

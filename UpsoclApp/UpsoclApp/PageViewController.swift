@@ -56,8 +56,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             for  i in 0  ..< newsList.count    {
                 let flag  = NewsSingleton.sharedInstance.getValueById(newsList[i].idNews, isBookmark: true)
                 if flag {
-                    print ("IsBookmark")
-                
+                    NSLog ("IsBookmark")
                 }
             }
             createPageViewController()
@@ -133,7 +132,9 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             
             return pageItemController
             
-        }else { print ("itemIndex > newsList.count")}
+        }else {
+            NSLog ("itemIndex > newsList.count")
+        }
         return nil
     }
     
@@ -172,7 +173,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         
         if (newsList.count>1){
             let name = newsList[0].linkNews
-            print("URL articlo a compartir en GAnalytics\(name)")
+            NSLog("URL articlo a compartir en GAnalytics\(name)")
             
             /*
              DESCOMENTAR PARA QUE SE ENVIEN A GOOGLE ANALYTICS
@@ -186,7 +187,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
              let builder = GAIDictionaryBuilder.createScreenView()
              googleAnalytics.send(builder!.build() as [NSObject : AnyObject])*/
         }else{
-            print ("-- GoogleAnalytics, NO se encontro news")
+            NSLog ("-- GoogleAnalytics, NO se encontro news")
         }
         
         

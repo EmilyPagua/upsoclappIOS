@@ -123,14 +123,14 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
             daySelected.setImage(unCheckImage, for: UIControlState())
             weekSelected.setImage(unCheckImage, for: UIControlState())
         default:
-            print ("no es nada")
+            NSLog ("no es nada")
         }
         preferences.setValue(frecuency, forKey: namePreferences )
         preferences.synchronize()
     }
     
     func closeSession(){
-        print ("close")
+        NSLog ("close")
     }
     
     @IBAction func signOutButton(_ sender: AnyObject) {
@@ -139,7 +139,7 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
         let alert = UIAlertController(title: "Alerta", message: "Esta seguro que desea cerrar sesión?", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Si", style: UIAlertActionStyle.default, handler: { action in
-            print("Click of default button")
+            NSLog("Click of default button")
            
             if (self.socialNetworkName=="facebook" ){
                 FBSDKLoginManager().logOut()
@@ -160,6 +160,10 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
             }
             
             UserSingleton.sharedInstance.removeUseLogin()
+            NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_10NEWS)
+            NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_BOOKMARK)
+            NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_Notification)
+            
             self.category.clearCategoryPreference()
             
             let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
@@ -169,7 +173,7 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
             
             }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: { action in
-            print("Click of default button")
+            NSLog("Click of default button")
             }
         ))
         
@@ -178,15 +182,15 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
     }
 
     func login (text: UITextField){
-        print ("Login ")
+        NSLog ("Login ")
     }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print ("lFBSDKLoginButton - LoginButtonDidLogOut")
+        NSLog ("lFBSDKLoginButton - LoginButtonDidLogOut")
     }
 
     
     public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("LogOutButton Facebook")
+        NSLog("LogOutButton Facebook")
     }
  
     func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {

@@ -17,22 +17,22 @@ class NewsSingleton {
         return Static.instance
     }
     
-    var ITEMS_KEY = "todoLis"
+    var ITEMS_KEY_Notification = "todoLis"
     var ITEMS_KEY_10NEWS = "10fistNews"
     var ITEMS_KEY_BOOKMARK = "bookmarkNews"
     
     func addBookmark(_ item: PostNotification){
-        self.saveNews(itemKey: ITEMS_KEY_BOOKMARK, isBookmark: true, item)
+        self.saveNews(itemKey: ITEMS_KEY_BOOKMARK, notification: true, item)
     }
     
     
     func addNotification(_ item: PostNotification) {
-        self.saveNews(itemKey: ITEMS_KEY, isBookmark: false, item)
+        self.saveNews(itemKey: ITEMS_KEY_Notification, notification: false, item)
     }
     
     func allItems() -> [PostNotification]  {
         
-        return self.getList(itemKey: ITEMS_KEY)
+        return self.getList(itemKey: ITEMS_KEY_Notification)
     }
     
     func getAllBookmark() -> [PostNotification] {
@@ -43,22 +43,16 @@ class NewsSingleton {
         return self.getList(itemKey: ITEMS_KEY_10NEWS)
     }
 
-    
-    
-    func removeAllItem (isBookmark: Bool) {
-        var itemKey:String
-        
-        if isBookmark{itemKey = ITEMS_KEY_BOOKMARK
-        }else{ itemKey =  ITEMS_KEY}
+    func removeAllItem (itemKey: String ) {
 
         if var todoItem = UserDefaults.standard.dictionary(forKey: itemKey){
-            print ("Remove  \(todoItem.count)")
+            NSLog ("removeAllItem  itemKey: \(itemKey) count: \(todoItem.count)")
             todoItem.removeAll()
             UserDefaults.standard.set(todoItem, forKey: itemKey)
         }
     }
     
-    func saveNews(itemKey: String, isBookmark: Bool, _ item: PostNotification){
+    func saveNews(itemKey: String, notification: Bool, _ item: PostNotification){
         
         //save cache
         var todoDictionary = UserDefaults.standard.dictionary(forKey: itemKey) ?? Dictionary()
@@ -76,8 +70,7 @@ class NewsSingleton {
         
         UserDefaults.standard.set(todoDictionary, forKey: itemKey)
         
-        print ("Save as bookmark")
-        if (!isBookmark){
+        if (notification){
             let notification = UILocalNotification()
             notification.alertBody = "Todo Item \"\(item.title)\" Is Overdue"
             notification.alertAction = "open"
@@ -92,9 +85,9 @@ class NewsSingleton {
         var itemKey:String
         if isBookmark{
             itemKey = ITEMS_KEY_BOOKMARK
-            print("Remove item Bookmark")
+            NSLog("Remove item Bookmark")
         }else{
-            itemKey =  ITEMS_KEY
+            itemKey =  ITEMS_KEY_Notification
             
             let sheduledNotification: [UILocalNotification]? =  UIApplication.shared.scheduledLocalNotifications
             
@@ -148,14 +141,14 @@ class NewsSingleton {
         
         if isBookmark{
             itemKey = ITEMS_KEY_BOOKMARK
-            print("Search item Bookmark")
+            //NSLog("Search item by Bookmark")
         }else{
-            itemKey =  ITEMS_KEY
+            itemKey =  ITEMS_KEY_Notification
         }
         
         if let todoItem = UserDefaults.standard.dictionary(forKey: itemKey){
             for (index,entry) in todoItem {
-                print (index)
+                NSLog (index)
                 
                 if index == String(id) {                    
                     return true
@@ -167,6 +160,6 @@ class NewsSingleton {
     }
     
     func save10FisrtNews(_ item: PostNotification) {
-        self.saveNews(itemKey: ITEMS_KEY_10NEWS, isBookmark: false, item)
+        self.saveNews(itemKey: ITEMS_KEY_10NEWS, notification: false, item)
     }
 }

@@ -48,7 +48,7 @@ class MessageAlert {
                         print (data)
                         completionHandler(UIImage(data: data)!, nil)
                     }else{
-                        print ("data = null")
+                        NSLog ("data = null")
                     }
                 })
                 // Run task

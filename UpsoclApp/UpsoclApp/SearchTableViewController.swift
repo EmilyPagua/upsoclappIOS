@@ -66,7 +66,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
             searchActive =  true
             
         case 1:
-            print ("No pertenece")
+            NSLog ("No pertenece")
         default:
             paged = 1
             callWebServices(String(self.paged),searchText: filter)
@@ -122,7 +122,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
                 
         let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + page + ApiConstants.PropertyKey.filterWord +  searchText
         
-        print ("URL_ BUSQUEDA\(urlPath)")
+        NSLog ("URL_ BUSQUEDA\(urlPath)")
         servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
             
             self.newsList = moreWrapper!

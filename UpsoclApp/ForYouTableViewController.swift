@@ -159,7 +159,7 @@ class ForYouTableViewController: UITableViewController {
             notification = NewsSingleton.sharedInstance.allItems()
             
             if (notification.isEmpty){
-                print("No tiene noticaciones disponibles")
+                NSLog("No tiene noticaciones disponibles")
             }else{
                 self.processingNotification(notification: notification, segue: segue )
                 return
@@ -184,7 +184,7 @@ class ForYouTableViewController: UITableViewController {
             }
             
         default:
-            print ("Es otro boton")
+            NSLog ("Es otro boton")
             
         }
     }
@@ -194,7 +194,7 @@ class ForYouTableViewController: UITableViewController {
         self.indicator.startAnimating()
        
         let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.filterCategoryName + keyCategory + ApiConstants.PropertyKey.filterPageForYou + paged
-       
+        self.newsList = [News]()
         servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
             
             self.newsList = moreWrapper!
@@ -233,7 +233,7 @@ class ForYouTableViewController: UITableViewController {
         post?.isRead  = true
         notificationButton.image = UIImage(named: "notification_disable")
         
-        NewsSingleton.sharedInstance.removeAllItem(isBookmark: false)
+        NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_Notification)
         NewsSingleton.sharedInstance.addNotification(post!)
         
         let detailViewController = segue.destination as! PageViewController

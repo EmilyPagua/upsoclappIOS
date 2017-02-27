@@ -129,13 +129,13 @@ class NewsListTableViewController: UITableViewController {
         
         urlPath += ApiConstants.PropertyKey.filterPageForYou + "\(String(self.page))"
         
-        print (urlPath)
+        NSLog (urlPath)
         return urlPath
     }
     
     
     func loadImage(_ urlImage: String?, viewImagen: UIImageView){
-        print ("urlImage \(urlImage)")
+        NSLog ("urlImage \(urlImage)")
         if urlImage?.isEmpty==false{
             servicesConnection.loadImage(urlImage: urlImage!, completionHandler: { (moreWrapper, error) in
                 DispatchQueue.main.async(execute: { () -> Void in
@@ -165,7 +165,7 @@ class NewsListTableViewController: UITableViewController {
             notification = NewsSingleton.sharedInstance.allItems()
             
             if (notification.isEmpty){
-                print("No tiene noticaciones disponibles")
+                NSLog("No tiene noticaciones disponibles")
             }else{
                 self.processingNotification(notification: notification, segue: segue )
                 return
@@ -190,7 +190,7 @@ class NewsListTableViewController: UITableViewController {
             }
             
         default:
-            print ("Indefinido")
+            NSLog ("Indefinido")
             
         }
 
@@ -214,16 +214,11 @@ class NewsListTableViewController: UITableViewController {
         post?.isRead  = true
         notificationButton.image = UIImage(named: "notification_disable")
         
-        NewsSingleton.sharedInstance.removeAllItem(isBookmark: false)
+        NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_Notification)
         NewsSingleton.sharedInstance.addNotification(post!)
         
         let detailViewController = segue.destination as! PageViewController
         detailViewController.newsList = newsList
     }
     
-   /* @IBAction func unwindToNewsList(_ sender: UIStoryboardSegue) {
-        self.tabBarController?.tabBar.isHidden =  false
-        self.navigationController?.popViewController(animated: true)
-        self.navigationController?.isNavigationBarHidden = false
-    }*/
 }

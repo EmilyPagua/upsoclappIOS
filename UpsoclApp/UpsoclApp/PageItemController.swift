@@ -21,12 +21,13 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     var servicesConnection = ServicesConnection()
     let baseURL = URL(string: "http://api.instagram.com/oembed")
     
-    let top = "<html> <header> " + DetailConstants.PropertyKey.HTML_HEAD + "</header> <body>"
+    let top = "<html> <header>" + DetailConstants.PropertyKey.HTML_HEAD + "</header> <body>"
     
-     var itemIndex: Int = 0
+    var itemIndex: Int = 0
     var news: News = News(id: 0, title: "", content: "", imageURL: "", date: "", link: "", category: "", author: "")!
     var contentDetail = ""
     var isSearchResult = false
+    var isLoadBanner =  false
     
     var progressBar = ProgressBarLoad()
     var indicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
@@ -54,19 +55,13 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        indicator = progressBar.loadBar()
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.bringSubview(toFront: view)
-
+        //loadProgressBar
         self.isBookmark()
         self.createView()
     
     }
     
     func createView () -> Void{
-        
-        self.indicator.startAnimating()
         
         self.bannerView.load(GADRequest())
         
@@ -79,16 +74,27 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.scrollViewDetail.delegate = self
         self.scrollViewDetail.backgroundColor = UIColor.white
         self.scrollViewDetail.autoresizingMask = UIViewAutoresizing.flexibleWidth
-    
-        scrollViewDetail.addSubview(self.bannerView)
-        scrollViewDetail.addSubview(self.webDetail)
         
+        self.scrollViewDetail.addSubview(self.webDetail)
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        view.addSubview(indicator)
         view.addSubview(self.scrollViewDetail)
+        //self.scrollViewDetail.addSubview(self.indicator)
+       
+        self.indicator.bringSubview(toFront: view)
+        self.indicator.startAnimating()
+        
     }
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        self.indicator.frame = CGRect(x: (UIScreen.main.bounds.width/2) - 20, y: 50.0, width: 30.0, height: 30.0)
+        self.indicator.color = UIColor.blue
+        
         
         self.webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height)
         
@@ -102,27 +108,11 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        self.indicator.stopAnimating()
-        print ("webViewDidFinishLoad")
-        
         //create banner
-        self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height+10, width: 300, height: 250)
         self.webDetail.frame = CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: self.webDetail.scrollView.contentSize.height)
         self.uploadWebView(height: self.webDetail.scrollView.contentSize.height )
-    
-    }
-
-    
-    func plus(sender : UIButton) {
-        update(zoomScale: scrollViewDetail.zoomScale+0.1, offSet: CGPoint.zero)
-    }
-    func minus(sender : UIButton) {
-        update(zoomScale: scrollViewDetail.zoomScale-0.1, offSet: CGPoint.zero)
-    }
-
-    func update(zoomScale: CGFloat, offSet: CGPoint) {
-        scrollViewDetail.zoomScale = zoomScale
-        scrollViewDetail.contentOffset = offSet
+        
+        self.indicator.stopAnimating()
     }
     
     //ComeBack
@@ -186,13 +176,13 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
             
             NewsSingleton.sharedInstance.removeItem(item: item, isBookmark: true)
             self.bookmark.image = UIImage(named: "bookmarkInactive")
-            print ("bookmarkInactive")
+            NSLog ("bookmarkInactive")
         }
         else{
             NewsSingleton.sharedInstance.addBookmark(item)
             
             self.bookmark.image = UIImage(named: "bookmarkActive")
-            print ("bookmarkActive")
+            NSLog ("bookmarkActive")
         }
     }
     
@@ -222,20 +212,18 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        print("ERROR_ en webView \(error.localizedDescription)");
+        NSLog("ERROR_ en webView \(error.localizedDescription)");
         self.uploadWebView(height: self.webDetail.scrollView.contentSize.height )
-        
-        
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        print ("load Content webView")
+       // NSLog ("load Content webView")
         return true;
     }
     
     
     func webViewDidStartLoad(_ webView: UIWebView){
-        self.indicator.startAnimating()
+       // NSLog("indicator animation")
     }
     
     func isBookmark() {
@@ -259,41 +247,57 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     //BannerViewController
    func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
-        print("ERROR_ adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
+        NSLog("ERROR_ adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
         bannerView.isHidden = true
     }
     
     func adViewDidReceiveAd(_ view: GADBannerView) {
-        print ("Banner loaded successfully ")
+        NSLog ("Banner loaded successfully ")
         
-        self.webDetail.scrollView.isScrollEnabled =  false
-        self.uploadWebView(height: self.webDetail.scrollView.contentSize.height + self.bannerView.bounds.height)
-        
+        self.isLoadBanner =  true
+        self.uploadWebView(height: self.webDetail.scrollView.contentSize.height)
     }
     
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-        print ("adViewWillLeaveApplication")
+        NSLog ("adViewWillLeaveApplication")
         bannerView.isHidden =  false
     }
     func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print ("adViewDidDismissScreen")
+        NSLog ("adViewDidDismissScreen")
         bannerView.isHidden =  false
     }
     
     func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-        print ("adViewDidDismissScreen")
+        NSLog ("adViewDidDismissScreen")
         bannerView.isHidden =  false
     }
-    //BannerViewController
     
-    func uploadWebView(height: CGFloat) -> Void {
+    func uploadWebView( height: CGFloat) -> Void {
         
-        self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
-                                                   height: height + 240)
-        
+        var height = height
         print ("Modificado tamaño del Scroll")
+        print ("height: \(height)")
         print(self.bannerView.frame.height)
         print(self.scrollViewDetail.frame.height)
         print(self.webDetail.scrollView.contentSize.height)
+        
+        if (height==0.0){
+            NSLog ("news.titleNews  \(news.titleNews)")
+            //self.webDetail.loadRequest(NSURLRequest(url: NSURL(string:"about:blank")! as URL) as URLRequest)
+           
+        }else{
+            if (self.isLoadBanner)
+            {
+                NSLog ("Load banner")
+                self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height+10, width: 300, height: 250)
+                self.scrollViewDetail.addSubview(self.bannerView)
+                height = height + 260.0
+                //self.webDetail.scrollView.isScrollEnabled =  false
+                //self.uploadWebView(height: self.webDetail.scrollView.contentSize.height + self.bannerView.bounds.height)
+                
+            }
+            self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
+                                                       height: height)
+        }
     }
 }

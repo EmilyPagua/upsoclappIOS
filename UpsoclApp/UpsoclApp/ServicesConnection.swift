@@ -17,12 +17,11 @@ class ServicesConnection  {
     //Load 10 News
     func loadAllNews(_ wrapper: [News]?,  urlPath: String,  completionHandler: @escaping ([News]?, NSError?) -> Void) {
 
+        NSLog ("urlPath \(urlPath) ")
         if wrapper == nil{
             completionHandler(nil, nil)
             return
         }
-        
-        print (urlPath)
         
         let urlPath = urlPath.replacingOccurrences(of: "ñ", with: "n")
             .replacingOccurrences(of: "í", with: "i")
@@ -33,7 +32,7 @@ class ServicesConnection  {
     
         self.newsList = wrapper!
         guard let url = URL(string: urlPath) else{
-            print("ERROR_ ServicesConnection loadAllNews en URL")
+            NSLog("ERROR_ ServicesConnection loadAllNews en URL")
             return
         }
         
@@ -41,14 +40,13 @@ class ServicesConnection  {
         let task = session.dataTask(with: url, completionHandler: {data, response, error -> Void in
             
             guard error == nil else {
-                print("ERROR_ ServicesConnection loadAllNews calling GET on: " + urlPath)
-                print (error?.localizedDescription ?? "Error en url")
+                NSLog("ERROR_ ServicesConnection loadAllNews calling GET on: \( urlPath ) Error:  \(error?.localizedDescription ?? "Error en url" ) " )
                 MessageAlert.sharedInstance.createViewMessage("Problemas, verifique su conexión a datos", title: "Error!")
                 return
             }
             
             guard data != nil else {
-                print("ERROR_ ServicesConnection loadAllNews did not receive data")
+                NSLog("ERROR_ ServicesConnection loadAllNews did not receive data")
                 MessageAlert.sharedInstance.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
@@ -73,21 +71,20 @@ class ServicesConnection  {
         
         self.newsList = wrapper!
         guard let url = URL(string: urlPath) else{
-            print("ERROR_ ServicesConnection loadNews en URL")
+            NSLog("ERROR_ ServicesConnection loadNews en URL")
             return
         }
         let session = URLSession.shared
         let task = session.dataTask(with: url, completionHandler: {data, response, error -> Void in
             
             guard error == nil else {
-                print("ERROR_ ServicesConnection loadNews calling GET on: " + urlPath)
-                print (error?.localizedDescription ?? "Error en url")
+                NSLog("ERROR_ ServicesConnection loadNews calling GET on: \(urlPath) Error: \(error?.localizedDescription ?? "Error en url" )" )
                 MessageAlert.sharedInstance.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
             
             guard data != nil else {
-                print("ERROR_ ServicesConnection loadNews did not receive data")
+                NSLog("ERROR_ ServicesConnection loadNews did not receive data")
                 MessageAlert.sharedInstance.createViewMessage("Problemas, verifique su conexión a datos",title: "Error!")
                 return
             }
@@ -121,6 +118,7 @@ class ServicesConnection  {
         }
         
         if let list =  json as? NSArray{
+            
 
             for i in 0 ..< list.count  {
                 self.encodeNews(list[i] as AnyObject)
@@ -219,7 +217,7 @@ class ServicesConnection  {
                         print (data)
                         completionHandler(UIImage(data: data)!, nil)
                     }else{
-                        print ("data = null")
+                        NSLog ("data = null")
                     }
                 }) 
                 // Run task

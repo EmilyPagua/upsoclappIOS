@@ -159,14 +159,14 @@ class BookmarkTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
         } else if editingStyle == .none {
-            print ("none")
+            NSLog ("none")
         }
     }
     
     func saveNews() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(newsList, toFile: News.ArchiveURL.path)
         if !isSuccessfulSave {
-            print("ERROR_ BookmarkTableViewController SaveNews failed to save news...")
+            NSLog("ERROR_ BookmarkTableViewController SaveNews failed to save news...")
         }
     }
 }

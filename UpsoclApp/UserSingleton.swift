@@ -66,17 +66,17 @@ class UserSingleton {
     
     func removeUseLogin() -> Void {
         if var userLogin = UserDefaults.standard.dictionary(forKey: ITEMS_KEY){
-            print ("Removido \(userLogin)")
+            NSLog ("Removido \(userLogin)")
             userLogin.removeAll()
             UserDefaults.standard.set(userLogin, forKey: ITEMS_KEY)
         }else{
-            print("vacio")
+            NSLog("vacio")
         }
     }
     
     func saveUserLogin(item: UserLogin) {
         
-        print (item.email)
+        NSLog (item.email)
         
         //var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name="+customer.firstName+"&last_name="+customer.lastName+"&email="+customer.email+"&birthday="+customer.birthday+"&location="+customer.location+"&social_network_login="+customer.socialNetwork+"&registration_id="+customer.registrationId
         
@@ -100,7 +100,7 @@ class UserSingleton {
             }
             
             guard data != nil else {
-                print("ERROR_ NO PUEDE RECIBIR POST USER desde BD")
+                NSLog("ERROR_ NO PUEDE RECIBIR POST USER desde BD")
                 return
             }
             
@@ -113,11 +113,11 @@ class UserSingleton {
                     let userId = json["id"] as! String
                     item.userId.appending(userId)
                 }else{
-                    print (json["message"] as! String)
+                    NSLog (json["message"] as! String)
                 }
                 
             }catch let error as NSError{
-                print ("ERROR_ "+error.localizedDescription)
+                NSLog ("ERROR_ "+error.localizedDescription)
                 json=nil
                 return
             }

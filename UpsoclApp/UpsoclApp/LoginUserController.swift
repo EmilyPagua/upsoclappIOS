@@ -34,24 +34,26 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     var progressLabel: UILabel?
     var timer: Timer?
    
+  /*  @IBAction func TwitterLogin(_ sender: UIButton) {
+        Twitter.sharedInstance().logIn { session, error in
+            if (session != nil) {
+                NSLog("1 \(session!.userName)");
+            } else {
+                NSLog("viewDidLoad5 error: \(error!.localizedDescription)");
+            }
+        }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
+        NSLog("user.email  \(user.first?.email)")
         if user.first?.email.isEmpty == false {
-            print ("LOGIN \(user.first?.email)")
+            NSLog ("LOGIN \(user.first?.email)")
         }else{
-            print ("NO LOGIN")
-            Twitter.sharedInstance().logIn { session, error in
-                if (session != nil) {
-                    print("1 \(session!.userName)");
-                } else {
-                    print("5 error: \(error!.localizedDescription)");
-                }
-            }
-            
+            NSLog ("NO LOGIN")
             GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
             loginButtonFacebook!.delegate = self  //Start FacebookLogin
         }
@@ -74,7 +76,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         // If using the log in methods on the Twitter instance
         Twitter.sharedInstance().logIn(withMethods: [.webBased]) { session, error in
             if (session != nil) {
-                print(" session!.userName  \(session!.userName)");
+                NSLog(" session!.userName  \(session!.userName)");
                 Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
                 
                 
@@ -90,9 +92,9 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                     do {
                         json = try JSONSerialization.jsonObject(with: nsdata, options: []) as? [String:AnyObject] as AnyObject!
                         
-                        print  (json)
+                        print(json)
                         let imagenUserURL =  json["profile_image_url"] as! String
-                        print (imagenUserURL)
+                        NSLog (imagenUserURL)
                         
                         let userLogin  =  UserLogin(email: "",
                                                     firstName: json["name"] as! String,
@@ -116,13 +118,13 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                         }
                         
                     }catch let error as NSError{
-                        print ("ERROR_:   \(error.localizedDescription)")
+                        NSLog ("ERROR_:   \(error.localizedDescription)")
                         json = nil
                         return
                     }
                 }
             } else {
-                print("ERROR_: \(error!.localizedDescription)");
+                NSLog("ERROR_: \(error!.localizedDescription)");
             }
         }
     }
@@ -138,7 +140,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     
     func countCategory (){
         let categoryCount = category.countCategory()
-        print ("Category:  \(categoryCount)")
+        NSLog ("Category:  \(categoryCount)")
         if categoryCount <= 1 || beforeCategory <= 1  {
             loginButtonFacebook?.isEnabled = false
             loginButtonTwitter?.isEnabled = false
@@ -191,7 +193,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
             if (notification as NSNotification).userInfo != nil {
                 let userInfo:Dictionary<String,String?> =
                     (notification as NSNotification).userInfo as! Dictionary<String,String?>
-                print ("Google status: " + String(describing: userInfo["statusText"]))
+                NSLog ("Google status: " + String(describing: userInfo["statusText"]))
             }
         }
     }
@@ -207,7 +209,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         
         self.present(viewController, animated: true, completion: nil)
         
-        print ("Google Login presented")
+        NSLog ("Google Login presented")
     }
     
     // Dismiss the "Sign in with Google" view
@@ -215,19 +217,19 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                 dismiss viewController: UIViewController!) {
         self.dismiss(animated: true, completion: nil)
         
-        print ("Google Login dismissed")
+        NSLog ("Google Login dismissed")
     }
     
     // [------------------------FINISH GOOGLE LOGIN-------------------]
 
     // [------------------------START FACEBOOK LOGIN-------------------]
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print ("FBSDKLoginButton Completado Login")
+        NSLog ("FBSDKLoginButton Completado Login")
         fetchProfile()
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print ("FBSDKLoginButton - LoginButtonDidLogOut")
+        NSLog ("FBSDKLoginButton - LoginButtonDidLogOut")
 
     }
     
@@ -240,16 +242,18 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start(completionHandler: { (connection, user, requestError) -> Void in
             
             if requestError != nil {
-                print("ERROR_ "+(requestError?.localizedDescription)!)
+                NSLog("ERROR_ "+(requestError?.localizedDescription)!)
                 return
             }
-            print (user ?? "Usuario es null")
             
             let data_block = user as? [String: AnyObject]
             
             let email  = data_block?["email"] as! String?
             let firstName = data_block?["first_name"] as? String
             let lastName = data_block?["last_name"] as? String
+            
+            NSLog ("Usuario email: \(email)")
+
             
             var pictureUrl = "firstName:  " + String(describing: firstName)
             if let picture = data_block?["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
@@ -259,7 +263,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
             let url = URL(string: pictureUrl)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) -> Void in
                 if error != nil {
-                    print("ERROR_ "+(error?.localizedDescription)!)
+                    NSLog("ERROR_ "+(error?.localizedDescription)!)
                     return
                 }
             }).resume()
@@ -314,7 +318,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                 self.sendActivityMain()
                 
             }else{
-                print("ERROR_ validarLogin No es válido")
+                NSLog("ERROR_ validarLogin No es válido")
             }
         }))
         

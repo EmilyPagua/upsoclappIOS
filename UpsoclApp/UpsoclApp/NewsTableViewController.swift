@@ -45,6 +45,8 @@ class NewsTableViewController: UITableViewController {
         
         let list:[PostNotification] = NewsSingleton.sharedInstance.get10FisrtNews()
         
+        NSLog("NewsTableController List \(list.count)")
+
         for elem in list {
             let news: News = News(id: (elem.idPost),
                                   title: (elem.title),
@@ -58,8 +60,7 @@ class NewsTableViewController: UITableViewController {
             self.newsList.append(news)
             self.tableView.reloadData()
         }
-
-
+        
         indicator = progressBar.loadBar()
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
@@ -71,7 +72,7 @@ class NewsTableViewController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        callWebServices(String(page))
+        self.callWebServices(String(page))
         
     }
     
@@ -123,7 +124,7 @@ class NewsTableViewController: UITableViewController {
     func saveNews() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(newsList, toFile: News.ArchiveURL.path)
         if !isSuccessfulSave {
-            print("ERROR_ Failed to save news...")
+            NSLog("ERROR_ Failed to save news...")
         }
     }
     
@@ -160,7 +161,7 @@ class NewsTableViewController: UITableViewController {
                 notification = NewsSingleton.sharedInstance.allItems()
                 
                 if (notification.isEmpty){
-                    print("No tiene noticaciones disponibles")
+                    NSLog("No tiene noticaciones disponibles")
                     notificationButton.image = UIImage(named: "notification_disable")
                 }
                 self.processingNotification(notification: notification, segue: segue )
@@ -184,7 +185,7 @@ class NewsTableViewController: UITableViewController {
                 }
                 
             default:
-                print ("Indefinido")
+                NSLog ("Indefinido")
                 
             }
         }
@@ -205,10 +206,10 @@ class NewsTableViewController: UITableViewController {
             newsList.append(news)
             var post = notification.first
             post?.isRead  = true
-            NewsSingleton.sharedInstance.removeAllItem(isBookmark: false )
+            NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_Notification)
             NewsSingleton.sharedInstance.addNotification(post!)
             let detailViewController = segue.destination as! PageViewController
-            print ("cantidad de registros  en la tabla \(newsList.count)")
+            NSLog ("cantidad de registros  en la tabla \(newsList.count)")
             detailViewController.newsList = newsList
             detailViewController.isNotificaction =  true
         }
@@ -218,10 +219,14 @@ class NewsTableViewController: UITableViewController {
     func callWebServices(_ paged: String ){
         
         if Reachability.isConnectedToNetwork() == true {
-            print("Internet connection OK")
+            //NSLog("Internet connection OK")
             
             self.indicator.startAnimating()
             
+            if (paged=="1"){
+                self.newsList.removeAll()
+            }
+
             let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + paged
             servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
                 
@@ -231,7 +236,8 @@ class NewsTableViewController: UITableViewController {
                     return
                 })
                 
-                if (paged=="1"){
+                if (paged=="1" && self.newsList.count>1){
+                    NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_10NEWS)
                     for  i in 0  ..< self.newsList.count{
                         let item = PostNotification(idPost: (self.newsList[i].idNews),
                                                     title: (self.newsList[i].titleNews),
@@ -250,7 +256,7 @@ class NewsTableViewController: UITableViewController {
                 }
             })
         } else {
-            print("ERROR_ Internet connection FAILED")
+            NSLog("ERROR_ Internet connection FAILED")
             let alert = UIAlertView(title: "Error!", message: "Verifique su conexión a dato..!", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
