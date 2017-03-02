@@ -356,30 +356,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         if user.first?.email.isEmpty == false {
             
             NSLog ("socialNetworkName  \(user.first?.email)  \(user.first?.socialNetwork)")
-            
-            /*Twitter.sharedInstance().logIn { session, error in
-                if (session != nil) {
-                    NSLog("1 \(session!.userName)");
-                } else {
-                    NSLog("validLoginUser 5 error: \(error!.localizedDescription)");
-                }
-            }
-
-            if  GIDSignIn.sharedInstance().hasAuthInKeychain(){
-                NSLog("user is signed in")
-                return true
-            }else{
-                NSLog("GIDSignIn user is NOT signed in")
-            }
-            
-            if FBSDKAccessToken.current() != nil {
-                NSLog("tokenFacebook user is signed in")
-                return true
-            }else{
-                NSLog("tokenFacebook user is NOT signed in")
-            }
-            
-            NSLog("Twitter user is signed in")*/
+           
             self.sendActivityMain()
         }else{
             NSLog ("NO LOGIN")}

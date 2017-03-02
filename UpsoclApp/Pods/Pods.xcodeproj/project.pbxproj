@@ -7,92 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32D2AD8F053103CC41CFC2665496472F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		3CDEC0CD1944685EE7311C4EF9F8A615 /* Pods-appupsocl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D5AE2AD39F16E2EAB93F58C38FCEF /* Pods-appupsocl-dummy.m */; };
-		7B18BC244842E1B2573B3B15E12393FB /* Pods-appupsoclTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FC3BA1B4377EF93C087E674002118D /* Pods-appupsoclTests-dummy.m */; };
-		C743BCBF8A848E6252AACD971E6947A2 /* Pods-appupsocl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 201DFA8D296C00E802B4E54DB7A35237 /* Pods-appupsocl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3CDEC0CD1944685EE7311C4EF9F8A615 /* Pods-appupsocl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C53379E7B0E44850D4DC62148BB56F /* Pods-appupsocl-dummy.m */; };
+		C743BCBF8A848E6252AACD971E6947A2 /* Pods-appupsocl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 964710018047DF3FED0C24106833F136 /* Pods-appupsocl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E197807C5A3FC78D27045476D02C43F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		E9B049C3D40C3DD0B5BAA4D5A80B6C27 /* Pods-appupsoclTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 71D29B002BA88BCB7C1F8A168F2A92A8 /* Pods-appupsoclTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00C6FB8C369653F23F5AD6E91FCF7070 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = Sources/GAIEcommerceProduct.h; sourceTree = "<group>"; };
-		01044FB7D8463D69598442B600475066 /* Pods-appupsocl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appupsocl.release.xcconfig"; sourceTree = "<group>"; };
 		02A49833DAB8391769F2586893E14ABA /* GCMReceiverDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCMReceiverDelegate.h; path = Headers/Public/GCMReceiverDelegate.h; sourceTree = "<group>"; };
+		0449EE6B0E74D2AE2EC4C208F326D747 /* Pods-appupsocl-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appupsocl-frameworks.sh"; sourceTree = "<group>"; };
 		065AF6E921DF79C4E24EFCA6F93970D5 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Libraries/libGoogleAnalytics.a; sourceTree = "<group>"; };
 		066FECD7509D0B6B47D9E2B7BCA108E2 /* GIDProfileData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDProfileData.h; path = Headers/Public/GIDProfileData.h; sourceTree = "<group>"; };
 		08A8D047D1F547A562D248F34512C1EC /* GGLContext+SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GGLContext+SignIn.h"; path = "Headers/GGLSignIn/Public/GGLContext+SignIn.h"; sourceTree = "<group>"; };
 		08B1FC3B8FDA572C8A7AE8BC8894D31F /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		0D62702614199C20C8AB9F1B5B233B41 /* Pods-appupsocl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appupsocl.debug.xcconfig"; sourceTree = "<group>"; };
 		0E5B0717D91A5818C4AE6AD335C9CC2E /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
-		1D2D5AE2AD39F16E2EAB93F58C38FCEF /* Pods-appupsocl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-appupsocl-dummy.m"; sourceTree = "<group>"; };
+		19F83BD08601DA6143C9A48389356D8C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DB6CA81C2DCDB314004147ACE7482E8 /* Pods-appupsocl-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-appupsocl-acknowledgements.plist"; sourceTree = "<group>"; };
 		1DFBA0B066F4FB3D278BE961C5EDDB79 /* libGGLCore.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLCore.a; path = Libraries/libGGLCore.a; sourceTree = "<group>"; };
 		1FA9CCE84314EA9D9B3282B4F95005C7 /* GGLInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLInstanceID.h; path = Headers/Public/GGLInstanceID.h; sourceTree = "<group>"; };
-		201DFA8D296C00E802B4E54DB7A35237 /* Pods-appupsocl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-appupsocl-umbrella.h"; sourceTree = "<group>"; };
 		22A85FA0F1F462D5C7224D33A9E27BCB /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = iOS/TwitterKit.framework; sourceTree = "<group>"; };
 		270A989D2EB3E488E3E5FB57786338B9 /* AdMob-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AdMob-Module.h"; path = "Headers/ModuleHeaders/AdMob-Module.h"; sourceTree = "<group>"; };
 		276A54CA1660683E222CE23E7B4DCAEF /* libGcmLib.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGcmLib.a; path = Libraries/libGcmLib.a; sourceTree = "<group>"; };
 		27E485DFBD7FFA34362268145F02FC90 /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleIPhoneUtilities.framework; path = Frameworks/GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
 		2BB5DA78CCDB224C8DD1AF676BE2863E /* GCMService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCMService.h; path = Headers/Public/GCMService.h; sourceTree = "<group>"; };
 		2E24019E895E732B029364442EA70D6B /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = Sources/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
-		3B81EAA016E0DDB34A47BC03876BD33A /* Pods-appupsocl-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-appupsocl-acknowledgements.plist"; sourceTree = "<group>"; };
-		459A687C9ED6A6A9F24C3C21891C0FCA /* Pods-appupsoclTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appupsoclTests.debug.xcconfig"; sourceTree = "<group>"; };
-		45E4B4BF9F579B2EFC40478EB0CFFA70 /* Pods-appupsocl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appupsocl.debug.xcconfig"; sourceTree = "<group>"; };
 		4BD96A28ADC7E5E7EDB52ABE069E4E7E /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Sources/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		4ED7899BCB93797BBF34D0690E760709 /* Pods-appupsocl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-appupsocl.modulemap"; sourceTree = "<group>"; };
+		4ECAA803FDA2DEC43CFE480E023EA69A /* Pods-appupsocl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appupsocl.release.xcconfig"; sourceTree = "<group>"; };
 		4EF53EC88DA5F7BE66542F6F354ECF09 /* Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Headers/GGLAnalytics/Public/Analytics.h; sourceTree = "<group>"; };
 		52249C526C51C92E91060EE9B5E8AB7E /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Sources/GAI.h; sourceTree = "<group>"; };
-		53740C95D5F29BF2BC4F93E5FFBEA167 /* Pods-appupsoclTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appupsoclTests.release.xcconfig"; sourceTree = "<group>"; };
 		53E349E7E980D18B9A70EC078A8778A0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
 		5497502E10EB6EBD46423BD67BBBD318 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
-		552EC99575E8D10013602B13E035ACDF /* Pods-appupsoclTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appupsoclTests-resources.sh"; sourceTree = "<group>"; };
 		5640F51A5B3C687B52D3D1F572B34D52 /* Core-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Core-Module.h"; path = "Headers/ModuleHeaders/Core-Module.h"; sourceTree = "<group>"; };
 		583D173D436DB6266D642904B7EFF918 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppUtilities.framework; path = Frameworks/frameworks/GoogleAppUtilities.framework; sourceTree = "<group>"; };
 		61467CB697E06A157F46A219173D3BDF /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		62798282C81C44A4441A54459F6B1832 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		670AE2747A981B2349F501185B0FA5A1 /* Pods-appupsocl-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appupsocl-resources.sh"; sourceTree = "<group>"; };
 		684F096301650DF6EDAB7551C3FBC57C /* GGLContext+CloudMessaging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GGLContext+CloudMessaging.h"; path = "Headers/GGLCloudMessaging/Public/GGLContext+CloudMessaging.h"; sourceTree = "<group>"; };
 		689D6DCF85F2F05B3FA05140EC3225DB /* GCMConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCMConfig.h; path = Headers/Public/GCMConfig.h; sourceTree = "<group>"; };
+		69DFAD90EE79E54AE8AA95570F633BFF /* Pods_appupsocl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_appupsocl.framework; path = "Pods-appupsocl.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B6A4880172433C052BA287C10F8620E /* GIDAuthentication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDAuthentication.h; path = Headers/Public/GIDAuthentication.h; sourceTree = "<group>"; };
-		6EBBB1D80C90119EBA78671C551673D6 /* Pods_appupsoclTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_appupsoclTests.framework; path = "Pods-appupsoclTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71750EBE96C0CBFF43D2EC4800877DB9 /* libGGLSignIn.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLSignIn.a; path = Libraries/libGGLSignIn.a; sourceTree = "<group>"; };
-		71D29B002BA88BCB7C1F8A168F2A92A8 /* Pods-appupsoclTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-appupsoclTests-umbrella.h"; sourceTree = "<group>"; };
 		7299E31D22B380AA6D187F78E93EDFC3 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Resources/GoogleSignIn.bundle; sourceTree = "<group>"; };
 		7485BBFF971C259680963D55AE16BAA8 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
 		76D5C88A506D16DF95C3C3481CE8807B /* GGLErrorCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLErrorCode.h; path = Headers/GGLCore/Public/GGLErrorCode.h; sourceTree = "<group>"; };
-		79D0AE1431FF62AA40E874DA4C4B8533 /* Pods-appupsoclTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-appupsoclTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		800D1EC5394353BB6CD54A23FE250CD5 /* Core.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Core.h; path = Headers/GGLCore/Public/Core.h; sourceTree = "<group>"; };
 		8257FFA6179B60A504B1911008D1B48C /* libGGLInstanceIDLib.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLInstanceIDLib.a; path = Libraries/libGGLInstanceIDLib.a; sourceTree = "<group>"; };
-		82CEC22CEEF740A080F111CAD0406261 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83A72CB6B51D08818AE752CEB6A9D659 /* GoogleSignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GoogleSignIn.h; path = Headers/Public/GoogleSignIn.h; sourceTree = "<group>"; };
 		8508C5DAB33F7353281C025A68F5C444 /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Sources/GAITrackedViewController.h; sourceTree = "<group>"; };
 		8790B4DF05D67F4847297DAE14124E4F /* libGGLCloudMessaging.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLCloudMessaging.a; path = Libraries/libGGLCloudMessaging.a; sourceTree = "<group>"; };
-		8D5CF6590B031AF40DE402DE6815B83E /* Pods_appupsocl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_appupsocl.framework; path = "Pods-appupsocl.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC3859535221468BBC44F80F4F86A01 /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Sources/GAITracker.h; sourceTree = "<group>"; };
 		90071C6D27B2F84F489C56BA922F162D /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Sources/GAIFields.h; sourceTree = "<group>"; };
 		929E0F9431334819D736EA05C7A5AD4B /* GoogleCloudMessaging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GoogleCloudMessaging.h; path = Headers/Public/GoogleCloudMessaging.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		964710018047DF3FED0C24106833F136 /* Pods-appupsocl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-appupsocl-umbrella.h"; sourceTree = "<group>"; };
 		96ACCC4670403241B267727BE74C2D16 /* CloudMessaging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudMessaging.h; path = Headers/GGLCloudMessaging/Public/CloudMessaging.h; sourceTree = "<group>"; };
-		96C8A236C2C80542A52A1591440E646A /* Pods-appupsocl-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appupsocl-frameworks.sh"; sourceTree = "<group>"; };
 		98D1E926E8E29AC623BA1FA873B2077E /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = Sources/GAIEcommercePromotion.h; sourceTree = "<group>"; };
 		9EEB9EDB7573A5DC64A5182DE62CC45F /* libSignIn_external.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSignIn_external.a; path = Libraries/libSignIn_external.a; sourceTree = "<group>"; };
 		9F94F1253B4E55C6CE9CBF4FB96C51F8 /* GGLContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLContext.h; path = Headers/GGLCore/Public/GGLContext.h; sourceTree = "<group>"; };
 		A1057D25C373AC2D03A6CF44A48C179A /* GoogleAuthUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAuthUtilities.framework; path = Frameworks/frameworks/GoogleAuthUtilities.framework; sourceTree = "<group>"; };
 		A307A36EB987268D21DC9C1A7A14AD52 /* libGGLAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLAnalytics.a; path = Libraries/libGGLAnalytics.a; sourceTree = "<group>"; };
 		A4F0D71D8555047AA3AAC6193064E59C /* SignIn-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SignIn-Module.h"; path = "Headers/ModuleHeaders/SignIn-Module.h"; sourceTree = "<group>"; };
-		A64C5A22D7A652144E8CB2AC3D9EFF84 /* Pods-appupsocl-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appupsocl-resources.sh"; sourceTree = "<group>"; };
 		A67D7C99198974295DE38F736C35EDBB /* GCMPubSub.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCMPubSub.h; path = Headers/Public/GCMPubSub.h; sourceTree = "<group>"; };
 		A6F96B8F4B61809791B2FD87F86C09EE /* AppInvite-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AppInvite-Module.h"; path = "Headers/ModuleHeaders/AppInvite-Module.h"; sourceTree = "<group>"; };
-		A7FFCDC6DCC901A87A0DFF35790D9D61 /* Pods-appupsoclTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-appupsoclTests.modulemap"; sourceTree = "<group>"; };
+		A9A0B11E9DA5A7795B611462F218BE1B /* Pods-appupsocl-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-appupsocl-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AFCC02D51361EE8EF27DFA433D921217 /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib; sourceTree = "<group>"; };
-		B6FC3BA1B4377EF93C087E674002118D /* Pods-appupsoclTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-appupsoclTests-dummy.m"; sourceTree = "<group>"; };
-		B9570F1F8145C7A365C089F0D506509A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB9936CCF77FF652DA5DEB966CDA298B /* GGLContext+Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GGLContext+Analytics.h"; path = "Headers/GGLAnalytics/Public/GGLContext+Analytics.h"; sourceTree = "<group>"; };
-		BF0099082CB7293BF72FE2359E9383C2 /* Pods-appupsoclTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appupsoclTests-frameworks.sh"; sourceTree = "<group>"; };
 		CA48A6F17C04D9DB31E1224D832A4D2D /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D0E4DB4BFC1A2EF4D3D13F9B9CA99D7E /* Analytics-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Analytics-Module.h"; path = "Headers/ModuleHeaders/Analytics-Module.h"; sourceTree = "<group>"; };
 		D3F09035BE0B50964C0BE078ACD0CE80 /* GIDSignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDSignIn.h; path = Headers/Public/GIDSignIn.h; sourceTree = "<group>"; };
 		D866DEE9F86FEAB9FB73BADDDC95C087 /* GIDSignInButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDSignInButton.h; path = Headers/Public/GIDSignInButton.h; sourceTree = "<group>"; };
-		D8D7905C5A354871ABFBBD360A014416 /* Pods-appupsocl-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-appupsocl-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DC90CCA3AF71429C83F33518A2234D27 /* GGLInstanceIDHeaders.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLInstanceIDHeaders.h; path = Headers/Public/GGLInstanceIDHeaders.h; sourceTree = "<group>"; };
 		E0F1E6DAC8A0C13D25E2510D1126DE85 /* GGLConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLConfiguration.h; path = Headers/GGLCore/Public/GGLConfiguration.h; sourceTree = "<group>"; };
 		E4C58D7ACC48191D925C963527CB74CA /* libGIPNSURL+FIFE_external.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGIPNSURL+FIFE_external.a"; path = "Libraries/libGIPNSURL+FIFE_external.a"; sourceTree = "<group>"; };
@@ -102,21 +87,14 @@
 		F0F86E5481661934F76F33FC282D98DC /* SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SignIn.h; path = Headers/GGLSignIn/Public/SignIn.h; sourceTree = "<group>"; };
 		F34E804BB8A54E8CFD7B37057FD43CB9 /* GGLInstanceIDDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLInstanceIDDelegate.h; path = Headers/Public/GGLInstanceIDDelegate.h; sourceTree = "<group>"; };
 		F538ACD5B47ED1CCBF9584C22CF71ED6 /* CloudMessaging-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CloudMessaging-Module.h"; path = "Headers/ModuleHeaders/CloudMessaging-Module.h"; sourceTree = "<group>"; };
+		F553ADF5C2165E3FC890312014286A0A /* Pods-appupsocl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-appupsocl.modulemap"; sourceTree = "<group>"; };
 		F6021CC74D3138D8B486771985F01280 /* GMRConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMRConfiguration.h; path = Headers/GGLCore/Public/GMRConfiguration.h; sourceTree = "<group>"; };
 		F8EC44101426DAD94B86358ED117027E /* GIDGoogleUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDGoogleUser.h; path = Headers/Public/GIDGoogleUser.h; sourceTree = "<group>"; };
-		F9E168DB3A4637C33AD3C447E541F9E3 /* Pods-appupsoclTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-appupsoclTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F9C53379E7B0E44850D4DC62148BB56F /* Pods-appupsocl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-appupsocl-dummy.m"; sourceTree = "<group>"; };
 		FD21503E089A36FD45717B8EBE43D09C /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = Sources/GAIEcommerceFields.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		599AB06A06D270B8748F612196E6F20B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				32D2AD8F053103CC41CFC2665496472F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5B8B8704E173B8BB78A0A44AB8CDCEAC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,6 +202,24 @@
 			path = GoogleCloudMessaging;
 			sourceTree = "<group>";
 		};
+		41FDEC21B373221087F1C22C92AD9036 /* Pods-appupsocl */ = {
+			isa = PBXGroup;
+			children = (
+				19F83BD08601DA6143C9A48389356D8C /* Info.plist */,
+				F553ADF5C2165E3FC890312014286A0A /* Pods-appupsocl.modulemap */,
+				A9A0B11E9DA5A7795B611462F218BE1B /* Pods-appupsocl-acknowledgements.markdown */,
+				1DB6CA81C2DCDB314004147ACE7482E8 /* Pods-appupsocl-acknowledgements.plist */,
+				F9C53379E7B0E44850D4DC62148BB56F /* Pods-appupsocl-dummy.m */,
+				0449EE6B0E74D2AE2EC4C208F326D747 /* Pods-appupsocl-frameworks.sh */,
+				670AE2747A981B2349F501185B0FA5A1 /* Pods-appupsocl-resources.sh */,
+				964710018047DF3FED0C24106833F136 /* Pods-appupsocl-umbrella.h */,
+				0D62702614199C20C8AB9F1B5B233B41 /* Pods-appupsocl.debug.xcconfig */,
+				4ECAA803FDA2DEC43CFE480E023EA69A /* Pods-appupsocl.release.xcconfig */,
+			);
+			name = "Pods-appupsocl";
+			path = "Target Support Files/Pods-appupsocl";
+			sourceTree = "<group>";
+		};
 		48E1D54A25C882D7E584ABEA23B29AE3 /* GoogleInterchangeUtilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +283,14 @@
 			path = TwitterKit;
 			sourceTree = "<group>";
 		};
+		5D82F720A43B705A04FBD9EB4D9A44B4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				41FDEC21B373221087F1C22C92AD9036 /* Pods-appupsocl */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 		608616C09D58E3A09E431BBF959E7A77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,32 +323,14 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7CA4F28F0F17EA1485C06698191C0849 /* Pods-appupsoclTests */ = {
-			isa = PBXGroup;
-			children = (
-				B9570F1F8145C7A365C089F0D506509A /* Info.plist */,
-				A7FFCDC6DCC901A87A0DFF35790D9D61 /* Pods-appupsoclTests.modulemap */,
-				F9E168DB3A4637C33AD3C447E541F9E3 /* Pods-appupsoclTests-acknowledgements.markdown */,
-				79D0AE1431FF62AA40E874DA4C4B8533 /* Pods-appupsoclTests-acknowledgements.plist */,
-				B6FC3BA1B4377EF93C087E674002118D /* Pods-appupsoclTests-dummy.m */,
-				BF0099082CB7293BF72FE2359E9383C2 /* Pods-appupsoclTests-frameworks.sh */,
-				552EC99575E8D10013602B13E035ACDF /* Pods-appupsoclTests-resources.sh */,
-				71D29B002BA88BCB7C1F8A168F2A92A8 /* Pods-appupsoclTests-umbrella.h */,
-				459A687C9ED6A6A9F24C3C21891C0FCA /* Pods-appupsoclTests.debug.xcconfig */,
-				53740C95D5F29BF2BC4F93E5FFBEA167 /* Pods-appupsoclTests.release.xcconfig */,
-			);
-			name = "Pods-appupsoclTests";
-			path = "Target Support Files/Pods-appupsoclTests";
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				C40D74F801E497458C9DE4A7A19BECA9 /* Pods */,
-				FB7C6FFFB3B1123B0ED3F11707159165 /* Products */,
-				9D0D82BA28292AD2B626C1F381FC083F /* Targets Support Files */,
+				D108742084269D4A7A3FAC4FBBDEB873 /* Products */,
+				5D82F720A43B705A04FBD9EB4D9A44B4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -381,15 +367,6 @@
 				8790B4DF05D67F4847297DAE14124E4F /* libGGLCloudMessaging.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9D0D82BA28292AD2B626C1F381FC083F /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CA4DBEDC44F12563999266C58B51F059 /* Pods-appupsocl */,
-				7CA4F28F0F17EA1485C06698191C0849 /* Pods-appupsoclTests */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		9EB0075668724D72124A911DE36E9282 /* Frameworks */ = {
@@ -520,22 +497,12 @@
 			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
-		CA4DBEDC44F12563999266C58B51F059 /* Pods-appupsocl */ = {
+		D108742084269D4A7A3FAC4FBBDEB873 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				82CEC22CEEF740A080F111CAD0406261 /* Info.plist */,
-				4ED7899BCB93797BBF34D0690E760709 /* Pods-appupsocl.modulemap */,
-				D8D7905C5A354871ABFBBD360A014416 /* Pods-appupsocl-acknowledgements.markdown */,
-				3B81EAA016E0DDB34A47BC03876BD33A /* Pods-appupsocl-acknowledgements.plist */,
-				1D2D5AE2AD39F16E2EAB93F58C38FCEF /* Pods-appupsocl-dummy.m */,
-				96C8A236C2C80542A52A1591440E646A /* Pods-appupsocl-frameworks.sh */,
-				A64C5A22D7A652144E8CB2AC3D9EFF84 /* Pods-appupsocl-resources.sh */,
-				201DFA8D296C00E802B4E54DB7A35237 /* Pods-appupsocl-umbrella.h */,
-				45E4B4BF9F579B2EFC40478EB0CFFA70 /* Pods-appupsocl.debug.xcconfig */,
-				01044FB7D8463D69598442B600475066 /* Pods-appupsocl.release.xcconfig */,
+				69DFAD90EE79E54AE8AA95570F633BFF /* Pods_appupsocl.framework */,
 			);
-			name = "Pods-appupsocl";
-			path = "Target Support Files/Pods-appupsocl";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		D287F9200C694DBE3A7B5D3DC99DD536 /* GoogleNetworkingUtilities */ = {
@@ -581,15 +548,6 @@
 			path = GoogleIPhoneUtilities;
 			sourceTree = "<group>";
 		};
-		FB7C6FFFB3B1123B0ED3F11707159165 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8D5CF6590B031AF40DE402DE6815B83E /* Pods_appupsocl.framework */,
-				6EBBB1D80C90119EBA78671C551673D6 /* Pods_appupsoclTests.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		FF46658D2390A5F29E531E31D76EBF4A /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,34 +586,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		830EA60E42C95B8D05D43645A86A8ECC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E9B049C3D40C3DD0B5BAA4D5A80B6C27 /* Pods-appupsoclTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8CD0B8CD3FE90DC44728D40429D03DA7 /* Pods-appupsoclTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 229256C86D0F0A46722A804DFB506CE7 /* Build configuration list for PBXNativeTarget "Pods-appupsoclTests" */;
-			buildPhases = (
-				F6B183A93289484F4D417BB4344121FA /* Sources */,
-				599AB06A06D270B8748F612196E6F20B /* Frameworks */,
-				830EA60E42C95B8D05D43645A86A8ECC /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-appupsoclTests";
-			productName = "Pods-appupsoclTests";
-			productReference = 6EBBB1D80C90119EBA78671C551673D6 /* Pods_appupsoclTests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		DDD337FF880B44371EDE215B7228A03B /* Pods-appupsocl */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34D74C4A5198D78D4083C12B074D04EF /* Build configuration list for PBXNativeTarget "Pods-appupsocl" */;
@@ -670,7 +603,7 @@
 			);
 			name = "Pods-appupsocl";
 			productName = "Pods-appupsocl";
-			productReference = 8D5CF6590B031AF40DE402DE6815B83E /* Pods_appupsocl.framework */;
+			productReference = 69DFAD90EE79E54AE8AA95570F633BFF /* Pods_appupsocl.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -690,12 +623,11 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = FB7C6FFFB3B1123B0ED3F11707159165 /* Products */;
+			productRefGroup = D108742084269D4A7A3FAC4FBBDEB873 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				DDD337FF880B44371EDE215B7228A03B /* Pods-appupsocl */,
-				8CD0B8CD3FE90DC44728D40429D03DA7 /* Pods-appupsoclTests */,
 			);
 		};
 /* End PBXProject section */
@@ -706,14 +638,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CDEC0CD1944685EE7311C4EF9F8A615 /* Pods-appupsocl-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F6B183A93289484F4D417BB4344121FA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7B18BC244842E1B2573B3B15E12393FB /* Pods-appupsoclTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,41 +688,6 @@
 			};
 			name = Debug;
 		};
-		44463C457E9F54A65A58D62582BDBC82 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53740C95D5F29BF2BC4F93E5FFBEA167 /* Pods-appupsoclTests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-appupsoclTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-appupsoclTests/Pods-appupsoclTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_appupsoclTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -841,7 +730,7 @@
 		};
 		67A6D53EB48A66D4DF758F8A76581C09 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45E4B4BF9F579B2EFC40478EB0CFFA70 /* Pods-appupsocl.debug.xcconfig */;
+			baseConfigurationReference = 0D62702614199C20C8AB9F1B5B233B41 /* Pods-appupsocl.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -876,7 +765,7 @@
 		};
 		966AEF199136AA4A2FB9096CCFAA4CD4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01044FB7D8463D69598442B600475066 /* Pods-appupsocl.release.xcconfig */;
+			baseConfigurationReference = 4ECAA803FDA2DEC43CFE480E023EA69A /* Pods-appupsocl.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -909,53 +798,9 @@
 			};
 			name = Release;
 		};
-		D7B7B272FB840EE9DFD23ACFE001C20F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 459A687C9ED6A6A9F24C3C21891C0FCA /* Pods-appupsoclTests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-appupsoclTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-appupsoclTests/Pods-appupsoclTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_appupsoclTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		229256C86D0F0A46722A804DFB506CE7 /* Build configuration list for PBXNativeTarget "Pods-appupsoclTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D7B7B272FB840EE9DFD23ACFE001C20F /* Debug */,
-				44463C457E9F54A65A58D62582BDBC82 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

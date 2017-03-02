@@ -89,7 +89,7 @@ class UserSingleton {
         
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         item.userId.appending("0")
         

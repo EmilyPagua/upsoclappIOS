@@ -92,7 +92,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.indicator.frame = CGRect(x: (UIScreen.main.bounds.width/2) - 20, y: 50.0, width: 30.0, height: 30.0)
+        self.indicator.frame = CGRect(x: (UIScreen.main.bounds.width/2) - 20, y: 50.0, width: 20.0, height: 20.0)
         self.indicator.color = UIColor.blue
         
         
@@ -246,7 +246,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     }
     
     //BannerViewController
-   func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+   func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         NSLog("ERROR_ adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
         bannerView.isHidden = true
     }

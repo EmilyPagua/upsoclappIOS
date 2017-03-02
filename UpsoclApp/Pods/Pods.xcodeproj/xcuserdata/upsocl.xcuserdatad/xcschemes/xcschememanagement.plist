@@ -9,19 +9,9 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-appupsoclTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8CD0B8CD3FE90DC44728D40429D03DA7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>DDD337FF880B44371EDE215B7228A03B</key>
 		<dict>
 			<key>primary</key>

@@ -41,10 +41,10 @@ PODS:
   - GoogleSymbolUtilities (1.1.2)
   - GoogleUtilities (1.3.2):
     - GoogleSymbolUtilities (~> 1.1)
-  - TwitterCore (2.7.0):
+  - TwitterCore (2.8.0):
     - Fabric
-  - TwitterKit (2.7.0):
-    - TwitterCore (= 2.7.0)
+  - TwitterKit (2.8.1):
+    - TwitterCore (>= 2.8)
 
 DEPENDENCIES:
   - Fabric
@@ -67,9 +67,9 @@ SPEC CHECKSUMS:
   GoogleSignIn: 3d571172b8603be39dcb1705d8217146bb76fe62
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
-  TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
-  TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
+  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
+  TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: d03029502da36771a5b428b947b1a3790024cf05
+PODFILE CHECKSUM: a19f769ee4a315f03e0eca22eb17417f61c950b2
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

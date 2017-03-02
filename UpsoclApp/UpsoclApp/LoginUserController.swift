@@ -33,21 +33,13 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     var progressView: UIProgressView?
     var progressLabel: UILabel?
     var timer: Timer?
-   
-  /*  @IBAction func TwitterLogin(_ sender: UIButton) {
-        Twitter.sharedInstance().logIn { session, error in
-            if (session != nil) {
-                NSLog("1 \(session!.userName)");
-            } else {
-                NSLog("viewDidLoad5 error: \(error!.localizedDescription)");
-            }
-        }
-    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         
+        self.customButtonLogin()
+        self.countCategory ()
+    
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
         NSLog("user.email  \(user.first?.email)")
         if user.first?.email.isEmpty == false {
@@ -55,14 +47,20 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         }else{
             NSLog ("NO LOGIN")
             GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
-            loginButtonFacebook!.delegate = self  //Start FacebookLogin
+            self.loginButtonFacebook!.delegate = self  //Start FacebookLogin
         }
-        
-        loginButtonFacebook?.isEnabled = false
-        loginButtonTwitter?.isEnabled = false
-        signInButtonGoogle?.isEnabled = false
     }
-
+    
+    func customButtonLogin(){
+    
+        let layoutConstraintsArr = self.loginButtonFacebook?.constraints
+        for lc in layoutConstraintsArr! { 
+            if ( lc.constant == 28 ){
+                lc.isActive = false
+                break
+            }
+        }
+    }
     
     func updateProgress() {
         progressView?.progress += 0.05
@@ -139,17 +137,17 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     }
     
     func countCategory (){
+        
         let categoryCount = category.countCategory()
-        NSLog ("Category:  \(categoryCount)")
+        //NSLog ("Category:  \(categoryCount)")
         if categoryCount <= 1 || beforeCategory <= 1  {
-            loginButtonFacebook?.isEnabled = false
-            loginButtonTwitter?.isEnabled = false
-            signInButtonGoogle?.isEnabled = false
-
+            self.loginButtonFacebook?.isEnabled = false
+            self.signInButtonGoogle?.isEnabled = false
+            self.loginButtonTwitter?.isEnabled = false
         } else {
-            loginButtonFacebook?.isEnabled = true
-            loginButtonTwitter?.isEnabled = true
-            signInButtonGoogle?.isEnabled = true
+            self.loginButtonFacebook?.isEnabled = true
+            self.signInButtonGoogle?.isEnabled = true
+            self.loginButtonTwitter?.isEnabled = true
         }
         
         beforeCategory = categoryCount

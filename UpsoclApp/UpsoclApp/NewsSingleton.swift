@@ -147,7 +147,7 @@ class NewsSingleton {
         }
         
         if let todoItem = UserDefaults.standard.dictionary(forKey: itemKey){
-            for (index,entry) in todoItem {
+            for (index,_) in todoItem {
                 NSLog (index)
                 
                 if index == String(id) {                    
