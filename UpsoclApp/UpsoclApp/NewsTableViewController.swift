@@ -46,7 +46,6 @@ class NewsTableViewController: UITableViewController {
         let list:[PostNotification] = NewsSingleton.sharedInstance.get10FisrtNews()
         
         for elem in list {
-            NSLog("list \(list.count)")
             let news: News = News(id: (elem.idPost),
                                   title: (elem.title),
                                   content: elem.content,
@@ -214,7 +213,6 @@ class NewsTableViewController: UITableViewController {
             NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_Notification)
             NewsSingleton.sharedInstance.addNotification(post!)
             let detailViewController = segue.destination as! PageViewController
-            NSLog ("cantidad de registros  en la tabla \(newsList.count)")
             detailViewController.newsList = newsList
             detailViewController.isNotificaction =  true
         }
@@ -283,6 +281,6 @@ class NewsTableViewController: UITableViewController {
         self.tabBarController?.tabBar.isHidden =  false
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.isNavigationBarHidden = false
-        }
+    }
     
 }

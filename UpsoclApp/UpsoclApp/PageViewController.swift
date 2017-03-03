@@ -48,6 +48,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             self.navigationItem.title =  "Post Destacado"
         }
         
+        
         if (newsList.count==0){
             self.tabBarController?.tabBar.isHidden =  false
             self.navigationController?.popViewController(animated: true)
@@ -128,7 +129,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             let pageItemController = self.storyboard!.instantiateViewController(withIdentifier: "ItemController") as! PageItemController
             pageItemController.itemIndex =  itemIndex
             pageItemController.news = newsList[itemIndex]
-            pageItemController.isSearchResult = isSearchResult
             
             return pageItemController
             

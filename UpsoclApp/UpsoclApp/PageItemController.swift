@@ -16,7 +16,6 @@ import GoogleMobileAds
 class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate, UITextFieldDelegate, GADBannerViewDelegate  {
     
     @IBOutlet weak var bookmark: UIBarButtonItem!
-    @IBOutlet weak var buttonShareFacebook: UIBarButtonItem!
     
     var servicesConnection = ServicesConnection()
     let baseURL = URL(string: "http://api.instagram.com/oembed")
@@ -26,7 +25,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     var itemIndex: Int = 0
     var news: News = News(id: 0, title: "", content: "", imageURL: "", date: "", link: "", category: "", author: "")!
     var contentDetail = ""
-    var isSearchResult = false
     var isLoadBanner =  false
     
     var progressBar = ProgressBarLoad()
@@ -202,6 +200,17 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         let category = " <br/> Categorias: <font color=\"#009688\">"+news.categoryNews+"</font> </div> "
         var content = news.contentNews
         
+        //var number = "+1 07777777777"
+        //number.stringByRemovingRegexMatches(pattern: "\\+\\d{1,4} (0)?")
+       // print (content)
+        
+        content?.stringByRemovingRegexMatches(pattern: "(class)[=][\"](wp-image-)\\d{6}[\"]",
+                                              replaceWith: "class=\\\"wp-image-511029 size-full\\\" ")
+        
+        
+        //print (content)
+      //  "class=\"wp-image-511029 size-full\"
+        
         let  result = content?.captureExpression(withRegex: "(class)[=][\"](wp-image-)\\d{6}[\"]")
         content = result
      
@@ -295,6 +304,18 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
             }
             self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
                                                        height: height)
+        }
+    }
+}
+
+extension String {
+    mutating func stringByRemovingRegexMatches(pattern: String, replaceWith: String = "") {
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
+            let range = NSMakeRange(0, self.characters.count)
+            self = regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: replaceWith)
+        } catch {
+            return
         }
     }
 }

@@ -11,6 +11,7 @@
 		8C0DC2CC1E684EDB008F7934 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC2C81E684EDB008F7934 /* FBSDKCoreKit.framework */; };
 		8C0DC2CD1E684EDB008F7934 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC2C91E684EDB008F7934 /* FBSDKLoginKit.framework */; };
 		8C0DC2CE1E684EDB008F7934 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC2CA1E684EDB008F7934 /* FBSDKShareKit.framework */; };
+		8C0DC2D11E6A0A8D008F7934 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DC2D01E6A0A8D008F7934 /* Main.storyboard */; };
 		8C12D6B01D92CD5F00A3FC6D /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6AF1D92CD5F00A3FC6D /* AboutUsViewController.swift */; };
 		8C12D6B21D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6B11D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift */; };
 		8C12D6B41D95628700A3FC6D /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */; };
@@ -31,7 +32,6 @@
 		8C5B066C1D81DC1900E2BB52 /* ProgressBarLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */; };
 		8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06731D8331DA00E2BB52 /* PageItemController.swift */; };
 		8C5B06781D83400B00E2BB52 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B06771D83400B00E2BB52 /* Base.lproj */; };
-		8C5B067B1D83405E00E2BB52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B06791D83405E00E2BB52 /* Main.storyboard */; };
 		8C5D23281D9AC39100E1CC14 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */; };
 		8C7487481E1D6A7C00650561 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7487471E1D6A7C00650561 /* GoogleMobileAds.framework */; };
 		8C77823F1D7A12ED001A0596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77823E1D7A12ED001A0596 /* News.swift */; };
@@ -62,6 +62,7 @@
 		8C0DC2C81E684EDB008F7934 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		8C0DC2C91E684EDB008F7934 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		8C0DC2CA1E684EDB008F7934 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		8C0DC2D01E6A0A8D008F7934 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		8C12D6AF1D92CD5F00A3FC6D /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8C12D6B11D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliticasPrivacityViewController.swift; sourceTree = "<group>"; };
 		8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarLoad.swift; sourceTree = "<group>"; };
 		8C5B06731D8331DA00E2BB52 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		8C5B06771D83400B00E2BB52 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
-		8C5B067A1D83405E00E2BB52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		8C7487471E1D6A7C00650561 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		8C77823E1D7A12ED001A0596 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -248,8 +248,8 @@
 			children = (
 				F47029F51A7F27DB00E30A3C /* AppDelegate.swift */,
 				8CF45E561E14075600A583F1 /* GoogleService-Info.plist */,
-				8C5B06791D83405E00E2BB52 /* Main.storyboard */,
 				F47029FE1A7F27DB00E30A3C /* LaunchScreen.xib */,
+				8C0DC2D01E6A0A8D008F7934 /* Main.storyboard */,
 				F47029FC1A7F27DB00E30A3C /* Images.xcassets */,
 				8C5B06731D8331DA00E2BB52 /* PageItemController.swift */,
 				8C31A7141D8B40CB0091A36A /* NewsViewCell.swift */,
@@ -355,9 +355,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */,
+				8C0DC2D11E6A0A8D008F7934 /* Main.storyboard in Resources */,
 				8C5B06781D83400B00E2BB52 /* Base.lproj in Resources */,
 				F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */,
-				8C5B067B1D83405E00E2BB52 /* Main.storyboard in Resources */,
 				8CF45E571E14075600A583F1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,14 +469,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8C5B06791D83405E00E2BB52 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8C5B067A1D83405E00E2BB52 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F47029FE1A7F27DB00E30A3C /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -150,7 +150,8 @@ class ForYouTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        let id = segue.identifier! as String
+        if (segue.identifier?.isEmpty == false){
+            let id = segue.identifier! as String
         switch id {
         case "ShowNotification":
             
@@ -189,8 +190,8 @@ class ForYouTableViewController: UITableViewController {
             
         default:
             NSLog ("Es otro boton")
-            
         }
+    }
     }
 
     func callWebServices(_ paged: String ){
@@ -245,13 +246,5 @@ class ForYouTableViewController: UITableViewController {
         let detailViewController = segue.destination as! PageViewController
         detailViewController.newsList = newsList
     }
-    
-    
-    @IBAction func unwindToNewsList2(_ sender: UIStoryboardSegue) {
-        self.tabBarController?.tabBar.isHidden =  false
-        self.navigationController?.popViewController(animated: true)
-        self.navigationController?.isNavigationBarHidden = false
-    }
-
     
 }
