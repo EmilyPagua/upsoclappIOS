@@ -110,15 +110,17 @@ class BookmarkTableViewController: UITableViewController {
                 
                 var list =  [News]()
                 let listCount = newsList.count
+                let position = (indexPath as NSIndexPath).row
                 
-                if (indexPath as NSIndexPath).row + 2 <= listCount {
-                    for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 2   {
+                if (position <= listCount) {
+                    var showPost = listCount-position
+                    if (showPost > 5){
+                        showPost = 5
+                    }
+                    
+                    for  i in position ..< position + showPost  {
                         list.append(newsList[i])
                     }
-                    detailViewController.newsList = list
-                }
-                else {
-                    list.append(newsList[(indexPath as NSIndexPath).row])
                     detailViewController.newsList = list
                 }
             }

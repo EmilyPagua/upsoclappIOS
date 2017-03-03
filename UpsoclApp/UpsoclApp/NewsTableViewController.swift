@@ -38,16 +38,15 @@ class NewsTableViewController: UITableViewController {
                 self.notificationButton.isEnabled =  true
             }
         }
-        loadingView()
+        self.loadingView()
     }
     
     func loadingView(){
         
         let list:[PostNotification] = NewsSingleton.sharedInstance.get10FisrtNews()
         
-        NSLog("NewsTableController List \(list.count)")
-
         for elem in list {
+            NSLog("list \(list.count)")
             let news: News = News(id: (elem.idPost),
                                   title: (elem.title),
                                   content: elem.content,
@@ -61,9 +60,9 @@ class NewsTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
-        indicator = progressBar.loadBar()
+        self.indicator = progressBar.loadBar()
         view.addSubview(indicator)
-        indicator.bringSubview(toFront: view)
+        self.indicator.bringSubview(toFront: view)
         
         self.refreshControl?.addTarget(self, action: #selector(NewsTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
         
@@ -77,10 +76,10 @@ class NewsTableViewController: UITableViewController {
     }
     
     func handleRefresh(_ resfresControl: UIRefreshControl){
-        newsList.removeAll()
+        self.newsList.removeAll()
+        self.loadingView()
 
-        page = 1
-        callWebServices(String(page))
+        self.page = 1
         refreshControl?.endRefreshing()
     }
 
@@ -175,9 +174,15 @@ class NewsTableViewController: UITableViewController {
                     
                     var list =  [News]()
                     let listCount = newsList.count
+                    let position = (indexPath as NSIndexPath).row
                     
-                    if (indexPath as NSIndexPath).row + 3 <= listCount {
-                        for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
+                    if (position <= listCount) {
+                        var showPost = listCount-position
+                        if (showPost > 5){
+                            showPost = 5
+                        }
+                        
+                        for  i in position ..< position + showPost  {
                             list.append(newsList[i])
                         }
                         detailViewController.newsList = list
@@ -219,41 +224,42 @@ class NewsTableViewController: UITableViewController {
     func callWebServices(_ paged: String ){
         
         if Reachability.isConnectedToNetwork() == true {
-            //NSLog("Internet connection OK")
             
             self.indicator.startAnimating()
-            
-            if (paged=="1"){
-                self.newsList.removeAll()
-            }
 
             let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.pageFilter + paged
+           
             servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
                 
+               // list = moreWrapper!
                 self.newsList = moreWrapper!
                 DispatchQueue.main.async(execute: {
+                    
+                    if (paged=="1" && self.newsList.count > 10){
+                        self.newsList.removeSubrange(0..<10)
+                        
+                        NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_10NEWS)
+                        
+                        for  i in 0  ..< 10 {
+                            let item = PostNotification(idPost: (self.newsList[i].idNews),
+                                                        title: (self.newsList[i].titleNews),
+                                                        subTitle: (self.newsList[i].titleNews) ,
+                                                        UUID: UUID().uuidString,
+                                                        imageURL: (self.newsList[i].imageURLNews) ?? "SinImagen",
+                                                        date: (self.newsList[i].dateNews) ?? "01-01-2017",
+                                                        link: (self.newsList[i].linkNews) ,
+                                                        category: (self.newsList[i].categoryNews) ,
+                                                        author: (self.newsList[i].authorNews) ?? "Anonimo",
+                                                        content: (self.newsList[i].contentNews) ?? "",
+                                                        isRead: false)
+                            
+                            NewsSingleton.sharedInstance.save10FisrtNews(item)
+                        }
+                    }
                     self.tableView.reloadData()
                     return
                 })
                 
-                if (paged=="1" && self.newsList.count>1){
-                    NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_10NEWS)
-                    for  i in 0  ..< self.newsList.count{
-                        let item = PostNotification(idPost: (self.newsList[i].idNews),
-                                                    title: (self.newsList[i].titleNews),
-                                                    subTitle: (self.newsList[i].titleNews) ,
-                                                    UUID: UUID().uuidString,
-                                                    imageURL: (self.newsList[i].imageURLNews) ?? "SinImagen",
-                                                    date: (self.newsList[i].dateNews) ?? "01-01-2017",
-                                                    link: (self.newsList[i].linkNews) ,
-                                                    category: (self.newsList[i].categoryNews) ,
-                                                    author: (self.newsList[i].authorNews) ?? "Anonimo",
-                                                    content: (self.newsList[i].contentNews) ?? "",
-                                                    isRead: false)
-                    
-                        NewsSingleton.sharedInstance.save10FisrtNews(item)
-                    }
-                }
             })
         } else {
             NSLog("ERROR_ Internet connection FAILED")

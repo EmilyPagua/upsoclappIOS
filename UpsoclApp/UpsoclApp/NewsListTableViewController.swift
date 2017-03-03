@@ -24,6 +24,23 @@ class NewsListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let notification = NewsSingleton.sharedInstance.allItems()
+        
+        if (notification.isEmpty){
+            self.notificationButton.image = UIImage(named: "notification_disable")
+            self.notificationButton.isEnabled =  false
+        }else{
+            if (notification.first?.isRead)!{
+                notificationButton.image = UIImage(named: "notification_disable")
+                self.notificationButton.isEnabled =  true
+            }else{
+                notificationButton.image = UIImage(named: "notification_enable")
+                self.notificationButton.isEnabled =  true
+            }
+        }
+        
+        
         //loadProgressBar
         indicator = progressBar.loadBar()
         view.addSubview(indicator)
@@ -129,7 +146,6 @@ class NewsListTableViewController: UITableViewController {
         
         urlPath += ApiConstants.PropertyKey.filterPageForYou + "\(String(self.page))"
         
-        NSLog (urlPath)
         return urlPath
     }
     
@@ -143,8 +159,6 @@ class NewsListTableViewController: UITableViewController {
             })
         }
     }
-    
-
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -176,12 +190,17 @@ class NewsListTableViewController: UITableViewController {
             // Get the cell that generated this segue.
             if let selectedMealCell = sender as? NewsViewCell {
                 let indexPath = tableView.indexPath(for: selectedMealCell)!
-                
                 var list =  [News]()
                 let listCount = newsList.count
+                let position = (indexPath as NSIndexPath).row
                 
-                if (indexPath as NSIndexPath).row + 5 <= listCount {
-                    for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
+                if (position <= listCount) {
+                    var showPost = listCount-position
+                    if (showPost > 5){
+                        showPost = 5
+                    }
+                
+                    for  i in position ..< position + showPost  {
                         list.append(newsList[i])
                     }
                     detailViewController.newsList = list
@@ -192,7 +211,6 @@ class NewsListTableViewController: UITableViewController {
             NSLog ("Indefinido")
             
         }
-
     }
     
     func processingNotification(notification: [PostNotification], segue: UIStoryboardSegue) -> Void {

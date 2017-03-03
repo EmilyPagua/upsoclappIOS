@@ -123,7 +123,6 @@ class ForYouTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCellWithIdentifier("CellForYou", forIndexPath: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellForYou", for: indexPath) as! NewsViewCell
 
         // Configure the cell...
@@ -174,9 +173,14 @@ class ForYouTableViewController: UITableViewController {
                 
                 var list =  [News]()
                 let listCount = newsList.count
+                let position = (indexPath as NSIndexPath).row
                 
-                if (indexPath as NSIndexPath).row + 3 <= listCount {
-                    for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
+                if (position <= listCount) {
+                    var showPost = listCount-position
+                    if (showPost > 5){
+                        showPost = 5
+                    }
+                    for  i in position ..< position + showPost  {
                         list.append(newsList[i])
                     }
                     detailViewController.newsList = list
@@ -194,12 +198,14 @@ class ForYouTableViewController: UITableViewController {
         self.indicator.startAnimating()
        
         let urlPath = ApiConstants.PropertyKey.baseURL + ApiConstants.PropertyKey.listPost + ApiConstants.PropertyKey.filterCategoryName + keyCategory + ApiConstants.PropertyKey.filterPageForYou + paged
-        self.newsList = [News]()
+       // self.newsList = [News]()
+        
         servicesConnection.loadAllNews(self.newsList, urlPath: urlPath, completionHandler: { (moreWrapper, error) in
             
             self.newsList = moreWrapper!
             DispatchQueue.main.async(execute: {
                 self.tableView.reloadData()
+                self.indicator.stopAnimating()
                 return
             })
         })

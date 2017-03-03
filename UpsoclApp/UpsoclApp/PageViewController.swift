@@ -173,19 +173,14 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         
         if (newsList.count>1){
             let name = newsList[0].linkNews
-            NSLog("URL articlo a compartir en GAnalytics:  \(name)")
-            
-            /*
-             DESCOMENTAR PARA QUE SE ENVIEN A GOOGLE ANALYTICS
-             
              let googleAnalytics : GAITracker = GAI.sharedInstance().tracker(withTrackingId: ApiConstants.PropertyKey.googleAnalyticsTrackingId)
              GAI.sharedInstance().trackUncaughtExceptions = true
              GAI.sharedInstance().dispatchInterval =  20
              
-             googleAnalytics.set(kGAIScreenName, value: "pruebaIOS")
+             googleAnalytics.set(kGAIScreenName, value: name)
              
              let builder = GAIDictionaryBuilder.createScreenView()
-             googleAnalytics.send(builder!.build() as [NSObject : AnyObject])*/
+             googleAnalytics.send(builder!.build() as [NSObject : AnyObject])
         }else{
             NSLog ("-- GoogleAnalytics, NO se encontro news")
         }

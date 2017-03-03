@@ -85,7 +85,6 @@ class NewsSingleton {
         var itemKey:String
         if isBookmark{
             itemKey = ITEMS_KEY_BOOKMARK
-            NSLog("Remove item Bookmark")
         }else{
             itemKey =  ITEMS_KEY_Notification
             
@@ -141,7 +140,6 @@ class NewsSingleton {
         
         if isBookmark{
             itemKey = ITEMS_KEY_BOOKMARK
-            //NSLog("Search item by Bookmark")
         }else{
             itemKey =  ITEMS_KEY_Notification
         }

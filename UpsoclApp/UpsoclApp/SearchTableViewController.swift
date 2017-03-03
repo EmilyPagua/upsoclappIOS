@@ -157,15 +157,20 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
             
             let detailViewController = segue.destination as! PageViewController
             
-            // Get the cell that generated this segue.
             if let selectedMealCell = sender as? NewsViewCell {
                 let indexPath = tableView.indexPath(for: selectedMealCell)!
                 
                 var list =  [News]()
                 let listCount = newsList.count
+                let position = (indexPath as NSIndexPath).row
                 
-                if (indexPath as NSIndexPath).row + 5 <= listCount {
-                    for  i in (indexPath as NSIndexPath).row  ..< (indexPath as NSIndexPath).row + 5   {
+                if (position <= listCount) {
+                    var showPost = listCount-position
+                    if (showPost > 5){
+                        showPost = 5
+                    }
+                    
+                    for  i in position ..< position + showPost  {
                         list.append(newsList[i])
                     }
                     detailViewController.newsList = list
