@@ -40,9 +40,7 @@ class PoliticasPrivacityViewController: UIViewController {
     func getInfo() {
         
         if Reachability.isConnectedToNetwork() == true {
-            
-            self.indicator.startAnimating()
-            
+                        
             let urlPath = ApiConstants.PropertyKey.baseURL + "/pages/445196"
             
             //http://upsocl.com/wp-json/wp/v2/pages/445196   1039

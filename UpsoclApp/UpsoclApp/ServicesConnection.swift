@@ -17,7 +17,7 @@ class ServicesConnection  {
     //Load 10 News
     func loadAllNews(_ wrapper: [News]?,  urlPath: String,  completionHandler: @escaping ([News]?, NSError?) -> Void) {
 
-        NSLog ("urlPath \(urlPath) ")
+      //  NSLog ("urlPath \(urlPath) ")
         if wrapper == nil{
             completionHandler(nil, nil)
             return

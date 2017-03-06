@@ -90,7 +90,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                     do {
                         json = try JSONSerialization.jsonObject(with: nsdata, options: []) as? [String:AnyObject] as AnyObject!
                         
-                        print(json)
+                        //print(json)
                         let imagenUserURL =  json["profile_image_url"] as! String
                         NSLog (imagenUserURL)
                         

@@ -66,6 +66,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.webDetail =  UIWebView()
         self.webDetail.delegate = self
         self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
+        
         self.webDetail.scrollView.isScrollEnabled =  true
         
         self.scrollViewDetail = UIScrollView()
@@ -75,12 +76,11 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         
         self.scrollViewDetail.addSubview(self.webDetail)
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.indicator = progressBar.loadBar()
         
-        view.addSubview(indicator)
+        view.addSubview(self.indicator)
         view.addSubview(self.scrollViewDetail)
-        //self.scrollViewDetail.addSubview(self.indicator)
-       
+        
         self.indicator.bringSubview(toFront: view)
         self.indicator.startAnimating()
         
@@ -90,17 +90,22 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.indicator.frame = CGRect(x: (UIScreen.main.bounds.width/2) - 20, y: 50.0, width: 20.0, height: 20.0)
-        self.indicator.color = UIColor.blue
+        self.indicator.frame = CGRect(x: (UIScreen.main.bounds.width/2) - 10,
+                                      y: 70.0,
+                                      width: 5,
+                                      height: 5)
         
-        
-        self.webDetail.frame =  CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: UIScreen.main.bounds.height)
-        
-
+        self.webDetail.frame =  CGRect(x:0,
+                                       y:0,
+                                       width: UIScreen.main.bounds.width-20,
+                                       height: UIScreen.main.bounds.height)
+    
         self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
-                                              height:webDetail.bounds.size.height )
+                                                   height:webDetail.bounds.size.height )
         
-        self.scrollViewDetail.frame = CGRect(x:10, y:80, width: view.bounds.width-20,
+        self.scrollViewDetail.frame = CGRect(x:10,
+                                             y:80,
+                                             width: view.bounds.width-20,
                                              height: view.bounds.height-85)
         
     }
@@ -108,7 +113,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     func webViewDidFinishLoad(_ webView: UIWebView) {
         //create banner
         self.webDetail.frame = CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: self.webDetail.scrollView.contentSize.height)
-        self.uploadWebView(height: self.webDetail.scrollView.contentSize.height )
+        self.uploadWebView()
         
         self.indicator.stopAnimating()
     }
@@ -157,12 +162,13 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     @IBAction func bookmarkButton(_ sender: UIBarButtonItem) {
 
+        
         let item = PostNotification(idPost: (news.idNews),
                                     title: (news.titleNews),
                                     subTitle: (news.imageURLNews)! ,
                                     UUID: UUID().uuidString,
                                     imageURL: (news.imageURLNews) ?? "SinImagen",
-                                    date: (news.dateNews) ?? "01-01-2017",
+                                    date: (news.dateNews) ?? "2017-01-01",
                                     link: (news.linkNews) ,
                                     category: (news.categoryNews) ,
                                     author: (news.authorNews) ?? "Anonimo",
@@ -180,7 +186,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
             NewsSingleton.sharedInstance.addBookmark(item)
             
             self.bookmark.image = UIImage(named: "bookmarkActive")
-            NSLog ("bookmarkActive")
+           // NSLog ("bookmarkActive")
         }
     }
     
@@ -194,24 +200,16 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
             contentDetail = contentDetail + imagen
         }
         
+        var date = news.dateNews!
+        date = date.substring(to:date.index(date.startIndex, offsetBy: 10))
         let line = "<hr  color=\"#009688\" />"
         let title = "<h2 style=\"text-align: justify;\"><strong> "+news.titleNews+"</strong></h2>"
-        let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news.authorNews!+" </font>.  El: <font color=\"#009688\"> "+news.dateNews!+" </font> "
+        let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news.authorNews!+" </font>.  El: <font color=\"#009688\"> "+date+" </font> "
         let category = " <br/> Categorias: <font color=\"#009688\">"+news.categoryNews+"</font> </div> "
         var content = news.contentNews
         
-        //var number = "+1 07777777777"
-        //number.stringByRemovingRegexMatches(pattern: "\\+\\d{1,4} (0)?")
-       // print (content)
-        
-        content?.stringByRemovingRegexMatches(pattern: "(class)[=][\"](wp-image-)\\d{6}[\"]",
-                                              replaceWith: "class=\\\"wp-image-511029 size-full\\\" ")
-        
-        
-        //print (content)
-      //  "class=\"wp-image-511029 size-full\"
-        
-        let  result = content?.captureExpression(withRegex: "(class)[=][\"](wp-image-)\\d{6}[\"]")
+        //Replace value imagen for  imagen full
+        let  result = content?.captureExpression(withRegex: "(class)[=][\"](wp-image-)\\d{6}[\"]", replace: "class=\"wp-image-511029 size-full\" ")
         content = result
      
         contentDetail = contentDetail  + title + detailAuthor + category
@@ -222,7 +220,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         //NSLog("ERROR_ en webView \(error.localizedDescription)");
-        self.uploadWebView(height: self.webDetail.scrollView.contentSize.height )
+        self.uploadWebView()
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -257,13 +255,13 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     //BannerViewController
    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         NSLog("ERROR_ adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
-        bannerView.isHidden = true
+        self.bannerView.isHidden = true
     }
     
     func adViewDidReceiveAd(_ view: GADBannerView) {
         //NSLog ("Banner loaded successfully ")
         self.isLoadBanner =  true
-        self.uploadWebView(height: self.webDetail.scrollView.contentSize.height)
+        self.uploadWebView()
     }
     
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
@@ -280,42 +278,24 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         bannerView.isHidden =  false
     }
     
-    func uploadWebView( height: CGFloat) -> Void {
+    func uploadWebView() -> Void {
         
-        var height = height
-        /*
-        print ("Modificado tamaño del Scroll")
-        print ("height: \(height)")
-        print(self.bannerView.frame.height)
-        print(self.scrollViewDetail.frame.height)
-        print(self.webDetail.scrollView.contentSize.height)
-        */
+        var height = self.webDetail.scrollView.contentSize.height
         
         if (height==0.0){
-          //  NSLog ("news.titleNews  \(news.titleNews)")
-          //  self.webDetail.loadRequest(NSURLRequest(url: NSURL(string:"about:blank")! as URL) as URLRequest)
-            self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
+              self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
+            
         }else{
             if (self.isLoadBanner)
             {
                 self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height+10, width: 300, height: 250)
                 self.scrollViewDetail.addSubview(self.bannerView)
                 height = height + 260.0
+                self.webDetail.scrollView.isScrollEnabled =  false
             }
-            self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
-                                                       height: height)
         }
-    }
-}
-
-extension String {
-    mutating func stringByRemovingRegexMatches(pattern: String, replaceWith: String = "") {
-        do {
-            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
-            let range = NSMakeRange(0, self.characters.count)
-            self = regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: replaceWith)
-        } catch {
-            return
-        }
+        
+        self.scrollViewDetail.contentSize = CGSize(width: self.webDetail.bounds.size.width,
+                                                   height: height)
     }
 }

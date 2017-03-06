@@ -22,8 +22,8 @@ class AboutUsViewController: UIViewController {
         super.viewDidLoad()
         
         //loadProgressBar
-        indicator = progressBar.loadBar()
-        indicator.startAnimating()
+        self.indicator = progressBar.loadBar()
+        self.indicator.startAnimating()
         //indicator.center = view.center
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
@@ -41,8 +41,6 @@ class AboutUsViewController: UIViewController {
     func getInfo() {
     
         if Reachability.isConnectedToNetwork() == true {
-            
-            self.indicator.startAnimating()
             
             let urlPath = ApiConstants.PropertyKey.baseURL + "/pages/1039"
             

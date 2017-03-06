@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension String{
-    func captureExpression(withRegex pattern: String) -> String {
+extension String {
+    func captureExpression(withRegex pattern: String, replace: String) -> String {
         
         var regex: NSRegularExpression
         do{
@@ -18,10 +18,14 @@ extension String{
             var myString = self
             let stringlength = myString.characters.count
             
-            let modString = regex.stringByReplacingMatches(in: myString,
+            var modString = regex.stringByReplacingMatches(in: myString,
                                                                    options: .reportProgress,
                                                                    range: NSMakeRange(0, stringlength),
-                                                                   withTemplate: "class=\"wp-image-511029 size-full\" ")
+                                                                   withTemplate: replace)
+            
+            
+             modString = modString.replacingOccurrences(of: "class=\"lazy\"", with: "class=\"imgifs\"")
+            
             return modString
             
         }catch{

@@ -21,7 +21,6 @@ class BookmarkTableViewController: UITableViewController {
         
         //loadProgressBar
         indicator = progressBar.loadBar()
-        //indicator.center = view.center
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
         

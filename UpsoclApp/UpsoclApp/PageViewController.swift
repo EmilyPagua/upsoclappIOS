@@ -57,7 +57,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
             for  i in 0  ..< newsList.count    {
                 let flag  = NewsSingleton.sharedInstance.getValueById(newsList[i].idNews, isBookmark: true)
                 if flag {
-                    NSLog ("IsBookmark")
+                 //   NSLog ("IsBookmark")
                 }
             }
             createPageViewController()

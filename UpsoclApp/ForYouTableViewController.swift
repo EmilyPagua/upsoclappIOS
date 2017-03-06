@@ -25,6 +25,21 @@ class ForYouTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let notification = NewsSingleton.sharedInstance.allItems()
+        
+        if (notification.isEmpty){
+            self.notificationButton.image = UIImage(named: "notification_disable")
+            self.notificationButton.isEnabled =  false
+        }else{
+            if (notification.first?.isRead)!{
+                notificationButton.image = UIImage(named: "notification_disable")
+                self.notificationButton.isEnabled =  true
+            }else{
+                notificationButton.image = UIImage(named: "notification_enable")
+                self.notificationButton.isEnabled =  true
+            }
+        }
+        
         //loadProgressBar
         indicator = progressBar.loadBar()
         view.addSubview(indicator)

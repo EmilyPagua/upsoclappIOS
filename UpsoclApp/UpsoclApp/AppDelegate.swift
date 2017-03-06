@@ -256,7 +256,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         }
         let urlPath = ApiConstants.PropertyKey.baseURL + ""+ApiConstants.PropertyKey.listPost+"/\(idPost)"
         
-        NSLog(urlPath)
+        //NSLog(urlPath)
         servicesConnection.loadNews(notification, urlPath: urlPath, completionHandler: {(moreWrapper, error) in
             notification = moreWrapper!
             DispatchQueue.main.async(execute: {
