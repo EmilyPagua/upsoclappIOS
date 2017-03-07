@@ -51,6 +51,8 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
 
         self.googleStartConfig(application)
         self.facebookStartConfig(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
         self.twitterStartConfig()
         self.googleAnalyticsStart()
         
@@ -86,7 +88,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     // [------------------------START GOOGLE-------------------]
     // [START openurl]
      func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-
         return self.isSignIn(application, open: url, sourceApplication: sourceApplication! ,annotation:  annotation)
         
      }
@@ -102,7 +103,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         return self.isSignIn(application, open: url, sourceApplication: sourceApplication ,annotation:  annotation)
      }
     
-    // [START signin_handler]
+     // [START signin_handler]
      func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         var userInfo: [AnyHashable : Any]? = nil
@@ -114,7 +115,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                                         birthday: "00-00-0000" ,
                                         imagenURL: user.profile.imageURL(withDimension: 50)! as URL,
                                         token: "qwedsazxc2",
-                                        userId: "112233",
+                                        userId: "0",
                                         socialNetwork: "google" as String,
                                         socialNetworkTokenId: user.authentication.idToken! ,
                                         registrationId: "tokentWordpress" )
@@ -147,7 +148,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         NotificationCenter.default.post(name: Notification.Name(rawValue: SocialNetwork.PropertyKey.ToggleAuthUINotification),
                                         object: nil,
                                         userInfo: ["statusText": "User has disconnected."])
-        //  [END_EXCLUDE]
+        
     }
     // [END disconnect_handler]
     
@@ -156,7 +157,8 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     func application( _ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken
         deviceToken: Data ) {
         
-        NSLog ("deviceTokent ", deviceToken.description)
+        NSLog ("deviceTokent \(deviceToken.description)")
+        
         let instanceIDConfig = GGLInstanceIDConfig.default()
         instanceIDConfig?.delegate = self
         GGLInstanceID.sharedInstance().start(with: instanceIDConfig)
@@ -193,6 +195,9 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     }
     
     func subscribeToTopic() {
+        
+        NSLog("registrationToken \(registrationToken)")
+        
         if registrationToken != nil && connectedToGCM {
             
             GCMPubSub.sharedInstance().subscribe(withToken: self.registrationToken,
@@ -219,7 +224,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     // [START receive_apns_token_error]
     func application( _ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error ) {
         NSLog("Registration for remote notification failed with error: \(error.localizedDescription)")
-        // [END receive_apns_token_error]
         let userInfo = ["error": error.localizedDescription]
         
         NotificationCenter.default.post( name: Notification.Name(rawValue: registrationKey),
@@ -235,7 +239,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         GCMService.sharedInstance().appDidReceiveMessage(userInfo)
         NotificationCenter.default.post(name: Notification.Name(rawValue: messageKey), object: nil,
                                         userInfo: userInfo)
-        // [END_EXCLUDE]
     }
     
     func application( _ application: UIApplication,
@@ -248,15 +251,13 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                                        userInfo: userInfo)
         
         handler(UIBackgroundFetchResult.noData)
-        print (userInfo)
         var notification = [News]()
         var idPost = userInfo[AnyHashable("gcm.notification.idPost")] as! String
         if idPost.isEmpty{
             idPost = "564792"
         }
-        let urlPath = ApiConstants.PropertyKey.baseURL + ""+ApiConstants.PropertyKey.listPost+"/\(idPost)"
+        let urlPath = ApiConstants.PropertyKey.baseURL+""+ApiConstants.PropertyKey.listPost+"/\(idPost)"
         
-        //NSLog(urlPath)
         servicesConnection.loadNews(notification, urlPath: urlPath, completionHandler: {(moreWrapper, error) in
             notification = moreWrapper!
             DispatchQueue.main.async(execute: {
@@ -318,8 +319,10 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     }
     
     
-    func facebookStartConfig(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?){
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    func facebookStartConfig(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        
+        let fb = FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        print ("fb \(fb)")
     }
     
     func twitterStartConfig() -> Void {
@@ -371,11 +374,12 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                                                        sourceApplication: sourceApplication,
                                                        annotation: annotation)
         
-        if (signIn){ return true }
+        if (signIn){ return signIn }
         
         signIn = FBSDKApplicationDelegate.sharedInstance().application(application, open: url,
                                                                        sourceApplication: sourceApplication,
                                                                        annotation: annotation)
+    
         return signIn
         
     }
@@ -401,6 +405,10 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        let LoginManager :  FBSDKLoginManager =  FBSDKLoginManager()
+        LoginManager.logOut()
+        
     }
 }
 

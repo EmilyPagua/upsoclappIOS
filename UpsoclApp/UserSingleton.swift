@@ -70,7 +70,7 @@ class UserSingleton {
             userLogin.removeAll()
             UserDefaults.standard.set(userLogin, forKey: ITEMS_KEY)
         }else{
-            NSLog("vacio")
+            NSLog("removeUseLogin vacio")
         }
     }
     
@@ -78,12 +78,13 @@ class UserSingleton {
         
         NSLog (item.email)
         
-        //var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name="+customer.firstName+"&last_name="+customer.lastName+"&email="+customer.email+"&birthday="+customer.birthday+"&location="+customer.location+"&social_network_login="+customer.socialNetwork+"&registration_id="+customer.registrationId
+        var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name="+item.firstName+"&last_name="+item.lastName+"&email="+item.email+"&birthday="+item.birthday+"&location="+item.location+"&social_network_login="+item.socialNetwork+"&registration_id="+item.registrationId
         
-        var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name=pruebaIOS2&last_name=pruebaIOS2&email=pruebaIOS2@gmail.com&birthday=00-00-0000&location=Chile&social_network_login=facebook&registration_id=qwedsazxc2"
+        //var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name=pruebaIOS2&last_name=pruebaIOS2&email=pruebaIOS2@gmail.com&birthday=00-00-0000&location=Chile&social_network_login=facebook&registration_id=qwedsazxc2"
         
         urlPath =  urlPath.replacingOccurrences(of: " ", with: "%20%")
         
+        NSLog("urlPath  \(urlPath)")
         let request = NSMutableURLRequest(url: URL(string: urlPath)!)
         let session = URLSession.shared
         
@@ -91,14 +92,13 @@ class UserSingleton {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
          request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        item.userId.appending("0")
+        item.userId.appending( "0" as String)
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             guard error == nil else {
                 MessageAlert.sharedInstance.createViewMessage("Problemas, verifique su conexión a datos", title: "Error!")
                 return
             }
-            
             guard data != nil else {
                 NSLog("ERROR_ NO PUEDE RECIBIR POST USER desde BD")
                 return
@@ -108,10 +108,12 @@ class UserSingleton {
             let json : AnyObject!
             do {
                 json = try JSONSerialization.jsonObject(with: nsdata, options: []) as AnyObject!
+                NSLog("json  \(json)")
+                
                 let id = json["success"] as! Bool
-                if id == true {
-                    let userId = json["id"] as! String
-                    item.userId.appending(userId)
+                if id {
+                    let userId = json["id"] as! Int
+                    item.userId.appending(userId.description)
                 }else{
                     NSLog (json["message"] as! String)
                 }

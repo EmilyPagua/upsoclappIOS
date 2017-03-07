@@ -214,7 +214,6 @@ class ServicesConnection  {
                 let task = URLSession.shared.dataTask(with: imgURL!, completionHandler: { (responseData, responseUrl, error) -> Void in
                     
                     if let data = responseData{
-                        print (data)
                         completionHandler(UIImage(data: data)!, nil)
                     }else{
                         NSLog ("data = null")
@@ -225,28 +224,6 @@ class ServicesConnection  {
             }else {
                 completionHandler(UIImage(named: "webkit-featured")!, nil)
             }
-        }
-    }
-    
-    func getLocationPhone() -> String {
-        
-        var location =  ""
-        let allLocaleIdentifiers : Array<String> = Locale.availableIdentifiers as Array<String>
-        let currentLocale = Locale.current
-        let countryCode = (currentLocale as NSLocale).object(forKey: NSLocale.Key.countryCode) as? String
-        let englishLocale : Locale = Locale.init(identifier : countryCode! )
-        
-        for anyLocaleID in allLocaleIdentifiers {
-            
-            let theEnglishName : String? = (englishLocale as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: anyLocaleID)
-            if anyLocaleID.range(of: countryCode!) != nil {
-                location = theEnglishName!
-            }
-        }
-        if location.isEmpty{
-            return "No identificado"
-        }else{
-            return location
         }
     }
 

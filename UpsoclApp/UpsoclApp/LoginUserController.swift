@@ -10,6 +10,8 @@ import UIKit
 import Fabric
 import TwitterKit
 import Google
+import FBSDKCoreKit
+import Bolts
 
 class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginButtonDelegate {
     
@@ -19,9 +21,11 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     // [END viewcontroller Google]
     
     // [START viewcontroller Facebook]
+    let parametersFacebook = ["fields": "email, first_name, last_name, picture.type(large)"]
+    
     @IBOutlet weak var loginButtonFacebook: FBSDKLoginButton?  = {
         let button = FBSDKLoginButton()
-        button.readPermissions = ["email"]
+        button.readPermissions = ["public_profile","email"]
         return button
     }()
     // [END viewcontroller Facebook]
@@ -52,7 +56,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     }
     
     func customButtonLogin(){
-    
         let layoutConstraintsArr = self.loginButtonFacebook?.constraints
         for lc in layoutConstraintsArr! { 
             if ( lc.constant == 28 ){
@@ -67,16 +70,13 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         let progressValue = self.progressView?.progress
         progressLabel?.text = "\(progressValue! * 100) %"
     }
-    //End progressBar
     
     @IBAction func validarLogin(_ sender: AnyObject) {
         
-        // If using the log in methods on the Twitter instance
         Twitter.sharedInstance().logIn(withMethods: [.webBased]) { session, error in
             if (session != nil) {
                 NSLog(" session!.userName  \(session!.userName)");
                 Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
-                
                 
                 let client = TWTRAPIClient.withCurrentUser()
                 let request = client.urlRequest(withMethod: "GET",
@@ -90,9 +90,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                     do {
                         json = try JSONSerialization.jsonObject(with: nsdata, options: []) as? [String:AnyObject] as AnyObject!
                         
-                        //print(json)
                         let imagenUserURL =  json["profile_image_url"] as! String
-                        NSLog (imagenUserURL)
                         
                         let userLogin  =  UserLogin(email: "",
                                                     firstName: json["name"] as! String,
@@ -101,20 +99,13 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                                                     birthday: "00-00-0000" ,
                                                     imagenURL: URL(string: imagenUserURL)!,
                                                     token: "qwedsazxc2",
-                                                    userId: "112233",
+                                                    userId: "0",
                                                     socialNetwork: "twitter" as String,
                                                     socialNetworkTokenId: "tokentTwitter",
                                                     registrationId: "tokentWordpress" )
                         
                         
-                        if (userLogin.email.isEmpty) {
-                            self.validEmailUser(userLogin: userLogin)
-                        }
-                        else{
-                            self.saveUser(userLogin: userLogin)
-                            self.sendActivityMain()
-                        }
-                        
+                        self.validEmailUser(userLogin: userLogin)
                     }catch let error as NSError{
                         NSLog ("ERROR_:   \(error.localizedDescription)")
                         json = nil
@@ -134,12 +125,12 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     func saveUser(userLogin: UserLogin ) -> Void {
         UserSingleton.sharedInstance.removeUseLogin()
         UserSingleton.sharedInstance.addUser(userLogin)
+        self.sendActivityMain()
     }
     
     func countCategory (){
         
         let categoryCount = category.countCategory()
-        //NSLog ("Category:  \(categoryCount)")
         if categoryCount <= 1 || beforeCategory <= 1  {
             self.loginButtonFacebook?.isEnabled = false
             self.signInButtonGoogle?.isEnabled = false
@@ -156,7 +147,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     // [------------------------START GOOGLE LOGIN-------------------]
     @IBAction func loginButtonGoogle(_ sender: UIButton) {
         let categoryCount = category.countCategory()
-        if categoryCount < 3 {
+        if categoryCount < 2 {
             MessageAlert.sharedInstance.createViewMessage("Debe seleccionar al menos 3 categorias", title: "Mensaje")
         }else{
             MessageAlert.sharedInstance.createViewMessage("Categorias modificadas con éxito..!", title: "Mensaje")
@@ -166,7 +157,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     // [START toggle_auth]
     func toggleAuthUI() {
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()){
-            // Signed in
             signInButtonGoogle.isHidden = true
         } else {
             signInButtonGoogle.isHidden = false
@@ -199,7 +189,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     // Stop the UIActivityIndicatorView animation that was started when the user
     // pressed the Sign In button
     func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
-        //myActivityIndicator.stopAnimating()
+
     }
     
     // Present a view that prompts the user to sign in with Google
@@ -217,114 +207,132 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         
         NSLog ("Google Login dismissed")
     }
-    
     // [------------------------FINISH GOOGLE LOGIN-------------------]
 
+    
     // [------------------------START FACEBOOK LOGIN-------------------]
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         NSLog ("FBSDKLoginButton Completado Login")
-        fetchProfile()
+        
+        if error != nil {
+            NSLog("ERROR_ "+(error?.localizedDescription)!)
+            return
+        }else if result.isCancelled{
+             NSLog("Is Cancelled ")
+            return
+        }else{
+            NSLog("Do work \(result.description)")
+            
+            FBSDKGraphRequest(graphPath: "me", parameters: parametersFacebook).start(completionHandler: { (connection, user, requestError) -> Void in
+                
+                if requestError != nil {
+                    NSLog("ERROR_ "+(requestError?.localizedDescription)!)
+                    return
+                }
+                
+                if (user == nil){
+                    self.loginButtonDidLogOut(loginButton)
+                    return
+                }
+                let data_block = user as? [String: AnyObject]
+                
+                var email  = data_block?["email"] as! String?
+                
+                if (email == nil) {
+                    email = ""
+                }
+                
+                let firstName = data_block?["first_name"] as? String
+                let lastName = data_block?["last_name"] as? String
+                
+                var pictureUrl = "firstName:  " + String(describing: firstName)
+                if let picture = data_block?["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
+                    pictureUrl = url
+                }
+                
+                let url = URL(string: pictureUrl)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) -> Void in
+                    if error != nil {
+                        NSLog("ERROR_ "+(error?.localizedDescription)!)
+                        return
+                    }
+                }).resume()
+                
+                let userLogin  =  UserLogin(email: email!,
+                                            firstName: firstName!,
+                                            lastName: lastName!,
+                                            location: "--",
+                                            birthday: "00-00-0000",
+                                            imagenURL: URL(string: pictureUrl)!,
+                                            token: "qwedsazxc2",
+                                            userId: "0",
+                                            socialNetwork: "facebook",
+                                            socialNetworkTokenId: "tokentFacebook",
+                                            registrationId: "tokentWordpress" )
+                
+                self.validEmailUser(userLogin: userLogin)
+            })
+        }
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         NSLog ("FBSDKLoginButton - LoginButtonDidLogOut")
-
+        
+        let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        
     }
     
     func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
         return true
     }
     
-    func fetchProfile() {
-        let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
-        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start(completionHandler: { (connection, user, requestError) -> Void in
-            
-            if requestError != nil {
-                NSLog("ERROR_ "+(requestError?.localizedDescription)!)
-                return
-            }
-            
-            let data_block = user as? [String: AnyObject]
-            
-            let email  = data_block?["email"] as! String?
-            let firstName = data_block?["first_name"] as? String
-            let lastName = data_block?["last_name"] as? String
-            
-            NSLog ("Usuario email: \(email)")
-
-            
-            var pictureUrl = "firstName:  " + String(describing: firstName)
-            if let picture = data_block?["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
-                pictureUrl = url
-            }
-            
-            let url = URL(string: pictureUrl)
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) -> Void in
-                if error != nil {
-                    NSLog("ERROR_ "+(error?.localizedDescription)!)
-                    return
-                }
-            }).resume()
-            let userLogin  =  UserLogin(email: email!,
-                                        firstName: firstName!,
-                                        lastName: lastName!,
-                                        location: "--",
-                                        birthday: "00-00-0000",
-                                        imagenURL: URL(string: pictureUrl)!,
-                                        token: "qwedsazxc2",
-                                        userId: "0",
-                                        socialNetwork: "facebook",
-                                        socialNetworkTokenId: "tokentFacebook",
-                                        registrationId: "tokentWordpress" )
-            
-            UserSingleton.sharedInstance.removeUseLogin()
-            UserSingleton.sharedInstance.addUser(userLogin)
-            
-            self.sendActivityMain()
-            
-            
-        })
-    }
      // [------------------------FINISH FACEBOOK LOGIN-------------------]
     
-    func validEmailUser(userLogin: UserLogin){
+    func validEmailUser(userLogin: UserLogin) {
         
-        let alertController = UIAlertController(title: "Faltan datos en su pertfil", message: "Por favor, ingrese su email personal", preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "Guardar", style: .default, handler: {
-            alert -> Void in
-            let textField = alertController.textFields![0] as UITextField
+        if (userLogin.email.isEmpty) {
             
-            let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-            let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
-            if emailPredicate.evaluate(with: textField.text){
-                let mail = textField.text!
+            let alertController = UIAlertController(title: "Faltan datos en su pertfil", message: "Por favor, ingrese su email personal", preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "Guardar", style: .default, handler: {
+                alert -> Void in
+                let textField = alertController.textFields![0] as UITextField
                 
-                let userLogin  =  UserLogin(email: mail,
-                                            firstName: userLogin.firstName,
-                                            lastName: userLogin.lastName,
-                                            location: userLogin.location,
-                                            birthday: userLogin.birthday,
-                                            imagenURL: userLogin.imagenURL,
-                                            token: userLogin.token,
-                                            userId:userLogin.userId,
-                                            socialNetwork: userLogin.socialNetwork,
-                                            socialNetworkTokenId: userLogin.socialNetworkTokenId,
-                                            registrationId: userLogin.registrationId )
-                
-                self.saveUser(userLogin: userLogin)
-                self.sendActivityMain()
-                
-            }else{
-                NSLog("ERROR_ validarLogin No es válido")
-            }
-        }))
-        
-        alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
-            textField.placeholder = "Search"
-        })
-        
-        self.present(alertController, animated: true, completion: nil)
+                let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+                let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+               
+                if emailPredicate.evaluate(with: textField.text){
+                    let mail = textField.text!
+                    
+                    let userLogin  =  UserLogin(email: mail,
+                                                firstName: userLogin.firstName,
+                                                lastName: userLogin.lastName,
+                                                location: userLogin.location,
+                                                birthday: userLogin.birthday,
+                                                imagenURL: userLogin.imagenURL,
+                                                token: userLogin.token,
+                                                userId: userLogin.userId,
+                                                socialNetwork: userLogin.socialNetwork,
+                                                socialNetworkTokenId: userLogin.socialNetworkTokenId,
+                                                registrationId: userLogin.registrationId )
+                    
+                    self.saveUser(userLogin: userLogin)
+                    
+                }else{
+                    NSLog("ERROR_ validarLogin No es válido")
+                }
+            }))
+            
+            alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
+                textField.placeholder = "Search"
+            })
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else{
+            self.saveUser(userLogin: userLogin)
+        }
     }
     
     func sendActivityMain() -> Void {

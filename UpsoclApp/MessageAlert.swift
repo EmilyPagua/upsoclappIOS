@@ -45,7 +45,7 @@ class MessageAlert {
                 let task = URLSession.shared.dataTask(with: imgURL!, completionHandler: { (responseData, responseUrl, error) -> Void in
                     
                     if let data = responseData{
-                        print (data)
+                        print ("data \(data)")
                         completionHandler(UIImage(data: data)!, nil)
                     }else{
                         NSLog ("data = null")
