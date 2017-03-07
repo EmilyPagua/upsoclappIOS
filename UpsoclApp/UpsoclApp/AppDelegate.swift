@@ -118,7 +118,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                                         userId: "0",
                                         socialNetwork: "google" as String,
                                         socialNetworkTokenId: user.authentication.idToken! ,
-                                        registrationId: "tokentWordpress" )
+                                        registrationId: registrationToken! )
             
             UserSingleton.sharedInstance.removeUseLogin()
             UserSingleton.sharedInstance.addUser(userLogin)
@@ -157,8 +157,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     func application( _ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken
         deviceToken: Data ) {
         
-        NSLog ("deviceTokent \(deviceToken.description)")
-        
         let instanceIDConfig = GGLInstanceIDConfig.default()
         instanceIDConfig?.delegate = self
         GGLInstanceID.sharedInstance().start(with: instanceIDConfig)
@@ -195,6 +193,8 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     }
     
     func subscribeToTopic() {
+        
+        UserSingleton.sharedInstance.saveTokent(registrationToken!)
         
         NSLog("registrationToken \(registrationToken)")
         
@@ -322,7 +322,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     func facebookStartConfig(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         
         let fb = FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        print ("fb \(fb)")
     }
     
     func twitterStartConfig() -> Void {

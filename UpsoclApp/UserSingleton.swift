@@ -19,8 +19,28 @@ class UserSingleton {
     }
     
     var ITEMS_KEY = "userLogin"
+    var TOKEN_KEY = "token"
+    
+    func saveTokent(_ token: String){
+        var token = UserDefaults.standard.dictionary(forKey: TOKEN_KEY) ?? Dictionary()
+         token["value"] = token
+        
+        UserDefaults.standard.set(token, forKey: TOKEN_KEY)
+    }
+    
+    func getTokent() -> String {
+        
+        let userLogin  = UserDefaults.standard.dictionary(forKey: TOKEN_KEY) ?? [:]
+        let items = Array(userLogin.values)
+        
+        print (items)
+        
+        return ""
+    }
     
     func addUser(_ item: UserLogin ){
+        
+        getTokent()
         
         self.saveUserLogin(item: item)
         var user = UserDefaults.standard.dictionary(forKey: ITEMS_KEY) ?? Dictionary()
