@@ -194,7 +194,10 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     func subscribeToTopic() {
         
-        UserSingleton.sharedInstance.saveTokent(token: registrationToken!)
+       // print ("registrationToken  \(registrationToken)")
+        if(registrationToken != nil){
+            UserSingleton.sharedInstance.saveTokent(token: registrationToken!)
+        }
         
         if registrationToken != nil && connectedToGCM {
             

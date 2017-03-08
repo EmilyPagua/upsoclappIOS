@@ -39,7 +39,7 @@ class UserSingleton {
         
         self.saveUserLogin(item: item)
         var user = UserDefaults.standard.dictionary(forKey: ITEMS_KEY) ?? Dictionary()
-        let tokenGCM = UserDefaults.standard.object(forKey: TOKEN_KEY)
+        let tokenGCM = UserDefaults.standard.object(forKey: TOKEN_KEY) ?? "--"
         
         user[item.email] = ["email": item.email ,
                             "firstName": item.firstName,
@@ -83,7 +83,6 @@ class UserSingleton {
     
     func removeUseLogin() -> Void {
         if var userLogin = UserDefaults.standard.dictionary(forKey: ITEMS_KEY){
-            NSLog ("Removido \(userLogin)")
             userLogin.removeAll()
             UserDefaults.standard.set(userLogin, forKey: ITEMS_KEY)
         }else{

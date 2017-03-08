@@ -39,7 +39,7 @@ class PoliticasPrivacityViewController: UIViewController {
     
     func getInfo() {
         
-        if Reachability.isConnectedToNetwork() == true {
+        if ConnectedNetwork.isConnectedToNetwork() == true {
                         
             let urlPath = ApiConstants.PropertyKey.baseURL + "/pages/445196"
             

@@ -22,7 +22,7 @@
 		8C46F77D1E1ED89E001436D7 /* NewsSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46F77C1E1ED89E001436D7 /* NewsSingleton.swift */; };
 		8C46F7801E1ED98E001436D7 /* PostNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46F77F1E1ED98E001436D7 /* PostNotification.swift */; };
 		8C46F7841E1FCAE9001436D7 /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46F7831E1FCAE9001436D7 /* UserSingleton.swift */; };
-		8C4726A31DA54D4400A9F6AC /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4726A21DA54D4400A9F6AC /* Reachability.swift */; };
+		8C4726A31DA54D4400A9F6AC /* ConnectedNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4726A21DA54D4400A9F6AC /* ConnectedNetwork.swift */; };
 		8C51747C1D99626E00771EF1 /* LoginUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51747B1D99626E00771EF1 /* LoginUserController.swift */; };
 		8C5B06441D80574700E2BB52 /* ForYouTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */; };
 		8C5B06461D8057A800E2BB52 /* ServicesConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */; };
@@ -70,7 +70,7 @@
 		8C46F77C1E1ED89E001436D7 /* NewsSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsSingleton.swift; path = UpsoclApp/NewsSingleton.swift; sourceTree = "<group>"; };
 		8C46F77F1E1ED98E001436D7 /* PostNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostNotification.swift; sourceTree = "<group>"; };
 		8C46F7831E1FCAE9001436D7 /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
-		8C4726A21DA54D4400A9F6AC /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		8C4726A21DA54D4400A9F6AC /* ConnectedNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedNetwork.swift; sourceTree = "<group>"; };
 		8C51747B1D99626E00771EF1 /* LoginUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserController.swift; sourceTree = "<group>"; };
 		8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForYouTableViewController.swift; path = ../ForYouTableViewController.swift; sourceTree = "<group>"; };
 		8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesConnection.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				8C5B06451D8057A800E2BB52 /* ServicesConnection.swift */,
-				8C4726A21DA54D4400A9F6AC /* Reachability.swift */,
+				8C4726A21DA54D4400A9F6AC /* ConnectedNetwork.swift */,
 			);
 			name = connectionServices;
 			sourceTree = "<group>";
@@ -442,7 +442,7 @@
 				8C12D6B41D95628700A3FC6D /* SearchTableViewController.swift in Sources */,
 				8CB426421DD0A9A50082A2C8 /* ProssesingContent.swift in Sources */,
 				8C816BDE1E158694000D1BE6 /* SocialNetwork.swift in Sources */,
-				8C4726A31DA54D4400A9F6AC /* Reachability.swift in Sources */,
+				8C4726A31DA54D4400A9F6AC /* ConnectedNetwork.swift in Sources */,
 				8C46F77D1E1ED89E001436D7 /* NewsSingleton.swift in Sources */,
 				8C31A70F1D8732100091A36A /* PageViewController.swift in Sources */,
 				8C12D6B21D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift in Sources */,

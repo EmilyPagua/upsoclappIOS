@@ -283,10 +283,13 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         var height = self.webDetail.scrollView.contentSize.height
         
         if (height==0.0){
-              self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
-            
+          // print ("height \(height)")
+            //  self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
         }else{
-            if (self.isLoadBanner && news.categoryNews != "Quiz")
+           // print ("URL \(self.news.imageURLNews)")
+            //print ("self.webDetail.isLoading \(self.webDetail.isLoading)")
+            
+            if (self.isLoadBanner && news.categoryNews != "Quiz" && self.webDetail.isLoading == false )
             {
                 self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height+10, width: 300, height: 250)
                 self.scrollViewDetail.addSubview(self.bannerView)

@@ -221,7 +221,7 @@ class NewsTableViewController: UITableViewController {
     
     func callWebServices(_ paged: String ){
         
-        if Reachability.isConnectedToNetwork() == true {
+        if ConnectedNetwork.isConnectedToNetwork() == true {
             
             self.indicator.startAnimating()
 

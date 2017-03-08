@@ -1,5 +1,5 @@
 //
-//  Reachability.swift
+//  ConnectedNetwork.swift
 //  appupsocl
 //
 //  Created by upsocl on 05-10-16.
@@ -9,7 +9,7 @@
 import Foundation
 import SystemConfiguration
 
-open class Reachability {
+open class ConnectedNetwork {
     
     class func isConnectedToNetwork() -> Bool {
         
