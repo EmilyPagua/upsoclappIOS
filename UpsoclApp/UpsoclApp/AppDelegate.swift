@@ -194,9 +194,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     func subscribeToTopic() {
         
-        UserSingleton.sharedInstance.saveTokent(registrationToken!)
-        
-        NSLog("registrationToken \(registrationToken)")
+        UserSingleton.sharedInstance.saveTokent(token: registrationToken!)
         
         if registrationToken != nil && connectedToGCM {
             
@@ -321,7 +319,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     func facebookStartConfig(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         
-        let fb = FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     func twitterStartConfig() -> Void {

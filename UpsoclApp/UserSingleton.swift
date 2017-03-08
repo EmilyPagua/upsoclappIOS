@@ -21,10 +21,7 @@ class UserSingleton {
     var ITEMS_KEY = "userLogin"
     var TOKEN_KEY = "token"
     
-    func saveTokent(_ token: String){
-        var token = UserDefaults.standard.dictionary(forKey: TOKEN_KEY) ?? Dictionary()
-         token["value"] = token
-        
+    func saveTokent(token: String){
         UserDefaults.standard.set(token, forKey: TOKEN_KEY)
     }
     
@@ -40,10 +37,10 @@ class UserSingleton {
     
     func addUser(_ item: UserLogin ){
         
-        getTokent()
-        
         self.saveUserLogin(item: item)
         var user = UserDefaults.standard.dictionary(forKey: ITEMS_KEY) ?? Dictionary()
+        let tokenGCM = UserDefaults.standard.object(forKey: TOKEN_KEY)
+        
         user[item.email] = ["email": item.email ,
                             "firstName": item.firstName,
                             "lastName": item.lastName,
@@ -54,7 +51,7 @@ class UserSingleton {
                             "token": item.token,
                             "socialNetwork" : item.socialNetwork,
                             "socialNetworkTokenId": item.socialNetworkTokenId,
-                            "registrationId": item.registrationId]
+                            "registrationId": tokenGCM ]
 
         UserDefaults.standard.set(user, forKey: ITEMS_KEY)
     }

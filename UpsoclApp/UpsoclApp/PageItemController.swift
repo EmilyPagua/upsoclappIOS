@@ -286,7 +286,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
               self.webDetail.loadHTMLString(self.createHTML(), baseURL: self.baseURL)
             
         }else{
-            if (self.isLoadBanner)
+            if (self.isLoadBanner && news.categoryNews != "Quiz")
             {
                 self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height+10, width: 300, height: 250)
                 self.scrollViewDetail.addSubview(self.bannerView)
