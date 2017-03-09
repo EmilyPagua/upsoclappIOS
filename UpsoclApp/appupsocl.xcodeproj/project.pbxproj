@@ -11,6 +11,8 @@
 		8C12D6B01D92CD5F00A3FC6D /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6AF1D92CD5F00A3FC6D /* AboutUsViewController.swift */; };
 		8C12D6B21D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6B11D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift */; };
 		8C12D6B41D95628700A3FC6D /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */; };
+		8C27DCB21E71860200DF5E46 /* IDFA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C27DCB11E71860200DF5E46 /* IDFA.swift */; };
+		8C27DCB41E71882500DF5E46 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C27DCB31E71882500DF5E46 /* AdSupport.framework */; };
 		8C2A2F721E6F047D005A373D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2A2F6E1E6F047D005A373D /* Bolts.framework */; };
 		8C2A2F731E6F047D005A373D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2A2F6F1E6F047D005A373D /* FBSDKCoreKit.framework */; };
 		8C2A2F741E6F047D005A373D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2A2F701E6F047D005A373D /* FBSDKLoginKit.framework */; };
@@ -59,6 +61,8 @@
 		8C12D6AF1D92CD5F00A3FC6D /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8C12D6B11D92D2C500A3FC6D /* PoliticasPrivacityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliticasPrivacityViewController.swift; sourceTree = "<group>"; };
 		8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		8C27DCB11E71860200DF5E46 /* IDFA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDFA.swift; sourceTree = "<group>"; };
+		8C27DCB31E71882500DF5E46 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		8C2A2F6E1E6F047D005A373D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		8C2A2F6F1E6F047D005A373D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		8C2A2F701E6F047D005A373D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C27DCB41E71882500DF5E46 /* AdSupport.framework in Frameworks */,
 				8C7487481E1D6A7C00650561 /* GoogleMobileAds.framework in Frameworks */,
 				8C2A2F731E6F047D005A373D /* FBSDKCoreKit.framework in Frameworks */,
 				8C2A2F751E6F047D005A373D /* FBSDKShareKit.framework in Frameworks */,
@@ -163,6 +168,10 @@
 		8C5D23221D9A907000E1CC14 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
+				F4702A171A7F351C00E30A3C /* MenuController.swift */,
+				8C5B06731D8331DA00E2BB52 /* PageItemController.swift */,
+				8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */,
+				8C51747B1D99626E00771EF1 /* LoginUserController.swift */,
 				F491E7491A7F4B300026528E /* NewsTableViewController.swift */,
 				8C5B06431D80574700E2BB52 /* ForYouTableViewController.swift */,
 				8C5B06531D818A3000E2BB52 /* NewsListTableViewController.swift */,
@@ -192,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				8CA498FC1E266B4E000D7E33 /* MessageAlert.swift */,
-				F4702A171A7F351C00E30A3C /* MenuController.swift */,
 				8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */,
 				8C31A7161D8C4FAB0091A36A /* CheckBoxInterest.swift */,
 				8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */,
@@ -213,6 +221,7 @@
 		8F1FF358BF0C81BE5487D9E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C27DCB31E71882500DF5E46 /* AdSupport.framework */,
 				8C2A2F6E1E6F047D005A373D /* Bolts.framework */,
 				8C2A2F6F1E6F047D005A373D /* FBSDKCoreKit.framework */,
 				8C2A2F701E6F047D005A373D /* FBSDKLoginKit.framework */,
@@ -243,10 +252,7 @@
 				F47029FE1A7F27DB00E30A3C /* LaunchScreen.xib */,
 				8C0DC2D01E6A0A8D008F7934 /* Main.storyboard */,
 				F47029FC1A7F27DB00E30A3C /* Images.xcassets */,
-				8C5B06731D8331DA00E2BB52 /* PageItemController.swift */,
 				8C31A7141D8B40CB0091A36A /* NewsViewCell.swift */,
-				8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */,
-				8C51747B1D99626E00771EF1 /* LoginUserController.swift */,
 				8C7C0AB91E28100300AE221A /* objectUI */,
 				8C46F7821E1EDDB0001436D7 /* singleton */,
 				8C77823D1D7A12D4001A0596 /* domain */,
@@ -256,6 +262,7 @@
 				8C5D23221D9A907000E1CC14 /* viewController */,
 				F47029F31A7F27DB00E30A3C /* Supporting Files */,
 				8C5B06771D83400B00E2BB52 /* Base.lproj */,
+				8C27DCB11E71860200DF5E46 /* IDFA.swift */,
 			);
 			path = UpsoclApp;
 			sourceTree = "<group>";
@@ -449,6 +456,7 @@
 				F491E74A1A7F4B300026528E /* NewsTableViewController.swift in Sources */,
 				8C31A7131D8B05190091A36A /* BookmarkTableViewController.swift in Sources */,
 				8CA498FD1E266B4E000D7E33 /* MessageAlert.swift in Sources */,
+				8C27DCB21E71860200DF5E46 /* IDFA.swift in Sources */,
 				8C31A7171D8C4FAB0091A36A /* CheckBoxInterest.swift in Sources */,
 				F491E7551A7F7E010026528E /* InterestViewController.swift in Sources */,
 				8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */,

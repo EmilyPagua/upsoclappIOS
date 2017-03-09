@@ -65,6 +65,8 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         //Admob
         GADMobileAds.configure(withApplicationID: "ca-mb-app-pub-7682123866908966/2346534963")
         
+        NSLog ("IDFA \(  IDFA.shared.identifier)" )
+        
         return true
     }
 

@@ -18,6 +18,7 @@ class MenuController: UITableViewController {
         super.viewDidLoad()
         
         NSLog ("viewDidLoad - MenuController")
+        NSLog ("IDFA \(  IDFA.shared.identifier)" )
 
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
         
