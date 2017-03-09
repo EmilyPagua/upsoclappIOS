@@ -15,6 +15,8 @@ import Bolts
 
 class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginButtonDelegate {
     
+    @IBOutlet weak var messageLabel: UILabel!
+    
      @IBOutlet weak var loginButtonTwitter: UIButton!
     // [START viewcontroller Google]
     @IBOutlet weak var signInButtonGoogle: GIDSignInButton!
@@ -135,10 +137,12 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
             self.loginButtonFacebook?.isEnabled = false
             self.signInButtonGoogle?.isEnabled = false
             self.loginButtonTwitter?.isEnabled = false
+            self.messageLabel.isHidden = true
         } else {
             self.loginButtonFacebook?.isEnabled = true
             self.signInButtonGoogle?.isEnabled = true
             self.loginButtonTwitter?.isEnabled = true
+            self.messageLabel.isHidden = false
         }
         
         beforeCategory = categoryCount
