@@ -46,7 +46,6 @@ class NewsSingleton {
     func removeAllItem (itemKey: String ) {
 
         if var todoItem = UserDefaults.standard.dictionary(forKey: itemKey){
-            NSLog ("removeAllItem  itemKey: \(itemKey) count: \(todoItem.count)")
             todoItem.removeAll()
             UserDefaults.standard.set(todoItem, forKey: itemKey)
         }
@@ -145,9 +144,7 @@ class NewsSingleton {
         }
         
         if let todoItem = UserDefaults.standard.dictionary(forKey: itemKey){
-            for (index,_) in todoItem {
-                NSLog (index)
-                
+            for (index,_) in todoItem {                
                 if index == String(id) {                    
                     return true
                 }

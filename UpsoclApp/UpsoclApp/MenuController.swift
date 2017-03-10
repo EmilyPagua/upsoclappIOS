@@ -17,18 +17,17 @@ class MenuController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSLog ("viewDidLoad - MenuController")
-        NSLog ("IDFA \(  IDFA.shared.identifier)" )
-
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
-        
-        let imagenURL  = (user.first?.imagenURL.absoluteString)!
-        let firstName = user.first?.firstName
-        let lastName = user.first?.lastName
-        
-        nameUser.text  = String ( lastName! + "  " + firstName!)
-                
-        self.loadImage(imagenURL, viewImagen: imagenUser)
+        if (user.first?.isLogin)!{
+            
+            let imagenURL  = (user.first?.imagenURL.absoluteString)!
+            let firstName = user.first?.firstName
+            let lastName = user.first?.lastName
+            
+            nameUser.text  = String ( lastName! + "  " + firstName!)
+            
+            self.loadImage(imagenURL, viewImagen: imagenUser)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +35,6 @@ class MenuController: UITableViewController {
         // Dispose of any resources that can be recreated.
         NSLog ("didReceiveMemoryWarning - MenuController")
     }
-
 
     func loadImage(_ urlImage: String?, viewImagen: UIImageView){
         

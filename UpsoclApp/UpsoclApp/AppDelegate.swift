@@ -37,7 +37,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     func onTokenRefresh() {
         // A rotation of the registration tokens is happening, so the app needs to request a new token.
-        NSLog("The GCM registration token needs to be changed.")
         GGLInstanceID.sharedInstance().token(withAuthorizedEntity: gcmSenderID,
                                              scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: registrationHandler)
     }
@@ -52,12 +51,11 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         self.googleStartConfig(application)
         self.facebookStartConfig(application, didFinishLaunchingWithOptions: launchOptions)
         
-        
         self.twitterStartConfig()
         self.googleAnalyticsStart()
         
         if self.validLoginUser(){
-            self.sendActivityMain()
+            StroyBoardView.sharedInstance.goMenu()
         }else{
             category.clearCategoryPreference()
         }
@@ -65,7 +63,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         //Admob
         GADMobileAds.configure(withApplicationID: "ca-mb-app-pub-7682123866908966/2346534963")
         
-        NSLog ("IDFA \(  IDFA.shared.identifier)" )
+        //NSLog ("IDFA \(  IDFA.shared.identifier)" )
         
         return true
     }
@@ -120,24 +118,25 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                                         userId: "0",
                                         socialNetwork: "google" as String,
                                         socialNetworkTokenId: user.authentication.idToken! ,
-                                        registrationId: registrationToken! )
+                                        registrationId: registrationToken!,
+                                        isLogin :true)
             
             UserSingleton.sharedInstance.removeUseLogin()
             UserSingleton.sharedInstance.addUser(userLogin)
-            NSLog("USER_LOGIN:  ")
+            
+
             
             userInfo = ["statusText": "Signed in user:\n\(userLogin.email)"]
         } else {
-            NSLog("\(error.localizedDescription)")
+            NSLog("ERROR_ \(error.localizedDescription)")
             userInfo = nil
         }
         
         NotificationCenter.default.post( name: Notification.Name(rawValue: SocialNetwork.PropertyKey.ToggleAuthUINotification),
                                          object: nil,
                                          userInfo: userInfo)
-        
         if userInfo != nil{
-            self.sendActivityMain()
+            StroyBoardView.sharedInstance.goMenu()
         }
         
      }
@@ -281,8 +280,8 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
                     
                     NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_Notification)
                     NewsSingleton.sharedInstance.addNotification(item)
-                    self.sendActivityMain()
                     
+                    StroyBoardView.sharedInstance.goMenu()
                     return
                 }
                 return
@@ -344,27 +343,19 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
       
     }
     
-    func sendActivityMain() -> Void {
-        
-        let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-        signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
-        
-        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController =  signOutPageNav
-    }
-    
     func validLoginUser() -> Bool{
         
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
-        if user.first?.email.isEmpty == false {
-            
-            NSLog ("socialNetworkName  \(user.first?.email)  \(user.first?.socialNetwork)")
-           
-            self.sendActivityMain()
-        }else{
-            NSLog ("NO LOGIN")}
+        
+        if (user.isEmpty){
+            return false
+        }
+        
+        if ((user.first?.isLogin)! || ((user.first?.email.isEmpty)! == false)) {
+            NSLog ("LOGIN  \(user.first?.email)  \(user.first?.socialNetwork)")
+            StroyBoardView.sharedInstance.goMenu()
+            return true
+        }
 
          return false
     }

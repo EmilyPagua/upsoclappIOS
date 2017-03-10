@@ -56,9 +56,15 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         //loadProgressBar
         self.isBookmark()
         self.createView()
+        self.crestePopupLogin()
     
     }
     
+    func crestePopupLogin(){
+        
+        
+    
+    }
     func createView () -> Void{
         
         self.bannerView.load(GADRequest())
@@ -107,11 +113,9 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
                                              y:80,
                                              width: view.bounds.width-20,
                                              height: view.bounds.height-85)
-        
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        //create banner
         self.webDetail.frame = CGRect(x:0, y:0, width: UIScreen.main.bounds.width-20, height: self.webDetail.scrollView.contentSize.height)
         self.uploadWebView()
         
@@ -120,10 +124,16 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     //ComeBack
     @IBAction func comeBack(_ sender: UIBarButtonItem) {
+        self.createBarMenu()
+    }
+    
+    func createBarMenu() -> Void {
+        
         self.tabBarController?.tabBar.isHidden =  false
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.isNavigationBarHidden = false
     }
+    
     
     //Share
     @IBAction func shareButton(_ sender: UIBarButtonItem) {
@@ -177,16 +187,20 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         
         let flag  = NewsSingleton.sharedInstance.getValueById(news.idNews, isBookmark: true)
         if flag {
-            
             NewsSingleton.sharedInstance.removeItem(item: item, isBookmark: true)
             self.bookmark.image = UIImage(named: "bookmarkInactive")
-            NSLog ("bookmarkInactive")
         }
         else{
             NewsSingleton.sharedInstance.addBookmark(item)
-            
             self.bookmark.image = UIImage(named: "bookmarkActive")
-           // NSLog ("bookmarkActive")
+        }
+        
+        let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
+        
+        if (user.first?.isLogin == false){
+            
+            self.createBarMenu()
+            StroyBoardView.sharedInstance.login(item: item)
         }
     }
     
@@ -224,7 +238,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-       // NSLog ("load Content webView")
         return true;
     }
     
@@ -237,6 +250,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         
         let flag  = NewsSingleton.sharedInstance.getValueById(news.idNews, isBookmark: true)
         if flag {
+            
             bookmark.image = UIImage(named: "bookmarkActive")
         }else{
              bookmark.image = UIImage(named: "bookmarkInactive")
@@ -259,7 +273,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     }
     
     func adViewDidReceiveAd(_ view: GADBannerView) {
-        //NSLog ("Banner loaded successfully ")
         self.isLoadBanner =  true
         self.uploadWebView()
     }
@@ -301,4 +314,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.scrollViewDetail.contentSize = CGSize(width: self.webDetail.bounds.size.width,
                                                    height: height)
     }
+    
+    
 }

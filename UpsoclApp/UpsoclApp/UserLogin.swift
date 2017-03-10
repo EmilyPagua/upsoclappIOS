@@ -21,8 +21,9 @@ struct UserLogin {
     var socialNetwork : String
     var socialNetworkTokenId : String
     var registrationId : String
+    var isLogin :  Bool
     
-    init (email: String,firstName: String, lastName: String,  location: String, birthday: String, imagenURL: URL,  token: String, userId: String, socialNetwork: String, socialNetworkTokenId: String, registrationId: String){
+    init (email: String,firstName: String, lastName: String,  location: String, birthday: String, imagenURL: URL,  token: String, userId: String, socialNetwork: String, socialNetworkTokenId: String, registrationId: String, isLogin: Bool){
         
         self.firstName = firstName
         self.lastName = lastName
@@ -35,6 +36,7 @@ struct UserLogin {
         self.socialNetwork = socialNetwork
         self.socialNetworkTokenId =  socialNetworkTokenId
         self.registrationId = registrationId
+        self.isLogin = isLogin
     }
 }
 

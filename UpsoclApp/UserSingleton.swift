@@ -37,10 +37,13 @@ class UserSingleton {
     
     func addUser(_ item: UserLogin ){
         
-        self.saveUserLogin(item: item)
+        if (item.isLogin){
+            self.saveUserLogin(item: item)
+        }
+        
         var user = UserDefaults.standard.dictionary(forKey: ITEMS_KEY) ?? Dictionary()
         let tokenGCM = UserDefaults.standard.object(forKey: TOKEN_KEY) ?? "--"
-        
+    
         user[item.email] = ["email": item.email ,
                             "firstName": item.firstName,
                             "lastName": item.lastName,
@@ -51,7 +54,8 @@ class UserSingleton {
                             "token": item.token,
                             "socialNetwork" : item.socialNetwork,
                             "socialNetworkTokenId": item.socialNetworkTokenId,
-                            "registrationId": tokenGCM ]
+                            "registrationId": tokenGCM ,
+                            "isLogin" : item.isLogin]
 
         UserDefaults.standard.set(user, forKey: ITEMS_KEY)
     }
@@ -74,7 +78,9 @@ class UserSingleton {
                              userId: item["userId"] as! String,
                              socialNetwork: item["socialNetwork"] as! String,
                              socialNetworkTokenId: item["socialNetworkTokenId"] as! String,
-                             registrationId: item["registrationId"] as! String)
+                             registrationId: item["registrationId"] as! String,
+                             isLogin: item["isLogin"] as! Bool)
+            
         }).sorted(by: {(left: UserLogin, right: UserLogin) -> Bool in
             (left.email.compare(right.email) == .orderedAscending)
         })
@@ -85,14 +91,12 @@ class UserSingleton {
         if var userLogin = UserDefaults.standard.dictionary(forKey: ITEMS_KEY){
             userLogin.removeAll()
             UserDefaults.standard.set(userLogin, forKey: ITEMS_KEY)
-        }else{
-            NSLog("removeUseLogin vacio")
         }
     }
     
     func saveUserLogin(item: UserLogin) {
         
-        NSLog (item.email)
+        NSLog ("item.email  \(item.email)")
         
         var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name="+item.firstName+"&last_name="+item.lastName+"&email="+item.email+"&birthday="+item.birthday+"&location="+item.location+"&social_network_login="+item.socialNetwork+"&registration_id="+item.registrationId
         
@@ -124,8 +128,6 @@ class UserSingleton {
             let json : AnyObject!
             do {
                 json = try JSONSerialization.jsonObject(with: nsdata, options: []) as AnyObject!
-                NSLog("json  \(json)")
-                
                 let id = json["success"] as! Bool
                 if id {
                     let userId = json["id"] as! Int

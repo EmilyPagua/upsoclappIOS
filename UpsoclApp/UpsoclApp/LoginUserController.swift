@@ -15,12 +15,17 @@ import Bolts
 
 class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginButtonDelegate {
     
+    @IBOutlet weak var nextButton: UIButton!
+   
     @IBOutlet weak var messageLabel: UILabel!
     
      @IBOutlet weak var loginButtonTwitter: UIButton!
     // [START viewcontroller Google]
     @IBOutlet weak var signInButtonGoogle: GIDSignInButton!
     // [END viewcontroller Google]
+    
+    var postNotification: PostNotification? = nil
+    var isBookmark =  false
     
     // [START viewcontroller Facebook]
     let parametersFacebook = ["fields": "email, first_name, last_name, picture.type(large)"]
@@ -31,9 +36,8 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         return button
     }()
     // [END viewcontroller Facebook]
+
     
-    var category = Category()
-    var beforeCategory = 0
     let servicesConnection  = ServicesConnection()
 
     var progressView: UIProgressView?
@@ -44,19 +48,26 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         super.viewDidLoad()
         
         self.customButtonLogin()
-        self.countCategory ()
     
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
+    
         NSLog("user.email  \(user.first?.email)")
-        if user.first?.email.isEmpty == false {
-            NSLog ("LOGIN \(user.first?.email)")
+        
+        if ( user.isEmpty) {
+            self.configureButton()
         }else{
-            NSLog ("NO LOGIN")
-            GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
-            self.loginButtonFacebook!.delegate = self  //Start FacebookLogin
+            
+            if (!(user.first?.isLogin)!){
+                self.configureButton()
+            }
         }
     }
     
+    func configureButton() -> Void {
+        GIDSignIn.sharedInstance().uiDelegate = self  //Start GoogleLogin
+        self.loginButtonFacebook!.delegate = self  //Start FacebookLogin
+        
+    }
     func customButtonLogin(){
         let layoutConstraintsArr = self.loginButtonFacebook?.constraints
         for lc in layoutConstraintsArr! { 
@@ -77,7 +88,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         
         Twitter.sharedInstance().logIn(withMethods: [.webBased]) { session, error in
             if (session != nil) {
-                NSLog(" session!.userName  \(session!.userName)");
                 Twitter.sharedInstance().sessionStore.logOutUserID((session?.authToken)!)
                 
                 let client = TWTRAPIClient.withCurrentUser()
@@ -104,7 +114,8 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                                                     userId: "0",
                                                     socialNetwork: "twitter" as String,
                                                     socialNetworkTokenId: "tokentTwitter",
-                                                    registrationId: "tokentWordpress" )
+                                                    registrationId: "tokentWordpress",
+                                                    isLogin : true as Bool)
                         
                         
                         self.validEmailUser(userLogin: userLogin)
@@ -120,43 +131,41 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         }
     }
     
-    @IBAction func validCountCategory(_ sender: UIButton) {
-        countCategory ()
-    }
-    
     func saveUser(userLogin: UserLogin ) -> Void {
+        
         UserSingleton.sharedInstance.removeUseLogin()
         UserSingleton.sharedInstance.addUser(userLogin)
-        self.sendActivityMain()
-    }
-    
-    func countCategory (){
         
-        let categoryCount = category.countCategory()
-        if categoryCount <= 1 || beforeCategory <= 1  {
-            self.loginButtonFacebook?.isEnabled = false
-            self.signInButtonGoogle?.isEnabled = false
-            self.loginButtonTwitter?.isEnabled = false
-            self.messageLabel.isHidden = true
-        } else {
-            self.loginButtonFacebook?.isEnabled = true
-            self.signInButtonGoogle?.isEnabled = true
-            self.loginButtonTwitter?.isEnabled = true
-            self.messageLabel.isHidden = false
+        if (self.isBookmark){
+            print("is bookmark")
+          
+        }else{
+            print("not xis bookmark")
         }
         
-        beforeCategory = categoryCount
+       StroyBoardView.sharedInstance.goMenu()
     }
+    
+    @IBAction func nextButton(_ sender: UIButton) {
+        
+        let userLogin  =  UserLogin(email: "",
+                                    firstName: "",
+                                    lastName:  "",
+                                    location : "--" ,
+                                    birthday: "00-00-0000" ,
+                                    imagenURL: URL(string: ".")!,
+                                    token: "",
+                                    userId: "",
+                                    socialNetwork: "" ,
+                                    socialNetworkTokenId: "",
+                                    registrationId: "",
+                                    isLogin : false as Bool)
+
+       self.saveUser(userLogin: userLogin)
+    }
+    
     
     // [------------------------START GOOGLE LOGIN-------------------]
-    @IBAction func loginButtonGoogle(_ sender: UIButton) {
-        let categoryCount = category.countCategory()
-        if categoryCount < 2 {
-            MessageAlert.sharedInstance.createViewMessage("Debe seleccionar al menos 3 categorias", title: "Mensaje")
-        }else{
-            MessageAlert.sharedInstance.createViewMessage("Categorias modificadas con éxito..!", title: "Mensaje")
-        }
-    }
     
     // [START toggle_auth]
     func toggleAuthUI() {
@@ -174,7 +183,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     
     deinit {
         NotificationCenter.default.removeObserver(self,
-                                                            name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+                                                  name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
                                                             object: nil)
     }
     
@@ -193,7 +202,15 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     // Stop the UIActivityIndicatorView animation that was started when the user
     // pressed the Sign In button
     func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
-
+        print ("LoginButton Google")
+        
+        if (self.isBookmark){
+            print("is bookmark")
+            
+        }else{
+            print("not xis bookmark")
+        }
+        
     }
     
     // Present a view that prompts the user to sign in with Google
@@ -272,7 +289,8 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                                             userId: "0",
                                             socialNetwork: "facebook",
                                             socialNetworkTokenId: "tokentFacebook",
-                                            registrationId: "tokentWordpress" )
+                                            registrationId: "tokentWordpress",
+                                            isLogin: true)
                 
                 self.validEmailUser(userLogin: userLogin)
             })
@@ -280,11 +298,9 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        NSLog ("FBSDKLoginButton - LoginButtonDidLogOut")
         
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
-        
     }
     
     func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
@@ -319,12 +335,17 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                                                 userId: userLogin.userId,
                                                 socialNetwork: userLogin.socialNetwork,
                                                 socialNetworkTokenId: userLogin.socialNetworkTokenId,
-                                                registrationId: userLogin.registrationId )
+                                                registrationId: userLogin.registrationId,
+                                                isLogin :  true)
                     
                     self.saveUser(userLogin: userLogin)
                     
                 }else{
-                    NSLog("ERROR_ validarLogin No es válido")
+                    
+                    let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+                    loginManager.logOut()
+                    
+                    MessageAlert.sharedInstance.createViewMessage("Error", title: "El email no es válido")
                 }
             }))
             
@@ -339,14 +360,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         }
     }
     
-    func sendActivityMain() -> Void {
-        
-        let myStroryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let signOutPage = myStroryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        let signOutPageNav = UINavigationController(rootViewController: signOutPage)
-        signOutPageNav.setNavigationBarHidden(signOutPageNav.isNavigationBarHidden == false, animated: true)
-        let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController =  signOutPageNav
-    }
+    
     
 }

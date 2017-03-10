@@ -14,7 +14,6 @@ import Google
 class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDSignInUIDelegate {
    
 
-
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     //Var user
@@ -28,7 +27,7 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
     @IBOutlet weak var daySelected: UIButton!
     @IBOutlet weak var weekSelected: UIButton!
     @IBOutlet weak var monthSelected: UIButton!
-    @IBOutlet weak var cerrarSession: UIButton!
+    @IBOutlet weak var sessionUser: UIButton!
     
     //Imagen of button
     let checkImage = UIImage(named: "radioButtonActive")! as UIImage
@@ -47,8 +46,9 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
     let namePreferences = "peferencsNotification"
     var socialNetworkName: String = ""
     var socialNetworkTokenId: String = ""
-    
-    
+    var isLogin:Bool =  false
+    var user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
+
     //Category
     let category = Category()
     override func viewDidLoad() {
@@ -62,20 +62,28 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
         }
         savePreferences(prefe as! String)
         
-        let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
+       
+        if (user.first?.isLogin)! {
         
-        let fistName  = user.first?.firstName
-        let lastName  = user.first?.lastName
-        let email  = user.first?.email
-        let location  = user.first?.location
-        socialNetworkName  =  (user.first?.socialNetwork)!
-        socialNetworkTokenId =  (user.first?.socialNetworkTokenId)!
-        
-        nameUserLabel.text = "Usuario: \(fistName!)  \(lastName!)"
-        emailUserLabel.text = "Email: \(email!)"
-        locationUSerLabel.text = "Ubicación:  \(location!)"
-        socialNetwork.text = "Red social: \(socialNetworkName)"
-        
+            let fistName  = user.first?.firstName
+            let lastName  = user.first?.lastName
+            let email  = user.first?.email
+            let location  = user.first?.location
+            socialNetworkName  =  (user.first?.socialNetwork)!
+            socialNetworkTokenId =  (user.first?.socialNetworkTokenId)!
+            
+            self.loadDataUser(usuario: "\(fistName!)  \(lastName!)",
+                            email: email!,
+                            location: location!,
+                            sn: socialNetworkName)
+            self.isLogin = true
+        }
+        else{
+            self.loadDataUser(usuario: "--", email: "--", location: "--", sn: "--")
+            
+            self.sessionUser.setTitle("Iniciar sesión", for: .normal)
+        }
+    
         GIDSignIn.sharedInstance().uiDelegate = self
         
         loginButtonFacebook.delegate = self
@@ -86,6 +94,15 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+    }
+    
+    func loadDataUser(usuario: String, email: String, location: String, sn: String){
+        
+        nameUserLabel.text = "Usuario: " + usuario
+        emailUserLabel.text = "Email: " +  email
+        locationUSerLabel.text = "Ubicación: " + location
+        socialNetwork.text = "Red social: " + sn
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -123,17 +140,19 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
             daySelected.setImage(unCheckImage, for: UIControlState())
             weekSelected.setImage(unCheckImage, for: UIControlState())
         default:
-            NSLog ("no es nada")
+            NSLog ("Nil option")
         }
         preferences.setValue(frecuency, forKey: namePreferences )
         preferences.synchronize()
     }
-    
-    func closeSession(){
-        NSLog ("close")
-    }
+
     
     @IBAction func signOutButton(_ sender: AnyObject) {
+        self.user = UserSingleton.sharedInstance.getUserLogin()
+        
+        if (self.user.first?.isLogin == false ) {
+            StroyBoardView.sharedInstance.login(item: nil)
+        }
         
         // create the alert
         let alert = UIAlertController(title: "Alerta", message: "Esta seguro que desea cerrar sesión?", preferredStyle: UIAlertControllerStyle.alert)
@@ -141,6 +160,8 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
         alert.addAction(UIAlertAction(title: "Si", style: UIAlertActionStyle.default, handler: { action in
             NSLog("Click of default button")
            
+            self.sessionUser.setTitle("Iniciar sesión", for: .normal)
+            
             if (self.socialNetworkName=="facebook" ){
                 FBSDKLoginManager().logOut()
             }
@@ -160,16 +181,26 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
             }
             
             UserSingleton.sharedInstance.removeUseLogin()
-            NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_10NEWS)
+            
+            let userLogin  =  UserLogin(email: "",
+                                        firstName: "",
+                                        lastName:  "",
+                                        location : "--" ,
+                                        birthday: "00-00-0000" ,
+                                        imagenURL: URL(string: ".")!,
+                                        token: "",
+                                        userId: "",
+                                        socialNetwork: "" ,
+                                        socialNetworkTokenId: "",
+                                        registrationId: "",
+                                        isLogin : false as Bool)
+
+            UserSingleton.sharedInstance.addUser(userLogin)
             NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_BOOKMARK)
-            NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_Notification)
             
-            self.category.clearCategoryPreference()
-            
-            let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
-            let signInPageNav =  UINavigationController(rootViewController: signInPage)
-            let appDelegate: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController =  signInPageNav
+            self.loadDataUser(usuario: "--", email: "--", location: "--", sn: "--")
+
+            StroyBoardView.sharedInstance.goMenu()
             
             }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: { action in
@@ -181,9 +212,7 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
         self.present(alert, animated: true, completion: nil)
     }
 
-    func login (text: UITextField){
-        NSLog ("Login ")
-    }
+ 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         NSLog ("lFBSDKLoginButton - LoginButtonDidLogOut")
     }

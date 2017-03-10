@@ -35,6 +35,7 @@
 		8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B06731D8331DA00E2BB52 /* PageItemController.swift */; };
 		8C5B06781D83400B00E2BB52 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B06771D83400B00E2BB52 /* Base.lproj */; };
 		8C5D23281D9AC39100E1CC14 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */; };
+		8C6E42211E73348400987FA9 /* StroyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6E42201E73348400987FA9 /* StroyBoardView.swift */; };
 		8C7487481E1D6A7C00650561 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7487471E1D6A7C00650561 /* GoogleMobileAds.framework */; };
 		8C77823F1D7A12ED001A0596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77823E1D7A12ED001A0596 /* News.swift */; };
 		8C816BDE1E158694000D1BE6 /* SocialNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C816BDD1E158694000D1BE6 /* SocialNetwork.swift */; };
@@ -43,6 +44,7 @@
 		8CA498FD1E266B4E000D7E33 /* MessageAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA498FC1E266B4E000D7E33 /* MessageAlert.swift */; };
 		8CB426401DCCD39E0082A2C8 /* DetailConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */; };
 		8CB426421DD0A9A50082A2C8 /* ProssesingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */; };
+		8CC622E71E72DB0E003E6239 /* LoginCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC622E61E72DB0E003E6239 /* LoginCategoryViewController.swift */; };
 		8CE0972D1D79DEF500ABD404 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */; };
 		8CE94EA61D9C4F1B0018CFFB /* PreferencsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE94EA51D9C4F1B0018CFFB /* PreferencsViewController.swift */; };
 		8CF45E571E14075600A583F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CF45E561E14075600A583F1 /* GoogleService-Info.plist */; };
@@ -85,6 +87,7 @@
 		8C5B06731D8331DA00E2BB52 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		8C5B06771D83400B00E2BB52 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		8C5D23271D9AC39100E1CC14 /* SignOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
+		8C6E42201E73348400987FA9 /* StroyBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StroyBoardView.swift; sourceTree = "<group>"; };
 		8C7487471E1D6A7C00650561 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		8C77823E1D7A12ED001A0596 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		8C816BD81E15535D000D1BE6 /* appupsocl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appupsocl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +97,7 @@
 		8CA498FC1E266B4E000D7E33 /* MessageAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageAlert.swift; path = ../MessageAlert.swift; sourceTree = "<group>"; };
 		8CB4263F1DCCD39E0082A2C8 /* DetailConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailConstants.swift; sourceTree = "<group>"; };
 		8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProssesingContent.swift; sourceTree = "<group>"; };
+		8CC622E61E72DB0E003E6239 /* LoginCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCategoryViewController.swift; sourceTree = "<group>"; };
 		8CE0972A1D79DEF500ABD404 /* SidebarMenu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SidebarMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CE0972B1D79DEF500ABD404 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8CE0972C1D79DEF500ABD404 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				F491E7541A7F7E010026528E /* InterestViewController.swift */,
 				8C12D6B31D95628700A3FC6D /* SearchTableViewController.swift */,
 				8CE94EA51D9C4F1B0018CFFB /* PreferencsViewController.swift */,
+				8CC622E61E72DB0E003E6239 /* LoginCategoryViewController.swift */,
 			);
 			name = viewController;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 				8C5B066B1D81DC1900E2BB52 /* ProgressBarLoad.swift */,
 				8C31A7161D8C4FAB0091A36A /* CheckBoxInterest.swift */,
 				8CB426411DD0A9A50082A2C8 /* ProssesingContent.swift */,
+				8C6E42201E73348400987FA9 /* StroyBoardView.swift */,
 			);
 			name = objectUI;
 			sourceTree = "<group>";
@@ -459,6 +465,8 @@
 				8C27DCB21E71860200DF5E46 /* IDFA.swift in Sources */,
 				8C31A7171D8C4FAB0091A36A /* CheckBoxInterest.swift in Sources */,
 				F491E7551A7F7E010026528E /* InterestViewController.swift in Sources */,
+				8C6E42211E73348400987FA9 /* StroyBoardView.swift in Sources */,
+				8CC622E71E72DB0E003E6239 /* LoginCategoryViewController.swift in Sources */,
 				8C5B06741D8331DA00E2BB52 /* PageItemController.swift in Sources */,
 				8C5B064E1D80B19A00E2BB52 /* Category.swift in Sources */,
 				8C12D6B01D92CD5F00A3FC6D /* AboutUsViewController.swift in Sources */,
