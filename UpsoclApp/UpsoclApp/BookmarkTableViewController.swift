@@ -10,6 +10,7 @@ import UIKit
 
 class BookmarkTableViewController: UITableViewController {
     
+    @IBOutlet weak var notificationButton: UIBarButtonItem!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var servicesConnection =  ServicesConnection()
     var newsList = [News]()
@@ -24,12 +25,28 @@ class BookmarkTableViewController: UITableViewController {
         view.addSubview(indicator)
         indicator.bringSubview(toFront: view)
         
+         let notification = NewsSingleton.sharedInstance.allItems()
+        
+        if (notification.isEmpty){
+            self.notificationButton.image = UIImage(named: "notification_disable")
+            self.notificationButton.isEnabled =  false
+        }else{
+            if (notification.first?.isRead)!{
+                notificationButton.image = UIImage(named: "notification_disable")
+                self.notificationButton.isEnabled =  true
+            }else{
+                notificationButton.image = UIImage(named: "notification_enable")
+                self.notificationButton.isEnabled =  true
+            }
+        }
+        
+        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        loadList()
+        self.loadList()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
