@@ -18,7 +18,7 @@ class MenuController: UITableViewController {
         super.viewDidLoad()
         
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
-        if (user.first?.isLogin)!{
+        if (user.first?.isLogin == true &&  (user.first?.email.isEmpty==false)){
             
             let imagenURL  = (user.first?.imagenURL.absoluteString)!
             let firstName = user.first?.firstName

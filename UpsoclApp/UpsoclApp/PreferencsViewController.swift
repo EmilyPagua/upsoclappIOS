@@ -63,8 +63,13 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
         savePreferences(prefe as! String)
         
        
-        if (user.first?.isLogin)! {
-        
+         if (user.first?.isLogin == true &&  (self.user.first?.email.isEmpty)!) {
+            self.loadDataUser(usuario: "--", email: "--", location: "--", sn: "--")
+            
+            self.sessionUser.setTitle("Iniciar sesión", for: .normal)
+        }
+        else{
+            
             let fistName  = user.first?.firstName
             let lastName  = user.first?.lastName
             let email  = user.first?.email
@@ -73,15 +78,10 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
             socialNetworkTokenId =  (user.first?.socialNetworkTokenId)!
             
             self.loadDataUser(usuario: "\(fistName!)  \(lastName!)",
-                            email: email!,
-                            location: location!,
-                            sn: socialNetworkName)
+                email: email!,
+                location: location!,
+                sn: socialNetworkName)
             self.isLogin = true
-        }
-        else{
-            self.loadDataUser(usuario: "--", email: "--", location: "--", sn: "--")
-            
-            self.sessionUser.setTitle("Iniciar sesión", for: .normal)
         }
     
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -150,39 +150,44 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
     @IBAction func signOutButton(_ sender: AnyObject) {
         self.user = UserSingleton.sharedInstance.getUserLogin()
         
-        if (self.user.first?.isLogin == false ) {
-            StroyBoardView.sharedInstance.login(item: nil)
-        }
+        if (self.user.first?.isLogin == true &&  (self.user.first?.email.isEmpty)!) {
+            
+            let popup = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
+            self.addChildViewController(popup)
+            popup.view.frame = self.view.frame
+            popup.isBookmark = false
+            self.view.addSubview(popup.view)
+            popup.didMove(toParentViewController: self)
+            
+        }else{
+
+            // create the alert
+            let alert = UIAlertController(title: "Alerta", message: "Esta seguro que desea cerrar sesión?", preferredStyle: UIAlertControllerStyle.alert)
         
-        // create the alert
-        let alert = UIAlertController(title: "Alerta", message: "Esta seguro que desea cerrar sesión?", preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addAction(UIAlertAction(title: "Si", style: UIAlertActionStyle.default, handler: { action in
-            NSLog("Click of default button")
+            alert.addAction(UIAlertAction(title: "Si", style: UIAlertActionStyle.default, handler: { action in
            
-            self.sessionUser.setTitle("Iniciar sesión", for: .normal)
+                self.sessionUser.setTitle("Iniciar sesión", for: .normal)
             
-            if (self.socialNetworkName=="facebook" ){
-                FBSDKLoginManager().logOut()
-            }
-            
-            
-             if (self.socialNetworkName=="google" ){
-             GIDSignIn.sharedInstance().signOut()
-             }
-             
-             if (self.socialNetworkName == "twitter"){
-                let store = Twitter.sharedInstance().sessionStore
-                
-                if let userID = store.session()?.userID {
-                    store.logOutUserID(userID)
+                if (self.socialNetworkName=="facebook" ){
+                    FBSDKLoginManager().logOut()
                 }
-                Twitter.sharedInstance().sessionStore.logOutUserID(self.socialNetworkTokenId)
-            }
+
+                if (self.socialNetworkName=="google" ){
+                    GIDSignIn.sharedInstance().signOut()
+                }
+             
+                if (self.socialNetworkName == "twitter"){
+                    let store = Twitter.sharedInstance().sessionStore
+                
+                    if let userID = store.session()?.userID {
+                        store.logOutUserID(userID)
+                    }
+                    Twitter.sharedInstance().sessionStore.logOutUserID(self.socialNetworkTokenId)
+                }
             
-            UserSingleton.sharedInstance.removeUseLogin()
+                UserSingleton.sharedInstance.removeUseLogin()
             
-            let userLogin  =  UserLogin(email: "",
+                let userLogin  =  UserLogin(email: "",
                                         firstName: "",
                                         lastName:  "",
                                         location : "--" ,
@@ -193,23 +198,24 @@ class PreferencsViewController: UIViewController,FBSDKLoginButtonDelegate , GIDS
                                         socialNetwork: "" ,
                                         socialNetworkTokenId: "",
                                         registrationId: "",
-                                        isLogin : false as Bool)
+                                        isLogin : true as Bool)
 
-            UserSingleton.sharedInstance.addUser(userLogin)
-            NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_BOOKMARK)
+                UserSingleton.sharedInstance.addUser(userLogin)
+                NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_BOOKMARK)
             
-            self.loadDataUser(usuario: "--", email: "--", location: "--", sn: "--")
+                self.loadDataUser(usuario: "--", email: "--", location: "--", sn: "--")
 
-            StroyBoardView.sharedInstance.goMenu()
+                StroyBoardView.sharedInstance.goMenu()
             
-            }))
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: { action in
-            NSLog("Click of default button")
-            }
-        ))
+                }))
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: { action in
+                NSLog("Click of default button")
+                }
+            ))
         
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
  

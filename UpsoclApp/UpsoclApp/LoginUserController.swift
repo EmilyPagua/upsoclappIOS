@@ -26,6 +26,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     
     var postNotification: PostNotification? = nil
     var isBookmark =  false
+    var isGoogleClick : Bool? = false
     
     // [START viewcontroller Facebook]
     let parametersFacebook = ["fields": "email, first_name, last_name, picture.type(large)"]
@@ -47,19 +48,27 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.customButtonLogin()
-    
-        let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
-    
-        NSLog("user.email  \(user.first?.email)")
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        self.logout()
+        self.showAnimate()
         
-        if ( user.isEmpty) {
-            self.configureButton()
-        }else{
-            
-            if (!(user.first?.isLogin)!){
-                self.configureButton()
-            }
+        self.customButtonLogin()
+        self.configureButton()
+        
+        self.tabBarController?.tabBar.isHidden =  true
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    
+    func logout(){
+        
+        let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
+        let LoginManager :  FBSDKLoginManager =  FBSDKLoginManager()
+        LoginManager.logOut()
+        FBSDKLoginManager().logOut()
+        
+        if (user.first?.email != nil) {
+            Twitter.sharedInstance().sessionStore.logOutUserID((user.first?.registrationId)!)
         }
     }
     
@@ -107,7 +116,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                         let userLogin  =  UserLogin(email: "",
                                                     firstName: json["name"] as! String,
                                                     lastName:  "",
-                                                    location : "--" ,
+                                                    location : UserSingleton.sharedInstance.getLocationPhone() ,
                                                     birthday: "00-00-0000" ,
                                                     imagenURL: URL(string: imagenUserURL)!,
                                                     token: "qwedsazxc2",
@@ -136,14 +145,12 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         UserSingleton.sharedInstance.removeUseLogin()
         UserSingleton.sharedInstance.addUser(userLogin)
         
-        if (self.isBookmark){
-            print("is bookmark")
-          
-        }else{
-            print("not xis bookmark")
+        if ( userLogin.isLogin){
+            self.saveBookmark()
         }
         
-       StroyBoardView.sharedInstance.goMenu()
+        self.removeAnimate()
+        
     }
     
     @IBAction func nextButton(_ sender: UIButton) {
@@ -158,8 +165,8 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                                     userId: "",
                                     socialNetwork: "" ,
                                     socialNetworkTokenId: "",
-                                    registrationId: "",
-                                    isLogin : false as Bool)
+                                    registrationId: "--",
+                                    isLogin : true as Bool)
 
        self.saveUser(userLogin: userLogin)
     }
@@ -204,13 +211,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
         print ("LoginButton Google")
         
-        if (self.isBookmark){
-            print("is bookmark")
-            
-        }else{
-            print("not xis bookmark")
-        }
-        
+      //  self.saveBookmark()
     }
     
     // Present a view that prompts the user to sign in with Google
@@ -282,7 +283,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
                 let userLogin  =  UserLogin(email: email!,
                                             firstName: firstName!,
                                             lastName: lastName!,
-                                            location: "--",
+                                            location: UserSingleton.sharedInstance.getLocationPhone(),
                                             birthday: "00-00-0000",
                                             imagenURL: URL(string: pictureUrl)!,
                                             token: "qwedsazxc2",
@@ -360,6 +361,42 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         }
     }
     
+    func showAnimate(){
+        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.view.alpha = 0.0
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.alpha = 1.0
+            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+    }
+    
+    
+    func removeAnimate(){
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.alpha = 0.0
+            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        }, completion: {(finished : Bool) in
+            if (finished ){
+                self.view.removeFromSuperview()
+            }
+        })
+    }
+    
+    @IBAction func isClickGoogle(_ sender: GIDSignInButton) {
+        
+        self.isGoogleClick = true
+    }
+    
+    func saveBookmark() -> Void {
+        
+        if (self.isBookmark){
+            NewsSingleton.sharedInstance.addBookmark(self.postNotification!)
+        }
+        
+        if (!self.isGoogleClick!){
+            StroyBoardView.sharedInstance.goMenu()
+        }
+    }
     
     
 }

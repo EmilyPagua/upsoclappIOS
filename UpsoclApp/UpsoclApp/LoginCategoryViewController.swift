@@ -43,12 +43,13 @@ class LoginCategoryViewController: UIViewController {
         beforeCategory = categoryCount
     }
     @IBAction func nextButton(_ sender: UIButton) {
-        let categoryCount = category.countCategory()
-        if categoryCount < 2 {
-            MessageAlert.sharedInstance.createViewMessage("Debe seleccionar al menos 3 categorias", title: "Mensaje")
-        }else{
-            MessageAlert.sharedInstance.createViewMessage("Categorias savadas con éxito..!", title: "Mensaje")
-            
-        }
+        
+        let popup = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
+        self.addChildViewController(popup)
+        popup.view.frame = self.view.frame
+        popup.isBookmark = false
+        
+        self.view.addSubview(popup.view)
+        popup.didMove(toParentViewController: self)
     }
 }

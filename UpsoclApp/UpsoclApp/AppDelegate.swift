@@ -29,7 +29,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     let registrationKey = "onRegistrationCompleted"
     let messageKey = "onMessageReceived"
     let subscriptionTopic = "/topics/global"
-    var registrationToken: String?
+    var registrationToken: String? = "--"
     var connectedToGCM = false
     var subscribedToTopic = false
     //end Google
@@ -105,13 +105,14 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
      // [START signin_handler]
      func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+    
         
         var userInfo: [AnyHashable : Any]? = nil
         if (error == nil) {
             let userLogin  =  UserLogin(email: user.profile.email ?? "NA",
                                         firstName: user.profile.givenName ?? "NA",
                                         lastName: user.profile.familyName ?? "NA",
-                                        location : "--" ,
+                                        location : UserSingleton.sharedInstance.getLocationPhone() ,
                                         birthday: "00-00-0000" ,
                                         imagenURL: user.profile.imageURL(withDimension: 50)! as URL,
                                         token: "qwedsazxc2",
@@ -124,10 +125,9 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
             UserSingleton.sharedInstance.removeUseLogin()
             UserSingleton.sharedInstance.addUser(userLogin)
             
-
-            
             userInfo = ["statusText": "Signed in user:\n\(userLogin.email)"]
         } else {
+            NewsSingleton.sharedInstance.removeAllItem(itemKey: NewsSingleton.sharedInstance.ITEMS_KEY_BOOKMARK)
             NSLog("ERROR_ \(error.localizedDescription)")
             userInfo = nil
         }
@@ -185,7 +185,6 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         } else if let error = error {
             NSLog("Registration to GCM failed with error: \(error.localizedDescription)")
             userInfo = ["error": error.localizedDescription]
-            
         }
         
         NotificationCenter.default.post( name: Notification.Name(rawValue: self.registrationKey),
@@ -195,7 +194,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     func subscribeToTopic() {
         
-       // print ("registrationToken  \(registrationToken)")
+        print ("registrationToken  \(registrationToken)")
         if(registrationToken != nil){
             UserSingleton.sharedInstance.saveTokent(token: registrationToken!)
         }
@@ -348,15 +347,15 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
         
         if (user.isEmpty){
+            NSLog ("user  isEmpty")
             return false
         }
-        
+
         if ((user.first?.isLogin)! || ((user.first?.email.isEmpty)! == false)) {
             NSLog ("LOGIN  \(user.first?.email)  \(user.first?.socialNetwork)")
             StroyBoardView.sharedInstance.goMenu()
             return true
         }
-
          return false
     }
     
@@ -399,8 +398,12 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
+        let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
         let LoginManager :  FBSDKLoginManager =  FBSDKLoginManager()
         LoginManager.logOut()
+        
+        Twitter.sharedInstance().sessionStore.logOutUserID((user.first?.registrationId)!)
+        FBSDKLoginManager().logOut()
         
     }
 }

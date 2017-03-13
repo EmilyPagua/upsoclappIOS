@@ -102,9 +102,11 @@ class UserSingleton {
         
         //var urlPath = "http://quiz.upsocl.com/dev/wp-json/wp/v2/customers?name=pruebaIOS2&last_name=pruebaIOS2&email=pruebaIOS2@gmail.com&birthday=00-00-0000&location=Chile&social_network_login=facebook&registration_id=qwedsazxc2"
         
-        urlPath =  urlPath.replacingOccurrences(of: " ", with: "%20%")
+       urlPath =  urlPath.replacingOccurrences(of: "ñ", with: "n")
+        .replacingOccurrences(of: " ", with: "_")
+ 
         
-        NSLog("urlPath  \(urlPath)")
+        print ("urlPath  \(urlPath)")
         let request = NSMutableURLRequest(url: URL(string: urlPath)!)
         let session = URLSession.shared
         

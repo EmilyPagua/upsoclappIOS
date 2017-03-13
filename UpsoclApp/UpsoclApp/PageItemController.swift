@@ -57,7 +57,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.isBookmark()
         self.createView()
         self.crestePopupLogin()
-    
     }
     
     func crestePopupLogin(){
@@ -185,22 +184,29 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
                                     content: (news.contentNews) ?? "",
                                     isRead: true)
         
-        let flag  = NewsSingleton.sharedInstance.getValueById(news.idNews, isBookmark: true)
-        if flag {
-            NewsSingleton.sharedInstance.removeItem(item: item, isBookmark: true)
-            self.bookmark.image = UIImage(named: "bookmarkInactive")
-        }
-        else{
-            NewsSingleton.sharedInstance.addBookmark(item)
-            self.bookmark.image = UIImage(named: "bookmarkActive")
-        }
-        
         let user: [UserLogin] = UserSingleton.sharedInstance.getUserLogin()
-        
-        if (user.first?.isLogin == false){
             
-            self.createBarMenu()
-            StroyBoardView.sharedInstance.login(item: item)
+        if (user.first?.isLogin == true &&  (user.first?.email.isEmpty)!) {
+            
+            let popup = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "LoginUserController") as! LoginUserController
+            self.addChildViewController(popup)
+            popup.view.frame = self.view.frame
+            popup.isBookmark = true
+            popup.postNotification = item
+            
+            self.view.addSubview(popup.view)
+            popup.didMove(toParentViewController: self)
+            
+        }else{
+            let flag  = NewsSingleton.sharedInstance.getValueById(news.idNews, isBookmark: true)
+            if flag {
+                NewsSingleton.sharedInstance.removeItem(item: item, isBookmark: true)
+                self.bookmark.image = UIImage(named: "bookmarkInactive")
+            }
+            else{
+                NewsSingleton.sharedInstance.addBookmark(item)
+                self.bookmark.image = UIImage(named: "bookmarkActive")
+            }
         }
     }
     
