@@ -26,7 +26,6 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     
     var postNotification: PostNotification? = nil
     var isBookmark =  false
-    var isGoogleClick : Bool? = false
     
     // [START viewcontroller Facebook]
     let parametersFacebook = ["fields": "email, first_name, last_name, picture.type(large)"]
@@ -47,6 +46,7 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.logout()
@@ -78,6 +78,8 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
         
     }
     func customButtonLogin(){
+        
+        self.nextButton.layer.cornerRadius =  4
         let layoutConstraintsArr = self.loginButtonFacebook?.constraints
         for lc in layoutConstraintsArr! { 
             if ( lc.constant == 28 ){
@@ -381,19 +383,13 @@ class LoginUserController: UIViewController, GIDSignInUIDelegate , FBSDKLoginBut
             }
         })
     }
-    
-    @IBAction func isClickGoogle(_ sender: GIDSignInButton) {
-        
-        self.isGoogleClick = true
-    }
+
     
     func saveBookmark() -> Void {
         
         if (self.isBookmark){
             NewsSingleton.sharedInstance.addBookmark(self.postNotification!)
-        }
-        
-        if (!self.isGoogleClick!){
+        }else{
             StroyBoardView.sharedInstance.goMenu()
         }
     }

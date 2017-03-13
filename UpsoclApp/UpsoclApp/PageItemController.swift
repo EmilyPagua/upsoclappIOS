@@ -193,6 +193,8 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
             popup.view.frame = self.view.frame
             popup.isBookmark = true
             popup.postNotification = item
+            popup.messageLabel.text =  "Debe inicial sesión para guardar el post como favorito."
+            popup.nextButton.setTitle("Cerrar", for: .normal)
             
             self.view.addSubview(popup.view)
             popup.didMove(toParentViewController: self)
