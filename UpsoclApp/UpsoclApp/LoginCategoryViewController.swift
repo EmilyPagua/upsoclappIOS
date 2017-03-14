@@ -17,6 +17,8 @@ class LoginCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.nextButton.layer.cornerRadius =  4
 
         // Do any additional setup after loading the view.
     }
