@@ -65,7 +65,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
  
     func createView () -> Void{
-        print ("createView ")
         
         self.bannerView.load(GADRequest())
         
@@ -75,6 +74,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.webDetail.loadHTMLString(self.contentViewHtml!, baseURL: self.baseURL)
         
         self.webDetail.scrollView.isScrollEnabled =  true
+        self.webDetail.delegate = self
         
         self.scrollViewDetail = UIScrollView()
         self.scrollViewDetail.delegate = self
@@ -257,7 +257,6 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         
         let flag  = NewsSingleton.sharedInstance.getValueById(news.idNews, isBookmark: true)
         if flag {
-            
             bookmark.image = UIImage(named: "bookmarkActive")
         }else{
              bookmark.image = UIImage(named: "bookmarkInactive")
@@ -277,11 +276,11 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         NSLog("ERROR_ adView: didFailToReceiveAdWithError: \(error.localizedDescription)")
         self.bannerView.isHidden = true
+        self.isLoadBanner =  false
     }
     
     func adViewDidReceiveAd(_ view: GADBannerView) {
         self.isLoadBanner =  true
-        self.uploadWebView()
     }
     
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
@@ -317,11 +316,20 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         
         var height = frameWebView.size.height
         
-        if (self.isLoadBanner && news.categoryNews != "Quiz" && self.webDetail.isLoading == false  && self.webDetail.frame.height != 1)
+        print (self.webDetail.frame.height)
+        print (UIScreen.main.bounds.height)
+        
+        if (self.isLoadBanner && news.categoryNews != "Quiz" &&
+            self.webDetail.frame.height >= UIScreen.main.bounds.height &&
+            self.webDetail.frame.height <= 11000)
         {
-            self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height-10, width: 300, height: 250)
+            self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.frame.height+15, width: 300, height: 250)
+            self.bannerView.isHidden = false
             self.scrollViewDetail.addSubview(self.bannerView)
-            height=height+260
+            height=height+280
+        }
+        else{
+            self.bannerView.isHidden = true
         }
         
         self.scrollViewDetail.contentSize = CGSize(width: self.webDetail.bounds.size.width,
@@ -338,9 +346,24 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
         
-        //print("Animate  \(animated)  itemIndex \(itemIndex)")
-        
+        print ("didReceiveMemoryWarning ")
+        // Dispose of any resources that can be recreated.
+        func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+            
+            if (scrollView.contentOffset.y < 0){
+                //reach top
+                print("Reach Top")
+                self.webDetail.reload()
+            }
+            else {
+                print("nothing")
+            }
+        }
     }
     
 }

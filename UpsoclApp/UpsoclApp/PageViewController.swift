@@ -129,8 +129,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
                 nameView = "ItemController2"
             }
             
-            print ("nameView \(nameView)")
-            
             let pageItemController = self.storyboard!.instantiateViewController(withIdentifier: nameView) as! PageItemController
             
             pageItemController.itemIndex =  itemIndex
