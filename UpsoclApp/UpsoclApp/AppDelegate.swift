@@ -194,7 +194,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate, GIDSignInDelegate,
     
     func subscribeToTopic() {
         
-        print ("registrationToken  \(registrationToken)")
+        //print ("registrationToken  \(registrationToken)")
         if(registrationToken != nil){
             UserSingleton.sharedInstance.saveTokent(token: registrationToken!)
         }

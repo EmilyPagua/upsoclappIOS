@@ -193,8 +193,8 @@ class ForYouTableViewController: UITableViewController {
                 
                 if (position <= listCount) {
                     var showPost = listCount-position
-                    if (showPost > 5){
-                        showPost = 5
+                    if (showPost > 3){
+                        showPost = 3
                     }
                     for  i in position ..< position + showPost  {
                         list.append(newsList[i])
