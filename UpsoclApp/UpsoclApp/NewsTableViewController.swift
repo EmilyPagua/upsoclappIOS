@@ -56,7 +56,7 @@ class NewsTableViewController: UITableViewController {
                                   author: elem.author)!
             
             self.newsList.append(news)
-            self.tableView.reloadData()
+         //   self.tableView.reloadData()
         }
         
         self.indicator = progressBar.loadBar()

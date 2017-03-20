@@ -116,16 +116,27 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         guard orderedVireControllersCount > nextIndex else {
             return nil
         }
+        
         return getItemController(nextIndex)
     }
     
     
     func getItemController (_ itemIndex: Int) -> PageItemController? {
+        var nameView = "ItemController"
         
         if itemIndex < newsList.count{
-            let pageItemController = self.storyboard!.instantiateViewController(withIdentifier: "ItemController") as! PageItemController
+            if (itemIndex==2){
+                nameView = "ItemController2"
+            }
+            
+            print ("nameView \(nameView)")
+            
+            let pageItemController = self.storyboard!.instantiateViewController(withIdentifier: nameView) as! PageItemController
+            
             pageItemController.itemIndex =  itemIndex
             pageItemController.news = newsList[itemIndex]
+            
+            print ("itemIndex \(itemIndex)")
             
             return pageItemController
             

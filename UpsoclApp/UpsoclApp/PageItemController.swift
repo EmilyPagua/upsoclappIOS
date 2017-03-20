@@ -55,9 +55,12 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         super.viewDidLoad()
         self.contentViewHtml = self.createHTML()
         
-        //loadProgressBar
         self.isBookmark()
         self.createView()
+        
+        if (itemIndex==2){
+            self.scrollViewDetail.reloadInputViews()
+        }
     }
     
  
@@ -102,7 +105,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.webDetail.frame =  CGRect(x:0,
                                        y:0,
                                        width: UIScreen.main.bounds.width-20,
-                                       height: (UIScreen.main.bounds.height * 2))
+                                       height: (UIScreen.main.bounds.height * 3))
     
         self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
                                                    height: webDetail.bounds.size.height + 10)
@@ -114,8 +117,8 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        
-       self.uploadWebView()
+        NSLog("webViewDidFinishLoad ")
+        self.uploadWebView()
     }
     
     //ComeBack
@@ -309,30 +312,35 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
                                        width: UIScreen.main.bounds.width-20,
                                        height: 1)
         
-        frameWebView.size.height = self.webDetail.scrollView.contentSize.height
+        frameWebView.size.height = self.webDetail.scrollView.contentSize.height+30
         self.webDetail.frame =  frameWebView
         
-        var height = frameWebView.size.height + 10
+        var height = frameWebView.size.height
         
         if (self.isLoadBanner && news.categoryNews != "Quiz" && self.webDetail.isLoading == false  && self.webDetail.frame.height != 1)
         {
-            self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height+10, width: 300, height: 250)
+            self.bannerView.frame = CGRect(x:0, y: self.webDetail.scrollView.contentSize.height-10, width: 300, height: 250)
             self.scrollViewDetail.addSubview(self.bannerView)
-            height = height + 260
+            height=height+260
         }
         
         self.scrollViewDetail.contentSize = CGSize(width: self.webDetail.bounds.size.width,
                                                    height: height)
         self.indicator.stopAnimating()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       // print ("viewDidAppear \(animated)")
         if (!animated){
-            print ("animated \(animated)")
             self.webDetail.loadHTMLString(self.contentViewHtml!, baseURL: self.baseURL)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //print("Animate  \(animated)  itemIndex \(itemIndex)")
+        
+    }
+    
 }
