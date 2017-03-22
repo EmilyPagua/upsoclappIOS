@@ -125,9 +125,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource  {
         var nameView = "ItemController"
         
         if itemIndex < newsList.count{
-            if (itemIndex==2){
-                nameView = "ItemController2"
-            }
+            
             
             let pageItemController = self.storyboard!.instantiateViewController(withIdentifier: nameView) as! PageItemController
             

@@ -20,11 +20,8 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     var servicesConnection = ServicesConnection()
     let baseURL = URL(string: "http://api.instagram.com/oembed")
     
-    let top = "<html> <header>" + DetailConstants.PropertyKey.HTML_HEAD + "</header> <body>"
-    
     var itemIndex: Int = 0
     var news: News = News(id: 0, title: "", content: "", imageURL: "", date: "", link: "", category: "", author: "")!
-    var contentDetail = ""
     var isLoadBanner =  false
     var contentViewHtml: String?
     
@@ -105,7 +102,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
         self.webDetail.frame =  CGRect(x:0,
                                        y:0,
                                        width: UIScreen.main.bounds.width-20,
-                                       height: (UIScreen.main.bounds.height * 3))
+                                       height: (UIScreen.main.bounds.height * 8))
     
         self.scrollViewDetail.contentSize = CGSize(width: webDetail.bounds.size.width,
                                                    height: webDetail.bounds.size.height + 10)
@@ -115,6 +112,7 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
                                              width: view.bounds.width-20,
                                              height: view.bounds.height-85)
     }
+    
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         NSLog("webViewDidFinishLoad ")
@@ -214,29 +212,31 @@ class PageItemController: UIViewController, UIWebViewDelegate, UIScrollViewDeleg
     
     func createHTML() -> String{
         
-        contentDetail = top
-        
+        let header = "<html> <head>" + DetailConstants.PropertyKey.HTML_HEAD + "</head> <body>"
+        var imagen = ""
         if news.imageURLNews != nil{
-            let imagen  = " <center><img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news.imageURLNews!+" width=\"728\" > </center>"
-            contentDetail = contentDetail + imagen
+            imagen  = " <center><img align=\"middle\" alt=\"Portada\" class=\"wp-image-480065 size-full\" height=\"605\" itemprop=\"contentURL\" sizes=\"(max-width: 728px) 100vw, 728px\" src="+news.imageURLNews!+" width=\"728\" > </center>"
         }
+        
+        let title = "<div id=\"primary-full\"> <div class=\"titulo-sobre\"  style=\"padding:0px\"> <h1 class=\"titulo-over\"  style=\"font-size:30px\" > "+news.titleNews+"</h1></div></div>"
+        
+        let bottomHTML = " <div></body></html>"
         
         var date = news.dateNews!
         date = date.substring(to:date.index(date.startIndex, offsetBy: 10))
-        let line = "<hr  color=\"#009688\" />"
-        let title = "<h2 style=\"text-align: justify;\"><strong> "+news.titleNews+"</strong></h2>"
+        
         let detailAuthor = "<div class='entry-meta socialtop socialextra'>  Autor: <font color=\"#009688\">"+news.authorNews!+" </font>.  El: <font color=\"#009688\"> "+date+" </font> "
         let category = " <br/> Categorias: <font color=\"#009688\">"+news.categoryNews+"</font> </div> "
-        var content = news.contentNews
-        
-        //Replace value imagen for  imagen full
-        let  result = content?.captureExpression(withRegex: "(class)[=][\"](wp-image-)\\d{6}[\"]", replace: "class=\"wp-image-511029 size-full\" ")
+        var content = "<div id=\"contenido-ppal\"> <div class=\"entry-content single-texto\" >" + news.contentNews! + " </div> </div> "
+       
+        //Replace value imagen for  "imagen full"
+        let  result = content.captureExpression(withRegex: "(class)[=][\"](wp-image-)\\d{6}[\"]", replace: "class=\"wp-image-511029 size-full\" ")
         content = result
-     
-        contentDetail = contentDetail  + title + detailAuthor + category
-        contentDetail = contentDetail + line + content! + " </body> </html> "
-
-        return contentDetail
+        
+        let line = "<hr  color=\"#009688\" />"
+        
+        let html = header + imagen + title + detailAuthor + category + line + content + bottomHTML
+        return html
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
